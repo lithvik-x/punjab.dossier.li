@@ -1,10 +1,135 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge, MiniChart } from "@/components/ui/MetricCard";
-import { CAMPAIGN_CHANNELS } from "@/lib/constants";
+import { CAMPAIGN_CHANNELS, POLITICAL_ANATOMY } from "@/lib/constants";
+
+// === TYPESCRIPT INTERFACES ===
+
+interface SADFaction {
+  name: string;
+  leader: string;
+  status: string;
+  position?: string;
+}
+
+interface SADElectoralDecline {
+  election: string;
+  seats?: number;
+  voteShare?: string;
+  note: string;
+}
+
+interface SADStatusData {
+  president: string;
+  presidentReElection: string;
+  electoralDecline: SADElectoralDecline[];
+  factions: SADFaction[];
+  bspAlliance: { status: string; date: string; current: string };
+  panthicIssues: { akalTakhtAction: string; sgpcControl: string; impact: string };
+  keyLeaders: { name: string; status?: string; seat?: string; note: string }[];
+}
+
+interface PartyWorker {
+  level: string;
+  count: number;
+  coverage: number;
+  note?: string;
+}
+
+interface ClassCasteEntry {
+  class: string;
+  caste: string;
+  population: string;
+  primaryParty: string;
+  note: string;
+}
+
+interface NRISupportPattern {
+  country: string;
+  sympathies: string;
+  reason: string;
+  risk: string;
+}
+
+interface NRIVoterMetric {
+  metric: string;
+  value: number | string;
+  note: string;
+}
+
+interface VolunteerSource {
+  source: string;
+  yield: string;
+  activation: string;
+}
+
+interface NonMonetaryIncentive {
+  type: string;
+  description: string;
+  effectiveness: string;
+}
+
+interface TrainingModule {
+  module: string;
+  duration: string;
+  content: string;
+}
+
+interface TrainingFormat {
+  format: string;
+  percentage: string;
+  bestFor: string;
+}
+
+interface BoothRole {
+  role: string;
+  quantity: number;
+  responsibility: string;
+}
+
+interface PollingDayOp {
+  time: string;
+  action: string;
+}
+
+interface VolunteerRecruitmentData {
+  targetTotal: number;
+  boothLevelWorkers: number;
+  sectorSupervisors: number;
+  boothPresidents: number;
+  sources: VolunteerSource[];
+  nonMonetaryIncentives: NonMonetaryIncentive[];
+}
+
+interface VolunteerTrainingData {
+  totalHours: string;
+  modules: TrainingModule[];
+  format: TrainingFormat[];
+}
+
+interface BoothStructureData {
+  roles: BoothRole[];
+  pollingDayOps: PollingDayOp[];
+}
+
+interface ContactStage {
+  stage: string;
+  timing: string;
+  objective: string;
+  channels: string[];
+  contactRate: string;
+}
+
+interface BoothContactStrategyEntry {
+  category: string;
+  margin: string;
+  contactRatio: string;
+  priority: string;
+  notes: string;
+}
 
 // === SAD (Shiromani Akali Dal) Status Data (from research-P3/sad-status) ===
-const sadStatusData = {
+const sadStatusData: SADStatusData = {
   president: "Sukhbir Singh Badal",
   presidentReElection: "April 12, 2025",
   electoralDecline: [
@@ -373,6 +498,80 @@ export default function PartyPage() {
           trend="down"
           color="bg-orange-500"
         />
+      </div>
+
+      {/* Political Anatomy - 2022 Election Context */}
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-6 shadow-sm dark:border-emerald-800 dark:bg-emerald-900/10">
+        <div className="mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-emerald-800 dark:text-emerald-300">
+            Political Anatomy — 2022 Assembly Election Baseline
+          </h3>
+          <Badge variant="success">Cycle 2 Data</Badge>
+        </div>
+        <p className="mb-6 text-sm text-emerald-700 dark:text-emerald-400">
+          Understanding the electoral landscape that shaped current party positioning
+        </p>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">117</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Total Assembly Seats</div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">92</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">AAP Seats (42% vote)</div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">18</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Congress Seats (23% vote)</div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-slate-600 dark:text-slate-400">7</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Others (SAD+BJP=4 seats)</div>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <div>
+            <h4 className="mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Regional Seat Distribution</h4>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Malwa (59%)</span>
+                <span className="font-medium text-orange-600 dark:text-orange-400">69 seats</span>
+              </div>
+              <ProgressBar label="" value={59} color="bg-orange-500" showPercentage={false} />
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Majha (21%)</span>
+                <span className="font-medium text-blue-600 dark:text-blue-400">25 seats</span>
+              </div>
+              <ProgressBar label="" value={21} color="bg-blue-500" showPercentage={false} />
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Doaba (20%)</span>
+                <span className="font-medium text-green-600 dark:text-green-400">23 seats</span>
+              </div>
+              <ProgressBar label="" value={20} color="bg-green-500" showPercentage={false} />
+            </div>
+          </div>
+          <div>
+            <h4 className="mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Caste Composition</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">SC Population</span><span className="font-medium">32%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Jat Sikh</span><span className="font-medium">21%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">OBC</span><span className="font-medium">31%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Mazhabi Sikh</span><span className="font-medium">6.3%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Upper Caste</span><span className="font-medium">16%</span></div>
+            </div>
+          </div>
+          <div>
+            <h4 className="mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Drug Crisis Impact</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Heroin Share (India)</span><span className="font-medium text-red-600 dark:text-red-400">44.5%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Drug Users</span><span className="font-medium">6.6M (18%)</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Overdose Deaths 2024</span><span className="font-medium text-red-600">106</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Drone Seizures 2024</span><span className="font-medium">200+</span></div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -3213,6 +3412,82 @@ export default function PartyPage() {
         </div>
       </div>
 
+      {/* CYCLE 1 ENHANCEMENT: Party Vote Share History & SWOT */}
+      <div className="rounded-xl border-2 border-blue-500 bg-blue-50 p-6 dark:border-blue-700 dark:bg-blue-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500 text-lg font-bold text-white">H</span>
+          <div>
+            <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-400">Party Vote Share History — Cycle 1 Research</h3>
+            <p className="text-sm text-blue-600 dark:text-blue-400">Congress 38.5%→23% | AAP 14%→42%→26% | SAD collapse</p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          <MetricCard title="Congress 2017" value="38.5%" subtitle="Pre-AAP era" color="bg-blue-500" />
+          <MetricCard title="Congress 2022" value="23%" subtitle="AAP wave - lost 15.6pp" color="bg-red-500" />
+          <MetricCard title="AAP 2022" value="42%" subtitle="Peak - 92 seats" color="bg-orange-500" />
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Vote Share Trajectory 2017→2022</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Congress:</span><span className="font-medium text-red-600">38.5% → 23% (-15.6pp)</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">AAP:</span><span className="font-medium text-green-600">14.4% → 42.3% (+27.9pp)</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">SAD+BJP:</span><span className="font-medium text-red-600">25.7% → 18.1% (-7.6pp)</span></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">2022→2024 Shift</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Congress:</span><span className="font-medium text-green-600">23% → 26% (+3pp LS)</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">AAP:</span><span className="font-medium text-red-600">42% → 26% (-16pp)</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">BJP:</span><span className="font-medium text-green-600">5.4% → 18.5% (+13pp)</span></div>
+            </div>
+          </div>
+        </div>
+
+        {/* SWOT Analysis */}
+        <h4 className="mt-6 font-semibold text-slate-700 dark:text-slate-300">SWOT Analysis — Congress 2027</h4>
+        <div className="mt-3 grid gap-4 md:grid-cols-4">
+          <div className="rounded-lg bg-green-50 p-3 dark:bg-green-900/20">
+            <p className="text-xs font-bold text-green-700">STRENGTHS</p>
+            <ul className="mt-2 space-y-1 text-xs text-green-600">
+              <li>• LS 2024 momentum (7/13 seats)</li>
+              <li>• Strong SC vote (32%)</li>
+              <li>• Experienced legislators</li>
+              <li>• National campaign resources</li>
+            </ul>
+          </div>
+          <div className="rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+            <p className="text-xs font-bold text-red-700">WEAKNESSES</p>
+            <ul className="mt-2 space-y-1 text-xs text-red-600">
+              <li>• No CM face declared</li>
+              <li>• Internal factional fights</li>
+              <li>• Weak data infrastructure</li>
+              <li>• Dalit-Sikh vote split</li>
+            </ul>
+          </div>
+          <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
+            <p className="text-xs font-bold text-blue-700">OPPORTUNITIES</p>
+            <ul className="mt-2 space-y-1 text-xs text-blue-600">
+              <li>• AAP anti-incumbency (78%)</li>
+              <li>• SAD fragmentation</li>
+              <li>• BJP independent run</li>
+              <li>• Farmer distress votes</li>
+            </ul>
+          </div>
+          <div className="rounded-lg bg-yellow-50 p-3 dark:bg-yellow-900/20">
+            <p className="text-xs font-bold text-yellow-700">THREATS</p>
+            <ul className="mt-2 space-y-1 text-xs text-yellow-600">
+              <li>• Late CM announcement risk</li>
+              <li>• Three-way vote split</li>
+              <li>• BJP RSS booth machinery</li>
+              <li>• AAP welfare schemes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

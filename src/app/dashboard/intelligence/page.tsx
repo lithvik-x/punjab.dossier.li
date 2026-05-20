@@ -1,6 +1,301 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
+import { POLITICAL_ANATOMY } from "@/lib/constants";
+
+// ==========================================
+// CYCLE 2: ELECTION COMMISSION DATA INTERFACES
+// ==========================================
+
+interface ECIReadiness {
+  totalVoters: string;
+  firstTimeVoters: string;
+  pollingStations: string;
+  bloDeployees: string;
+  ceoPunjab: string;
+  sirTimeline: {
+    specialIntensiveRevision: string;
+    draftRollPublication: string;
+    finalRollPublication: string;
+    electionDate: string;
+  };
+  voterDemographics: {
+    scVoters: string;
+    firstTimePercentage: string;
+    genderRatio: string;
+  };
+}
+
+interface SecurityDeployment {
+  totalPersonnel: string;
+  capfCompanies: string;
+  districts: string;
+  criticalBooths: string;
+  vulnerableBooths: number;
+  vulnerablePercentage: number;
+  highRiskRegions: string[];
+}
+
+interface CriminalizationData {
+  candidatesWithCriminalCases: number;
+  winningMlasWithCriminal: number;
+  candidatesDeclaredGuilty: number;
+  murderCases: number;
+  crimeTrends: {
+    category: string;
+    punjabPercentage: string;
+    nationalAverage: string;
+    trend: string;
+  }[];
+}
+
+interface ExpenditureLimits {
+  perCandidate: string;
+  totalStateLimit: string;
+  electoralBonds: string;
+  categories: string[];
+}
+
+interface BoothVulnerability {
+  totalVulnerableBooths: number;
+  vulnerablePercentage: number;
+  criticalBooths: number;
+  captureIndicators: string[];
+}
+
+interface PostalBallot {
+  uptakePercentage: string;
+  seniorCitizens: string;
+  serviceVoters: string;
+  eligibleCategories: string[];
+}
+
+interface PartyComposition {
+  aap: number;
+  congress: number;
+  sad: number;
+  bjp: number;
+  others: number;
+  total: number;
+}
+
+// ==========================================
+// CYCLE 2: SOCIO-ECONOMIC DATA INTERFACES (from research-P2/10_socio_economic)
+// ==========================================
+
+interface SocioEconomicMetric {
+  label: string;
+  value: string;
+  unit?: string;
+  comparison?: string;
+  severity: "critical" | "high" | "medium" | "low";
+  trend?: "up" | "down" | "stable";
+}
+
+interface PunjabSocioEconomic {
+  perCapitaIncome: SocioEconomicMetric;
+  youthUnemployment: SocioEconomicMetric;
+  stateDebt: SocioEconomicMetric;
+  debtToGSDP: SocioEconomicMetric;
+  groundwaterExtraction: SocioEconomicMetric;
+  drugUsers: SocioEconomicMetric;
+  farmDebt: SocioEconomicMetric;
+  hdi: SocioEconomicMetric;
+  mpiPoverty: SocioEconomicMetric;
+  districtPCIDisparity: SocioEconomicMetric;
+  giniCoefficient: SocioEconomicMetric;
+}
+
+// CYCLE 2: SOCIO-ECONOMIC DATA OBJECTS (from research-P2/10_socio_economic)
+
+const socioEconomicData: PunjabSocioEconomic = {
+  perCapitaIncome: {
+    label: "Per Capita Income",
+    value: "2,30,523",
+    unit: "INR",
+    comparison: "Haryana: 3,25,000 INR",
+    severity: "high",
+    trend: "stable"
+  },
+  youthUnemployment: {
+    label: "Youth Unemployment (15-29 yrs)",
+    value: "19.3%",
+    comparison: "National Avg: 14.3%",
+    severity: "critical",
+    trend: "up"
+  },
+  stateDebt: {
+    label: "State Debt",
+    value: "4.17",
+    unit: "Lakh Crore INR",
+    comparison: "LAST in NITI FHI Ranking",
+    severity: "critical",
+    trend: "up"
+  },
+  debtToGSDP: {
+    label: "Debt-to-GSDP Ratio",
+    value: "44.47%",
+    comparison: "Fiscal Responsibility Threshold: 25%",
+    severity: "critical",
+    trend: "up"
+  },
+  groundwaterExtraction: {
+    label: "Groundwater Extraction",
+    value: "156.36%",
+    unit: "% of recharge",
+    comparison: "Over-exploited: 115 of 153 blocks",
+    severity: "critical",
+    trend: "up"
+  },
+  drugUsers: {
+    label: "Drug Users",
+    value: "6.6",
+    unit: "Million",
+    comparison: "18% of state population",
+    severity: "critical",
+    trend: "stable"
+  },
+  farmDebt: {
+    label: "Farm Debt",
+    value: "1.04",
+    unit: "Lakh Crore INR",
+    comparison: "Avg Rs 2.03 lakh per household",
+    severity: "high",
+    trend: "stable"
+  },
+  hdi: {
+    label: "Human Development Index",
+    value: "0.740",
+    comparison: "Rank 12 among Indian states",
+    severity: "medium",
+    trend: "stable"
+  },
+  mpiPoverty: {
+    label: "MPI Poverty Rate",
+    value: "4.75%",
+    comparison: "Multidimensional Poverty Index",
+    severity: "medium",
+    trend: "down"
+  },
+  districtPCIDisparity: {
+    label: "District PCI Disparity",
+    value: "8.47:1",
+    comparison: "Ratio between highest and lowest district",
+    severity: "high",
+    trend: "stable"
+  },
+  giniCoefficient: {
+    label: "Gini Coefficient",
+    value: "0.48",
+    comparison: "Income inequality measure",
+    severity: "high",
+    trend: "stable"
+  }
+};
+
+// Punjab vs Haryana Comparison
+const punjabVsHaryanaData = [
+  { metric: "Per Capita Income", punjab: "₹2,30,523", haryana: "₹3,25,000", ratio: "1.41x" },
+  { metric: "Youth Unemployment", punjab: "19.3%", haryana: "14.8%", difference: "+4.5pp" },
+  { metric: "State Debt/GSDP", punjab: "44.47%", haryana: "28.3%", difference: "+16.17pp" },
+  { metric: "Groundwater Extraction", punjab: "156%", haryana: "112%", difference: "+44pp" },
+  { metric: "HDI Rank", punjab: "12", haryana: "9", difference: "3 ranks lower" },
+];
+
+// CYCLE 2: ELECTION COMMISSION DATA OBJECTS
+
+const eciReadinessData: ECIReadiness = {
+  totalVoters: "2.14 Cr (214.57 lakh)",
+  firstTimeVoters: "5.38 lakh",
+  pollingStations: "22,000+",
+  bloDeployees: "24,453",
+  ceoPunjab: "Anindita Mitra",
+  sirTimeline: {
+    specialIntensiveRevision: "June 25, 2026",
+    draftRollPublication: "July 24, 2026",
+    finalRollPublication: "October 1, 2026",
+    electionDate: "February 2027",
+  },
+  voterDemographics: {
+    scVoters: "32% of electorate",
+    firstTimePercentage: "2.5%",
+    genderRatio: "89:100 (Male:Female)",
+  },
+};
+
+const securityDeploymentData: SecurityDeployment = {
+  totalPersonnel: "1 Lakh+",
+  capfCompanies: "1,050",
+  districts: "23",
+  criticalBooths: "5,000+",
+  vulnerableBooths: 5337,
+  vulnerablePercentage: 22,
+  highRiskRegions: ["Tarn Taran", "Qadian", "Moga", "Ferozpur", "Ajnala"],
+};
+
+const criminalizationData: CriminalizationData = {
+  candidatesWithCriminalCases: 25,
+  winningMlasWithCriminal: 50,
+  candidatesDeclaredGuilty: 315,
+  murderCases: 42,
+  crimeTrends: [
+    { category: "Murder", punjabPercentage: "13.4%", nationalAverage: "8.8%", trend: "Higher" },
+    { category: "Attempt to Murder", punjabPercentage: "14.1%", nationalAverage: "9.2%", trend: "Higher" },
+    { category: "Kidnapping", punjabPercentage: "6.3%", nationalAverage: "4.1%", trend: "Higher" },
+    { category: "Dacoity/Robbery", punjabPercentage: "3.5%", nationalAverage: "2.8%", trend: "Moderate" },
+    { category: "Criminal Intimidation", punjabPercentage: "18.7%", nationalAverage: "15.2%", trend: "Higher" },
+  ],
+};
+
+const expenditureLimitsData: ExpenditureLimits = {
+  perCandidate: "INR 40 Lakh",
+  totalStateLimit: "INR 46.8 Cr (117 seats)",
+  electoralBonds: "Struck Down (SC 2024)",
+  categories: [
+    "Public meetings/rallies",
+    "Digital/social media",
+    "Vehicle hire",
+    "Booth-level workers",
+    "Security deposit: Rs 10,000",
+  ],
+};
+
+const boothVulnerabilityData: BoothVulnerability = {
+  totalVulnerableBooths: 5337,
+  vulnerablePercentage: 22,
+  criticalBooths: 5000,
+  captureIndicators: [
+    "100% turnout in specific booths",
+    "EVM malfunction claims",
+    "Late polling hour surge",
+    "Battered VVPAT slips",
+    "Voter slip distribution anomalies",
+    "Booth agent displacement",
+    "Money/distribution at booths",
+  ],
+};
+
+const postalBallotData: PostalBallot = {
+  uptakePercentage: "3.61%",
+  seniorCitizens: "5.09 Lakh (509,205 voters)",
+  serviceVoters: "ETPBS (Electronic Transmission)",
+  eligibleCategories: [
+    "Senior citizens (80+ years)",
+    "Persons with disabilities",
+    "Essential services personnel",
+    "Armed forces & paramilitary",
+    "Police officials on duty",
+  ],
+};
+
+const partyCompositionData: PartyComposition = {
+  aap: 92,
+  congress: 18,
+  sad: 3,
+  bjp: 2,
+  others: 2,
+  total: 117,
+};
 
 // Technology Infrastructure Data (from MP8-001)
 const techInfrastructureData = {
@@ -722,6 +1017,23 @@ const defectionData = {
   ],
 };
 
+// SAD-BJP Alliance Analysis Data
+const sadBjpAllianceData = {
+  allianceDuration: "34 years",
+  allianceYears: "1997-2026",
+  breakupDate: "March 2026",
+  reason: "Seat-sharing dispute",
+  impact: "-10 to -15 seats for SAD",
+  currentStatus: "Both fighting solo",
+  keyMetrics: [
+    { label: "Alliance Duration", value: "34 years", detail: "1997-2026" },
+    { label: "Breakup Date", value: "March 2026", detail: "Formal split announced" },
+    { label: "Primary Reason", value: "Seat-sharing dispute", detail: "BJP demanded 23 seats, SAD offered 15" },
+    { label: "SAD Seat Impact", value: "-10 to -15 seats", detail: "Without joint BJP support" },
+    { label: "Current Status", value: "Solo fight", detail: "Both parties contesting independently" },
+  ],
+};
+
 const farmerGatheringData = {
   skm: { actions: "100+ tractor marches, 250+ path yatra", protests: "32 locations" },
   dallewal: { hungerStrike: "131 days", demand: "MSP guarantee legal guarantee" },
@@ -794,6 +1106,133 @@ const voterRegistrationData = {
         />
       </div>
 
+      {/* CYCLE 2: SOCIO-ECONOMIC CRISIS DATA (from research-P2/10_socio_economic) */}
+      <div className="rounded-xl border-2 border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-lg font-bold text-white">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-semibold text-red-700 dark:text-red-400">Socio-Economic Crisis Indicators (research-P2/10_socio_economic)</p>
+            <p className="text-sm text-red-600 dark:text-red-300">Critical metrics showing Punjab&apos;s economic distress — highest debt-to-GSDP ratio, youth unemployment crisis</p>
+          </div>
+        </div>
+
+        {/* Critical Metrics Grid */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
+          <MetricCard
+            title="Youth Unemployment"
+            value="19.3%"
+            subtitle="Ages 15-29 (CRITICAL)"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="State Debt"
+            value="₹4.17L Cr"
+            subtitle="LAST in NITI FHI"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Debt-to-GSDP"
+            value="44.47%"
+            subtitle="Threshold: 25%"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Groundwater"
+            value="156%"
+            subtitle="Over-exploited"
+            color="bg-red-500"
+          />
+        </div>
+
+        {/* Debt & Economic Metrics */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-6">
+          <MetricCard
+            title="Per Capita Income"
+            value="₹2,30,523"
+            subtitle="vs Haryana ₹3,25,000"
+            color="bg-orange-500"
+          />
+          <MetricCard
+            title="Farm Debt"
+            value="₹1.04L Cr"
+            subtitle="Avg ₹2.03L/household"
+            color="bg-orange-500"
+          />
+          <MetricCard
+            title="Drug Users"
+            value="6.6 Million"
+            subtitle="18% of population"
+            color="bg-red-500"
+          />
+        </div>
+
+        {/* Progress Bars for Key Metrics */}
+        <div className="space-y-4 mb-6">
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Debt-to-GSDP Ratio</span>
+              <span className="text-sm font-bold text-red-600">44.47%</span>
+            </div>
+            <ProgressBar label="" value={44.47} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">Fiscal Responsibility Threshold: 25% — Punjab is 1.78x over limit</p>
+          </div>
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Groundwater Extraction</span>
+              <span className="text-sm font-bold text-red-600">156.36%</span>
+            </div>
+            <ProgressBar label="" value={100} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">115 of 153 blocks over-exploited — highest in India</p>
+          </div>
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Youth Unemployment</span>
+              <span className="text-sm font-bold text-red-600">19.3%</span>
+            </div>
+            <ProgressBar label="" value={19.3} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">vs National Average: 14.3% — 5pp higher</p>
+          </div>
+        </div>
+
+        {/* Punjab vs Haryana Comparison Table */}
+        <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Punjab vs Haryana Comparison</h4>
+          <DataTable
+            headers={["Metric", "Punjab", "Haryana", "Difference"]}
+            rows={punjabVsHaryanaData.map(d => [d.metric, d.punjab, d.haryana, d.ratio || d.difference || "N/A"])}
+          />
+        </div>
+
+        {/* Additional HDI & Inequality Metrics */}
+        <div className="grid gap-4 md:grid-cols-3 mt-6">
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">HDI (Rank 12)</p>
+            <p className="text-2xl font-bold text-slate-700 dark:text-slate-300">0.740</p>
+            <ProgressBar label="" value={74} color="bg-yellow-500" showPercentage={false} />
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">MPI Poverty Rate</p>
+            <p className="text-2xl font-bold text-slate-700 dark:text-slate-300">4.75%</p>
+            <ProgressBar label="" value={4.75} color="bg-green-500" showPercentage={false} />
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">District PCI Disparity</p>
+            <p className="text-2xl font-bold text-slate-700 dark:text-slate-300">8.47:1</p>
+            <p className="text-xs text-slate-500">Highest vs lowest district</p>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
+          <p className="text-sm text-red-700 dark:text-red-400">
+            <strong>Congress Narrative Opportunity:</strong> Punjab ranks LAST in NITI FHI fiscal health. State debt of ₹4.17 lakh crore with 44.47% debt-to-GSDP ratio creates strong anti-incumbent narrative. Drug crisis affecting 6.6M users and 19.3% youth unemployment are top voter concerns.
+          </p>
+        </div>
+      </div>
+
       {/* CYCLE 2: ECI Timeline & Voter Registration */}
       <div className="rounded-xl border-2 border-violet-200 bg-violet-50 p-6 dark:border-violet-800 dark:bg-violet-900/20">
         <div className="flex items-center gap-3 mb-4">
@@ -858,6 +1297,205 @@ const voterRegistrationData = {
               <strong>Note:</strong> Voter registration trend is steady. First-time voters (5.38 lakh) represent 2.5% of total electorate — key target for SVEEP outreach and voter education programs.
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* POLITICAL ANATOMY: Core Voter Matrix (from research-P2/01_punjab_political_anatomy) */}
+      <div className="rounded-xl border-2 border-emerald-200 bg-emerald-50 p-6 dark:border-emerald-800 dark:bg-emerald-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-lg font-bold text-white">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-semibold text-emerald-700 dark:text-emerald-400">Political Anatomy Overview (Cycle 1 Data)</p>
+            <p className="text-sm text-emerald-600 dark:text-emerald-300">Regional Distribution | Caste Composition | Religious Demographics | Party Seat Share</p>
+          </div>
+        </div>
+
+        {/* Regional Distribution */}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Regional Distribution of 117 Assembly Seats</h4>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
+              <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">69</div>
+              <div className="mt-1 font-semibold text-orange-700 dark:text-orange-400">Malwa Seats</div>
+              <div className="text-sm text-orange-600 dark:text-orange-300">59% of total</div>
+              <div className="mt-2">
+                <ProgressBar label="" value={59} color="bg-orange-500" showPercentage={false} />
+              </div>
+            </div>
+            <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">25</div>
+              <div className="mt-1 font-semibold text-blue-700 dark:text-blue-400">Majha Seats</div>
+              <div className="text-sm text-blue-600 dark:text-blue-300">21% of total</div>
+              <div className="mt-2">
+                <ProgressBar label="" value={21} color="bg-blue-500" showPercentage={false} />
+              </div>
+            </div>
+            <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+              <div className="text-3xl font-bold text-green-600 dark:text-green-400">23</div>
+              <div className="mt-1 font-semibold text-green-700 dark:text-green-400">Doaba Seats</div>
+              <div className="text-sm text-green-600 dark:text-green-300">20% of total</div>
+              <div className="mt-2">
+                <ProgressBar label="" value={20} color="bg-green-500" showPercentage={false} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Caste Composition */}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Caste Composition (% of Population)</h4>
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
+            <div className="rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+              <div className="text-2xl font-bold text-red-600 dark:text-red-400">32%</div>
+              <div className="text-sm font-medium text-red-700 dark:text-red-400">SC</div>
+              <div className="text-xs text-red-600 dark:text-red-300">Highest in India</div>
+            </div>
+            <div className="rounded-lg bg-yellow-50 p-3 dark:bg-yellow-900/20">
+              <div className="text-2xl font-bold text-yellow-600 dark:text-yellow-400">21%</div>
+              <div className="text-sm font-medium text-yellow-700 dark:text-yellow-400">Jat Sikh</div>
+              <div className="text-xs text-yellow-600 dark:text-yellow-300">Dominant caste</div>
+            </div>
+            <div className="rounded-lg bg-purple-50 p-3 dark:bg-purple-900/20">
+              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">31%</div>
+              <div className="text-sm font-medium text-purple-700 dark:text-purple-400">OBC</div>
+              <div className="text-xs text-purple-600 dark:text-purple-300">Other Backward</div>
+            </div>
+            <div className="rounded-lg bg-teal-50 p-3 dark:bg-teal-900/20">
+              <div className="text-2xl font-bold text-teal-600 dark:text-teal-400">6.3%</div>
+              <div className="text-sm font-medium text-teal-700 dark:text-teal-400">Mazhabi</div>
+              <div className="text-xs text-teal-600 dark:text-teal-300">Largest SC sub-caste</div>
+            </div>
+            <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">5.5%</div>
+              <div className="text-sm font-medium text-blue-700 dark:text-blue-400">Bania</div>
+              <div className="text-xs text-blue-600 dark:text-blue-300">Trading community</div>
+            </div>
+            <div className="rounded-lg bg-green-50 p-3 dark:bg-green-900/20">
+              <div className="text-2xl font-bold text-green-600 dark:text-green-400">3.2%</div>
+              <div className="text-sm font-medium text-green-700 dark:text-green-400">Brahmin</div>
+              <div className="text-xs text-green-600 dark:text-green-300">Priesthood, academia</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Religious & Party Results */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Religious Composition (Census 2011)</h4>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Sikh</span>
+                <div className="flex items-center gap-2">
+                  <ProgressBar label="" value={57.7} color="bg-yellow-500" showPercentage={false} />
+                  <span className="text-sm font-medium text-yellow-600">57.7%</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Hindu</span>
+                <div className="flex items-center gap-2">
+                  <ProgressBar label="" value={38.5} color="bg-orange-500" showPercentage={false} />
+                  <span className="text-sm font-medium text-orange-600">38.5%</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Muslim</span>
+                <div className="flex items-center gap-2">
+                  <ProgressBar label="" value={1.9} color="bg-green-500" showPercentage={false} />
+                  <span className="text-sm font-medium text-green-600">1.9%</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Christian</span>
+                <div className="flex items-center gap-2">
+                  <ProgressBar label="" value={1.3} color="bg-blue-500" showPercentage={false} />
+                  <span className="text-sm font-medium text-blue-600">1.3%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">2022 Assembly Election Results</h4>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between p-2 rounded bg-blue-50 dark:bg-blue-900/20">
+                <span className="text-sm font-medium text-blue-700">AAP</span>
+                <span className="font-bold text-blue-600">92 seats | 42.01%</span>
+              </div>
+              <div className="flex items-center justify-between p-2 rounded bg-orange-50 dark:bg-orange-900/20">
+                <span className="text-sm font-medium text-orange-700">Congress</span>
+                <span className="font-bold text-orange-600">18 seats | 22.98%</span>
+              </div>
+              <div className="flex items-center justify-between p-2 rounded bg-green-50 dark:bg-green-900/20">
+                <span className="text-sm font-medium text-green-700">SAD</span>
+                <span className="font-bold text-green-600">3 seats | 18.38%</span>
+              </div>
+              <div className="flex items-center justify-between p-2 rounded bg-gray-50 dark:bg-gray-800">
+                <span className="text-sm font-medium text-gray-700">BJP</span>
+                <span className="font-bold text-gray-600">2 seats | 8.0%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Intelligence: Drone Smuggling & Farmer Suicides */}
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg border-2 border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
+            <h4 className="text-sm font-semibold text-red-700 dark:text-red-400 mb-2">Drone Smuggling Surge (2024)</h4>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <div className="text-xl font-bold text-red-600 dark:text-red-400">179</div>
+                <div className="text-xs text-red-600/70">Cases in 2024</div>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-red-600 dark:text-red-400">6000%</div>
+                <div className="text-xs text-red-600/70">Increase from 2021</div>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-red-600 dark:text-red-400">600+ kg</div>
+                <div className="text-xs text-red-600/70">Heroin via drones</div>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-red-600 dark:text-red-400">200</div>
+                <div className="text-xs text-red-600/70">Drones seized</div>
+              </div>
+            </div>
+            <div className="mt-2 text-xs text-red-600/70">
+              Routes: Moga, Ferozpur, Ajnala, Tarn Taran | BSF gaps exploited
+            </div>
+          </div>
+          <div className="rounded-lg border-2 border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-900/20">
+            <h4 className="text-sm font-semibold text-orange-700 dark:text-orange-400 mb-2">Farmer Suicides Crisis (2000-2018)</h4>
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <div className="text-xl font-bold text-orange-600 dark:text-orange-400">9,291</div>
+                <div className="text-xs text-orange-600/70">Total suicides</div>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-orange-600 dark:text-orange-400">88%</div>
+                <div className="text-xs text-orange-600/70">Debt-related</div>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-orange-600 dark:text-orange-400">488</div>
+                <div className="text-xs text-orange-600/70">Annual average</div>
+              </div>
+              <div>
+                <div className="text-xl font-bold text-orange-600 dark:text-orange-400">93%</div>
+                <div className="text-xs text-orange-600/70">Male farmers</div>
+              </div>
+            </div>
+            <div className="mt-2 text-xs text-orange-600/70">
+              Crisis districts: Sangrur, Bathinda, Mansa, Moga, Ferozpur
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-slate-100 p-3 dark:bg-slate-800">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            <span className="font-semibold">Source:</span> research-P2/01_punjab_political_anatomy | Drug data: 44.5% of India&apos;s heroin seizures, 6.6M estimated users | SC reserved seats: AAP won 29 of 34 (85%) in 2022
+          </p>
         </div>
       </div>
 
@@ -3153,6 +3791,162 @@ const voterRegistrationData = {
             </div>
           </div>
         </div>
+
+        {/* A-08-16: Booth Vulnerability Analysis */}
+        <div className="mb-6 rounded-lg border border-red-200 bg-white p-4 dark:border-red-700 dark:bg-slate-800">
+          <h4 className="font-semibold text-red-700 dark:text-red-400 mb-3">A-08-16: Booth Vulnerability & Capture Risk Analysis</h4>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <MetricCard title="Vulnerable Booths" value="5,337" subtitle="22% of total" color="bg-red-500" />
+            <MetricCard title="Critical Booths" value="5,000+" subtitle="High-risk areas" color="bg-orange-500" />
+            <MetricCard title="Booth Agent Gap" value="18%" subtitle="Coverage shortfall" color="bg-purple-500" />
+            <MetricCard title="Capture Risk" value="HIGH" subtitle="22% vulnerability" color="bg-red-500" />
+          </div>
+
+          <div className="mt-4">
+            <p className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">Booth Risk Distribution</p>
+            <div className="space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="w-24 text-xs text-slate-600 dark:text-slate-400">Critical Risk</span>
+                <div className="flex-1 h-4 bg-slate-200 rounded-full overflow-hidden">
+                  <div className="h-full bg-red-500" style={{ width: "15%" }} />
+                </div>
+                <span className="text-xs font-medium text-slate-700 dark:text-slate-300">~15%</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-24 text-xs text-slate-600 dark:text-slate-400">High Risk</span>
+                <div className="flex-1 h-4 bg-slate-200 rounded-full overflow-hidden">
+                  <div className="h-full bg-orange-500" style={{ width: "25%" }} />
+                </div>
+                <span className="text-xs font-medium text-slate-700 dark:text-slate-300">~25%</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-24 text-xs text-slate-600 dark:text-slate-400">Moderate</span>
+                <div className="flex-1 h-4 bg-slate-200 rounded-full overflow-hidden">
+                  <div className="h-full bg-yellow-500" style={{ width: "35%" }} />
+                </div>
+                <span className="text-xs font-medium text-slate-700 dark:text-slate-300">~35%</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-24 text-xs text-slate-600 dark:text-slate-400">Low Risk</span>
+                <div className="flex-1 h-4 bg-slate-200 rounded-full overflow-hidden">
+                  <div className="h-full bg-green-500" style={{ width: "25%" }} />
+                </div>
+                <span className="text-xs font-medium text-slate-700 dark:text-slate-300">~25%</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+              <p className="text-sm font-medium text-red-700 dark:text-red-400">Booth Capture Indicators</p>
+              <div className="mt-2 space-y-1 text-xs text-slate-600 dark:text-slate-400">
+                {boothVulnerabilityData.captureIndicators.map((indicator, i) => (
+                  <p key={i}>• {indicator}</p>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-lg bg-orange-50 p-3 dark:bg-orange-900/20">
+              <p className="text-sm font-medium text-orange-700 dark:text-orange-400">High-Risk Regions</p>
+              <div className="mt-2 grid grid-cols-2 gap-2">
+                {securityDeploymentData.highRiskRegions.map((region) => (
+                  <div key={region} className="flex items-center gap-2">
+                    <div className="h-2 w-2 rounded-full bg-red-500" />
+                    <span className="text-xs text-slate-600 dark:text-slate-400">{region}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-2 text-xs text-slate-500">Lawrence Bishnoi gang active in these areas. NIA charges October 2025.</p>
+            </div>
+          </div>
+        </div>
+
+        {/* A-08-17: Party Composition Analysis */}
+        <div className="mb-6 rounded-lg border border-sky-200 bg-white p-4 dark:border-sky-700 dark:bg-slate-800">
+          <h4 className="font-semibold text-sky-700 dark:text-sky-400 mb-3">A-08-17: Party Composition & Seat Distribution</h4>
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-5">
+            <MetricCard title="AAP" value="92" subtitle="Current assembly seats" color="bg-cyan-500" />
+            <MetricCard title="Congress" value="18" subtitle="Current assembly seats" color="bg-blue-500" />
+            <MetricCard title="SAD" value="3" subtitle="Current assembly seats" color="bg-yellow-500" />
+            <MetricCard title="BJP" value="2" subtitle="Current assembly seats" color="bg-orange-500" />
+            <MetricCard title="Others" value="2" subtitle="Independent seats" color="bg-slate-500" />
+          </div>
+
+          <div className="mt-4">
+            <p className="text-sm font-medium text-slate-700 dark:text-slate-300 mb-3">Seat Distribution Visualization</p>
+            <div className="flex h-8 rounded-full overflow-hidden">
+              <div className="bg-cyan-500 flex items-center justify-center text-xs text-white font-medium" style={{ width: `${(92 / 117) * 100}%` }}>
+                {92 > 10 ? `AAP ${92}` : ""}
+              </div>
+              <div className="bg-blue-500 flex items-center justify-center text-xs text-white font-medium" style={{ width: `${(18 / 117) * 100}%` }}>
+                {18 > 10 ? `Cong ${18}` : ""}
+              </div>
+              <div className="bg-yellow-500 flex items-center justify-center text-xs text-white font-medium" style={{ width: `${(3 / 117) * 100}%` }}>
+                {3 > 5 ? `SAD ${3}` : ""}
+              </div>
+              <div className="bg-orange-500 flex items-center justify-center text-xs text-white font-medium" style={{ width: `${(2 / 117) * 100}%` }}>
+                {2 > 5 ? `BJP ${2}` : ""}
+              </div>
+              <div className="bg-slate-400 flex items-center justify-center text-xs text-white font-medium" style={{ width: `${(2 / 117) * 100}%` }}>
+                {2 > 5 ? `Others ${2}` : ""}
+              </div>
+            </div>
+            <p className="mt-2 text-xs text-slate-500 text-center">Total: 117 Assembly Constituencies | Current Assembly (post-2022)</p>
+          </div>
+
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg bg-cyan-50 p-3 dark:bg-cyan-900/20">
+              <p className="text-sm font-medium text-cyan-700 dark:text-cyan-400">AAP Dominance</p>
+              <div className="mt-2 space-y-1 text-xs text-slate-600 dark:text-slate-400">
+                <p>• 79% of assembly seats (92/117)</p>
+                <p>• Single-party majority government</p>
+                <p>• Dominant in Malwa region (69 seats)</p>
+                <p>• Strong urban base in Ludhiana, Amritsar</p>
+              </div>
+            </div>
+            <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
+              <p className="text-sm font-medium text-blue-700 dark:text-blue-400">Congress Recovery Target</p>
+              <div className="mt-2 space-y-1 text-xs text-slate-600 dark:text-slate-400">
+                <p>• Current: 18 seats (15.4%)</p>
+                <p>• 2017 peak: 77 seats</p>
+                <p>• Swing target: +39-49 seats (regional)</p>
+                <p>• Key: Malwa (+24-29), Majha (+8-11)</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-4 rounded-lg bg-slate-50 p-3 dark:bg-slate-800">
+            <p className="text-sm font-medium text-slate-700 dark:text-slate-300">Congress Vote Share Trajectory</p>
+            <div className="mt-2 space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-slate-600 dark:text-slate-400">2017</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-32 h-3 bg-slate-200 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-500" style={{ width: "38%" }} />
+                  </div>
+                  <span className="text-xs font-medium text-blue-600">38.5%</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-slate-600 dark:text-slate-400">2022</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-32 h-3 bg-slate-200 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-400" style={{ width: "23%" }} />
+                  </div>
+                  <span className="text-xs font-medium text-blue-500">23.1%</span>
+                </div>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-xs text-slate-600 dark:text-slate-400">2027 Target</span>
+                <div className="flex items-center gap-2">
+                  <div className="w-32 h-3 bg-slate-200 rounded-full overflow-hidden">
+                    <div className="h-full bg-blue-600" style={{ width: "31%" }} />
+                  </div>
+                  <span className="text-xs font-medium text-blue-700">30-33%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* A-09: Ground Reality Intelligence */}
@@ -3230,6 +4024,35 @@ const voterRegistrationData = {
               <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">AAP MLA Defections</p>
               <p className="text-sm font-bold text-slate-600">Multiple</p>
               <p className="text-xs text-slate-500">Pathak, Chadha affected</p>
+            </div>
+          </div>
+        </div>
+
+        {/* SAD-BJP Alliance Analysis */}
+        <div className="mb-6 rounded-lg border border-rose-200 bg-white p-4 dark:border-rose-700 dark:bg-slate-800">
+          <h4 className="font-semibold text-rose-700 dark:text-rose-400 mb-3">SAD-BJP Alliance Analysis</h4>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5 mb-4">
+            <MetricCard title="Alliance Duration" value="34 years" subtitle="1997-2026" color="bg-rose-500" />
+            <MetricCard title="Breakup Date" value="March 2026" subtitle="Formal split" color="bg-red-500" />
+            <MetricCard title="Reason" value="Seat-sharing" subtitle="Dispute" color="bg-orange-500" />
+            <MetricCard title="SAD Impact" value="-10 to -15" subtitle="Seats" color="bg-red-500" />
+            <MetricCard title="Current Status" value="Solo fight" subtitle="Both independent" color="bg-slate-500" />
+          </div>
+          <div className="rounded-lg bg-rose-50 p-4 dark:bg-rose-900/20">
+            <p className="text-sm font-semibold text-rose-700 dark:text-rose-400 mb-2">Alliance Breakdown Summary</p>
+            <DataTable
+              headers={["Metric", "Value", "Detail"]}
+              rows={sadBjpAllianceData.keyMetrics.map(m => [m.label, m.value, m.detail])}
+            />
+          </div>
+          <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+              <p className="text-sm font-medium text-red-700 dark:text-red-400">Congress Opportunity</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">SAD-BJP split creates space for Congress to gain 10-15 seats in Malwa region. SAD's Sikh voter base now contested between SAD (traditional) and BJP (polarizing Hindu vote).</p>
+            </div>
+            <div className="rounded-lg bg-orange-50 p-3 dark:bg-orange-900/20">
+              <p className="text-sm font-medium text-orange-700 dark:text-orange-400">Strategic Implications</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">BJP going solo with 23-seat target. SAD retaining Sikh core but losing Hindu auxiliary vote. Both weakened without pre-poll alliance.</p>
             </div>
           </div>
         </div>
@@ -3323,6 +4146,62 @@ const voterRegistrationData = {
         </div>
       </div>
 
+      {/* CYCLE 1 ENHANCEMENT: AAP Governance Failures */}
+      <div className="rounded-xl border-2 border-red-500 bg-red-50 p-6 dark:border-red-700 dark:bg-red-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-lg font-bold text-white">!</span>
+          <div>
+            <h3 className="text-lg font-semibold text-red-700 dark:text-red-400">AAP Governance Failures — Cycle 1 Research</h3>
+            <p className="text-sm text-red-600 dark:text-red-400">Unmet promises | 78% dissatisfaction (April 2025)</p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-bold text-red-600">Rs 1,000/Month Stipends</p>
+            <p className="mt-2 text-3xl font-bold text-red-700">NOT DELIVERED</p>
+            <p className="text-xs text-slate-500 mt-1">97% coverage claimed but actual disbursement lagging</p>
+            <p className="text-xs text-red-500 mt-2">Impact: Women voters (48%) deeply disappointed</p>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-bold text-orange-600">25 Lakh Jobs Promise</p>
+            <p className="mt-2 text-3xl font-bold text-orange-700">UNMET</p>
+            <p className="text-xs text-slate-500 mt-1">Youth unemployment rose to 22.5%</p>
+            <p className="text-xs text-orange-500 mt-2">Impact: Doaba youth (18-30) deeply frustrated</p>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-bold text-purple-600">Drug-Free Punjab</p>
+            <p className="mt-2 text-3xl font-bold text-purple-700">232,000+</p>
+            <p className="text-xs text-slate-500 mt-1">Opioid dependent (AIIMS 2025)</p>
+            <p className="text-xs text-purple-500 mt-2">106 overdose deaths (2024)</p>
+          </div>
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Key Unmet Promises</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">MSP Guarantee:</span><span className="font-medium text-red-600">Not legislated in 2 years</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Groundwater:</span><span className="font-medium text-red-600">157% extraction continues</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Farmer Debt:</span><span className="font-medium text-red-600">₹2.03L/household average</span></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Public Dissatisfaction (April 2025)</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Overall AAP:</span><span className="font-bold text-red-600">78%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Drug crisis:</span><span className="font-medium text-red-600">89% dissatisfied</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Jobs:</span><span className="font-medium text-red-600">82% dissatisfied</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
+          <p className="text-sm text-red-700 dark:text-red-300">
+            <strong>Strategic Exploit:</strong> Counter AAP "welfare" narrative by documenting delivery gaps. Focus on: (1) ₹1,000 stipends actual vs claimed, (2) 25L jobs vs unemployment rise, (3) Drug promises vs overdose deaths. These are verifiable, emotionally resonant counter-narratives.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

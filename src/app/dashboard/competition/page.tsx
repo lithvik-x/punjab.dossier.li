@@ -2,7 +2,221 @@
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
 
-// === OPPOSITION INTELLIGENCE DATA (A-03 series) ===
+// ============================================================
+// CYCLE 2: OPPOSITION INTELLIGENCE INTERFACES
+// ============================================================
+
+interface PartyStatus {
+  name: string;
+  short: string;
+  seats: number;
+  voteShare: number;
+  sentiment: number;
+  trend: "up" | "down" | "neutral";
+  strength: string;
+}
+
+interface AllianceData {
+  status: "ACTIVE" | "COLLAPSED" | "NEGOTIATING";
+  partner?: string;
+  date?: string;
+  reason?: string;
+  currentPosition?: string;
+}
+
+interface WhatsAppArmy {
+  party: string;
+  size: string;
+  reach: string;
+  groups?: string;
+}
+
+// === CYCLE 1: Digital Media Usage Data ===
+interface DigitalMediaUsage {
+  platform: string;
+  usagePct: string;
+  users: string;
+  politicalRelevance: string;
+}
+
+interface AdSpendComparison {
+  party: string;
+  digitalAdSpend: string;
+  congressRatio: string;
+  note: string;
+}
+
+const digitalMediaUsage: DigitalMediaUsage[] = [
+  { platform: "WhatsApp", usagePct: "26.2%", users: "~55 lakh", politicalRelevance: "Dominant for voter outreach, misinformation spread" },
+  { platform: "Facebook", usagePct: "18.5%", users: "~39 lakh", politicalRelevance: "Event promotion, fundraising" },
+  { platform: "YouTube", usagePct: "15.8%", users: "~33 lakh", politicalRelevance: "Video content, rallies" },
+  { platform: "Instagram", usagePct: "12.4%", users: "~26 lakh", politicalRelevance: "Youth engagement, visual content" },
+  { platform: "Twitter/X", usagePct: "8.2%", users: "~17 lakh", politicalRelevance: "News, narrative combat" },
+];
+
+const adSpendComparison: AdSpendComparison[] = [
+  { party: "BJP", digitalAdSpend: "₹50-80 crore", congressRatio: "25x", note: "Major outspend on digital ads, AI-generated content" },
+  { party: "Congress", digitalAdSpend: "₹2-3 crore", congressRatio: "Baseline", note: "Limited digital infrastructure" },
+  { party: "AAP", digitalAdSpend: "₹5-8 crore", congressRatio: "3-4x", note: "State-level digital presence" },
+  { party: "SAD", digitalAdSpend: "₹0.5-1 crore", congressRatio: "Minimal", note: "Severely limited digital infrastructure" },
+];
+
+interface CasteDemo {
+  community: string;
+  population: string;
+  congress: string;
+  secondary: string;
+  aap: string;
+  keyIssue: string;
+}
+
+interface PollProjection {
+  scenario: string;
+  probability: string;
+  congressSeats: string;
+  aapSeats: string;
+  sadBjpSeats?: string;
+  others?: string;
+  conditions: string;
+}
+
+interface AntiIncumbency {
+  metric: string;
+  value: string;
+  impact: string;
+  affectedSeats?: string;
+}
+
+interface BJPGrowth {
+  election: string;
+  voteShare: number;
+  seats?: number;
+  context: string;
+}
+
+// ==========================================
+// CYCLE 2: SOCIO-ECONOMIC DATA INTERFACES (from research-P2/10_socio_economic)
+// ==========================================
+
+interface PunjabSocioEconomic {
+  perCapitaIncome: string;
+  youthUnemployment: string;
+  stateDebt: string;
+  debtToGSDP: string;
+  groundwaterExtraction: string;
+  drugUsers: string;
+  farmDebt: string;
+  hdi: string;
+  mpiPoverty: string;
+  districtPCIDisparity: string;
+  giniCoefficient: string;
+}
+
+// ============================================================
+// CYCLE 2: OPPOSITION INTELLIGENCE DATA (from research-P2/03_opposition_intelligence)
+// ============================================================
+
+// SAD 2022 Performance
+const sad2022Data: AllianceData = {
+  status: "COLLAPSED",
+  partner: "BJP",
+  date: "March 2026",
+  reason: "Farm laws controversy (September 2020)",
+  currentPosition: "Going solo 2027"
+};
+
+// SAD Seats 2022: 3 (from 18.38% vote share)
+const sadElectoralData = {
+  seats2022: 3,
+  voteShare2022: 18.38,
+  worstEverResult: true,
+  ls2024Seats: 1,
+  ls2024SeatOnly: "Bathinda",
+  byPollTarnTaran: {
+    voteShare: "25.97%",
+    note: "Severe swing against SAD"
+  }
+};
+
+// BJP Growth Trajectory
+const bjpGrowthData: BJPGrowth[] = [
+  { election: "2017 Assembly", voteShare: 6.6, context: "Pre-growth baseline" },
+  { election: "2022 Assembly", voteShare: 6.6, seats: 2, context: "Alliance with SAD" },
+  { election: "2024 Lok Sabha", voteShare: 18.56, seats: 5, context: "Going solo, 3x growth" }
+];
+
+// BJP going solo 2027
+const bjpSolo2027 = {
+  status: "CONFIRMED",
+  announcementDate: "March 14, 2026",
+  spokesperson: "Amit Shah",
+  statement: "BJP will contest all 117 seats independently",
+  allianceHistory: "1997-2020 (23 years with SAD)"
+};
+
+// WhatsApp Army Data
+const whatsAppArmies: WhatsAppArmy[] = [
+  { party: "BJP", size: "8-10 lakh", reach: "Massive distribution network" },
+  { party: "AAP", size: "4-5 lakh", reach: "Extensive grassroots" },
+  { party: "Congress", size: "2-3 lakh", reach: "Limited penetration" },
+  { party: "SAD", size: "1-2 lakh", reach: "Traditional networks" }
+];
+
+// Congress Position
+const congressPosition = {
+  currentSeats: "18-22",
+  assembly2022: 18,
+  ls2024: 7,
+  status: "FACTIONAL",
+  factions: ["Warring camp", "Channi camp", "Bajwa camp", "Randhawa camp"],
+  challenge: "No unified CM face"
+};
+
+// Caste Demographics from Intelligence
+const casteDemographics: CasteDemo[] = [
+  { community: "Jat Sikh", population: "19-21%", congress: "25-30%", secondary: "SAD 35-40%", aap: "20-25%", keyIssue: "Drugs, farm distress, dera influence" },
+  { community: "SC (Total)", population: "31.9%", congress: "42-48%", secondary: "BSP 28-35%", aap: "12-18%", keyIssue: "Land rights, unemployment, social justice" },
+  { community: "Mazhabi Sikh", population: "26 lakh", congress: "Congress traditional", secondary: "SAD voters", aap: "AAP voters", keyIssue: "Rural Malwa/Majha, drug crisis" },
+  { community: "OBC", population: "~31%", congress: "35-40%", secondary: "BJP 25-30%", aap: "15-20%", keyIssue: "Caste census, reservation, agrarian distress" },
+  { community: "Non-Jat Sikh", population: "15-18%", congress: "25-30%", secondary: "AAP 30-35%", aap: "30-35%", keyIssue: "Governance, anti-corruption, urban development" },
+  { community: "Urban Hindu", population: "8-10%", congress: "22-28%", secondary: "BJP 40-50%", aap: "15-20%", keyIssue: "National security, Hindutva, development" }
+];
+
+// AAP Broken Promises
+const aapBrokenPromises = [
+  { promise: "Drug-Free Punjab", status: "FAILED", detail: "4 deadlines missed, 6.6M users affected", severity: "CRITICAL" },
+  { promise: "Women Stipend Rs 1,000/mo", status: "DELAYED", detail: "Announced March 2026, 4 years late", severity: "HIGH" },
+  { promise: "24 Lakh Jobs", status: "FAILED", detail: "48-70K delivered (0.2% of promise)", severity: "CRITICAL" },
+  { promise: "Power Rebate 50%", status: "PARTIAL", detail: "Only 100 units free, not 300", severity: "MEDIUM" },
+  { promise: "Drug-Free by 2022", status: "FAILED", detail: "8,344 FIRs, 14,734 arrests but persistent crisis", severity: "CRITICAL" },
+  { promise: "Healthcare", status: "PARTIAL", detail: "~50% specialist posts vacant", severity: "HIGH" },
+  { promise: "Education", status: "FAILED", detail: "984/1,927 principal posts vacant (51%)", severity: "HIGH" }
+];
+
+// Anti-Incumbency against AAP
+const antiIncumbencyData: AntiIncumbency[] = [
+  { metric: "Anti-Incumbency Score", value: "7/10", impact: "HIGH voter dissatisfaction" },
+  { metric: "AAP Vote Share Collapse", value: "42% → 26%", impact: "16 point drop in 2 years" },
+  { metric: "Broken Promises Count", value: "7 major promises", impact: "Voter betrayal narrative" },
+  { metric: "Affected Seats", value: "45-55 seats", impact: "Where AAP won on anti-incumbency in 2022" }
+];
+
+// Poll Projections - Hung Assembly Likely
+const pollProjections: PollProjection[] = [
+  { scenario: "Hung Assembly", probability: "HIGHEST", congressSeats: "40-52", aapSeats: "35-45", sadBjpSeats: "20-30", conditions: "No single party majority" },
+  { scenario: "Congress Largest", probability: "MODERATE", congressSeats: "52-58", aapSeats: "30-40", sadBjpSeats: "15-25", conditions: "Requires coalition support" },
+  { scenario: "AAP Retention", probability: "LOW", congressSeats: "35-45", aapSeats: "50-60", sadBjpSeats: "15-20", conditions: "Welfare reinforcement needed" },
+  { scenario: "Congress Majority", probability: "VERY LOW", congressSeats: "60-70", aapSeats: "25-35", sadBjpSeats: "10-15", conditions: "Requires wave election" }
+];
+
+// Regional Seat Distribution
+const regionalSeatsAnalysis = [
+  { region: "Malwa", seats: 69, aapSeats: 53, sadSeats: 2, congressSeats: 14, bjpSeats: 0, deraInfluence: "HIGH" },
+  { region: "Majha", seats: 25, aapSeats: 19, sadSeats: 1, congressSeats: 4, bjpSeats: 1, deraInfluence: "MODERATE" },
+  { region: "Doaba", seats: 23, aapSeats: 13, sadSeats: 0, congressSeats: 9, bjpSeats: 1, deraInfluence: "MODERATE" }
+];
+
+// === EXISTING DATA === ===
 
 // AAP Crisis: April 2026 Mass Defection
 const aapCrisisData = {
@@ -105,6 +319,29 @@ const rssBjpConnection = {
 };
 
 export default function CompetitionPage() {
+  // === CYCLE 2: SOCIO-ECONOMIC DATA (from research-P2/10_socio_economic) ===
+  const socioEconomicData: PunjabSocioEconomic = {
+    perCapitaIncome: "₹2,30,523",
+    youthUnemployment: "19.3%",
+    stateDebt: "₹4.17 Lakh Crore",
+    debtToGSDP: "44.47%",
+    groundwaterExtraction: "156.36%",
+    drugUsers: "6.6 Million",
+    farmDebt: "₹1.04 Lakh Crore",
+    hdi: "0.740 (Rank 12)",
+    mpiPoverty: "4.75%",
+    districtPCIDisparity: "8.47:1",
+    giniCoefficient: "0.48"
+  };
+
+  const punjabVsHaryanaData = [
+    { metric: "Per Capita Income", punjab: "₹2,30,523", haryana: "₹3,25,000", gap: "41% less" },
+    { metric: "Youth Unemployment", punjab: "19.3%", haryana: "14.8%", gap: "+4.5pp higher" },
+    { metric: "State Debt/GSDP", punjab: "44.47%", haryana: "28.3%", gap: "+16.17pp higher" },
+    { metric: "Groundwater", punjab: "156%", haryana: "112%", gap: "Over-exploited" },
+    { metric: "HDI Rank", punjab: "12", haryana: "9", gap: "3 ranks lower" },
+  ];
+
   const parties = [
     { name: "Aam Aadmi Party", short: "AAP", seats: 92, voteShare: 42.01, sentiment: -0.42, trend: "down", strength: "Urban middle class, Youth, Anti-corruption (CRISIS: 7 MPs defected April 2026)" },
     { name: "Shiromani Akali Dal", short: "SAD", seats: 3, voteShare: 18.38, sentiment: -0.28, trend: "down", strength: "Rural, Jat Sikh, Agrarian (MULTIPLE FACTIONS: Badal, Waris Punjab De, Punar Surjit)" },
@@ -256,6 +493,116 @@ export default function CompetitionPage() {
           </p>
         </div>
         <Badge variant="danger">4 Major Competitors</Badge>
+      </div>
+
+      {/* CYCLE 2: SOCIO-ECONOMIC COMPETITION DRIVERS (from research-P2/10_socio_economic) */}
+      <div className="rounded-xl border-2 border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-lg font-bold text-white">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-semibold text-red-700 dark:text-red-400">Socio-Economic Competition Drivers (research-P2/10_socio_economic)</p>
+            <p className="text-sm text-red-600 dark:text-red-300">Economic distress creating competition vulnerabilities for all parties</p>
+          </div>
+        </div>
+
+        {/* Critical Metrics Grid */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
+          <MetricCard
+            title="Youth Unemployment"
+            value="19.3%"
+            subtitle="Ages 15-29 (CRITICAL)"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="State Debt"
+            value="₹4.17L Cr"
+            subtitle="LAST in NITI FHI"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Drug Users"
+            value="6.6 Million"
+            subtitle="18% of population"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Groundwater"
+            value="156%"
+            subtitle="Over-exploited"
+            color="bg-red-500"
+          />
+        </div>
+
+        {/* Progress Bars for Key Metrics */}
+        <div className="space-y-4 mb-6">
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Youth Unemployment (15-29 yrs)</span>
+              <span className="text-sm font-bold text-red-600">19.3%</span>
+            </div>
+            <ProgressBar label="" value={19.3} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">vs National Average 14.3% — driving voter anger</p>
+          </div>
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Debt-to-GSDP Ratio</span>
+              <span className="text-sm font-bold text-red-600">44.47%</span>
+            </div>
+            <ProgressBar label="" value={44.47} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">Fiscal limit: 25% — 1.78x over limit</p>
+          </div>
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Groundwater Extraction</span>
+              <span className="text-sm font-bold text-red-600">156.36%</span>
+            </div>
+            <ProgressBar label="" value={100} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">115 of 153 blocks over-exploited</p>
+          </div>
+        </div>
+
+        {/* Punjab vs Haryana Comparison */}
+        <div className="rounded-lg bg-white p-4 dark:bg-slate-800 mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Punjab vs Haryana Economic Comparison</h4>
+          <DataTable
+            headers={["Metric", "Punjab", "Haryana", "Impact"]}
+            rows={punjabVsHaryanaData.map(d => [d.metric, d.punjab, d.haryana, d.gap])}
+          />
+        </div>
+
+        {/* Additional Metrics */}
+        <div className="grid gap-4 md:grid-cols-4 mb-6">
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">Per Capita Income</p>
+            <p className="text-xl font-bold text-red-600">₹2,30,523</p>
+            <p className="text-xs text-slate-500">vs Haryana ₹3,25,000</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">Farm Debt</p>
+            <p className="text-xl font-bold text-orange-600">₹1.04L Cr</p>
+            <p className="text-xs text-slate-500">Avg ₹2.03L/household</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">HDI Rank</p>
+            <p className="text-xl font-bold text-yellow-600">0.740</p>
+            <p className="text-xs text-slate-500">Rank 12 among states</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">Gini Coefficient</p>
+            <p className="text-xl font-bold text-orange-600">0.48</p>
+            <p className="text-xs text-slate-500">High inequality</p>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
+          <p className="text-sm text-red-700 dark:text-red-400">
+            <strong>Competition Impact:</strong> All parties affected by economic crisis. AAP most vulnerable due to broken promises (Drug-Free Punjab, jobs). Congress can weaponize 19.3% youth unemployment and ₹4.17L Cr debt. Drug crisis (6.6M users) is the #1 campaign issue across all 117 constituencies.
+          </p>
+        </div>
       </div>
 
       {/* Crisis Alerts */}
@@ -2258,6 +2605,342 @@ export default function CompetitionPage() {
             </div>
           </div>
           <p className="mt-2 text-xs text-green-600">BJP cultivating dera networks for voter mobilization. PM Modi visit to Dera Sachkhand Ballan signals strategic dera alignment.</p>
+        </div>
+      </div>
+
+      {/* CYCLE 2: Opposition Intelligence Summary */}
+      <div className="rounded-xl border-2 border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-900/20">
+        <h3 className="text-lg font-semibold text-yellow-700 dark:text-yellow-400 mb-3">
+          Opposition Intelligence Summary
+        </h3>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="font-semibold text-slate-700 dark:text-slate-300">SAD Status</h4>
+            <Badge variant="danger">{sad2022Data.status}</Badge>
+            <p className="mt-2 text-xs text-slate-500">{sad2022Data.reason}</p>
+            <p className="text-xs text-slate-400">March 2026: {sad2022Data.currentPosition}</p>
+          </div>
+
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="font-semibold text-slate-700 dark:text-slate-300">SAD 2022 Result</h4>
+            <p className="mt-2 text-2xl font-bold text-red-600">{sadElectoralData.seats2022} seats</p>
+            <p className="text-xs text-slate-500">{sadElectoralData.voteShare2022}% vote share (worst ever)</p>
+            <p className="text-xs text-slate-400">LS 2024: {sadElectoralData.ls2024Seats} seat only</p>
+          </div>
+
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="font-semibold text-slate-700 dark:text-slate-300">BJP Going Solo</h4>
+            <Badge variant="success">{bjpSolo2027.status}</Badge>
+            <p className="mt-2 text-xs text-slate-500">{bjpSolo2027.spokesperson}: {bjpSolo2027.statement}</p>
+            <p className="text-xs text-slate-400">Alliance history: {bjpSolo2027.allianceHistory}</p>
+          </div>
+
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="font-semibold text-slate-700 dark:text-slate-300">Alliance Status</h4>
+            <Badge variant="danger">{allianceStatus.bjpSadAlliance}</Badge>
+            <p className="mt-2 text-xs text-slate-500">Duration: {allianceStatus.allianceDuration}</p>
+            <p className="text-xs text-slate-400">Breakup: {allianceStatus.breakupReason}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* WhatsApp Army & Congress Position */}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            WhatsApp Army Sizes
+          </h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Digital reach comparison</p>
+          <div className="mt-4 space-y-3">
+            {whatsAppArmies.map((army) => (
+              <div key={army.party} className="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-900">
+                <span className="font-medium text-slate-700 dark:text-slate-300">{army.party}</span>
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-slate-700 dark:text-white">{army.size}</span>
+                  <Badge variant="info">{army.reach}</Badge>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Congress Position
+          </h3>
+          <div className="mt-4 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-slate-500">Assembly Seats</span>
+              <span className="font-bold text-blue-600">{congressPosition.currentSeats}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-slate-500">LS 2024</span>
+              <span className="font-bold text-blue-600">{congressPosition.ls2024} seats</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-slate-500">Status</span>
+              <Badge variant="danger">{congressPosition.status}</Badge>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-slate-500">Factions</span>
+              <span className="font-bold text-red-600">{congressPosition.factions.length} camps</span>
+            </div>
+            <div className="mt-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+              <p className="text-sm text-blue-700 dark:text-blue-300">
+                <strong>Challenge:</strong> {congressPosition.challenge}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Caste Demographics & AAP Broken Promises */}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Caste Demographics
+          </h3>
+          <div className="mt-4 space-y-3">
+            {casteDemographics.map((caste) => (
+              <div key={caste.community} className="p-3 rounded-lg bg-slate-50 dark:bg-slate-900">
+                <div className="flex justify-between items-start">
+                  <span className="font-medium text-slate-700 dark:text-slate-300">{caste.community}</span>
+                  <Badge variant="info">{caste.population}</Badge>
+                </div>
+                <p className="mt-1 text-xs text-slate-500">Congress: {caste.congress} | AAP: {caste.aap}</p>
+                <p className="text-xs text-slate-400">Key: {caste.keyIssue}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            AAP Broken Promises
+          </h3>
+          <div className="mt-4 space-y-3">
+            {aapBrokenPromises.map((promise, idx) => (
+              <div key={idx} className={`p-3 rounded-lg ${
+                promise.severity === "CRITICAL" ? "bg-red-50 dark:bg-red-900/20" :
+                promise.severity === "HIGH" ? "bg-orange-50 dark:bg-orange-900/20" :
+                "bg-yellow-50 dark:bg-yellow-900/20"
+              }`}>
+                <div className="flex justify-between items-start">
+                  <span className="font-medium text-slate-700 dark:text-slate-300">{promise.promise}</span>
+                  <Badge variant={promise.severity === "CRITICAL" ? "danger" : promise.severity === "HIGH" ? "warning" : "info"}>
+                    {promise.status}
+                  </Badge>
+                </div>
+                <p className="mt-1 text-xs text-slate-500">{promise.detail}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Anti-Incumbency & Poll Projections */}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Anti-Incumbency against AAP
+          </h3>
+          <div className="mt-4 space-y-3">
+            {antiIncumbencyData.map((item) => (
+              <div key={item.metric} className="flex items-center justify-between p-3 rounded-lg bg-red-50 dark:bg-red-900/20">
+                <span className="text-sm text-slate-700 dark:text-slate-300">{item.metric}</span>
+                <span className="font-bold text-red-600">{item.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Poll Projections
+          </h3>
+          <div className="mt-4 space-y-3">
+            {pollProjections.map((poll) => (
+              <div key={poll.scenario} className="p-3 rounded-lg bg-slate-50 dark:bg-slate-900">
+                <div className="flex justify-between items-start">
+                  <span className="font-medium text-slate-700 dark:text-slate-300">{poll.scenario}</span>
+                  <Badge variant={poll.probability === "HIGHEST" ? "danger" : "warning"}>{poll.probability}</Badge>
+                </div>
+                <p className="mt-1 text-xs text-slate-500">Congress: {poll.congressSeats} | AAP: {poll.aapSeats}</p>
+                <p className="text-xs text-slate-400">{poll.conditions}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Regional Seats & SAD Factions */}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Regional Seat Distribution
+          </h3>
+          <div className="mt-4 space-y-3">
+            {regionalSeatsAnalysis.map((region) => (
+              <div key={region.region} className="p-3 rounded-lg bg-slate-50 dark:bg-slate-900">
+                <div className="flex justify-between items-start">
+                  <span className="font-medium text-slate-700 dark:text-slate-300">{region.region}</span>
+                  <Badge variant="info">{region.seats} seats</Badge>
+                </div>
+                <p className="mt-1 text-xs text-slate-500">
+                  AAP: {region.aapSeats} | Congress: {region.congressSeats} | SAD: {region.sadSeats}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            SAD Factions
+          </h3>
+          <div className="mt-4 space-y-3">
+            {sadFactions.map((faction) => (
+              <div key={faction.name} className="p-3 rounded-lg bg-green-50 dark:bg-green-900/20">
+                <div className="flex justify-between items-start">
+                  <span className="font-medium text-slate-700 dark:text-slate-300">{faction.name}</span>
+                </div>
+                <p className="mt-1 text-xs text-slate-500">Leader: {faction.leader}</p>
+                <p className="text-xs text-slate-400">Status: {faction.status}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* AAP Crisis & Opposition IT */}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            AAP April 2026 Defections
+          </h3>
+          <div className="mt-4 p-4 rounded-lg bg-red-50 dark:bg-red-900/20">
+            <Badge variant="danger">{aapCrisisData.defectorCount} DEFECTORS</Badge>
+            <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">{aapCrisisData.impact}</p>
+            <p className="mt-2 text-xs text-slate-500">Key names: {aapCrisisData.defectorNames.slice(0, 3).join(", ")}...</p>
+          </div>
+          <div className="mt-3 p-3 rounded-lg bg-orange-50 dark:bg-orange-900/20">
+            <p className="text-sm font-medium text-orange-700 dark:text-orange-400">Sandeep Pathak Role</p>
+            <p className="text-xs text-orange-600">{aapCrisisData.sandeepPathakRole}</p>
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Opposition IT Infrastructure
+          </h3>
+          <div className="mt-4 space-y-3">
+            <div className="p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+              <p className="text-sm font-medium text-blue-700">AAP: Rs 10.59 Cr reputation mgmt</p>
+              <p className="text-xs text-blue-600">Social media: 5 coordinators appointed</p>
+            </div>
+            <div className="p-3 rounded-lg bg-orange-50 dark:bg-orange-900/20">
+              <p className="text-sm font-medium text-orange-700">BJP IT Cell: {oppositionIT.bjp.itCellWorkers} workers</p>
+              <p className="text-xs text-orange-600">National: 5,000-6,000 core employees</p>
+            </div>
+            <div className="p-3 rounded-lg bg-green-50 dark:bg-green-900/20">
+              <p className="text-sm font-medium text-green-700">SAD: {oppositionIT.sad.status}</p>
+              <p className="text-xs text-green-600">Digital capacity: {oppositionIT.sad.digitalCapacity}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Voter Analysis: Persuadable, Swing, Flip */}
+      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+          Voter Analysis: Persuadable, Swing & Flip Potential
+        </h3>
+        <div className="mt-4 grid gap-6 lg:grid-cols-3">
+          <div>
+            <h4 className="font-semibold text-slate-700 dark:text-slate-300 mb-3">Persuadable Voter Types</h4>
+            <div className="space-y-3">
+              {persuadableVoterTypes.map((voter) => (
+                <div key={voter.type} className="p-3 rounded-lg bg-slate-50 dark:bg-slate-900">
+                  <div className="flex justify-between">
+                    <span className="text-sm font-medium text-slate-700">{voter.type}</span>
+                    <Badge variant={voter.priority === "HIGH" ? "danger" : "info"}>{voter.priority}</Badge>
+                  </div>
+                  <p className="mt-1 text-xs text-slate-500">{voter.size} | {voter.keyIssue}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-slate-700 dark:text-slate-300 mb-3">Regional Swing Potential</h4>
+            <div className="space-y-3">
+              {regionalSwingPotential.map((region) => (
+                <div key={region.region} className="p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20">
+                  <div className="flex justify-between">
+                    <span className="font-medium text-slate-700">{region.region}</span>
+                    <Badge variant="warning">{region.flipSeats}</Badge>
+                  </div>
+                  <p className="mt-1 text-xs text-slate-500">Swing: {region.swingRange} | {region.swingDirection}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-slate-700 dark:text-slate-300 mb-3">Congress Regional Outlook</h4>
+            <div className="space-y-3">
+              {congressRegionalOutlook.map((region) => (
+                <div key={region.region} className="p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+                  <div className="flex justify-between">
+                    <span className="font-medium text-slate-700">{region.region}</span>
+                    <span className="font-bold text-blue-600">{region.floor}-{region.ceiling}</span>
+                  </div>
+                  <p className="mt-1 text-xs text-slate-500">{region.note}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Caste Fragmentation & Flip Margin */}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Caste Fragmentation Index
+          </h3>
+          <div className="mt-4 space-y-3">
+            {casteFragmentationIndex.map((district) => (
+              <div key={district.district} className="p-3 rounded-lg bg-slate-50 dark:bg-slate-900">
+                <div className="flex justify-between items-start">
+                  <span className="font-medium text-slate-700 dark:text-slate-300">{district.district}</span>
+                  <Badge variant={district.risk.includes("HIGH") ? "danger" : "warning"}>{district.index}</Badge>
+                </div>
+                <p className="mt-1 text-xs text-slate-500">Dominant: {district.dominant}</p>
+                <p className="text-xs text-slate-400">Risk: {district.risk}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Flip Margin Analysis
+          </h3>
+          <div className="mt-4 space-y-3">
+            {flipMarginAnalysis.map((seat) => (
+              <div key={seat.seat} className="p-3 rounded-lg bg-slate-50 dark:bg-slate-900">
+                <div className="flex justify-between items-start">
+                  <span className="font-medium text-slate-700 dark:text-slate-300">{seat.seat}</span>
+                  <Badge variant={seat.vulnerability === "CRITICAL" ? "danger" : seat.vulnerability === "HIGH" ? "warning" : "info"}>
+                    {seat.vulnerability}
+                  </Badge>
+                </div>
+                <p className="mt-1 text-xs text-slate-500">Margin: {seat.margin} | Winner: {seat.winner}</p>
+                <p className="text-xs text-slate-400">Note: {seat.note}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

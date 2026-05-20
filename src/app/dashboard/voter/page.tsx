@@ -1,11 +1,11 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
-import { CAMPAIGN_CHANNELS, KEY_ISSUES_VERIFIED } from "@/lib/constants";
+import { CAMPAIGN_CHANNELS, KEY_ISSUES_VERIFIED, POLITICAL_ANATOMY } from "@/lib/constants";
 
 // Voter Data Management (from MP8-002)
 const voterDataManagement = {
-  totalEligibleVoters: "~2.25 Crore",
+  totalEligibleVoters: "2.14-2.77 Crore",
   pollingStations: "22,000-25,000",
   votersPerBooth: "650-1,000",
   totalDatabaseCostLow: "₹67 Lakh",
@@ -49,6 +49,25 @@ const digitalCampaignData = {
     womenVoters: "48%",
   },
 };
+
+// === CYCLE 1: 6 Voter Segments Framework ===
+interface VoterSegmentCycle1 {
+  segment: string;
+  voteShare: string;
+  primaryParty: string;
+  keyCharacteristic: string;
+  keyIssue: string;
+  conversionRisk: string;
+}
+
+const voterSegmentsCycle1: VoterSegmentCycle1[] = [
+  { segment: "Traditional Congress", voteShare: "25-30%", primaryParty: "Congress", keyCharacteristic: "SC, OBC, women, rural", keyIssue: "Employment, MSP, social justice", conversionRisk: "Low" },
+  { segment: "Traditional Akali", voteShare: "18-22%", primaryParty: "SAD", keyCharacteristic: "Jat Sikh, rural Malwa", keyIssue: "Farmer welfare, drug crisis", conversionRisk: "Medium-High (SAD split)" },
+  { segment: "AAP Loyalists", voteShare: "15-18%", primaryParty: "AAP", keyCharacteristic: "Urban middle class, youth", keyIssue: "Governance, anti-corruption", conversionRisk: "Low" },
+  { segment: "Floating/Undecided", voteShare: "15-18%", primaryParty: "Swing", keyCharacteristic: "All castes, urban/rural", keyIssue: "Jobs, economy, law/order", conversionRisk: "HIGH - decisive in 2027" },
+  { segment: "BJP Traditional", voteShare: "8-10%", primaryParty: "BJP", keyCharacteristic: "Urban Hindu, trading community", keyIssue: "National security, development", conversionRisk: "Low" },
+  { segment: "Others/None", voteShare: "10-12%", primaryParty: "Mixed", keyCharacteristic: "Minorities, NRIs, NOTA-prone", keyIssue: "Various", conversionRisk: "Variable" },
+];
 
 // Mobile App Data (from MP8-009)
 const mobileAppData = {
@@ -287,7 +306,7 @@ export default function VoterPage() {
 
   // Age Cohort Voting Patterns (from b14)
   const ageCohortPatterns = [
-    { cohort: "First-Time Voters (18-25)", share: "12-15%", priority: ["Unemployment", "Education", "Startup support"], influence: "Social media, peer networks, celebrity" },
+    { cohort: "First-Time Voters (18-25)", share: "15-18%", priority: ["Unemployment", "Education", "Startup support"], influence: "Social media, peer networks, celebrity" },
     { cohort: "Young Adults (26-35)", share: "18-22%", priority: ["Housing", "Employment", "Healthcare"], influence: "Aspirational messaging, concrete proposals" },
     { cohort: "Established Adults (36-50)", share: "28-32%", priority: ["Children education", "Agricultural sustainability", "Family business"], influence: "Personal contact, local candidate reputation" },
     { cohort: "Mature Adults (51-65)", share: "22-25%", priority: ["Pension security", "Healthcare", "Traditional values"], influence: "Traditional media, community outreach" },
@@ -950,6 +969,84 @@ export default function VoterPage() {
           trend="up"
           color="bg-purple-500"
         />
+      </div>
+
+      {/* Political Anatomy - Voter Demographics Context */}
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-6 shadow-sm dark:border-emerald-800 dark:bg-emerald-900/10">
+        <div className="mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-emerald-800 dark:text-emerald-300">
+            Political Anatomy — Voter Demographics
+          </h3>
+          <Badge variant="success">Cycle 2 Data</Badge>
+        </div>
+        <p className="mb-6 text-sm text-emerald-700 dark:text-emerald-400">
+          Understanding the electorate composition that shapes voting behavior
+        </p>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">2.14 Cr</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Total Electors</div>
+            <div className="mt-1 text-xs text-slate-500">SC: 32% | Rural: 62.5%</div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">57.7%</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Sikh Population</div>
+            <div className="mt-1 text-xs text-slate-500">Census 2011: 1.24 Cr</div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">38.5%</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Hindu Population</div>
+            <div className="mt-1 text-xs text-slate-500">82.3L voters</div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">32%</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">SC Population</div>
+            <div className="mt-1 text-xs text-slate-500">Highest in India</div>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <div>
+            <h4 className="mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Regional Seat Distribution</h4>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Malwa</span>
+                <span className="font-medium text-orange-600 dark:text-orange-400">69 seats (59%)</span>
+              </div>
+              <ProgressBar label="" value={59} color="bg-orange-500" showPercentage={false} />
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Majha</span>
+                <span className="font-medium text-blue-600 dark:text-blue-400">25 seats (21%)</span>
+              </div>
+              <ProgressBar label="" value={21} color="bg-blue-500" showPercentage={false} />
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Doaba</span>
+                <span className="font-medium text-green-600 dark:text-green-400">23 seats (20%)</span>
+              </div>
+              <ProgressBar label="" value={20} color="bg-green-500" showPercentage={false} />
+            </div>
+          </div>
+          <div>
+            <h4 className="mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Caste Composition</h4>
+            <div className="space-y-1 text-sm">
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">SC</span><span className="font-medium">32%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">OBC</span><span className="font-medium">31%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Jat Sikh</span><span className="font-medium">21%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Mazhabi Sikh</span><span className="font-medium">6.3%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Upper Caste</span><span className="font-medium">16%</span></div>
+            </div>
+          </div>
+          <div>
+            <h4 className="mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Farmer Crisis (2027 Context)</h4>
+            <div className="space-y-1 text-sm">
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Farmer Suicides</span><span className="font-medium text-red-600">9,291</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Debt-Related</span><span className="font-medium">88%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Crisis Districts</span><span className="font-medium">5</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Malwa Share</span><span className="font-medium">80-90%</span></div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -3137,6 +3234,61 @@ export default function VoterPage() {
         </div>
       </div>
 
+      {/* CYCLE 1 ENHANCEMENT: 25 Voter Personas Summary */}
+      <div className="rounded-xl border-2 border-pink-500 bg-pink-50 p-6 dark:border-pink-700 dark:bg-pink-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-500 text-lg font-bold text-white">25</span>
+          <div>
+            <h3 className="text-lg font-semibold text-pink-700 dark:text-pink-400">25 Voter Personas — Cycle 1 Research</h3>
+            <p className="text-sm text-pink-600 dark:text-pink-400">Complete psychographic profiles with engagement triggers</p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-5">
+          <MetricCard title="Jat Sikh Youth" value="20-22%" subtitle="Priority: HIGH" color="bg-pink-500" />
+          <MetricCard title="SC Voters" value="32%" subtitle="Priority: CRITICAL" color="bg-purple-500" />
+          <MetricCard title="Urban Middle" value="15%" subtitle="Priority: MEDIUM" color="bg-blue-500" />
+          <MetricCard title="Rural Farmers" value="40%" subtitle="Priority: HIGH" color="bg-green-500" />
+          <MetricCard title="Women Voters" value="48%" subtitle="Priority: CRITICAL" color="bg-orange-500" />
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Top 5 High-Value Segments</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Persona A: Urban Professional</span><span className="font-medium">~8%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Persona B: Doaba Dalit Youth</span><span className="font-medium">~14%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Persona C: Jat Sikh Farmer</span><span className="font-medium">~18%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Persona D: Rural Sikh Woman</span><span className="font-medium">~20%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Persona E: SC Landless Laborer</span><span className="font-medium">~12%</span></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Psychographic Triggers</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Drug crisis:</span><span className="font-medium text-red-600">89% salience</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Youth unemployment:</span><span className="font-medium text-orange-600">78% salience</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Farmer debt:</span><span className="font-medium text-yellow-600">82% salience</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Water crisis:</span><span className="font-medium text-blue-600">71% salience</span></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Swing Vote Analysis</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">AAP→Congress swing:</span><span className="font-medium text-teal-600">12-15%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Congress→AAP swing:</span><span className="font-medium text-blue-600">5-7%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">SAD fragmentation:</span><span className="font-medium text-purple-600">3-5%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Total swing:</span><span className="font-medium">~24-34L</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-pink-100 p-3 dark:bg-pink-900/40">
+          <p className="text-sm text-pink-700 dark:text-pink-300">
+            <strong>Key Insight:</strong> 25 voter personas provide granular micro-targeting capability. Focus on: (1) Doaba Dalit Youth - jobs trigger, (2) Rural Women - family safety trigger, (3) Jat Sikh Farmers - MSP/debt trigger. Late swing factor: 40-50% of total swing occurs in final 2 weeks.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

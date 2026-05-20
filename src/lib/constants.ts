@@ -211,3 +211,80 @@ export const CONGRESS_ORG = {
   coordinators: 117,
   appointedDateCoord: "June 2025",
 } as const;
+
+// === POLITICAL ANATOMY DATA (from research-P2/01_punjab_political_anatomy) ===
+export const POLITICAL_ANATOMY = {
+  // Regional Distribution of 117 Assembly Seats
+  regionalDistribution: {
+    malwa: { seats: 69, percentage: 59, color: "bg-orange-500" },
+    majha: { seats: 25, percentage: 21, color: "bg-blue-500" },
+    doaba: { seats: 23, percentage: 20, color: "bg-green-500" },
+  },
+  // Caste Composition (as % of total population)
+  casteComposition: {
+    sc: { percentage: 32, note: "Scheduled Caste - highest in India" },
+    jatSikh: { percentage: 21, note: "Largest single caste, dominant in Malwa" },
+    mazhabi: { percentage: 6.3, note: "Largest SC sub-caste, rural Malwa/Majha" },
+    bania: { percentage: 5.5, note: "Trading community, urban" },
+    khatri: { percentage: 4.4, note: "Business community, 50% Hindu/50% Sikh" },
+    brahmin: { percentage: 3.2, note: "Priesthood, academia, bureaucracy" },
+    obc: { percentage: 31, note: "Other Backward Classes" },
+  },
+  // Religious Composition (Census 2011)
+  religiousComposition: {
+    sikh: { percentage: 57.7, voters: "1.24 Cr", note: "Majority religion" },
+    hindu: { percentage: 38.5, voters: "82.3L", note: "Significant minority" },
+    muslim: { percentage: 1.9, voters: "4.1L", note: "Concentrated in Malerkotla" },
+    christian: { percentage: 1.3, voters: "2.7L", note: "Growing via Dalit conversions" },
+  },
+  // 2022 Assembly Election Results
+  assemblyResults2022: {
+    aap: { seats: 92, voteShare: 42.01 },
+    congress: { seats: 18, voteShare: 22.98 },
+    sad: { seats: 3, voteShare: 18.38 },
+    bjp: { seats: 2, voteShare: 8.0 },
+    others: { seats: 2, voteShare: 8.63 },
+  },
+  // Drug Crisis Data
+  drugCrisis: {
+    heroinShareIndia: "44.5%", // Punjab's share of India's heroin seizures
+    estimatedUsers: "6.6 Million", // Total drug users in Punjab
+    opioidDependent: "230,000",
+    childrenWithSUD: "697,000", // 10-17 age group
+    overdoseDeaths2024: 106,
+    ndpsCases2015to2024: "51,000+",
+    heroinSeized: "4,600+ kg",
+    dronesSeized2024: 200,
+  },
+  // Drone Smuggling Data
+  droneSmuggling: {
+    cases2024: 179,
+    increaseFrom2021: "6000%", // 2021 had ~3 cases
+    heroinSeizedViaDrones: "600+ kg",
+    mainRoutes: ["Pakistan border, Punjab-Haryana border"],
+    seizureLocations: ["Moga", "Ferozpur", "Ajnala", "Tarn Taran"],
+  },
+  // Farmer Suicides Data
+  farmerSuicides: {
+    total2000to2018: 9291,
+    debtRelatedPercent: 88,
+    annualAverage: "488 per year",
+    crisisDistricts: ["Sangrur", "Bathinda", "Mansa", "Moga", "Ferozpur"],
+  },
+  // SC Reserved Seats Performance (2022)
+  scReservedSeats: {
+    total: 34,
+    aapWon: 29,
+    congressWon: 5,
+    aapPercentage: "85%",
+  },
+  // Voter Demographics Summary
+  voterDemographics: {
+    totalElectors: "2.14 Cr",
+    scVoters: "32%",
+    ruralPopulation: "62.5%",
+    urbanPopulation: "37.5%",
+    femaleElectorate: "48.6%",
+    sexRatio: 895,
+  },
+} as const;

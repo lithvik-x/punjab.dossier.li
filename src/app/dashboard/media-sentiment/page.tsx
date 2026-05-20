@@ -1,10 +1,28 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
+import type {
+  CongressSentiment,
+  AAPSentiment,
+  BJPSentiment,
+  CoverageVolume,
+  CongressMention,
+  TVChannel,
+  TVAdRate,
+  RadioStation,
+  DiasporaRadio,
+  CampaignBudget,
+  YouTubeChannel,
+  RegionalStrategy,
+  MSONetwork,
+  MediaSource,
+  SocialMetric,
+  Journalist,
+} from "@/types/media-narrative";
 
 export default function MediaSentimentPage() {
   // Congress Coverage Sentiment (A37 Research)
-  const congressSentiment = {
+  const congressSentiment: CongressSentiment = {
     negative: 52,
     neutral: 32,
     positive: 16,
@@ -12,7 +30,7 @@ export default function MediaSentimentPage() {
   };
 
   // AAP Coverage Sentiment (A37 Research)
-  const aapSentiment = {
+  const aapSentiment: AAPSentiment = {
     negative: 38,
     neutral: 32,
     positive: 30,
@@ -20,7 +38,7 @@ export default function MediaSentimentPage() {
   };
 
   // BJP Coverage Sentiment (A37 Research)
-  const bjpSentiment = {
+  const bjpSentiment: BJPSentiment = {
     negative: 18,
     neutral: 37,
     positive: 45,
@@ -28,7 +46,7 @@ export default function MediaSentimentPage() {
   };
 
   // Coverage Volume Ranking (A37 Research)
-  const coverageVolume = [
+  const coverageVolume: CoverageVolume[] = [
     { party: "AAP", level: "HIGHEST", color: "bg-red-500" },
     { party: "BJP", level: "HIGH", color: "bg-orange-500" },
     { party: "SAD", level: "MODERATE", color: "bg-yellow-500" },
@@ -36,7 +54,7 @@ export default function MediaSentimentPage() {
   ];
 
   // Congress Media Mentions Sentiment (A37 Research)
-  const congressMentions = {
+  const congressMentions: Record<string, CongressMention> = {
     narrative1: { label: "Congress is finished in Punjab", source: "BJP leaders (Himanta Sarma, Feb 2026)", sentiment: -0.85, reach: "National" },
     narrative2: { label: "No CM face / collective leadership", source: "Congress itself (Baghel, Jan 2026)", sentiment: -0.65, reach: "State-wide" },
     narrative3: { label: "Internal fights public", source: "Resignations, Jan 2026 warning", sentiment: -0.75, reach: "High" },
@@ -45,7 +63,7 @@ export default function MediaSentimentPage() {
   };
 
   // TV Channel Reach Data (G26 Research)
-  const tvChannels = [
+  const tvChannels: TVChannel[] = [
     { name: "PTC Punjabi", type: "GEC", subscribers: "20.125M monthly reach", ownership: "G Next Media (Sukhbir Badal connected)", barchart: 95 },
     { name: "PTC News", type: "News", subscribers: "DD Free Dish Ch 62 (Apr 2026)", ownership: "SAD-BJP aligned", barchart: 88 },
     { name: "ABP Sanjha", type: "News", subscribers: "Top 10 Punjabi channel", ownership: "ABP Network", barchart: 72 },
@@ -55,7 +73,7 @@ export default function MediaSentimentPage() {
   ];
 
   // TV Advertising Rates 30-sec Spot (G26 Research)
-  const tvAdRates = [
+  const tvAdRates: TVAdRate[] = [
     { channel: "PTC Punjabi", standard: "Rs 5,000-20,000", primeTime: "Rs 30,000-80,000", note: "Prime 2-3x base" },
     { channel: "ABP Sanjha", standard: "Rs 5,000-18,000", primeTime: "Rs 25,000-60,000", note: "Industry estimate" },
     { channel: "News18 Punjab", standard: "Rs 4,000-15,000", primeTime: "Rs 20,000-50,000", note: "J-Band: Rs 413" },
@@ -64,7 +82,7 @@ export default function MediaSentimentPage() {
   ];
 
   // Radio Stations with Listenership (G26 Research)
-  const radioStationsFull = [
+  const radioStationsFull: RadioStation[] = [
     { name: "Radio Punjab (AIR)", frequency: "105.6 FM", listeners: "8-12L daily", demographic: "35-60+ yrs, rural", type: "Public" },
     { name: "Big FM", frequency: "92.7 FM", listeners: "6-10L daily", demographic: "18-45 yrs, urban", type: "Private" },
     { name: "Radio City", frequency: "91.1 FM", listeners: "5-8L daily", demographic: "18-40 yrs, urban", type: "Private" },
@@ -74,21 +92,21 @@ export default function MediaSentimentPage() {
   ];
 
   // NRI/Diaspora Radio (G26 Research)
-  const diasporaRadio = [
+  const diasporaRadio: DiasporaRadio[] = [
     { name: "Sher E Punjab Radio", market: "Canada/International", type: "Online", reach: "Significant NRI listenership", utility: "Diaspora engagement" },
     { name: "Punjabi Radio USA", market: "USA", type: "Online", reach: "Large NRI audience", utility: "Political content permissible" },
     { name: "Desh Punjab Radio", market: "USA (Sacramento)", type: "Online", reach: "Diaspora reach", utility: "Merged entity" },
   ];
 
   // Campaign Budget Estimates (G26 Research)
-  const campaignBudget = [
+  const campaignBudget: CampaignBudget[] = [
     { scale: "Minimum (4 weeks)", tvBudget: "Rs 18-33 lakh", radioBudget: "Rs 3-6 lakh", total: "Rs 21-39 lakh" },
     { scale: "Recommended (8 weeks)", tvBudget: "Rs 63 lakh-1 crore", radioBudget: "Rs 5.5-11 lakh", total: "Rs 68 lakh-1.1 crore" },
     { scale: "Maximum (12 weeks)", tvBudget: "Rs 1-1.5 crore", radioBudget: "Rs 8-15 lakh", total: "Rs 1.08-1.65 crore" },
   ];
 
   // YouTube Channels with Subscribers (G3 Research)
-  const youtubeChannelsFull = [
+  const youtubeChannelsFull: YouTubeChannel[] = [
     { name: "Pro Punjab Tv", subscribers: "1.51M", lean: "Anti-establishment / Farmer legacy", value: "High", region: "State-wide" },
     { name: "PTC News", subscribers: "5M+", lean: "Pro-SAD", value: "Hostile", region: "State-wide" },
     { name: "ABP Sanjha", subscribers: "1M+", lean: "Moderate", value: "Neutral", region: "State-wide" },
@@ -104,7 +122,7 @@ export default function MediaSentimentPage() {
   ];
 
   // Regional Media Strategy (G3 Research)
-  const regionalStrategy = [
+  const regionalStrategy: RegionalStrategy[] = [
     {
       region: "Malwa",
       seats: 69,
@@ -138,7 +156,7 @@ export default function MediaSentimentPage() {
   ];
 
   // MSO/Cable Infrastructure (G26 Research)
-  const msoNetworks = [
+  const msoNetworks: MSONetwork[] = [
     { name: "SITI Networks", coverage: "800+ locations, 245+ districts", fiber: "33,000+ km optical fiber", headend: "15 digital headends", note: "Largest MSO India" },
     { name: "DEN Networks", coverage: "Pan-India cable presence", owner: "Reliance-Disney merged entity", note: "Major Punjab coverage" },
     { name: "Fastway", coverage: "North India, strong Punjab", note: "LCN mapping available" },
@@ -149,7 +167,7 @@ export default function MediaSentimentPage() {
   const barcNote = "BARC TV ratings suspended since March 2026 (Ministry directive) — No official viewership data available as of May 2026";
 
   // Media Sources Updated with full data (G3 Research)
-  const mediaSources = [
+  const mediaSources: MediaSource[] = [
     { name: "Ajit", type: "Newspaper", sentiment: 0.72, reach: "7,00,000+ copies/day", lean: "Congress-Akali friendly (3.5/5)", verified: true, owner: "Hamdard family (Sadhu Singh legacy)" },
     { name: "Punjabi Tribune", type: "Newspaper", sentiment: 0.52, reach: "5,00,000+ copies/day", lean: "Centrist/Independent (2.5/5)", verified: true, owner: "Tribune Group (Chandigarh)" },
     { name: "Jagbani", type: "Newspaper", sentiment: 0.58, reach: "4,00,000+ copies/day", lean: "Congress-leaning (3/5)", verified: true, owner: "Hind Samachar Group (Chopra family)" },
@@ -161,7 +179,7 @@ export default function MediaSentimentPage() {
   ];
 
   // Social Media Metrics (A37 Research)
-  const socialMetrics = [
+  const socialMetrics: SocialMetric[] = [
     { platform: "WhatsApp", penetration: "80.8%", groups: 15000, reach: "42L", sentiment: 0.72 },
     { platform: "Facebook", penetration: "72%", followers: "12.5L", engagement: 4.2, sentiment: 0.48 },
     { platform: "Instagram", penetration: "74%", followers: "8.3L", engagement: 6.8, sentiment: 0.52 },
@@ -169,7 +187,19 @@ export default function MediaSentimentPage() {
     { platform: "Twitter/X", penetration: "28%", followers: "2.1L", engagement: 3.5, sentiment: 0.38 },
   ];
 
-  const journalists = [
+  // === CYCLE 1: WhatsApp & Digital Ad Spend Data ===
+  const whatsAppUsageCycle1 = {
+    whatsappUsagePct: "26.2%",
+    note: "WhatsApp is the dominant platform for voter outreach and political communication"
+  };
+
+  const digitalAdSpendCycle1 = [
+    { party: "BJP", spend: "₹50-80 crore", congressRatio: "25x", note: "Major outspend on digital ads, AI-generated content" },
+    { party: "Congress", spend: "₹2-3 crore", congressRatio: "Baseline", note: "Limited digital infrastructure" },
+    { party: "AAP", spend: "₹5-8 crore", congressRatio: "3-4x", note: "State-level digital presence" },
+  ];
+
+  const journalists: Journalist[] = [
     { name: "Barjinder Singh Hamdard", outlet: "Ajit", location: "Jalandhar", score: 4, role: "Editor-in-Chief" },
     { name: "GS Bhullar", outlet: "Jagbani", location: "Jalandhar", score: 3, role: "Officiating President, Punjab Digital Media Association" },
     { name: "Kuldeep Nayyar", outlet: "Drishti Magazine", location: "Chandigarh", score: 3.5, role: "Founder, Former Journalist" },

@@ -2,6 +2,173 @@
 
 import { MetricCard, ProgressBar, DataTable, Badge, MiniChart } from "@/components/ui/MetricCard";
 
+// ============================================================
+// CYCLE 2: OPPOSITION INTELLIGENCE - PERCEPTION INTERFACES
+// ============================================================
+
+interface StrategyPhase {
+  phase: string;
+  name: string;
+  timeline: string;
+  objectives: number;
+  status: "active" | "pending" | "completed";
+}
+
+interface NarrativePillar {
+  pillar: string;
+  sentiment: number;
+  reach: string;
+  owned: boolean;
+}
+
+interface VoteShareTrajectory {
+  year: string;
+  congress: number;
+  aap: number;
+  sad: number;
+  bjp: number;
+}
+
+interface SeatScenario {
+  scenario: string;
+  seats: string;
+  probability: number;
+}
+
+interface ScenarioPlanning {
+  scenario: string;
+  congressSeats: string;
+  aapSeats: string;
+  sadBjpSeats?: string;
+  conditions: string;
+}
+
+interface CMFaceData {
+  candidate: string;
+  base: string;
+  strength: string;
+  weakness: string;
+  regionalGap: string;
+  impact?: string;
+}
+
+interface AnnouncementTiming {
+  timing: string;
+  days: string;
+  status?: string;
+}
+
+interface BreakevenItem {
+  variable: string;
+  seatImpact: string;
+}
+
+// === CYCLE 1: Dera Influence Data (69 seats) ===
+interface DeraInfluence {
+  deraName: string;
+  followers: string;
+  seatsInfluenced: number;
+  primaryRegion: string;
+  politicalLean: string;
+  keyIssue: string;
+}
+
+interface IssueOwnership {
+  issue: string;
+  congressOwned: boolean;
+  aapOwned: boolean;
+  sadBjpOwned: boolean;
+  gap: string;
+}
+
+const deraInfluenceData: DeraInfluence[] = [
+  { deraName: "Dera Ballan (Ravidasia)", followers: "50 lakh+", seatsInfluenced: 23, primaryRegion: "Doaba", politicalLean: "Congress/AAP", keyIssue: "SC reservation, Dera recognition" },
+  { deraName: "Dera Sacha Sauda", followers: "1 crore+", seatsInfluenced: 35, primaryRegion: "Malwa", politicalLean: "SAD traditional", keyIssue: "Social influence, rural vote bank" },
+  { deraName: "Nam Dhaura", followers: "10 lakh+", seatsInfluenced: 8, primaryRegion: "Malwa", politicalLean: "SAD", keyIssue: "Rural influence" },
+  { deraName: "Radha Soami", followers: "20 lakh+", seatsInfluenced: 12, primaryRegion: "Malwa/Doaba", politicalLean: "Swing", keyIssue: "Urban/rural middle class" },
+];
+
+const deraTotalInfluence = {
+  totalSeatsInfluenced: 69,
+  totalFollowers: "2 crore+",
+  primaryImpact: "Vote bank alignment, Caste consolidation",
+  risk: "Dera declarations can shift 10-15% votes in 15-20 seats"
+};
+
+// === CYCLE 1: Issue Ownership Gaps ===
+const issueOwnershipGaps: IssueOwnership[] = [
+  { issue: "Drug Eradication", congressOwned: false, aapOwned: true, sadBjpOwned: false, gap: "AAP owned but failed - opportunity for Congress" },
+  { issue: "Farmer Welfare/MSP", congressOwned: true, aapOwned: false, sadBjpOwned: true, gap: "Congress traditional but SAD split complicates" },
+  { issue: "Youth Employment", congressOwned: false, aapOwned: true, sadBjpOwned: false, gap: "AAP owned but failed - anger opportunity" },
+  { issue: "Law & Order", congressOwned: false, aapOwned: false, sadBjpOwned: true, gap: "BJP opportunity with Nasha Mukt narrative" },
+  { issue: "Good Governance", congressOwned: false, aapOwned: true, sadBjpOwned: false, gap: "AAP owned but corruption perceptions" },
+  { issue: "Healthcare", congressOwned: false, aapOwned: true, sadBjpOwned: false, gap: "AAP owned but failed - vacancy crisis" },
+];
+
+interface GrievanceItem {
+  issue: string;
+  severity: number;
+  salience: number;
+  region: string;
+  priority: "CRITICAL" | "HIGH" | "MEDIUM" | "LOW";
+}
+
+interface AngryVoterProfile {
+  segment: string;
+  grievance: string;
+  intensity: number;
+  AAP2022: string;
+  recovery: string;
+  action: string;
+}
+
+// CYCLE 2: OPPOSITION INTELLIGENCE DATA (from research-P2/03_opposition_intelligence)
+
+// Hung Assembly Likely
+const hungAssemblyProjection = {
+  likelihood: "HIGH",
+  probability: "35-40%",
+  reason: "AAP single largest but short of majority (59 seats needed)",
+  netSwingNeeded: "Congress needs net +41 seats from current 18"
+};
+
+// Anti-Incumbency Score
+const antiIncumbencyScore = {
+  score: "7/10",
+  meaning: "High voter dissatisfaction with AAP",
+  brokenPromises: 7,
+  voteShareCollapse: "42% → 26% (16 point drop)",
+  affectedSeats: "45-55"
+};
+
+// BJP Going Solo
+const bjpSoloIntelligence = {
+  status: "CONFIRMED",
+  date: "March 14, 2026",
+  voteShare2017: 6.6,
+  voteShare2022: 6.6,
+  voteShare2024: 18.56,
+  lsSeats2024: 5,
+  growthFactor: "3x in one cycle"
+};
+
+// WhatsApp Army Sizes
+const whatsAppArmySizes = [
+  { party: "BJP", size: "8-10 lakh", trend: "Growing" },
+  { party: "AAP", size: "4-5 lakh", trend: "Stable" },
+  { party: "Congress", size: "2-3 lakh", trend: "Growing slowly" },
+  { party: "SAD", size: "1-2 lakh", trend: "Declining" }
+];
+
+// Congress Position
+const congressPositionData = {
+  currentSeats: "18-22",
+  ls2024Seats: 7,
+  status: "FACTIONAL",
+  factions: 4,
+  cmFace: "Undecided (6 contenders)"
+};
+
 export default function PerceptionPage() {
   const strategies = [
     { phase: "Phase 1", name: "Foundation", timeline: "May-Jul 2026", objectives: 8, status: "active" },
@@ -357,6 +524,55 @@ export default function PerceptionPage() {
             ))}
           </div>
           <p className="mt-4 text-xs text-slate-500">Reality check: AAP won 92 seats in 2022 from 42% vote share. Congress needs 59 for majority.</p>
+        </div>
+      </div>
+
+      {/* Poll Consensus Ranges - Research-Verified */}
+      <div className="rounded-xl border-2 border-emerald-200 bg-emerald-50 p-6 dark:border-emerald-700 dark:bg-emerald-900/20">
+        <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400 mb-2">
+          Poll Consensus Ranges
+        </h3>
+        <p className="text-sm text-emerald-600 dark:text-emerald-400 mb-4">
+          Aggregated multi-source polling projections — May 2026
+        </p>
+        <div className="grid gap-4 md:grid-cols-3">
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800 border border-emerald-200 dark:border-emerald-700">
+            <div className="flex items-center justify-between">
+              <span className="font-semibold text-blue-600">Congress</span>
+              <Badge variant="info">45-58</Badge>
+            </div>
+            <div className="mt-3">
+              <ProgressBar label="" value={49} color="bg-blue-500" showPercentage={false} />
+            </div>
+            <p className="mt-2 text-xs text-slate-500">Mid-point: 51.5 seats</p>
+          </div>
+
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800 border border-emerald-200 dark:border-emerald-700">
+            <div className="flex items-center justify-between">
+              <span className="font-semibold text-orange-500">AAP</span>
+              <Badge variant="warning">28-37</Badge>
+            </div>
+            <div className="mt-3">
+              <ProgressBar label="" value={32} color="bg-orange-500" showPercentage={false} />
+            </div>
+            <p className="mt-2 text-xs text-slate-500">Mid-point: 32.5 seats</p>
+          </div>
+
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800 border border-emerald-200 dark:border-emerald-700">
+            <div className="flex items-center justify-between">
+              <span className="font-semibold text-green-600">SAD</span>
+              <Badge variant="success">14-18</Badge>
+            </div>
+            <div className="mt-3">
+              <ProgressBar label="" value={16} color="bg-green-500" showPercentage={false} />
+            </div>
+            <p className="mt-2 text-xs text-slate-500">Mid-point: 16 seats</p>
+          </div>
+        </div>
+        <div className="mt-4 p-3 rounded-lg bg-emerald-100 dark:bg-emerald-900/40">
+          <p className="text-sm text-emerald-700 dark:text-emerald-300">
+            <strong>Key Insight:</strong> Hung assembly is the base case scenario. Congress needs to exceed the 45-58 range significantly to approach majority (59 seats). AAP is projected to lose significant seats from 2022's 92.
+          </p>
         </div>
       </div>
 
@@ -1562,6 +1778,96 @@ export default function PerceptionPage() {
         </div>
       </div>
 
+      {/* CYCLE 2: Opposition Intelligence Summary */}
+      <div className="rounded-xl border-2 border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-900/20">
+        <h3 className="text-lg font-semibold text-yellow-700 dark:text-yellow-400 mb-3">
+          Opposition Intelligence Summary
+        </h3>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <div className="flex items-center gap-2">
+              <Badge variant={hungAssemblyProjection.likelihood === "HIGH" ? "danger" : "warning"}>
+                {hungAssemblyProjection.likelihood} LIKELIHOOD
+              </Badge>
+            </div>
+            <p className="mt-2 text-2xl font-bold text-slate-700 dark:text-white">{hungAssemblyProjection.probability}</p>
+            <p className="text-sm text-slate-500">{hungAssemblyProjection.reason}</p>
+            <p className="mt-2 text-xs text-slate-400">{hungAssemblyProjection.netSwingNeeded}</p>
+          </div>
+
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="font-semibold text-slate-700 dark:text-slate-300">Anti-Incumbency Score</h4>
+            <p className="mt-2 text-2xl font-bold text-red-600">{antiIncumbencyScore.score}</p>
+            <p className="text-sm text-slate-500">{antiIncumbencyScore.meaning}</p>
+            <p className="mt-2 text-xs text-slate-400">Vote share: {antiIncumbencyScore.voteShareCollapse}</p>
+          </div>
+
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <div className="flex items-center gap-2">
+              <Badge variant="success">{bjpSoloIntelligence.status}</Badge>
+              <span className="text-xs text-slate-500">{bjpSoloIntelligence.date}</span>
+            </div>
+            <p className="mt-2 text-sm text-slate-700 dark:text-slate-300">Vote Share Growth</p>
+            <p className="text-lg font-bold text-orange-600">
+              {bjpSoloIntelligence.voteShare2017}% → {bjpSoloIntelligence.voteShare2024}%
+            </p>
+            <p className="text-xs text-slate-500">{bjpSoloIntelligence.growthFactor}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* WhatsApp Army & Congress Position */}
+      <div className="grid gap-6 lg:grid-cols-2">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            WhatsApp Army Sizes
+          </h3>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Digital reach comparison</p>
+          <div className="mt-4 space-y-3">
+            {whatsAppArmySizes.map((army) => (
+              <div key={army.party} className="flex items-center justify-between p-3 rounded-lg bg-slate-50 dark:bg-slate-900">
+                <span className="font-medium text-slate-700 dark:text-slate-300">{army.party}</span>
+                <div className="flex items-center gap-2">
+                  <span className="font-bold text-slate-700 dark:text-white">{army.size}</span>
+                  <Badge variant={army.trend === "Growing" ? "success" : army.trend === "Declining" ? "danger" : "info"}>
+                    {army.trend}
+                  </Badge>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+            Congress Position
+          </h3>
+          <div className="mt-4 space-y-3">
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-slate-500">Current Assembly Seats</span>
+              <span className="font-bold text-blue-600">{congressPositionData.currentSeats}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-slate-500">Lok Sabha 2024</span>
+              <span className="font-bold text-blue-600">{congressPositionData.ls2024Seats}/13</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-slate-500">Status</span>
+              <Badge variant="danger">{congressPositionData.status}</Badge>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-sm text-slate-500">Factions</span>
+              <span className="font-bold text-red-600">{congressPositionData.factions} camps</span>
+            </div>
+            <div className="mt-3 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+              <p className="text-sm text-blue-700 dark:text-blue-300">
+                <strong>CM Face:</strong> {congressPositionData.cmFace}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Offline Perception Assets - g80 */}
       <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
@@ -1634,6 +1940,94 @@ export default function PerceptionPage() {
         </div>
       </div>
 
+      {/* CYCLE 1 ENHANCEMENT: 15-Pillar Manifesto Framework */}
+      <div className="rounded-xl border-2 border-emerald-500 bg-emerald-50 p-6 dark:border-emerald-700 dark:bg-emerald-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-lg font-bold text-white">15</span>
+          <div>
+            <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400">15-Pillar Manifesto Framework — Cycle 1</h3>
+            <p className="text-sm text-emerald-600 dark:text-emerald-400">Complete policy priorities with salience scores</p>
+          </div>
+        </div>
+
+        <div className="grid gap-3 md:grid-cols-5">
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-red-600">1. Drugs Eradication</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 10/10</p>
+            <p className="text-xs text-slate-500">Gap: CRITICAL</p>
+          </div>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-orange-600">2. Youth Employment</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 9/10</p>
+            <p className="text-xs text-slate-500">Gap: CRITICAL</p>
+          </div>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-green-600">3. Farmer Debt Relief</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 8/10</p>
+            <p className="text-xs text-slate-500">Gap: HIGH</p>
+          </div>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-blue-600">4. MSP Guarantee</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 8/10</p>
+            <p className="text-xs text-slate-500">Gap: HIGH</p>
+          </div>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-purple-600">5. Healthcare</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 7/10</p>
+            <p className="text-xs text-slate-500">Gap: MEDIUM</p>
+          </div>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-cyan-600">6. Water Crisis</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 7/10</p>
+            <p className="text-xs text-slate-500">Gap: MEDIUM</p>
+          </div>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-teal-600">7. Law & Order</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 8/10</p>
+            <p className="text-xs text-slate-500">Gap: HIGH</p>
+          </div>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-yellow-600">8. Education</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 6/10</p>
+            <p className="text-xs text-slate-500">Gap: MEDIUM</p>
+          </div>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-pink-600">9. Women Safety</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 7/10</p>
+            <p className="text-xs text-slate-500">Gap: MEDIUM</p>
+          </div>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <p className="text-xs font-bold text-indigo-600">10. Industrial Growth</p>
+            <p className="text-xs text-slate-500 mt-1">Salience: 5/10</p>
+            <p className="text-xs text-slate-500">Gap: LOW</p>
+          </div>
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Priority Ranking Rationale</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Top 3 (IMMEDIATE):</span><span className="font-medium text-red-600">Drugs, Jobs, Farmer Debt</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Next 4 (HIGH):</span><span className="font-medium text-orange-600">MSP, Law&Order, Healthcare, Water</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Remaining (MEDIUM):</span><span className="font-medium text-blue-600">Education, Women, Infra, Industry</span></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">CM Face Impact on Manifesto</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Channi (Dalit):</span><span className="font-medium text-purple-600">+5-8pp on SC seats</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Raja Warring:</span><span className="font-medium text-blue-600">+2-4pp youth/organization</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Partap Bajwa:</span><span className="font-medium text-green-600">+2-3pp professional</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-emerald-100 p-3 dark:bg-emerald-900/40">
+          <p className="text-sm text-emerald-700 dark:text-emerald-300">
+            <strong>Key Insight:</strong> Manifesto must lead with Drugs Eradication (10/10 salience) and Youth Employment (9/10). These match AAP's biggest governance failures and offer clearest contrast. CM face announcement should precede manifesto release (Dec 2026) to maximize narrative impact.
+          </p>
+        </div>
+      </div>
     </div>
   );
 }

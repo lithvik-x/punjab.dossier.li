@@ -7,6 +7,46 @@ import { REGIONS } from "@/lib/constants";
 // CYCLE 2: ELECTORAL DATA (from research-P3/electoral-data)
 // ==========================================
 
+// ==========================================
+// CYCLE 2: SOCIO-ECONOMIC DATA (from research-P2/10_socio_economic)
+// ==========================================
+
+interface PunjabSocioEconomic {
+  perCapitaIncome: string;
+  youthUnemployment: string;
+  stateDebt: string;
+  debtToGSDP: string;
+  groundwaterExtraction: string;
+  drugUsers: string;
+  farmDebt: string;
+  hdi: string;
+  mpiPoverty: string;
+  districtPCIDisparity: string;
+  giniCoefficient: string;
+}
+
+const socioEconomicData: PunjabSocioEconomic = {
+  perCapitaIncome: "₹2,30,523",
+  youthUnemployment: "19.3%",
+  stateDebt: "₹4.17 Lakh Crore",
+  debtToGSDP: "44.47%",
+  groundwaterExtraction: "156.36%",
+  drugUsers: "6.6 Million",
+  farmDebt: "₹1.04 Lakh Crore",
+  hdi: "0.740 (Rank 12)",
+  mpiPoverty: "4.75%",
+  districtPCIDisparity: "8.47:1",
+  giniCoefficient: "0.48"
+};
+
+const punjabVsHaryanaData = [
+  { metric: "Per Capita Income", punjab: "₹2,30,523", haryana: "₹3,25,000", gap: "41% less" },
+  { metric: "Youth Unemployment", punjab: "19.3%", haryana: "14.8%", gap: "+4.5pp higher" },
+  { metric: "State Debt/GSDP", punjab: "44.47%", haryana: "28.3%", gap: "+16.17pp higher" },
+  { metric: "Groundwater", punjab: "156%", haryana: "112%", gap: "Over-exploited" },
+  { metric: "HDI Rank", punjab: "12", haryana: "9", gap: "3 ranks lower" },
+];
+
 // LS 2024 Punjab Results
 const ls2024Data = {
   totalVoters: "2.14 crore",
@@ -488,6 +528,116 @@ export default function ConstituencyPage() {
           subtitle="Out of 117 total ACs"
           color="bg-purple-500"
         />
+      </div>
+
+      {/* CYCLE 2: SOCIO-ECONOMIC CRISIS IMPACT ON CONSTITUENCIES (from research-P2/10_socio_economic) */}
+      <div className="rounded-xl border-2 border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-lg font-bold text-white">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-semibold text-red-700 dark:text-red-400">Socio-Economic Crisis Impact on Constituencies (research-P2/10_socio_economic)</p>
+            <p className="text-sm text-red-600 dark:text-red-300">Economic distress driving voter anger across 117 assembly constituencies</p>
+          </div>
+        </div>
+
+        {/* Critical Crisis Metrics */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
+          <MetricCard
+            title="Youth Unemployment"
+            value="19.3%"
+            subtitle="Ages 15-29 (CRITICAL)"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="State Debt"
+            value="₹4.17L Cr"
+            subtitle="LAST in NITI FHI"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Drug Users"
+            value="6.6 Million"
+            subtitle="18% of population"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Groundwater"
+            value="156%"
+            subtitle="Over-exploited"
+            color="bg-red-500"
+          />
+        </div>
+
+        {/* Progress Bars for Crisis Metrics */}
+        <div className="space-y-4 mb-6">
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Youth Unemployment (15-29 yrs)</span>
+              <span className="text-sm font-bold text-red-600">19.3%</span>
+            </div>
+            <ProgressBar label="" value={19.3} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">vs National Average 14.3% — 5pp higher in Punjab</p>
+          </div>
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Debt-to-GSDP Ratio</span>
+              <span className="text-sm font-bold text-red-600">44.47%</span>
+            </div>
+            <ProgressBar label="" value={44.47} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">Fiscal limit: 25% — Punjab is 1.78x over limit</p>
+          </div>
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Groundwater Extraction</span>
+              <span className="text-sm font-bold text-red-600">156.36%</span>
+            </div>
+            <ProgressBar label="" value={100} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">115 of 153 blocks over-exploited — agricultural crisis</p>
+          </div>
+        </div>
+
+        {/* Punjab vs Haryana Comparison */}
+        <div className="rounded-lg bg-white p-4 dark:bg-slate-800 mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Punjab vs Haryana Economic Comparison</h4>
+          <DataTable
+            headers={["Metric", "Punjab", "Haryana", "Impact"]}
+            rows={punjabVsHaryanaData.map(d => [d.metric, d.punjab, d.haryana, d.gap])}
+          />
+        </div>
+
+        {/* Additional Metrics */}
+        <div className="grid gap-4 md:grid-cols-4 mb-6">
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">Per Capita Income</p>
+            <p className="text-xl font-bold text-red-600">₹2,30,523</p>
+            <p className="text-xs text-slate-500">vs Haryana ₹3,25,000</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">Farm Debt</p>
+            <p className="text-xl font-bold text-orange-600">₹1.04L Cr</p>
+            <p className="text-xs text-slate-500">Avg ₹2.03L/household</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">HDI Rank</p>
+            <p className="text-xl font-bold text-yellow-600">0.740</p>
+            <p className="text-xs text-slate-500">Rank 12 among states</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">Gini Coefficient</p>
+            <p className="text-xl font-bold text-orange-600">0.48</p>
+            <p className="text-xs text-slate-500">High inequality</p>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
+          <p className="text-sm text-red-700 dark:text-red-400">
+            <strong>Constituency Impact:</strong> Economic crisis affects all 117 ACs. Youth unemployment (19.3%) drives anger in urban seats. Farm debt and groundwater crisis hit rural Malwa hardest. Drug crisis (6.6M users) is the #1 issue in 40+ rural seats. Anti-incumbent sentiment is high across all constituencies.
+          </p>
+        </div>
       </div>
 
       {/* 2022 Assembly Election Results */}
@@ -2275,6 +2425,52 @@ export default function ConstituencyPage() {
               rows={jalandharSegments.map((s) => [s.segment, s.electors, s.winner, s.party, s.margin])}
             />
           </div>
+        </div>
+      </div>
+
+      {/* CYCLE 1 ENHANCEMENT: 117 Constituency Summary */}
+      <div className="rounded-xl border-2 border-violet-500 bg-violet-50 p-6 dark:border-violet-700 dark:bg-violet-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-500 text-lg font-bold text-white">117</span>
+          <div>
+            <h3 className="text-lg font-semibold text-violet-700 dark:text-violet-400">117 Constituency Profiles — Cycle 1</h3>
+            <p className="text-sm text-violet-600 dark:text-violet-400">Complete constituency data with margin analysis</p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-4">
+          <MetricCard title="Total Seats" value="117" subtitle="Punjab Assembly" color="bg-violet-500" />
+          <MetricCard title="SC Reserved" value="34" subtitle="29% — highest in India" color="bg-purple-500" />
+          <MetricCard title="General" value="83" subtitle="71% of seats" color="bg-blue-500" />
+          <MetricCard title="Swing Margin" value="79%" subtitle="92 seats within margin" color="bg-orange-500" />
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Top Flip Opportunities (Narrow Margins)</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Dera Baba Nanak:</span><span className="font-medium">5,699 (AAP)</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Ferozpur:</span><span className="font-medium">3,242 (Congress)</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Ludhiana:</span><span className="font-medium">20,942 (Congress)</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Amritsar:</span><span className="font-medium">40,146 (Congress)</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Bathinda:</span><span className="font-medium">52,584 (SAD)</span></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Seat Classification</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Safe Congress:</span><span className="font-medium text-blue-600">~25-30</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Safe AAP:</span><span className="font-medium text-orange-600">~35-40</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Contestable:</span><span className="font-medium text-red-600">~45-55</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">SAD strongholds:</span><span className="font-medium text-yellow-600">~10-15</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-violet-100 p-3 dark:bg-violet-900/40">
+          <p className="text-sm text-violet-700 dark:text-violet-300">
+            <strong>Key Insight:</strong> 79% of seats (92/117) are within swing margin — three-way splits determine winners. Congress must defend 2024 LS momentum in urban seats while fighting AAP for SC reserved seats. Priority: narrow-margin Congress seats (Dera Baba Nanak, Ferozpur).
+          </p>
         </div>
       </div>
     </div>

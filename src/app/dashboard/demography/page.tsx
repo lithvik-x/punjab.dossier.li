@@ -1,9 +1,153 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
-import { CASTE_CATEGORIES, REGIONS } from "@/lib/constants";
+import { CASTE_CATEGORIES, REGIONS, POLITICAL_ANATOMY } from "@/lib/constants";
+
+// === TYPESCRIPT INTERFACES ===
+
+interface AgeDistributionEntry {
+  range: string;
+  voters: string;
+  percentage: number;
+  firstTime: boolean;
+}
+
+interface FiveYearCohort {
+  age: string;
+  male: string;
+  female: string;
+}
+
+interface AgeStructureMetrics {
+  tfr: { value: string; note: string; comparison: string; source: string };
+  srs2023AgeGroups: { children014: string; workingAge1559: string; elderly60Plus: string; note: string };
+  census2011AgeGroups: { children014: string; youth1524: string; youngAdults2534: string; middleAged3554: string; olderAdults5564: string; elderly65Plus: string };
+  census2011FiveYearCohorts: FiveYearCohort[];
+  medianAge: { punjab: string; male: string; female: string; rank: string };
+  lifeStagePatterns: { youthBulge: string; demographicDividend: string; ageingAcceleration: string };
+  dependencyRatioProjections: { current: string; projected2027: string; projected2031: string };
+  elderlyRanking: { punjab: string; ruralElderly: string; urbanElderly: string; nationalAverage: string };
+}
+
+interface SCSubCasteEntry {
+  name: string;
+  pctOfSC: string;
+  pop: string;
+  region: string;
+  political: string;
+  color: string;
+  note?: string;
+}
+
+interface CasteCompositionState {
+  generalCaste: { population: string; estimatedVoters: string; includes: string };
+  obc: { population: string; estimatedVoters: string; includes: string };
+  scheduledCastes: { population: string; estimatedVoters: string; note: string };
+  religiousMinorities: { population: string; estimatedVoters: string; includes: string };
+}
+
+interface ReservationArchitecture {
+  sc: string;
+  obc: string;
+  ews: string;
+  total: string;
+  note: string;
+}
+
+interface ReservedSeatPerformance {
+  totalReservedSeats: number;
+  aap: { seats: number; pct: string; note: string };
+  congress: { seats: number; pct: string; note: string };
+}
+
+interface SCSubGroup {
+  name: string;
+  punjabPct: string;
+  keyDistricts: string;
+}
+
+interface MP2CasteComposition {
+  stateLevel: CasteCompositionState;
+  reservationArchitecture: ReservationArchitecture;
+  reservedSeatPerformance: ReservedSeatPerformance;
+  scSubGroups: SCSubGroup[];
+}
+
+interface RegionSeats {
+  region: string;
+  seats: number;
+  scSeats: number;
+  keyCaste: string;
+  notes: string;
+}
+
+interface DistrictDensity {
+  district: string;
+  density: string;
+}
+
+interface PopulationDensityData {
+  stateDensity: string;
+  rank: string;
+  childPopulation06: string;
+  childPopulationPct: string;
+  districtWise: DistrictDensity[];
+}
+
+interface DependencyRatios {
+  youth: string;
+  oldAge: string;
+  total: string;
+}
+
+interface CasteFragmentationIndex {
+  hhi: string;
+  category: string;
+  competitiveness: string;
+}
+
+// ==========================================
+// CYCLE 2: SOCIO-ECONOMIC DATA INTERFACES (from research-P2/10_socio_economic)
+// ==========================================
+
+interface PunjabSocioEconomic {
+  perCapitaIncome: string;
+  youthUnemployment: string;
+  stateDebt: string;
+  debtToGSDP: string;
+  groundwaterExtraction: string;
+  drugUsers: string;
+  farmDebt: string;
+  hdi: string;
+  mpiPoverty: string;
+  districtPCIDisparity: string;
+  giniCoefficient: string;
+}
 
 export default function DemographyPage() {
+  // === CYCLE 2: SOCIO-ECONOMIC DATA (from research-P2/10_socio_economic) ===
+  const socioEconomicData: PunjabSocioEconomic = {
+    perCapitaIncome: "₹2,30,523",
+    youthUnemployment: "19.3%",
+    stateDebt: "₹4.17 Lakh Crore",
+    debtToGSDP: "44.47%",
+    groundwaterExtraction: "156.36%",
+    drugUsers: "6.6 Million",
+    farmDebt: "₹1.04 Lakh Crore",
+    hdi: "0.740 (Rank 12)",
+    mpiPoverty: "4.75%",
+    districtPCIDisparity: "8.47:1",
+    giniCoefficient: "0.48"
+  };
+
+  const punjabVsHaryanaData = [
+    { metric: "Per Capita Income", punjab: "₹2,30,523", haryana: "₹3,25,000", gap: "41% less" },
+    { metric: "Youth Unemployment", punjab: "19.3%", haryana: "14.8%", gap: "+4.5pp higher" },
+    { metric: "State Debt/GSDP", punjab: "44.47%", haryana: "28.3%", gap: "+16.17pp higher" },
+    { metric: "Groundwater", punjab: "156%", haryana: "112%", gap: "Over-exploited" },
+    { metric: "HDI Rank", punjab: "12", haryana: "9", gap: "3 ranks lower" },
+  ];
+
   const ageDistribution = [
     { range: "18-22", voters: "18.2L", percentage: 6.6, firstTime: true },
     { range: "23-30", voters: "42.5L", percentage: 15.3, firstTime: false },
@@ -345,6 +489,13 @@ export default function DemographyPage() {
   };
 
   // Regional Caste Patterns (from MP2-001, MP7-009)
+
+  // === CYCLE 1 DATA: Region Seat Distribution ===
+  const regionSeatsData: RegionSeats[] = [
+    { region: "Malwa", seats: 73, scSeats: 24, keyCaste: "Jat Sikh 20-21%, OBC", notes: "Largest region; AAP dominant in 2022; highest farmer distress" },
+    { region: "Majha", seats: 25, scSeats: 6, keyCaste: "Jat Sikh 30-35%, Mazhabi Sikh", notes: "Border region; SAD traditional base; Tarn Taran by-poll severe swing" },
+    { region: "Doaba", seats: 23, scSeats: 4, keyCaste: "Ravidasia 23-26%, OBC", notes: "NRI concentration; Dera influence; highest SC concentration" },
+  ];
 
   // === DATA FROM MP1-006 (Jat Sikh Demographics Tier 2) ===
   const jatSikhDetails = {
@@ -884,6 +1035,194 @@ export default function DemographyPage() {
           subtitle="Highest in India, 88.6L"
           color="bg-orange-500"
         />
+      </div>
+
+      {/* Political Anatomy - Electoral Demographics Context */}
+      <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-6 shadow-sm dark:border-emerald-800 dark:bg-emerald-900/10">
+        <div className="mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-emerald-800 dark:text-emerald-300">
+            Political Anatomy — Electoral Demographics
+          </h3>
+          <Badge variant="success">Cycle 2 Data</Badge>
+        </div>
+        <p className="mb-6 text-sm text-emerald-700 dark:text-emerald-400">
+          Understanding the electoral composition that shapes voting patterns
+        </p>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">2.14 Cr</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Total Electors</div>
+            <div className="mt-1 text-xs text-slate-500">SC: 32% | Rural: 62.5%</div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">57.7%</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Sikh Population</div>
+            <div className="mt-1 text-xs text-slate-500">1.24 Cr voters</div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">38.5%</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">Hindu Population</div>
+            <div className="mt-1 text-xs text-slate-500">82.3L voters</div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">32%</div>
+            <div className="text-sm text-slate-600 dark:text-slate-400">SC Population</div>
+            <div className="mt-1 text-xs text-slate-500">Highest in India</div>
+          </div>
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-3">
+          <div>
+            <h4 className="mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Regional Seat Distribution</h4>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Malwa</span>
+                <span className="font-medium text-orange-600 dark:text-orange-400">73 seats (62%)</span>
+              </div>
+              <ProgressBar label="" value={59} color="bg-orange-500" showPercentage={false} />
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Majha</span>
+                <span className="font-medium text-blue-600 dark:text-blue-400">25 seats (21%)</span>
+              </div>
+              <ProgressBar label="" value={21} color="bg-blue-500" showPercentage={false} />
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-slate-600 dark:text-slate-400">Doaba</span>
+                <span className="font-medium text-green-600 dark:text-green-400">23 seats (20%)</span>
+              </div>
+              <ProgressBar label="" value={20} color="bg-green-500" showPercentage={false} />
+            </div>
+          </div>
+          <div>
+            <h4 className="mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">Caste Composition</h4>
+            <div className="space-y-1 text-sm">
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">SC</span><span className="font-medium">32%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">OBC</span><span className="font-medium">31%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Jat Sikh</span><span className="font-medium">21%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Mazhabi Sikh</span><span className="font-medium">6.3%</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Upper Caste</span><span className="font-medium">16%</span></div>
+            </div>
+          </div>
+          <div>
+            <h4 className="mb-2 text-sm font-medium text-slate-700 dark:text-slate-300">2022 Assembly Results</h4>
+            <div className="space-y-1 text-sm">
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">AAP</span><span className="font-medium text-cyan-600">92 seats (42%)</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">Congress</span><span className="font-medium text-orange-600">18 seats (23%)</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">SAD</span><span className="font-medium text-green-600">3 seats (18%)</span></div>
+              <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">BJP</span><span className="font-medium">2 seats (6%)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CYCLE 2: SOCIO-ECONOMIC PROFILE (from research-P2/10_socio_economic) */}
+      <div className="rounded-xl border-2 border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-lg font-bold text-white">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-semibold text-red-700 dark:text-red-400">Socio-Economic Demographics (research-P2/10_socio_economic)</p>
+            <p className="text-sm text-red-600 dark:text-red-300">Economic distress impacting demographic patterns and voter behavior</p>
+          </div>
+        </div>
+
+        {/* Critical Crisis Metrics */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
+          <MetricCard
+            title="Youth Unemployment"
+            value="19.3%"
+            subtitle="Ages 15-29 (CRITICAL)"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="State Debt"
+            value="₹4.17L Cr"
+            subtitle="LAST in NITI FHI"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Drug Users"
+            value="6.6 Million"
+            subtitle="18% of population"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Groundwater"
+            value="156%"
+            subtitle="Over-exploited"
+            color="bg-red-500"
+          />
+        </div>
+
+        {/* Progress Bars for Key Metrics */}
+        <div className="space-y-4 mb-6">
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Youth Unemployment (15-29 yrs)</span>
+              <span className="text-sm font-bold text-red-600">19.3%</span>
+            </div>
+            <ProgressBar label="" value={19.3} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">vs National Average 14.3% — Punjab youth most affected</p>
+          </div>
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Debt-to-GSDP Ratio</span>
+              <span className="text-sm font-bold text-red-600">44.47%</span>
+            </div>
+            <ProgressBar label="" value={44.47} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">Fiscal limit: 25% — 1.78x over limit</p>
+          </div>
+          <div>
+            <div className="flex justify-between mb-1">
+              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Groundwater Extraction</span>
+              <span className="text-sm font-bold text-red-600">156.36%</span>
+            </div>
+            <ProgressBar label="" value={100} color="bg-red-500" showPercentage={false} />
+            <p className="text-xs text-slate-500 mt-1">115 of 153 blocks over-exploited</p>
+          </div>
+        </div>
+
+        {/* Punjab vs Haryana Comparison */}
+        <div className="rounded-lg bg-white p-4 dark:bg-slate-800 mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Punjab vs Haryana Economic Comparison</h4>
+          <DataTable
+            headers={["Metric", "Punjab", "Haryana", "Gap"]}
+            rows={punjabVsHaryanaData.map(d => [d.metric, d.punjab, d.haryana, d.gap])}
+          />
+        </div>
+
+        {/* Additional Metrics */}
+        <div className="grid gap-4 md:grid-cols-4 mb-6">
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">Per Capita Income</p>
+            <p className="text-xl font-bold text-red-600">₹2,30,523</p>
+            <p className="text-xs text-slate-500">vs Haryana ₹3,25,000</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">Farm Debt</p>
+            <p className="text-xl font-bold text-orange-600">₹1.04L Cr</p>
+            <p className="text-xs text-slate-500">Avg ₹2.03L/household</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">HDI Rank</p>
+            <p className="text-xl font-bold text-yellow-600">0.740</p>
+            <p className="text-xs text-slate-500">Rank 12 among states</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+            <p className="text-sm text-slate-500">Gini Coefficient</p>
+            <p className="text-xl font-bold text-orange-600">0.48</p>
+            <p className="text-xs text-slate-500">High inequality</p>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
+          <p className="text-sm text-red-700 dark:text-red-400">
+            <strong>Demographic Impact:</strong> Economic distress drives youth emigration (2.37 lakh left for abroad 2019-20). 19.3% youth unemployment in ages 15-29 creates anger + resignation sentiment. Rural-to-urban migration accelerating due to agrarian distress.
+          </p>
+        </div>
       </div>
 
       <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
@@ -2503,6 +2842,57 @@ export default function DemographyPage() {
         <div className="mt-4 rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
           <p className="text-sm text-slate-600 dark:text-slate-400">
             <span className="font-semibold">Key 2027 Targets:</span> Congress needs +12-15pp swing to reach majority. BJP aims to contest all 117 seats independently. <span className="font-semibold text-purple-700 dark:text-purple-400">SAD (Amritsar), Waris Punjab De</span> competing for Jat Sikh votes. <span className="font-semibold">Swing voters: ~15-20%</span> — determine outcomes in 35-45 competitive seats.
+          </p>
+        </div>
+      </div>
+
+      {/* CYCLE 1 ENHANCEMENT: Punjab State Overview */}
+      <div className="rounded-xl border-2 border-teal-500 bg-teal-50 p-6 dark:border-teal-700 dark:bg-teal-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500 text-lg font-bold text-white">P</span>
+          <div>
+            <h3 className="text-lg font-semibold text-teal-700 dark:text-teal-400">Punjab State Overview — Cycle 1 Research</h3>
+            <p className="text-sm text-teal-600 dark:text-teal-400">3.14 Crore Population | 13 Municipal Corporations | TFR 1.6</p>
+          </div>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-4">
+          <MetricCard title="Total Population" value="3.14 Cr" subtitle="Census 2024 estimate" color="bg-teal-500" />
+          <MetricCard title="SC Population" value="32%" subtitle="Highest in India — 34 reserved seats" color="bg-purple-500" />
+          <MetricCard title="Total Fertility Rate" value="1.6" subtitle="Below replacement (2.1) — aging demographic" color="bg-orange-500" />
+          <MetricCard title="Municipal Corporations" value="13" subtitle="Urban governance units" color="bg-blue-500" />
+        </div>
+
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Urban-Rural Split</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Urban:</span><span className="font-medium">37%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Rural:</span><span className="font-medium">63%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Gender Ratio:</span><span className="font-medium">895:1000</span></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Age Demographics</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Median Age:</span><span className="font-medium">28.4 years</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Working Age (15-59):</span><span className="font-medium">69.1%</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Elderly 60+:</span><span className="font-medium">11.6%</span></div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Electoral Basics</p>
+            <div className="mt-3 space-y-2 text-xs">
+              <div className="flex justify-between"><span className="text-slate-500">Eligible Voters:</span><span className="font-medium">~2.25 Cr</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Polling Stations:</span><span className="font-medium">22,000-25,000</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Voters/Booth:</span><span className="font-medium">650-1,000</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-teal-100 p-3 dark:bg-teal-900/40">
+          <p className="text-sm text-teal-700 dark:text-teal-300">
+            <strong>Key Insight:</strong> Punjab's demographic transition — low TFR (1.6), aging population, high SC proportion (32%) — creates unique electoral dynamics. Youth unemployment at 18.8% and groundwater crisis (157% extraction) drive voter dissatisfaction.
           </p>
         </div>
       </div>
