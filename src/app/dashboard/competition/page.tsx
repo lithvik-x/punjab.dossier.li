@@ -1,6 +1,13 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
+import {
+  synthesisPartyData,
+  KEY_SYNTHESIS_METRICS,
+  crossReferenceValidation,
+  qualityValidation,
+  gapAnalysis,
+} from "@/lib/synthesis-data";
 
 // ============================================================
 // CYCLE 2: OPPOSITION INTELLIGENCE INTERFACES
@@ -2999,6 +3006,109 @@ export default function CompetitionPage() {
             mobilization. Political analyst Ashutosh Kumar: "No other party has tried to tap this potential so systematically...
             What the BJP is attempting is to convert cultural assertion into political alignment."
           </p>
+        </div>
+
+        {/* ========================================== */}
+        {/* SYNTHESIS INTELLIGENCE SECTION */}
+        {/* Derived from: s1-s4 synthesis MD files */}
+        {/* ========================================== */}
+
+        {/* Party Positioning Synthesis */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-blue-50 to-indigo-50 p-4 dark:from-blue-900/20 dark:to-indigo-900/20">
+          <h3 className="mb-3 text-lg font-semibold text-blue-700 dark:text-blue-400">
+            Synthesis Intelligence: Party Positioning
+          </h3>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">BJP Vote Share Growth</div>
+              <div className="text-2xl font-bold text-green-600">{synthesisPartyData.bjp.voteShare2019}% → {synthesisPartyData.bjp.voteShare2024}%</div>
+              <div className="text-xs text-slate-400">{synthesisPartyData.bjp.status}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">AAP Vote Collapse</div>
+              <div className="text-2xl font-bold text-red-600">{synthesisPartyData.aap.voteShare2022}% → {synthesisPartyData.aap.voteShare2024}%</div>
+              <div className="text-xs text-red-400">Mandate: {synthesisPartyData.aap.mandateStatus}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Congress LS Seats 2024</div>
+              <div className="text-2xl font-bold text-blue-600">{synthesisPartyData.congress.seats2024}/13</div>
+              <div className="text-xs text-slate-400">Factions: {synthesisPartyData.congress.factions.join(", ")}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">SAD Split</div>
+              <div className="text-2xl font-bold text-amber-600">{synthesisPartyData.sad.splitDate}</div>
+              <div className="text-xs text-slate-400">{synthesisPartyData.sad.factions.length} factions</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Party Key Metrics from Synthesis */}
+        <div className="mb-6 rounded-lg bg-slate-50 p-4 dark:bg-slate-800/50">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">
+            Party Metrics (Synthesized from s1 Cross-Reference)
+          </h4>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {KEY_SYNTHESIS_METRICS
+              .filter(m => m.category === "Party")
+              .map((metric) => (
+                <div key={metric.id} className="flex items-start gap-2 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-700">
+                  <div className="flex flex-col items-center">
+                    <span className={`h-2 w-2 rounded-full ${
+                      metric.trend === "up" ? "bg-green-500" :
+                      metric.trend === "down" ? "bg-red-500" : "bg-slate-500"
+                    }`}></span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-xs text-slate-500">{metric.metric}</div>
+                    <div className="text-lg font-bold text-slate-800 dark:text-slate-200">{metric.value}</div>
+                    <div className="text-xs text-slate-400">Source: {metric.source}</div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+
+        {/* Quality Validation Summary */}
+        <div className="mb-6 rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-green-700 dark:text-green-400">
+            Quality Validation Summary (s3)
+          </h4>
+          <div className="grid gap-3 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Total Documents</div>
+              <div className="text-xl font-bold text-indigo-600">{qualityValidation.scope.total}</div>
+              <div className="text-xs text-slate-400">Pass Rate: {qualityValidation.passRate}%</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track A HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackASummary.high}/{qualityValidation.trackASummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track B HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackBSummary.high}/{qualityValidation.trackBSummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Assessment</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.overallAssessment}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tier 1 Critical Gaps */}
+        <div className="mb-6 rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-red-700 dark:text-red-400">
+            Tier 1 Critical Gaps (Require Immediate Remediation)
+          </h4>
+          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {gapAnalysis.tier1Gaps.map((gap, idx) => (
+              <div key={idx} className="flex items-start gap-2 rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+                  {idx + 1}
+                </span>
+                <span className="text-xs text-slate-600 dark:text-slate-400">{gap}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

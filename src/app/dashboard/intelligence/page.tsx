@@ -2,6 +2,12 @@
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
 import { POLITICAL_ANATOMY } from "@/lib/constants";
+import {
+  KEY_SYNTHESIS_METRICS,
+  crossReferenceValidation,
+  qualityValidation,
+  gapAnalysis,
+} from "@/lib/synthesis-data";
 
 // ==========================================
 // CYCLE 2: ELECTION COMMISSION DATA INTERFACES
@@ -4200,6 +4206,95 @@ const voterRegistrationData = {
           <p className="text-sm text-red-700 dark:text-red-300">
             <strong>Strategic Exploit:</strong> Counter AAP "welfare" narrative by documenting delivery gaps. Focus on: (1) ₹1,000 stipends actual vs claimed, (2) 25L jobs vs unemployment rise, (3) Drug promises vs overdose deaths. These are verifiable, emotionally resonant counter-narratives.
           </p>
+        </div>
+
+        {/* ========================================== */}
+        {/* SYNTHESIS INTELLIGENCE SECTION */}
+        {/* Derived from: s1-s4 synthesis MD files */}
+        {/* ========================================== */}
+
+        {/* Synthesis Overview */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-indigo-50 to-purple-50 p-4 dark:from-indigo-900/20 dark:to-purple-900/20">
+          <h3 className="mb-3 text-lg font-semibold text-indigo-700 dark:text-indigo-400">
+            Synthesis Intelligence Overview
+          </h3>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Documents Validated</div>
+              <div className="text-2xl font-bold text-indigo-600">{crossReferenceValidation.documentsReviewed.total}</div>
+              <div className="text-xs text-slate-400">Track A: {crossReferenceValidation.documentsReviewed.trackA} + Track B: {crossReferenceValidation.documentsReviewed.trackB}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Quality Pass Rate</div>
+              <div className="text-2xl font-bold text-green-600">{qualityValidation.passRate}%</div>
+              <div className="text-xs text-slate-400">{qualityValidation.overallAssessment}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Critical Gap Categories</div>
+              <div className="text-2xl font-bold text-red-600">{gapAnalysis.categoryGapAnalysis.filter(c => c.coverageRating === "CRITICAL_GAP").length}</div>
+              <div className="text-xs text-slate-400">Require immediate attention</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Corroborated Findings</div>
+              <div className="text-2xl font-bold text-green-600">{crossReferenceValidation.corroboratedFindings.length}</div>
+              <div className="text-xs text-slate-400">Cross-validated</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Gap Analysis - Intelligence Analytics */}
+        <div className="mb-6 rounded-lg bg-amber-50 p-4 dark:bg-amber-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-amber-700 dark:text-amber-400">
+            Gap Analysis: Intelligence Analytics (Category)
+          </h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Framework Sections</div>
+              <div className="text-xl font-bold text-indigo-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Intelligence Analytics")?.frameworkSections || "N/A"}
+              </div>
+              <div className="text-xs text-slate-400">coverage: {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Intelligence Analytics")?.coveragePercent || 0}%</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Documents in Category</div>
+              <div className="text-xl font-bold text-amber-600">
+                Track A: {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Intelligence Analytics")?.trackAFiles || 0} /
+                Track B: {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Intelligence Analytics")?.trackBFiles || 0}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tier 1 Critical Gaps */}
+        <div className="mb-6 rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-red-700 dark:text-red-400">
+            Tier 1 Critical Gaps (Require Immediate Remediation)
+          </h4>
+          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {gapAnalysis.tier1Gaps.map((gap, idx) => (
+              <div key={idx} className="flex items-start gap-2 rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+                  {idx + 1}
+                </span>
+                <span className="text-xs text-slate-600 dark:text-slate-400">{gap}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Quality Validation Best Practices */}
+        <div className="mb-6 rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-green-700 dark:text-green-400">
+            Best Practice Documents (s3)
+          </h4>
+          <div className="grid gap-2 md:grid-cols-2">
+            {qualityValidation.bestPracticesDocuments.slice(0, 4).map((doc, idx) => (
+              <div key={idx} className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                <div className="text-xs font-medium text-slate-700 dark:text-slate-300">{doc.document}</div>
+                <div className="text-xs text-slate-500 mt-1">{doc.reason}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -2,6 +2,12 @@
 
 import { MetricCard, ProgressBar, DataTable, Badge, MiniChart } from "@/components/ui/MetricCard";
 import { KEY_ISSUES_VERIFIED, POLITICAL_ANATOMY } from "@/lib/constants";
+import {
+  KEY_SYNTHESIS_METRICS,
+  crossReferenceValidation,
+  qualityValidation,
+  gapAnalysis,
+} from "@/lib/synthesis-data";
 
 // ============================================================
 // CYCLE 2: OPPOSITION INTELLIGENCE - PUBLIC SENTIMENT
@@ -82,6 +88,66 @@ interface PunjabSocioEconomic {
   mpiPoverty: SocioEconomicMetric;
   districtPCIDisparity: SocioEconomicMetric;
   giniCoefficient: SocioEconomicMetric;
+}
+
+interface AllianceMathItem {
+  party: string;
+  likelySeats: string;
+  region: string;
+  conditions: string[];
+}
+
+interface GovernmentFormation {
+  formation: string;
+  floorTestTiming?: string;
+  riskFactors?: string[];
+  allianceMath?: AllianceMathItem[];
+  governorDynamics?: string[];
+  horseTradingPrevention?: string[];
+}
+
+interface CabinetConsiderations {
+  ministerCount: string;
+  regionalBalance: string;
+  communityRepresentation: string[];
+  keyPortfolios: string[];
+  experienceVsNewFaces: string;
+}
+
+interface Swot {
+  strengths: string[];
+  weaknesses: string[];
+  opportunities: string[];
+  threats: string[];
+}
+
+interface ScenarioItem {
+  scenarioId: string;
+  scenarioName: string;
+  seatRange: string;
+  probabilityAssessment: string;
+  governmentFormation: GovernmentFormation;
+  cabinetConsiderations?: CabinetConsiderations;
+  first100DaysAgenda?: string[];
+  swot: Swot;
+}
+
+interface ScenarioMatrix {
+  scenarios: ScenarioItem[];
+}
+
+interface MediaManagement {
+  designatedSpokesperson: string;
+  speechesPrepared: boolean;
+  socialMediaWarRoom: boolean;
+  legalTeamOnStandby: boolean;
+}
+
+interface CommunicationStrategy {
+  victorySpeech: string[];
+  coalitionAnnouncement: string[];
+  concessionSpeech: string[];
+  mediaManagement: MediaManagement;
 }
 
 // CYCLE 2: SOCIO-ECONOMIC DATA (from research-P2/10_socio_economic)
@@ -757,6 +823,228 @@ export default function PublicSentimentPage() {
     }
   };
 
+// ==========================================
+// CYCLE 4: POST-ELECTION SCENARIOS (T-MP10-FUTR-001)
+// Scenario Matrix - 5 Congress Seat Scenarios
+// ==========================================
+
+const scenarioMatrixData: ScenarioMatrix = {
+  scenarios: [
+    {
+      scenarioId: "A",
+      scenarioName: "Comfortable Majority",
+      seatRange: "70+ Seats",
+      probabilityAssessment: "VERIFICATION_NEEDED - depends on campaign execution, AAP performance, alliance dynamics",
+      governmentFormation: {
+        formation: "Congress forms government alone; CLP elects leader becomes CM; no alliance dependency",
+        floorTestTiming: "Within 15-30 days (Bommai precedent)",
+      },
+      cabinetConsiderations: {
+        ministerCount: "18-20 Ministers (91st Amendment cap: 17 max)",
+        regionalBalance: "Malwa, Majha, Doaba must all have representation",
+        communityRepresentation: ["Jat Sikh", "Dalit (32% of Punjab population)", "Hindu", "Other communities"],
+        keyPortfolios: ["Home", "Finance", "Revenue", "Agriculture", "PWD", "Health", "Education"],
+        experienceVsNewFaces: "Mix of veterans and fresh talent",
+      },
+      first100DaysAgenda: [
+        "Fulfill top 3 manifesto promises",
+        "Establish anti-corruption mechanisms",
+        "Address farmer distress (loan waiver or MSP assurance)",
+        "Drug menace policy (rehabilitation and enforcement)",
+        "Administrative clean-up (transfer postings based on merit)",
+      ],
+      swot: {
+        strengths: [
+          "Strong mandate enables bold reforms",
+          "No coalition compulsions",
+          "Can set narrative from Day 1",
+        ],
+        weaknesses: [
+          "High expectations may be difficult to meet",
+          "Internal factionalism may resurface without external pressure",
+          "Anti-incumbency clock starts immediately",
+        ],
+        opportunities: [
+          "Reset Congress brand in Punjab for next decade",
+          "Demonstrate governance contrast with AAP",
+          "Build cadre for Lok Sabha 2029",
+        ],
+        threats: [
+          "AAP may regroup as aggressive opposition",
+          "Central government (BJP) may create administrative friction",
+          "Media scrutiny on every unfulfilled promise",
+        ],
+      },
+    },
+    {
+      scenarioId: "B",
+      scenarioName: "Narrow Majority",
+      seatRange: "59-69 Seats",
+      probabilityAssessment: "VERIFICATION_NEEDED",
+      governmentFormation: {
+        formation: "Congress can form government alone but with thin margin",
+        floorTestTiming: "Request earliest possible test (within 3-5 days)",
+        riskFactors: [
+          "2-3 defections trigger crisis",
+          "BJP/AAP poaching with central backing",
+          "By-election losses erode margin",
+        ],
+      },
+      cabinetConsiderations: {
+        ministerCount: "Strategic allocation - every berth is a loyalty tool",
+        regionalBalance: "Maximum caution - dissatisfaction = defection risk",
+        communityRepresentation: ["Jat Sikh", "Dalit", "Hindu", "Other communities"],
+        keyPortfolios: ["Home", "Finance", "Agriculture", "PWD", "Health"],
+        experienceVsNewFaces: "Prioritize loyalty over experience",
+      },
+      swot: {
+        strengths: [
+          "Full majority claim, no coalition constraints",
+        ],
+        weaknesses: [
+          "2-3 defections trigger crisis",
+          "Factional demands harder to manage",
+        ],
+        opportunities: [
+          "Demonstrate majority legitimacy",
+        ],
+        threats: [
+          "BJP/AAP poaching with central backing",
+          "By-election losses erode margin",
+        ],
+      },
+    },
+    {
+      scenarioId: "C",
+      scenarioName: "Single Largest, Short of Majority",
+      seatRange: "40-58 Seats",
+      probabilityAssessment: "Hung Assembly - Need Alliance Partners",
+      governmentFormation: {
+        formation: "Congress needs 59 seats for majority; shortfall of 1-19 seats",
+        allianceMath: [
+          { party: "BSP", likelySeats: "2-5 seats", region: "Doaba/Malwa SC-heavy constituencies", conditions: ["Deputy CM", "Significant portfolio"] },
+          { party: "SAD (Amritsar/Amarinder faction)", likelySeats: "3-8 seats", region: "Fragmented Akali vote", conditions: ["Farmer-friendly policies", "Sikh religious body influence"] },
+          { party: "Independents", likelySeats: "2-6 seats", region: "Statewide", conditions: ["Ministerial berths", "Constituency development funds"] },
+        ],
+        governorDynamics: [
+          "Governor has discretion in hung assembly",
+          "BJP influence on Governor possible (central appointee)",
+          "Legal strategy: Have alliance letters ready before approaching Governor",
+        ],
+        horseTradingPrevention: [
+          "Lodge pre-emptive complaint with Election Commission",
+          "Document all MLA commitments in writing",
+          "Approach Supreme Court for proactive anti-defection enforcement",
+          "House MLAs in secure location during government formation",
+        ],
+      },
+      swot: {
+        strengths: [
+          "Congress as natural pole of anti-AAP/BJP sentiment",
+          "Historical precedent: Congress has managed coalitions",
+          "Can claim 'people chose Congress as largest party'",
+        ],
+        weaknesses: [
+          "Dependency on unreliable allies",
+          "Policy compromises may dilute governance",
+          "Allies may extract unreasonable demands mid-term",
+        ],
+        opportunities: [
+          "Build long-term alliance structure for future elections",
+          "Demonstrate coalition-building ability",
+          "Reform-oriented allies could strengthen governance",
+        ],
+        threats: [
+          "Government collapse mid-term if allies withdraw",
+          "Presidential/Speaker manipulation by opposition",
+          "Bye-election losses could sink the government",
+        ],
+      },
+    },
+    {
+      scenarioId: "D",
+      scenarioName: "Strong Opposition",
+      seatRange: "25-39 Seats",
+      probabilityAssessment: "Opposition Status",
+      governmentFormation: {
+        formation: "Claim Leader of Opposition position (minimum 10% of House = 12 MLAs - easily met)",
+      },
+      swot: {
+        strengths: [
+          "Significant floor presence to anchor opposition unity",
+        ],
+        weaknesses: [
+          "Patronage networks weaken",
+          "Factional blame game risk",
+        ],
+        opportunities: [
+          "Government will face anti-incumbency by 2030",
+        ],
+        threats: [
+          "AAP/BJP co-opt Congress vote base",
+          "Further decline if not arrested",
+        ],
+      },
+    },
+    {
+      scenarioId: "E",
+      scenarioName: "Poor Performance",
+      seatRange: "<25 Seats",
+      probabilityAssessment: "Emergency Review Required",
+      governmentFormation: {
+        formation: "Emergency CLP meeting within 48 hours; independent committee to analyze defeat",
+      },
+      swot: {
+        strengths: [
+          "Congress brand has residual value",
+          "2017 proved 77 seats possible",
+        ],
+        weaknesses: [
+          "Existential questions",
+          "Donor flight",
+          "Cadre shift to winning parties",
+        ],
+        opportunities: [
+          "Clean slate for new leadership",
+        ],
+        threats: [
+          "AAP/BJP consolidate further",
+          "Regional parties fill vacuum",
+        ],
+      },
+    },
+  ],
+};
+
+const communicationStrategyData: CommunicationStrategy = {
+  victorySpeech: [
+    "Acknowledge people's mandate with humility",
+    "Credit party workers and alliance partners",
+    "Outline immediate priorities (first 100 days preview)",
+    "Message of unity - 'Punjab's victory, not Congress's victory'",
+    "Graceful mention of opponents - democratic tradition",
+  ],
+  coalitionAnnouncement: [
+    "Announce alliance before claiming to form government",
+    "Present Common Minimum Program",
+    "Introduce ally leaders - visual of unity",
+    "Emphasize stability and shared vision for Punjab",
+  ],
+  concessionSpeech: [
+    "Accept people's verdict gracefully - no conspiracy theories",
+    "Thank workers for effort",
+    "Commit to constructive opposition",
+    "No immediate leadership announcements (allow reflection period)",
+    "'We will be back stronger' - forward-looking message",
+  ],
+  mediaManagement: {
+    designatedSpokesperson: "Prepare designated spokesperson for each scenario",
+    speechesPrepared: true,
+    socialMediaWarRoom: true,
+    legalTeamOnStandby: true,
+  },
+};
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
@@ -1000,6 +1288,595 @@ export default function PublicSentimentPage() {
           <p className="text-sm text-red-700 dark:text-red-400">
             <strong>Sentiment Impact:</strong> Economic distress (19.3% youth unemployment, ₹4.17L Cr debt) is driving Anger + Resignation emotions. 6.6M drug users and agrarian debt create powerful anti-incumbent narrative for Congress to exploit.
           </p>
+        </div>
+      </div>
+
+      {/* LOCAL ISSUES: MAJHA & DOABA - From MP1-foundational/governance/local-issues-majha-doaba.md */}
+      <div className="rounded-xl border-2 border-indigo-200 bg-indigo-50 p-6 dark:border-indigo-800 dark:bg-indigo-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-lg font-bold text-white">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div>
+            <p className="font-semibold text-indigo-700 dark:text-indigo-400">
+              Local Issues: Majha (25 Seats) & Doaba (23 Seats) — MP1-Foundational
+            </p>
+            <p className="text-sm text-indigo-600 dark:text-indigo-300">
+              Region-specific issues ranked by voter priority — Research Date: 19 May 2026
+            </p>
+          </div>
+        </div>
+
+        {/* Meta Info */}
+        <div className="mb-4 grid gap-4 md:grid-cols-4">
+          <MetricCard
+            title="Majha AAP 2022"
+            value="17/25"
+            subtitle="seats won"
+            color="bg-cyan-500"
+          />
+          <MetricCard
+            title="Majha Congress 2022"
+            value="3/25"
+            subtitle="seats won"
+            color="bg-orange-500"
+          />
+          <MetricCard
+            title="Doaba AAP 2022"
+            value="13/23"
+            subtitle="seats won"
+            color="bg-cyan-500"
+          />
+          <MetricCard
+            title="Doaba Congress 2022"
+            value="7/23"
+            subtitle="seats won"
+            color="bg-orange-500"
+          />
+        </div>
+      </div>
+
+      {/* MAJHA ISSUES */}
+      <div className="rounded-xl border border-red-200 bg-red-50/50 p-6 dark:border-red-800 dark:bg-red-900/10">
+        <div className="mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-red-800 dark:text-red-300">
+            MAJHA REGION — Top 5 Issues
+          </h3>
+          <Badge variant="danger">Border Security | Drug Crisis | Water | Sacrilege</Badge>
+        </div>
+
+        {/* Issue 1: Border Farming */}
+        <div className="mb-6 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white font-bold">1</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">Border Farming Restrictions & Land Access</h4>
+                <Badge variant="danger">HIGH Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">10-12 border seats affected | 21,500 acres farmer land + 10,000 acres govt land</p>
+              <div className="mt-3 grid gap-2 md:grid-cols-3">
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Affected Villages</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">~220</p>
+                </div>
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Total Hectares</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">15-17 Lakh</p>
+                </div>
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Resolution</p>
+                  <p className="text-lg font-bold text-yellow-600">PARTIAL</p>
+                </div>
+              </div>
+              <div className="mt-3 rounded bg-amber-50 p-2 dark:bg-amber-900/20">
+                <p className="text-sm text-amber-700 dark:text-amber-400">
+                  <strong>Key Grievance:</strong> BSF gates open 9am-5pm (summer) / 10am-4pm (winter); 2 Kisan Guards per tractor; some villages (Chhina Bhidichand, Khalra, Vaan, Dhal in Tarn Taran) have fencing 1 km inside Indian territory
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="warning">Central Govt blamed (BSF protocol)</Badge>
+                <Badge variant="warning">AAP blamed (slow implementation)</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Issue 2: Drug Menace */}
+        <div className="mb-6 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white font-bold">2</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">Drug Menace & Youth Addiction</h4>
+                <Badge variant="danger">EXTREME Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">Tarn Taran (all 3 seats), Amritsar rural, Gurdaspur border belt | Worst district in Punjab</p>
+              <div className="mt-3 grid gap-2 md:grid-cols-4">
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Deaths (32 days)</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">42</p>
+                </div>
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Hooch Deaths (5 yrs)</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">176</p>
+                </div>
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Arrests Claimed</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">992</p>
+                </div>
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Budget 2025-26</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">Rs 438 Cr</p>
+                </div>
+              </div>
+              <div className="mt-3 rounded bg-red-100 p-2 dark:bg-red-900/40">
+                <p className="text-sm text-red-700 dark:text-red-400">
+                  <strong>Crucial Data:</strong> 2020 Majha hooch tragedy killed 121 (80 in Tarn Taran alone). Methanol-based spurious liquor killed 27 in Majitha (May 2025). Drone drops from Pakistan routine in Tarn Taran/Amritsar border villages.
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="danger">UNRESOLVED</Badge>
+                <Badge variant="warning">Centre blamed (border sealing)</Badge>
+                <Badge variant="warning">State blamed (rehabilitation)</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Issue 3: Groundwater Contamination */}
+        <div className="mb-6 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white font-bold">3</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">Groundwater Contamination — Arsenic & Uranium</h4>
+                <Badge variant="warning">SEVERE Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">Amritsar (worst), Tarn Taran, Gurdaspur | Silent public health emergency</p>
+              <div className="mt-3 grid gap-2 md:grid-cols-4">
+                <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
+                  <p className="text-xs text-blue-600 dark:text-blue-400">Samples Analysed</p>
+                  <p className="text-lg font-bold text-blue-700 dark:text-blue-300">2,709</p>
+                </div>
+                <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
+                  <p className="text-xs text-blue-600 dark:text-blue-400">Exceed Arsenic Limit</p>
+                  <p className="text-lg font-bold text-blue-700 dark:text-blue-300">16%</p>
+                </div>
+                <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
+                  <p className="text-xs text-blue-600 dark:text-blue-400">Uranium Contamination</p>
+                  <p className="text-lg font-bold text-blue-700 dark:text-blue-300">62%</p>
+                </div>
+                <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
+                  <p className="text-xs text-blue-600 dark:text-blue-400">Arsenic Habitations</p>
+                  <p className="text-lg font-bold text-blue-700 dark:text-blue-300">60%</p>
+                </div>
+              </div>
+              <div className="mt-3 rounded bg-blue-100 p-2 dark:bg-blue-900/40">
+                <p className="text-sm text-blue-700 dark:text-blue-400">
+                  <strong>Amritsar:</strong> Highest arsenic — 111 ppb found (safe limit: 0.05 ppm / 50 ppb). 44.10% of samples show "very high" health risk. Tarn Taran has highest uranium in Majha. Study published in Environmental Geochemistry and Health (2024).
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="danger">UNRESOLVED</Badge>
+                <Badge variant="info">CGWB 2025 Data</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Issue 4: Sacrilege Justice */}
+        <div className="mb-6 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white font-bold">4</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">Sacrilege Justice & Sikh Religious Sentiment</h4>
+                <Badge variant="warning">HIGH Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">All Majha seats | Emotive, politically volatile, mobilises Sikh vote</p>
+              <div className="mt-3 grid gap-2 md:grid-cols-3">
+                <div className="rounded bg-purple-50 p-2 dark:bg-purple-900/30">
+                  <p className="text-xs text-purple-600 dark:text-purple-400">Cases Since 2015</p>
+                  <p className="text-lg font-bold text-purple-700 dark:text-purple-300">97</p>
+                </div>
+                <div className="rounded bg-purple-50 p-2 dark:bg-purple-900/30">
+                  <p className="text-xs text-purple-600 dark:text-purple-400">Convictions</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">ZERO</p>
+                </div>
+                <div className="rounded bg-purple-50 p-2 dark:bg-purple-900/30">
+                  <p className="text-xs text-purple-600 dark:text-purple-400">Law Passed Apr 2026</p>
+                  <p className="text-lg font-bold text-green-700 dark:text-green-300">Life Imprisonment</p>
+                </div>
+              </div>
+              <div className="mt-3 rounded bg-purple-100 p-2 dark:bg-purple-900/40">
+                <p className="text-sm text-purple-700 dark:text-purple-400">
+                  AAP passed "Jagat Jot Sri Guru Granth Sahib Satkar (Amendment) Act" (Apr 2026) with life imprisonment — but ZERO past convictions achieved. Justice Ranjit Singh Commission findings still not acted upon.
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="warning">PARTIAL</Badge>
+                <Badge variant="info">Prospective law only</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Issue 5: Hooch Tragedies */}
+        <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-500 text-white font-bold">5</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">Spurious Liquor / Hooch Tragedies</h4>
+                <Badge variant="warning">HIGH Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">Majitha (Amritsar), Tarn Taran seats, Batala (Gurdaspur) | Recurring, deeply emotional</p>
+              <div className="mt-3 grid gap-2 md:grid-cols-3">
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Majitha Deaths (May 2025)</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">27</p>
+                </div>
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Majha Deaths (2020)</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">121</p>
+                </div>
+                <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+                  <p className="text-xs text-red-600 dark:text-red-400">Total (5 Years)</p>
+                  <p className="text-lg font-bold text-red-700 dark:text-red-300">176</p>
+                </div>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="danger">UNRESOLVED</Badge>
+                <Badge variant="warning">AAP blamed (excise policy)</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* DOABA ISSUES */}
+      <div className="rounded-xl border border-green-200 bg-green-50/50 p-6 dark:border-green-800 dark:bg-green-900/10">
+        <div className="mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-green-800 dark:text-green-300">
+            DOABA REGION — Top 5 Issues
+          </h3>
+          <Badge variant="success">NRI Issues | Migration | Industry | Sugarcane</Badge>
+        </div>
+
+        {/* Issue 1: NRI Property */}
+        <div className="mb-6 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white font-bold">1</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">NRI Property Disputes & Diaspora Alienation</h4>
+                <Badge variant="danger">EXTREME Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">All Doaba seats; especially Jalandhar rural, Kapurthala, Nawanshahr, Hoshiarpur</p>
+              <div className="mt-3 grid gap-2 md:grid-cols-4">
+                <div className="rounded bg-green-50 p-2 dark:bg-green-900/30">
+                  <p className="text-xs text-green-600 dark:text-green-400">NRI Commission Complaints</p>
+                  <p className="text-lg font-bold text-green-700 dark:text-green-300">50%</p>
+                </div>
+                <div className="rounded bg-green-50 p-2 dark:bg-green-900/30">
+                  <p className="text-xs text-green-600 dark:text-green-400">Actual Estimate</p>
+                  <p className="text-lg font-bold text-green-700 dark:text-green-300">10x higher</p>
+                </div>
+                <div className="rounded bg-green-50 p-2 dark:bg-green-900/30">
+                  <p className="text-xs text-green-600 dark:text-green-400">MEA Complaints (2025)</p>
+                  <p className="text-lg font-bold text-green-700 dark:text-green-300">140</p>
+                </div>
+                <div className="rounded bg-green-50 p-2 dark:bg-green-900/30">
+                  <p className="text-xs text-green-600 dark:text-green-400">Households Overseas</p>
+                  <p className="text-lg font-bold text-green-700 dark:text-green-300">24%</p>
+                </div>
+              </div>
+              <div className="mt-3 rounded bg-green-100 p-2 dark:bg-green-900/40">
+                <p className="text-sm text-green-700 dark:text-green-400">
+                  <strong>Key Data:</strong> 80% of NRI complaints are land-related (illegal possession, forged documents, family conflicts). NRI Sabha in institutional crisis (ThePrint, Mar 2026). Canada-India diplomatic rift (2024-25) creating panic. US deportations hitting Doaba families hard.
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="danger">UNRESOLVED</Badge>
+                <Badge variant="info">24% households have overseas members (highest in Punjab)</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Issue 2: Youth Unemployment */}
+        <div className="mb-6 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white font-bold">2</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">Youth Unemployment & Migration Crisis</h4>
+                <Badge variant="danger">EXTREME Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">All 23 seats | Existential for Doaba's demographic future</p>
+              <div className="mt-3 grid gap-2 md:grid-cols-3">
+                <div className="rounded bg-green-50 p-2 dark:bg-green-900/30">
+                  <p className="text-xs text-green-600 dark:text-green-400">Assets Sold (2021-23)</p>
+                  <p className="text-lg font-bold text-green-700 dark:text-green-300">Rs 5,636 Cr</p>
+                </div>
+                <div className="rounded bg-green-50 p-2 dark:bg-green-900/30">
+                  <p className="text-xs text-green-600 dark:text-green-400">Borrowed</p>
+                  <p className="text-lg font-bold text-green-700 dark:text-green-300">Rs 14,342 Cr</p>
+                </div>
+                <div className="rounded bg-green-50 p-2 dark:bg-green-900/30">
+                  <p className="text-xs text-green-600 dark:text-green-400">Migrants Left After 2016</p>
+                  <p className="text-lg font-bold text-green-700 dark:text-green-300">73%</p>
+                </div>
+              </div>
+              <div className="mt-3 rounded bg-green-100 p-2 dark:bg-green-900/40">
+                <p className="text-sm text-green-700 dark:text-green-400">
+                  <strong>Pressure Valve Closing:</strong> Visa tightening in Canada (2024), UK deportations, US removals. "Reverse dowry" system emerging — families finance women's IELTS/education as pathway for men to emigrate through marriage. Inability to migrate seen as social failure affecting marriage prospects.
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="danger">UNRESOLVED</Badge>
+                <Badge variant="info">PAU Survey 2021-23</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Issue 3: Sports & Leather Industry */}
+        <div className="mb-6 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white font-bold">3</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">Sports Goods & Leather Industry Decline</h4>
+                <Badge variant="warning">HIGH Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">Jalandhar (all 7 seats), parts of Kapurthala | Core economic identity of Jalandhar</p>
+              <div className="mt-3 grid gap-2 md:grid-cols-4">
+                <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
+                  <p className="text-xs text-blue-600 dark:text-blue-400">India's Sports Goods</p>
+                  <p className="text-lg font-bold text-blue-700 dark:text-blue-300">75%</p>
+                </div>
+                <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
+                  <p className="text-xs text-blue-600 dark:text-blue-400">Export Countries</p>
+                  <p className="text-lg font-bold text-blue-700 dark:text-blue-300">100+</p>
+                </div>
+                <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
+                  <p className="text-xs text-blue-600 dark:text-blue-400">Employment</p>
+                  <p className="text-lg font-bold text-blue-700 dark:text-blue-300">500,000+</p>
+                </div>
+                <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
+                  <p className="text-xs text-blue-600 dark:text-blue-400">Policy 2026</p>
+                  <p className="text-lg font-bold text-green-700 dark:text-green-300">Released</p>
+                </div>
+              </div>
+              <div className="mt-3 rounded bg-blue-100 p-2 dark:bg-blue-900/40">
+                <p className="text-sm text-blue-700 dark:text-blue-400">
+                  <strong>Key Developments:</strong> Punjab Sports & Leather Manufacturing Policy 2026 (Jan 2026). MoU for R&D centre in Jalandhar (Jan 2026). Sports Technology Extension Centre announced (Dec 2025). Despite announcements, actual disbursement and infrastructure creation remains slow.
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="warning">PARTIAL</Badge>
+                <Badge variant="info">NITI Aayog seminar held Jan 2026</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Issue 4: Sugarcane Farmer */}
+        <div className="mb-6 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white font-bold">4</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">Sugarcane Farmer Arrears & Sugar Mill Crisis</h4>
+                <Badge variant="warning">HIGH Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">Kapurthala, Nawanshahr (SBS Nagar), Hoshiarpur rural seats | Recurring agitation cycle</p>
+              <div className="mt-3 grid gap-2 md:grid-cols-2">
+                <div className="rounded bg-amber-50 p-2 dark:bg-amber-900/30">
+                  <p className="text-xs text-amber-600 dark:text-amber-400">Total Arrears</p>
+                  <p className="text-lg font-bold text-amber-700 dark:text-amber-300">Rs 93 Crore</p>
+                </div>
+                <div className="rounded bg-amber-50 p-2 dark:bg-amber-900/30">
+                  <p className="text-xs text-amber-600 dark:text-amber-400">Pending from 2021-22</p>
+                  <p className="text-lg font-bold text-amber-700 dark:text-amber-300">Rs 27 Crore</p>
+                </div>
+              </div>
+              <div className="mt-3 rounded bg-amber-100 p-2 dark:bg-amber-900/40">
+                <p className="text-sm text-amber-700 dark:text-amber-400">
+                  <strong>Key Data:</strong> BKU Doaba demanding reopening of closed sugar mills BUT only after arrears cleared (Nov 2025). Government mills in Nawanshahr and Kapurthala struggling with outdated infrastructure. Hoshiarpur and Nawanshahr also affected by seleniferous soils (PAU study, Dec 2025).
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="warning">PARTIAL</Badge>
+                <Badge variant="info">BKU Doaba agitation intensifying</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Issue 5: Industrial Decline */}
+        <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+          <div className="flex items-start gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-yellow-500 text-white font-bold">5</div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between">
+                <h4 className="font-semibold text-slate-700 dark:text-slate-300">Industrial Decline & Lack of Private Investment</h4>
+                <Badge variant="warning">MEDIUM-HIGH Priority</Badge>
+              </div>
+              <p className="mt-1 text-sm text-slate-500">Jalandhar, Kapurthala, Phagwara (industrial belt seats) | Slow-motion crisis</p>
+              <div className="mt-3 rounded bg-slate-100 p-2 dark:bg-slate-700">
+                <p className="text-sm text-slate-700 dark:text-slate-300">
+                  <strong>Key Dynamics:</strong> Capital flight to Himachal/Haryana. GT Road belt losing competitiveness. Kapurthala's rail coach factory is only major public-sector employer. Phagwara's industrial base eroding — sugar, paper, textile units shutting. Hoshiarpur's horticulture economy (Kinnow, mango, guava) needs processing infrastructure.
+                </p>
+              </div>
+              <div className="mt-2 flex flex-wrap gap-1">
+                <Badge variant="danger">UNRESOLVED</Badge>
+                <Badge variant="info">Doaba Industrial Corridor needed</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* CROSS-CUTTING THEMES */}
+      <div className="rounded-xl border border-purple-200 bg-purple-50/50 p-6 dark:border-purple-800 dark:bg-purple-900/10">
+        <div className="mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-purple-800 dark:text-purple-300">
+            Cross-Cutting Themes
+          </h3>
+          <Badge variant="info">AAP Performance | Operation Sindoor | Migration Pressure</Badge>
+        </div>
+
+        {/* AAP Performance */}
+        <div className="mb-4 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <h4 className="font-semibold text-slate-700 dark:text-slate-300">AAP Performance Perception (Majha + Doaba)</h4>
+          <div className="mt-3 grid gap-3 md:grid-cols-2">
+            <div className="rounded bg-red-50 p-3 dark:bg-red-900/30">
+              <p className="text-xs text-red-600 dark:text-red-400">AAP MLAs Criticised Own Government (Mar 2025)</p>
+              <p className="text-sm font-medium text-red-700 dark:text-red-300">"Feels like Pakistan, ask Finance Minister for funds"</p>
+            </div>
+            <div className="rounded bg-red-50 p-3 dark:bg-red-900/30">
+              <p className="text-xs text-red-600 dark:text-red-400">Congress Claim (Feb 2025)</p>
+              <p className="text-sm font-medium text-red-700 dark:text-red-300">30-32 AAP MLAs ready to switch sides</p>
+            </div>
+            <div className="rounded bg-amber-50 p-3 dark:bg-amber-900/30">
+              <p className="text-xs text-amber-600 dark:text-amber-400">Delhi Loss Impact (Feb 2025)</p>
+              <p className="text-sm font-medium text-amber-700 dark:text-amber-300">Sent shockwaves through Punjab cadre; Mann rejected dissent claims</p>
+            </div>
+            <div className="rounded bg-amber-50 p-3 dark:bg-amber-900/30">
+              <p className="text-xs text-amber-600 dark:text-amber-400">Block Elections (Dec 2025)</p>
+              <p className="text-sm font-medium text-amber-700 dark:text-amber-300">"Semi-finals" before 2027 — AAP vs Congress direct fight in Doaba</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Operation Sindoor */}
+        <div className="mb-4 rounded-lg bg-white p-4 dark:bg-slate-800">
+          <h4 className="font-semibold text-slate-700 dark:text-slate-300">Operation Sindoor Impact (May 2025)</h4>
+          <div className="mt-3 grid gap-3 md:grid-cols-3">
+            <div className="rounded bg-red-100 p-3 dark:bg-red-900/40">
+              <p className="text-xs text-red-600 dark:text-red-400">Blackouts</p>
+              <p className="text-sm font-medium text-red-700 dark:text-red-300">Amritsar, Gurdaspur, Tarn Taran — multiple nights</p>
+            </div>
+            <div className="rounded bg-red-100 p-3 dark:bg-red-900/40">
+              <p className="text-xs text-red-600 dark:text-red-400">Schools Shut</p>
+              <p className="text-sm font-medium text-red-700 dark:text-red-300">5-6 border districts for extended periods</p>
+            </div>
+            <div className="rounded bg-red-100 p-3 dark:bg-red-900/40">
+              <p className="text-xs text-red-600 dark:text-red-400">Farmers Impact</p>
+              <p className="text-sm font-medium text-red-700 dark:text-red-300">Unplanned evacuations, no compensation, crops damaged</p>
+            </div>
+          </div>
+          <div className="mt-3 rounded bg-cyan-50 p-2 dark:bg-cyan-900/30">
+            <p className="text-sm text-cyan-700 dark:text-cyan-400">
+              <strong>Congress Opportunity:</strong> Demand border area compensation package and disaster relief framework
+            </p>
+          </div>
+        </div>
+
+        {/* Migration Pressure Valve */}
+        <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+          <h4 className="font-semibold text-slate-700 dark:text-slate-300">Migration as Political Pressure Valve</h4>
+          <div className="mt-3 rounded bg-amber-50 p-3 dark:bg-amber-900/30">
+            <p className="text-sm text-amber-700 dark:text-amber-400">
+              <strong>Historical Context:</strong> Emigration has acted as "pressure valve" for Jat Sikh discontent — without it, agrarian anger would explode politically (Frontline analysis). Canada/UK visa tightening + US deportations = pressure valve closing.
+            </p>
+          </div>
+          <div className="mt-3 grid gap-2 md:grid-cols-3">
+            <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+              <p className="text-xs text-red-600 dark:text-red-400">Canada</p>
+              <p className="text-sm font-medium text-red-700 dark:text-red-300">Visa tightening (2024)</p>
+            </div>
+            <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+              <p className="text-xs text-red-600 dark:text-red-400">UK</p>
+              <p className="text-sm font-medium text-red-700 dark:text-red-300">Visa tightening</p>
+            </div>
+            <div className="rounded bg-red-50 p-2 dark:bg-red-900/30">
+              <p className="text-xs text-red-600 dark:text-red-400">US</p>
+              <p className="text-sm font-medium text-red-700 dark:text-red-300">Deportations hitting families hard</p>
+            </div>
+          </div>
+          <div className="mt-3 rounded bg-green-50 p-2 dark:bg-green-900/30">
+            <p className="text-sm text-green-700 dark:text-green-400">
+              <strong>Congress Strategy:</strong> Create local jobs AND protect migration pathways for those who choose them
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* CONGRESS STRATEGIC POSITIONING */}
+      <div className="rounded-xl border-2 border-blue-200 bg-blue-50/50 p-6 dark:border-blue-800 dark:bg-blue-900/10">
+        <div className="mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-blue-800 dark:text-blue-300">
+            Congress Strategic Positioning Summary
+          </h3>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* Majha Strategy */}
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-semibold text-slate-700 dark:text-slate-300">Majha (25 seats)</h4>
+              <Badge variant="info">Target: 12-15 seats</Badge>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 rounded bg-red-50 p-2 dark:bg-red-900/20">
+                <span className="text-sm font-medium text-red-700 dark:text-red-300">Border Champion:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Own border farmer issue — fence realignment, compensation, development package</span>
+              </div>
+              <div className="flex items-start gap-2 rounded bg-red-50 p-2 dark:bg-red-900/20">
+                <span className="text-sm font-medium text-red-700 dark:text-red-300">Drug Rehabilitation:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Not just interdiction — rehabilitation centres, youth engagement</span>
+              </div>
+              <div className="flex items-start gap-2 rounded bg-red-50 p-2 dark:bg-red-900/20">
+                <span className="text-sm font-medium text-red-700 dark:text-red-300">Sacrilege Justice:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Beyond AAP's prospective law — demand convictions for 97 past cases</span>
+              </div>
+              <div className="flex items-start gap-2 rounded bg-red-50 p-2 dark:bg-red-900/20">
+                <span className="text-sm font-medium text-red-700 dark:text-red-300">Water Crisis:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Make groundwater contamination visible — health camps, RO plants</span>
+              </div>
+              <div className="flex items-start gap-2 rounded bg-red-50 p-2 dark:bg-red-900/20">
+                <span className="text-sm font-medium text-red-700 dark:text-red-300">Anti-Hooch:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">CBI inquiry into liquor mafia; excise policy overhaul</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Doaba Strategy */}
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-semibold text-slate-700 dark:text-slate-300">Doaba (23 seats)</h4>
+              <Badge variant="info">Target: 12-14 seats</Badge>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-start gap-2 rounded bg-green-50 p-2 dark:bg-green-900/20">
+                <span className="text-sm font-medium text-green-700 dark:text-green-300">NRI Rights Champion:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Fast-track courts, digital land records, property protection</span>
+              </div>
+              <div className="flex items-start gap-2 rounded bg-green-50 p-2 dark:bg-green-900/20">
+                <span className="text-sm font-medium text-green-700 dark:text-green-300">Industrial Revival:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Doaba Industrial Corridor, sports/leather policy execution</span>
+              </div>
+              <div className="flex items-start gap-2 rounded bg-green-50 p-2 dark:bg-green-900/20">
+                <span className="text-sm font-medium text-green-700 dark:text-green-300">Sugarcane Justice:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Clear arrears, modernise mills, cooperative ownership</span>
+              </div>
+              <div className="flex items-start gap-2 rounded bg-green-50 p-2 dark:bg-green-900/20">
+                <span className="text-sm font-medium text-green-700 dark:text-green-300">Jobs at Home:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Counter migration narrative with concrete employment programmes</span>
+              </div>
+              <div className="flex items-start gap-2 rounded bg-green-50 p-2 dark:bg-green-900/20">
+                <span className="text-sm font-medium text-green-700 dark:text-green-300">Dalit Outreach:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Doaba's high SC population needs targeted commitments</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2313,6 +3190,328 @@ export default function PublicSentimentPage() {
           <p className="text-sm text-indigo-700 dark:text-indigo-300">
             <strong>Key Insight:</strong> Congress needs CM face announcement by Oct 2026 to lock in Base Case. Late announcement risks sliding toward Worst Case as anti-incumbency converts to indecision. MRP methodology shows 79% of seats within swing margin.
           </p>
+        </div>
+      </div>
+
+      {/* CYCLE 1: Governance Satisfaction Barometer (MP1/governance/satisfaction-barometer.md) */}
+      <div className="rounded-xl border-2 border-rose-500 bg-rose-50 p-6 dark:border-rose-700 dark:bg-rose-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">G</span>
+          <div>
+            <h3 className="text-lg font-semibold text-rose-700 dark:text-rose-400">Governance Satisfaction Barometer — AAP Government (2022-2026)</h3>
+            <p className="text-sm text-rose-600 dark:text-rose-400">MP1-Foundational Scan | Research Date: 19 May 2026 | Classification: Strategic Intelligence</p>
+          </div>
+        </div>
+
+        {/* Executive Summary */}
+        <div className="mt-4 rounded-lg bg-rose-100 p-3 dark:bg-rose-900/40">
+          <p className="text-sm text-rose-700 dark:text-rose-300">
+            <strong>Executive Summary:</strong> Public satisfaction with the Bhagwant Mann-led AAP government has undergone a steep decline from the euphoric post-election high of March 2022. While the government retains a single credible achievement (free electricity), it faces deep dissatisfaction on the issues that matter most: drug eradication, employment, women's welfare, and corruption-free governance. The 2024 Lok Sabha results (AAP won only 3 of 13 seats) serve as the most authoritative satisfaction proxy.
+          </p>
+        </div>
+
+        {/* Key Metrics Grid */}
+        <div className="grid gap-4 md:grid-cols-4">
+          <MetricCard title="Overall Satisfaction" value="~40%" subtitle="Down from 85% in Q1 2022" color="bg-rose-500" trend="down" />
+          <MetricCard title="Drug Eradication" value="15-20%" subtitle="AAP's broken #1 promise" color="bg-red-600" />
+          <MetricCard title="Youth Unemployment" value="19.3%" subtitle="Rural: 22.5%" color="bg-red-600" />
+          <MetricCard title="CM Mann Approval" value="42-45%" subtitle="Down from 80% in Mar 2022" color="bg-rose-500" trend="down" />
+        </div>
+
+        {/* Satisfaction Trend Chart */}
+        <div className="mt-6">
+          <h4 className="text-base font-semibold text-slate-700 dark:text-slate-300">Satisfaction Trend (2022-2026)</h4>
+          <div className="mt-3 h-48 bg-white rounded-lg p-4 dark:bg-slate-800">
+            <div className="flex items-end justify-between h-full gap-2">
+              {[
+                { period: "Q1 2022", value: 85, color: "bg-green-500" },
+                { period: "Q4 2022", value: 70, color: "bg-green-400" },
+                { period: "Q3 2023", value: 55, color: "bg-yellow-400" },
+                { period: "Q1 2024", value: 42, color: "bg-yellow-500" },
+                { period: "Q4 2024", value: 38, color: "bg-orange-400" },
+                { period: "Q2 2025", value: 35, color: "bg-orange-500" },
+                { period: "Q4 2025", value: 40, color: "bg-orange-400" },
+                { period: "Q1 2026", value: 42, color: "bg-rose-500" }
+              ].map((item, index) => (
+                <div key={index} className="flex flex-col items-center flex-1">
+                  <div className="w-full flex flex-col items-center">
+                    <span className="text-xs text-slate-600 dark:text-slate-400 mb-1">{item.value}%</span>
+                    <div
+                      className={`w-full max-w-12 rounded-t ${item.color}`}
+                      style={{ height: `${item.value * 1.5}px` }}
+                    />
+                  </div>
+                  <span className="text-xs text-slate-500 mt-2">{item.period}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Issue-wise Satisfaction */}
+        <div className="mt-6">
+          <h4 className="text-base font-semibold text-slate-700 dark:text-slate-300">Issue-wise Satisfaction (sorted by level)</h4>
+          <div className="mt-3 grid gap-3">
+            {[
+              { issue: "Free Electricity", satisfaction: 72, level: "HIGH", color: "bg-green-500" },
+              { issue: "Education", satisfaction: 42, level: "MODERATE", color: "bg-yellow-400" },
+              { issue: "Infrastructure", satisfaction: 42, level: "MODERATE", color: "bg-yellow-400" },
+              { issue: "Women's Welfare", satisfaction: 32, level: "LOW", color: "bg-orange-500" },
+              { issue: "Healthcare", satisfaction: 32, level: "LOW", color: "bg-orange-500" },
+              { issue: "Farmer Welfare", satisfaction: 27, level: "LOW", color: "bg-orange-600" },
+              { issue: "Law & Order", satisfaction: 27, level: "LOW", color: "bg-orange-600" },
+              { issue: "Corruption-Free", satisfaction: 22, level: "LOW", color: "bg-red-500" },
+              { issue: "Employment", satisfaction: 22, level: "VERY_LOW", color: "bg-red-600" },
+              { issue: "Drug Eradication", satisfaction: 17, level: "VERY_LOW", color: "bg-red-700" }
+            ].map((item, index) => (
+              <div key={index} className="flex items-center gap-3">
+                <span className="w-36 text-sm text-slate-600 dark:text-slate-400">{item.issue}</span>
+                <div className="flex-1 bg-slate-200 dark:bg-slate-700 rounded-full h-4 overflow-hidden">
+                  <div
+                    className={`${item.color} h-full rounded-full`}
+                    style={{ width: `${item.satisfaction}%` }}
+                  />
+                </div>
+                <span className="w-16 text-sm font-medium text-slate-700 dark:text-slate-300">{item.satisfaction}%</span>
+                <span className={`w-20 text-xs px-2 py-1 rounded text-center ${
+                  item.level === "VERY_LOW" ? "bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-400" :
+                  item.level === "LOW" ? "bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-400" :
+                  item.level === "MODERATE" ? "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/40 dark:text-yellow-400" :
+                  "bg-green-100 text-green-700 dark:bg-green-900/40 dark:text-green-400"
+                }`}>{item.level}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Two Column Layout: Demographic & Lok Sabha */}
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <div className="bg-white rounded-lg p-4 shadow-sm dark:bg-slate-800">
+            <h4 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-3">Demographic Satisfaction</h4>
+            <div className="space-y-2">
+              {[
+                { demo: "Youth (15-29)", value: 17, trend: "down", note: "Most eroded - AAP's strongest base" },
+                { demo: "Women", value: 32, trend: "down", note: "Delayed Rs 1000 scheme" },
+                { demo: "Jat Sikh (20%)", value: 32, trend: "down", note: "Farm distress, drug crisis" },
+                { demo: "SC (31.9%)", value: 32, trend: "down", note: "Congress base returning" },
+                { demo: "Urban", value: 42, trend: "stable", note: "Propped by electricity" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center justify-between">
+                  <div>
+                    <span className="text-sm text-slate-600 dark:text-slate-400">{item.demo}</span>
+                    <p className="text-xs text-slate-400 dark:text-slate-500">{item.note}</p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{item.value}%</span>
+                    <span className={`text-xs ${item.trend === "down" ? "text-red-500" : "text-yellow-500"}`}>↓</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="bg-white rounded-lg p-4 shadow-sm dark:bg-slate-800">
+            <h4 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-3">Lok Sabha 2024 Results (June)</h4>
+            <div className="space-y-2">
+              {[
+                { party: "Congress", seats: 7, total: 13, color: "bg-indigo-500" },
+                { party: "AAP", seats: 3, total: 13, color: "bg-orange-500" },
+                { party: "SAD", seats: 1, total: 13, color: "bg-yellow-500" },
+                { party: "Independents", seats: 2, total: 13, color: "bg-gray-500" }
+              ].map((item, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <span className={`w-3 h-3 rounded-full ${item.color}`} />
+                  <span className="text-sm text-slate-600 dark:text-slate-400 flex-1">{item.party}</span>
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">
+                    {item.seats}/{item.total}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 pt-3 border-t border-slate-200 dark:border-slate-700">
+              <p className="text-xs text-slate-500 dark:text-slate-400">
+                <strong>Key:</strong> AAP won only 3 seats as incumbent — Congress maintained 7 despite multi-cornered fight
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Anti-Incumbency Indicators */}
+        <div className="mt-6">
+          <h4 className="text-base font-semibold text-slate-700 dark:text-slate-300">Key Anti-Incumbency Indicators</h4>
+          <div className="mt-3 grid gap-2 md:grid-cols-2">
+            {[
+              { indicator: "Drug crisis failure", strength: "VERY_STRONG", signal: "Core promise broken" },
+              { indicator: "Lok Sabha 2024 (3/13 seats)", strength: "STRONG", signal: "Anti-incumbency confirmed" },
+              { indicator: "Youth unemployment 19.3%", strength: "STRONG", signal: "Demographic erosion" },
+              { indicator: "Rural turnout 48.4% (lowest since 2008)", strength: "STRONG", signal: "Voter disengagement" },
+              { indicator: "Rs 1000 delayed 4 years", strength: "STRONG", signal: "Women demographic erosion" },
+              { indicator: "7 MPs defected (Apr 2026)", strength: "STRONG", signal: "Internal party collapse" },
+              { indicator: "10+ ministers dropped/arrested", strength: "MODERATE", signal: "Corruption taint" },
+              { indicator: "Social media spending scandal", strength: "MODERATE", signal: "Transparency concerns" }
+            ].map((item, index) => (
+              <div key={index} className="flex items-center gap-3 p-2 bg-white rounded dark:bg-slate-800">
+                <span className={`w-2 h-2 rounded-full flex-shrink-0 ${
+                  item.strength === "VERY_STRONG" ? "bg-red-700" :
+                  item.strength === "STRONG" ? "bg-red-500" :
+                  "bg-yellow-500"
+                }`} />
+                <span className="text-sm text-slate-600 dark:text-slate-400 flex-1">{item.indicator}</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">{item.signal}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strategic Implications for Congress */}
+        <div className="mt-6 bg-white rounded-lg p-4 shadow-sm dark:bg-slate-800">
+          <h4 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-3">Strategic Implications for Congress</h4>
+          <div className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+            <p>• <strong>AAP's floor:</strong> ~35-40% re-election willingness (40-50 seats, down from 92 in 2022) — Congress needs 59+ for majority</p>
+            <p>• <strong>#1 Attack Vector:</strong> Drug crisis — AAP promised to end in 4 weeks; 4 years later it's worse. Resonates across ALL demographics</p>
+            <p>• <strong>Women voters:</strong> Winnable — 4-year delay on Rs 1000 is a betrayal narrative. Congress should announce superior package</p>
+            <p>• <strong>Youth crisis:</strong> 19.3% unemployment at crisis level — need credible employment plan, not just government jobs</p>
+            <p>• <strong>Mann vs Government:</strong> Mann's personal approval (42-45%) exceeds government satisfaction (38-42%) — focus on failures, not person</p>
+            <p>• <strong>Proof of concept:</strong> 2024 Lok Sabha proves AAP is beatable — Congress recovered from 2022 low of 18 seats</p>
+            <p>• <strong>Historical pattern:</strong> No Punjab government won 3 consecutive terms — anti-incumbency building but not yet decisive</p>
+          </div>
+        </div>
+
+        {/* CM Mann Approval Trend */}
+        <div className="mt-6">
+          <h4 className="text-base font-semibold text-slate-700 dark:text-slate-300">CM Bhagwant Mann Approval Trend</h4>
+          <div className="mt-3 overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-slate-200 dark:border-slate-700">
+                  <th className="text-left py-2 px-3 text-slate-600 dark:text-slate-400">Period</th>
+                  <th className="text-right py-2 px-3 text-slate-600 dark:text-slate-400">Approval</th>
+                  <th className="text-left py-2 px-3 text-slate-600 dark:text-slate-400">Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { period: "Mar 2022", approval: "80%", notes: "Massive personal mandate from Sangrur" },
+                  { period: "Late 2022", approval: "65%", notes: "Electricity success helped" },
+                  { period: "Mid 2023", approval: "50%", notes: "Drug crisis; remote-controlled by Kejriwal perception" },
+                  { period: "Early 2024", approval: "40%", notes: "Lok Sabha loss damaged credibility" },
+                  { period: "Late 2024", approval: "38%", notes: "Delhi AAP collapse; seen as Kejriwal's deputy" },
+                  { period: "Mid 2025", approval: "42%", notes: "Image-building efforts; tough administrator push" },
+                  { period: "Early 2026", approval: "45%", notes: "Guarantees fulfilled narrative" }
+                ].map((row, i) => (
+                  <tr key={i} className="border-b border-slate-100 dark:border-slate-800">
+                    <td className="py-2 px-3 text-slate-700 dark:text-slate-300">{row.period}</td>
+                    <td className="text-right py-2 px-3 font-medium text-slate-700 dark:text-slate-300">{row.approval}</td>
+                    <td className="py-2 px-3 text-slate-500 dark:text-slate-400">{row.notes}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Data Gaps & Verification */}
+        <div className="mt-4 rounded-lg bg-yellow-100 p-3 dark:bg-yellow-900/40">
+          <p className="text-sm text-yellow-700 dark:text-yellow-300">
+            <strong>Data Gaps (VERIFICATION_NEEDED):</strong> Independent satisfaction survey (2025-2026) NOT FOUND | Canal irrigation 22%→70% AAP claim | 49% road accident reduction AAP claim | 65,264 jobs claim | Rs 10.59 crore social media spending allegation
+          </p>
+        </div>
+
+        {/* ========================================== */}
+        {/* SYNTHESIS INTELLIGENCE SECTION */}
+        {/* Derived from: s1-s4 synthesis MD files */}
+        {/* ========================================== */}
+
+        {/* Synthesis Overview */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-indigo-50 to-purple-50 p-4 dark:from-indigo-900/20 dark:to-purple-900/20">
+          <h3 className="mb-3 text-lg font-semibold text-indigo-700 dark:text-indigo-400">
+            Synthesis Intelligence Overview
+          </h3>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Documents Validated</div>
+              <div className="text-2xl font-bold text-indigo-600">{crossReferenceValidation.documentsReviewed.total}</div>
+              <div className="text-xs text-slate-400">Track A: {crossReferenceValidation.documentsReviewed.trackA} + Track B: {crossReferenceValidation.documentsReviewed.trackB}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Quality Pass Rate</div>
+              <div className="text-2xl font-bold text-green-600">{qualityValidation.passRate}%</div>
+              <div className="text-xs text-slate-400">{qualityValidation.overallAssessment}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Critical Gap Categories</div>
+              <div className="text-2xl font-bold text-red-600">{gapAnalysis.categoryGapAnalysis.filter(c => c.coverageRating === "CRITICAL_GAP").length}</div>
+              <div className="text-xs text-slate-400">Require immediate attention</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Tier 1 Critical Gaps</div>
+              <div className="text-2xl font-bold text-amber-600">{gapAnalysis.tier1Gaps.length}</div>
+              <div className="text-xs text-slate-400">Immediate remediation</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tier 1 Critical Gaps */}
+        <div className="mb-6 rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-red-700 dark:text-red-400">
+            Tier 1 Critical Gaps (Require Immediate Remediation)
+          </h4>
+          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {gapAnalysis.tier1Gaps.map((gap, idx) => (
+              <div key={idx} className="flex items-start gap-2 rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+                  {idx + 1}
+                </span>
+                <span className="text-xs text-slate-600 dark:text-slate-400">{gap}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Tier 2 Gaps */}
+        <div className="mb-6 rounded-lg bg-amber-50 p-4 dark:bg-amber-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-amber-700 dark:text-amber-400">
+            Tier 2 Gaps (Short-Term Remediation)
+          </h4>
+          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {gapAnalysis.tier2Gaps.map((gap, idx) => (
+              <div key={idx} className="flex items-start gap-2 rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-amber-500 text-xs font-bold text-white">
+                  {idx + 1}
+                </span>
+                <span className="text-xs text-slate-600 dark:text-slate-400">{gap}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Gap Severity Matrix */}
+        <div className="mb-6 rounded-lg bg-slate-50 p-4 dark:bg-slate-800/50">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">
+            Gap Severity Matrix (Top Critical Items)
+          </h4>
+          <div className="overflow-x-auto">
+            <table className="min-w-full divide-y divide-slate-200 text-xs dark:divide-slate-700">
+              <thead className="bg-slate-100 dark:bg-slate-800">
+                <tr>
+                  <th className="px-3 py-2 text-left text-slate-600 dark:text-slate-400">Gap</th>
+                  <th className="px-3 py-2 text-left text-slate-600 dark:text-slate-400">Severity</th>
+                  <th className="px-3 py-2 text-left text-slate-600 dark:text-slate-400">Impact</th>
+                  <th className="px-3 py-2 text-left text-slate-600 dark:text-slate-400">Priority</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white dark:bg-slate-800">
+                {gapAnalysis.gapSeverityMatrix.filter(g => g.severity === "CRITICAL").slice(0, 7).map((row, idx) => (
+                  <tr key={idx} className="border-b border-slate-100 dark:border-slate-800">
+                    <td className="px-3 py-2 text-slate-700 dark:text-slate-300">{row.gap}</td>
+                    <td className="px-3 py-2"><span className="rounded-full bg-red-100 px-2 py-1 text-red-700 dark:bg-red-900/50 dark:text-red-400">{row.severity}</span></td>
+                    <td className="px-3 py-2 text-slate-600 dark:text-slate-400">{row.impact}</td>
+                    <td className="px-3 py-2"><span className="rounded-full bg-blue-100 px-2 py-1 text-blue-700 dark:bg-blue-900/50 dark:text-blue-400">{row.priority}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

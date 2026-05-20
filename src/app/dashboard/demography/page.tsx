@@ -2,6 +2,91 @@
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
 import { CASTE_CATEGORIES, REGIONS, POLITICAL_ANATOMY } from "@/lib/constants";
+import {
+  jatSikhPopulationData,
+  regionalJatDistribution,
+  jatSikhClans,
+  landholdingStratification,
+  agriculturalDebtData,
+  constituencyClusters,
+  congressStrategyPoints,
+  smallFarmerStatistic,
+  getUnemploymentRate,
+  getFemaleYouthUnemployment,
+  isUnemploymentCritical,
+  vulnerableOccupationsReport,
+  religiousMinoritiesOverview,
+  districtMuslimPopulation,
+  muslimCommunity,
+  christianCommunity,
+  buddhistCommunity,
+  jainCommunity,
+  dalitChristianReservationIssue,
+  religiousMinoritiesStrategicImplications,
+  religiousMinoritiesDataPoints,
+  religiousMinoritiesDataGaps,
+  getMuslimPopulationByDistrict,
+  getDistrictsWithHighMuslimPopulation,
+  getTotalReligiousMinorityPopulation,
+  getPunjabDalitPercent,
+  getDalitChristianReservationSummary,
+  getCriticalDataGaps,
+} from "@/lib/kpi-data";
+import {
+  educationDigitalData,
+  scEducationMetrics,
+  networkCoverage,
+  campaignImplications,
+} from "@/lib/education-digital-data";
+import {
+  urbanizationData,
+  urbanizationMetrics,
+  municipalCorpPopulationData,
+  districtUrbanizationChartData,
+  slumConcentrationData,
+  urbanizationTrajectoryData,
+} from "@/lib/urbanization-data";
+import {
+  hinduPopulationOverview,
+  hinduDalitData,
+  aryaSamajData,
+  sanatanDharmaData,
+  devSamajData,
+  iskconData,
+  majorTemplesData,
+  rssDistrictDensity,
+  rssVictoryPlan2026,
+  hinduMobilizationIssues,
+  hinduDalitVoting2022,
+  sharedSacredCalendar,
+  potentialFlashpoints,
+  strategicImplicationsForCongress,
+} from "@/lib/hinduism-data";
+import {
+  sikhPopulationData,
+  observanceTiers,
+  damdamiTaksalData,
+  nihangData,
+  namdhariData,
+  nirankariData,
+  radhaSoamiData,
+  akjData,
+  akalTakhtData,
+  sgpcData,
+  sacrilegeIssue,
+  riots1984Issue,
+  bandiSinghIssue,
+  khalistanIssue,
+  sectConstituencyMapping,
+  strategicSummary,
+} from "@/lib/sikhism-internal-data";
+import {
+  synthesisDemographicData,
+  KEY_SYNTHESIS_METRICS,
+  crossReferenceValidation,
+  qualityValidation,
+  gapAnalysis,
+} from "@/lib/synthesis-data";
 
 // === TYPESCRIPT INTERFACES ===
 
@@ -107,6 +192,264 @@ interface CasteFragmentationIndex {
 }
 
 // ==========================================
+// CYCLE 6: INCOME STRATIFICATION INTERFACES
+// (from research-M2/MP1-foundational/demographics/income-stratification.md)
+// ==========================================
+
+interface IncomeBandEntry {
+  band: string;
+  monthlyRange: string;
+  estPercentage: string;
+  percentageNum: number;
+  typicalProfile: string;
+  geographyConcentration: string;
+}
+
+interface PerCapitaConsumption {
+  region: string;
+  mpce: string;
+  note: string;
+}
+
+interface NFSACoverage {
+  indicator: string;
+  number: string;
+  source: string;
+}
+
+interface RationCardData {
+  category: string;
+  count: string;
+  date: string;
+}
+
+interface PovertyRateTrend {
+  period: string;
+  rural: string;
+  urban: string;
+  source: string;
+}
+
+interface LandHolding {
+  category: string;
+  sizeRange: string;
+  holdings: string;
+  percentage: string;
+}
+
+interface VehicleOwnership {
+  vehicleType: string;
+  penetration: string;
+  note: string;
+}
+
+interface DebtMetrics {
+  metric: string;
+  value: string;
+  source: string;
+}
+
+interface DebtPurpose {
+  purpose: string;
+  percentage: string;
+}
+
+interface FarmerSuicideStats {
+  period: string;
+  suicides: string;
+  districts: string;
+  source: string;
+}
+
+interface DistrictSuicideData {
+  district: string;
+  count: number;
+}
+
+interface CasteIncomeData {
+  caste: string;
+  annualIncome: string;
+  relativePosition: string;
+}
+
+interface RegionalAnxiety {
+  region: string;
+  primaryAnxiety: string;
+  politicalImplication: string;
+}
+
+interface EconomicAnxietyData {
+  rank: number;
+  fear: string;
+  description: string;
+}
+
+interface StrategicImplication {
+  number: number;
+  issue: string;
+  implication: string;
+}
+
+// ==========================================
+// CYCLE 4: EDUCATION & DIGITAL ACCESS INTERFACES
+// (from research-M2/MP1-foundational/demographics/education-digital.md)
+// ==========================================
+
+interface LiteracyRate {
+  metric: string;
+  census2011: string;
+  estimated2024_25: string;
+  note?: string;
+}
+
+interface SCLiteracyData {
+  district: string;
+  scLiteracy: string;
+  districtTotal: string;
+}
+
+interface SchoolInfrastructure {
+  indicator: string;
+  punjab: string;
+  nationalAverage: string;
+  note?: string;
+}
+
+interface GERData {
+  level: string;
+  punjab: string;
+  national: string;
+}
+
+interface DropoutData {
+  level: string;
+  punjab: string;
+  national: string;
+  note?: string;
+}
+
+interface PTRData {
+  level: string;
+  punjab: string;
+  national: string;
+  note?: string;
+}
+
+interface DigitalAccessData {
+  metric: string;
+  punjab: string;
+  india: string;
+  note?: string;
+}
+
+interface DigitalLiteracyTier {
+  tier: string;
+  description: string;
+  estimatedPct: string;
+}
+
+interface SocialMediaPlatform {
+  platform: string;
+  indiaMAU: string;
+  favoritePct: string;
+  punjabEstimate: string;
+  demographic: string;
+}
+
+interface EducationDigitalData {
+  literacyRates: LiteracyRate[];
+  scLiteracy: SCLiteracyData[];
+  schoolInfrastructure: SchoolInfrastructure[];
+  gerData: GERData[];
+  dropoutData: DropoutData[];
+  ptrData: PTRData[];
+  digitalAccess: DigitalAccessData[];
+  digitalLiteracyTiers: DigitalLiteracyTier[];
+  socialMediaPlatforms: SocialMediaPlatform[];
+}
+
+// ==========================================
+// CYCLE 3: AGE STRUCTURE & POLITICAL COHORTS INTERFACES
+// (from research-M2/MP1-foundational/demographics/age-structure.md)
+// ==========================================
+
+interface PopulationOverview {
+  projectedPopulation: string;
+  projectedPopulationJuly2026: string;
+  male: string;
+  female: string;
+  sexRatio: string;
+  indiaShare: string;
+  growthRate2026: string;
+  tfr: string;
+  note: string;
+}
+
+interface DetailedFiveYearCohort {
+  ageGroup: string;
+  population: string;
+  percentOfTotal: string;
+  male: string;
+  female: string;
+  mPer100F: string;
+}
+
+interface PoliticalCohort {
+  cohortName: string;
+  ageRange: string;
+  estPopulation: string;
+  percentOfTotal: string;
+  politicalSignificance: string;
+}
+
+interface FirstTimeVoterPool {
+  age1822Population2027: string;
+  likelyRegistered: string;
+  minusEmigration: string;
+  netNewVoters2027: string;
+}
+
+interface LifeStageVoting {
+  lifeStage: string;
+  ageGroup: string;
+  keyConcerns: string;
+  votingBehaviorPattern: string;
+}
+
+interface TemporalChange {
+  indicator: string;
+  year2001: string;
+  year2011: string;
+  year2026: string;
+}
+
+interface EmigrationImpact {
+  annualEmigrants: string;
+  profile: string;
+  impactOn2027Electorate: string;
+  evidence: string;
+  netEffect: string;
+}
+
+interface RegionalAgeProfile {
+  region: string;
+  seats: string;
+  districts: string;
+  ageProfileCharacter: string;
+}
+
+interface AgeStructureDataGaps {
+  dataPoint: string;
+  status: string;
+  sourceNeeded: string;
+}
+
+interface StrategicImplication {
+  number: number;
+  implication: string;
+}
+
+// ==========================================
 // CYCLE 2: SOCIO-ECONOMIC DATA INTERFACES (from research-P2/10_socio_economic)
 // ==========================================
 
@@ -124,7 +467,195 @@ interface PunjabSocioEconomic {
   giniCoefficient: string;
 }
 
+// ==========================================
+// CYCLE 2: GENDER INDICATORS DATA INTERFACES
+// (from research-M2/MP1-foundational/demographics/gender-indicators.md)
+// ==========================================
+
+interface PopulationByGender {
+  totalPopulation2026: string;
+  malePopulation: string;
+  femalePopulation: string;
+  overallSexRatio: string;
+  childSexRatio06: string;
+  nfhs5SexRatio: string;
+  sexRatioAtBirthNFHS5: string;
+  trend: string;
+}
+
+interface DistrictChildSexRatio {
+  district: string;
+  childSexRatio: number;
+}
+
+interface FemaleLiteracyData {
+  year: string;
+  male: string;
+  female: string;
+  total: string;
+  gap: string;
+}
+
+interface DistrictFemaleLiteracy {
+  district: string;
+  male: string;
+  female: string;
+  total: string;
+  gap: string;
+}
+
+interface VoterTurnoutGender {
+  category: string;
+  electors: string;
+  electorsPct: string;
+  voters: string;
+  turnout: string;
+}
+
+interface FemaleWorkforceData {
+  metric: string;
+  punjab: string;
+  india: string;
+  note: string;
+}
+
+interface HealthSocialIndicators {
+  indicator: string;
+  punjab: string;
+  india: string;
+  notes: string;
+}
+
+interface WidowSingleWomenData {
+  category: string;
+  count: string;
+  source: string;
+}
+
+interface FrontlineWomenWorkers {
+  category: string;
+  count: string;
+  notes: string;
+}
+
+interface GenderStrategicImplication {
+  number: number;
+  bloc: string;
+  description: string;
+}
+
+interface CongressMessagingPillar {
+  pillar: string;
+  description: string;
+}
+
+interface GenderDataGaps {
+  dataPoint: string;
+  status: string;
+  sourceNeeded: string;
+}
+
 export default function DemographyPage() {
+  // === CYCLE 4: EDUCATION & DIGITAL ACCESS DATA ===
+  const educationDigitalData: EducationDigitalData = {
+    literacyRates: [
+      { metric: "Overall Literacy (7+)", census2011: "76.7%", estimated2024_25: "~83-85%", note: "Projected" },
+      { metric: "Male Literacy", census2011: "80.4%", estimated2024_25: "~82.1%", note: "Sage Journals estimate, Jan 2025" },
+      { metric: "Female Literacy", census2011: "70.7%", estimated2024_25: "~76-78%", note: "Projected" },
+      { metric: "Urban Literacy", census2011: "~85%", estimated2024_25: "VERIFICATION_NEEDED" },
+      { metric: "Rural Literacy", census2011: "~72%", estimated2024_25: "VERIFICATION_NEEDED" },
+    ],
+    scLiteracy: [
+      { district: "Hoshiarpur", scLiteracy: "82.5%", districtTotal: "84.6%" },
+      { district: "Rupnagar", scLiteracy: "78.4%", districtTotal: "N/A" },
+    ],
+    schoolInfrastructure: [
+      { indicator: "Total Schools", punjab: "27,281", nationalAverage: "—" },
+      { indicator: "Enrolled Students", punjab: "59.09 lakh", nationalAverage: "—" },
+      { indicator: "Total Teachers", punjab: "2.73 lakh", nationalAverage: "—" },
+      { indicator: "Female Teacher Share", punjab: "76.6%", nationalAverage: "~50%", note: "HIGHEST in India" },
+      { indicator: "Private Unaided Schools", punjab: "27.8%", nationalAverage: "23.1%" },
+      { indicator: "Functional Electricity", punjab: "100%", nationalAverage: "~95%" },
+      { indicator: "Functional Drinking Water", punjab: "100%", nationalAverage: "~96%" },
+      { indicator: "Functional Girls' Toilet", punjab: "98.4%", nationalAverage: "~92%" },
+      { indicator: "Computer Access", punjab: "99.0%", nationalAverage: "~65%", note: "HIGHEST in India" },
+      { indicator: "Internet Connectivity", punjab: "88.9%", nationalAverage: "~55%", note: "HIGHEST in India" },
+      { indicator: "Kitchen Garden Coverage", punjab: "75.0%", nationalAverage: "—" },
+    ],
+    gerData: [
+      { level: "Primary GER", punjab: "105.6%", national: "90.9%" },
+      { level: "Secondary GER", punjab: "92.6%", national: "78.7%" },
+      { level: "Higher Secondary GER", punjab: "79.5%", national: "58.4%" },
+    ],
+    dropoutData: [
+      { level: "Primary Dropout", punjab: "2.5%", national: "0.3%", note: "ANOMALY - exceeds national" },
+      { level: "Upper Primary Dropout", punjab: "2.7%", national: "3.5%" },
+      { level: "Secondary Dropout", punjab: "6.2%", national: "11.5%" },
+      { level: "UP-to-Secondary Transition", punjab: "94.2%", national: "—" },
+      { level: "Secondary-to-HS Transition", punjab: "90.7%", national: "—", note: "Highest among large states" },
+      { level: "Class 12 Retention", punjab: "67.8%", national: "47.2%" },
+    ],
+    ptrData: [
+      { level: "Overall PTR", punjab: "22:1", national: "24:1" },
+      { level: "Secondary PTR", punjab: "9:1", national: "15:1", note: "LOWEST in India" },
+      { level: "HS PTR", punjab: "16:1", national: "—", note: "Improved from 18 in 2021-22" },
+    ],
+    digitalAccess: [
+      { metric: "Internet Subscribers per 100", punjab: "~77", india: "~72", note: "Above national average" },
+      { metric: "Rural Internet per 100", punjab: "~42.5", india: "~45", note: "Rural-urban divide stark" },
+      { metric: "Jio Wireless Subscribers", punjab: "1.17 crore", india: "—", note: "Mar 2026" },
+      { metric: "Telephone Density", punjab: "~90%+", india: "~84%" },
+      { metric: "Rural Smartphone Access (children)", punjab: "85%", india: "N/A", note: "ASER data, Feb 2026" },
+      { metric: "Smartphone Household Penetration", punjab: "65-70%", india: "60%", note: "Estimated" },
+    ],
+    digitalLiteracyTiers: [
+      { tier: "Tier 1", description: "No digital access", estimatedPct: "~15-18%" },
+      { tier: "Tier 2", description: "Basic phone only (no internet)", estimatedPct: "~10-12%" },
+      { tier: "Tier 3", description: "Smartphone for calls/WhatsApp only", estimatedPct: "~25-30%" },
+      { tier: "Tier 4", description: "Active social media + video consumer", estimatedPct: "~25-30%" },
+      { tier: "Tier 5", description: "Digital payments/government services", estimatedPct: "~10-12%" },
+      { tier: "Tier 6", description: "Advanced (content creation, e-commerce)", estimatedPct: "~5-8%" },
+    ],
+    socialMediaPlatforms: [
+      { platform: "WhatsApp", indiaMAU: "~530M", favoritePct: "15.8%", punjabEstimate: "~80-85%", demographic: "All ages, primary info channel in rural" },
+      { platform: "YouTube", indiaMAU: "~500M", favoritePct: "Most used (29h 37min/mo)", punjabEstimate: "~75-80%", demographic: "All ages, dominant entertainment" },
+      { platform: "Instagram", indiaMAU: "~400M", favoritePct: "14.3%", punjabEstimate: "~50-55%", demographic: "Urban, 18-35 age group" },
+      { platform: "Facebook", indiaMAU: "~350M", favoritePct: "Declining but major", punjabEstimate: "~45-50%", demographic: "35+ rural, general" },
+      { platform: "Snapchat", indiaMAU: "~200M", favoritePct: "Growing fast", punjabEstimate: "~25-30%", demographic: "15-25 age group" },
+      { platform: "X/Twitter", indiaMAU: "~30M", favoritePct: "Niche", punjabEstimate: "~5-8%", demographic: "Political/urban elite" },
+      { platform: "Telegram", indiaMAU: "~100M", favoritePct: "Growing", punjabEstimate: "~20-25%", demographic: "News, education" },
+      { platform: "ShareChat/Moj", indiaMAU: "~180M", favoritePct: "Regional content", punjabEstimate: "~15-20%", demographic: "Punjabi content" },
+    ],
+  };
+
+  // SC Education Metrics
+  const scEducationMetrics = {
+    scPopulationShare: "~32%",
+    scEnrolmentShare: "36.1%",
+    scPrimaryGER: "103.0%",
+    scSecondaryGER: "92.3%",
+    scHSGER: "79.1%",
+    note: "Highest SC enrolment share of any Indian state",
+  };
+
+  // 4G/5G Coverage
+  const networkCoverage = {
+    coverage: "4G well-covered by Jio, Airtel, Vi networks",
+    fiveG: "5G rollout began 2022-23 in major cities (Ludhiana, Amritsar, Chandigarh, Jalandhar)",
+    darkZones: ["Border belt (Gurdaspur, Pathankot, Tarn Taran)", "Kandi area (Hoshiarpur, Rupnagar)", "Deep rural Malwa"],
+  };
+
+  // Campaign Strategic Implications
+  const campaignImplications = [
+    { number: 1, text: "WhatsApp-first strategy — ~80-85% smartphone user penetration, primary info channel in rural Punjab" },
+    { number: 2, text: "YouTube for political messaging — Punjabi YouTube consumption among highest in India" },
+    { number: 3, text: "Digital divide = campaign gap — ~55-60% of rural Punjab NOT online, traditional media essential" },
+    { number: 4, text: "SC voter education — 36.1% SC school enrolment, targeted WhatsApp/Facebook content for SC-welfare" },
+    { number: 5, text: "Female voter reach — Only 34.5% female on social media, door-to-door/SHG networks needed" },
+    { number: 6, text: "Youth (18-30) digital-native — Instagram, Snapchat, YouTube Shorts for first-time voters" },
+    { number: 7, text: "NRI amplification — Punjab diaspora runs WhatsApp groups/YouTube channels influencing domestic opinion" },
+  ];
+
   // === CYCLE 2: SOCIO-ECONOMIC DATA (from research-P2/10_socio_economic) ===
   const socioEconomicData: PunjabSocioEconomic = {
     perCapitaIncome: "₹2,30,523",
@@ -139,6 +670,121 @@ export default function DemographyPage() {
     districtPCIDisparity: "8.47:1",
     giniCoefficient: "0.48"
   };
+
+  // === DATA FROM MP1-003 (Gender Demographics Tier 2) ===
+  const populationByGender: PopulationByGender = {
+    totalPopulation2026: "3.23 crore (32,280,000)",
+    malePopulation: "1.64 crore (16,447,000)",
+    femalePopulation: "~1.49 crore (14,926,000)",
+    overallSexRatio: "895 females/1000 males (Census 2011)",
+    childSexRatio06: "846 females/1000 males (Census 2011)",
+    nfhs5SexRatio: "918 females/1000 males",
+    sexRatioAtBirthNFHS5: "904 (improved from 860 in NFHS-4)",
+    trend: "Sex ratio improved from 876 (2001) to 895 (2011) overall. SRB improved significantly from 860 (NFHS-4) to 904 (NFHS-5), but still below national average."
+  };
+
+  const districtChildSexRatio: DistrictChildSexRatio[] = [
+    { district: "Tarn Taran", childSexRatio: 820 },
+    { district: "Bathinda", childSexRatio: 832 },
+    { district: "Mansa", childSexRatio: 835 },
+    { district: "Muktsar", childSexRatio: 839 },
+    { district: "Ferozepur", childSexRatio: 843 },
+    { district: "Punjab Average", childSexRatio: 846 },
+  ];
+
+  const femaleLiteracyTrends: FemaleLiteracyData[] = [
+    { year: "Census 2001", male: "75.23%", female: "63.36%", total: "69.65%", gap: "11.87 pp" },
+    { year: "Census 2011", male: "80.44%", female: "70.73%", total: "75.84%", gap: "9.71 pp" },
+    { year: "Current Est. (SSA Punjab)", male: "81.5%", female: "71.3%", total: "76.7%", gap: "10.2 pp" },
+  ];
+
+  const districtFemaleLiteracy: DistrictFemaleLiteracy[] = [
+    { district: "Hoshiarpur", male: "89.9", female: "80.8", total: "85.4", gap: "9.1" },
+    { district: "S.A.S. Nagar", male: "89.2", female: "80.0", total: "84.9", gap: "9.2" },
+    { district: "Ludhiana", male: "86.3", female: "78.2", total: "82.7", gap: "8.1" },
+    { district: "Jalandhar", male: "86.1", female: "78.3", total: "82.4", gap: "7.8" },
+    { district: "Gurdaspur", male: "85.9", female: "75.7", total: "81.1", gap: "10.2" },
+    { district: "Kapurthala", male: "84.6", female: "75.4", total: "80.2", gap: "9.2" },
+    { district: "Fatehgarh Sahib", male: "84.5", female: "75.5", total: "80.3", gap: "9.0" },
+    { district: "S.B.S. Nagar", male: "86.2", female: "74.3", total: "80.3", gap: "11.9" },
+    { district: "Roopnagar", male: "88.9", female: "77.2", total: "83.3", gap: "11.7" },
+    { district: "Amritsar", male: "81.2", female: "72.8", total: "77.2", gap: "8.4" },
+    { district: "Patiala", male: "81.4", female: "70.5", total: "76.3", gap: "10.9" },
+    { district: "Moga", male: "75.3", female: "67.4", total: "71.6", gap: "7.9" },
+    { district: "Faridkot", male: "75.9", female: "64.8", total: "70.6", gap: "11.1" },
+    { district: "Ferozepur", male: "76.7", female: "62.2", total: "69.8", gap: "14.5" },
+    { district: "Bathinda", male: "75.3", female: "62.9", total: "69.6", gap: "12.4" },
+    { district: "Tarn Taran", male: "75.4", female: "62.9", total: "69.4", gap: "12.5" },
+    { district: "Barnala", male: "73.1", female: "64.1", total: "68.9", gap: "9.0" },
+    { district: "Sangrur", male: "74.2", female: "62.9", total: "68.9", gap: "11.3" },
+    { district: "Muktsar", male: "72.9", female: "60.0", total: "66.6", gap: "12.9" },
+    { district: "Mansa", male: "68.4", female: "56.4", total: "62.8", gap: "12.0" },
+  ];
+
+  const voterTurnoutByGender2022: VoterTurnoutGender[] = [
+    { category: "Male", electors: "1,12,98,081", electorsPct: "52.6%", voters: "~77.6 lakh", turnout: "~68.7%" },
+    { category: "Female", electors: "1,02,00,996", electorsPct: "47.4%", voters: "~69.8 lakh", turnout: "~68.4%" },
+    { category: "Transgender", electors: "727", electorsPct: "N/A", voters: "VERIFICATION_NEEDED", turnout: "VERIFICATION_NEEDED" },
+    { category: "Total", electors: "2,14,99,804", electorsPct: "100%", voters: "~1,55.1 lakh", turnout: "72.15%" },
+  ];
+
+  const femaleWorkforceData: FemaleWorkforceData[] = [
+    { metric: "Female LFPR (PLFS 2022-23)", punjab: "~24-28% (estimated)", india: "37.0%", note: "Significantly below national average" },
+    { metric: "Female LFPR (PLFS 2023-24)", punjab: "VERIFICATION_NEEDED", india: "41.7%", note: "India's FLFPR rising" },
+  ];
+
+  const healthSocialIndicators: HealthSocialIndicators[] = [
+    { indicator: "Total Fertility Rate", punjab: "1.6", india: "2.0", notes: "Below replacement; declining" },
+    { indicator: "Mean Marriage Age (Women)", punjab: "23.4 yrs", india: "22.3 yrs", notes: "Above national average" },
+    { indicator: "Women with Bank Account (own use)", punjab: "~83%", india: "~79%", notes: "Improved significantly" },
+    { indicator: "Women Owning Mobile Phone", punjab: "~66%", india: "~54%", notes: "Higher than national" },
+    { indicator: "Spousal Violence (ever)", punjab: "~14%", india: "~29%", notes: "Lower than national" },
+    { indicator: "Physical Violence (age 18-49)", punjab: "14%", india: "~30%", notes: "Lower than national" },
+    { indicator: "Sexual Violence", punjab: "2%", india: "~6%", notes: "Lower than national" },
+    { indicator: "Anaemia (Women 15-49)", punjab: "~40%", india: "~57%", notes: "Better but still high" },
+    { indicator: "Obesity (Women)", punjab: "Rising significantly", india: "Rising", notes: "Alarming increase" },
+    { indicator: "Women in Household Decisions", punjab: "~85%", india: "~89%", notes: "Slightly below national" },
+  ];
+
+  const widowSingleWomenData: WidowSingleWomenData[] = [
+    { category: "Widows (all ages)", count: "~4.2 lakh+", source: "Census 2011 extrapolation" },
+    { category: "Female-Headed Households", count: "~10-12% of total HH", source: "Census 2011" },
+    { category: "Single Women (never married 35+, divorced, separated)", count: "~4.18 lakh (8.45% of female pop.)", source: "ActionAid/Ekal Nari estimate" },
+  ];
+
+  const frontlineWomenWorkers: FrontlineWomenWorkers[] = [
+    { category: "Women SHGs in Punjab", count: "~37,000", notes: "Mission Shakti data" },
+    { category: "SHG Women Members", count: "~3 lakh (300,000)", notes: "Mission Shakti" },
+    { category: "ASHA Workers", count: "~36,000+", notes: "NRHM data" },
+    { category: "Anganwadi Centres", count: "~26,000+", notes: "ICDS data" },
+    { category: "Anganwadi Workers", count: "~26,000+", notes: "ICDS data" },
+  ];
+
+  const genderStrategicImplications: GenderStrategicImplication[] = [
+    { number: 1, bloc: "Women voters", description: "Women voters outnumber men in turnout in multiple constituencies -- even a small shift in women's voting preference can swing 15-20 seats" },
+    { number: 2, bloc: "Malwa women", description: "69 seats face double disadvantage of low literacy + low sex ratio + low workforce participation -- most receptive to empowerment messaging" },
+    { number: 3, bloc: "ASHA/Anganwadi workers", description: "~62,000 organized, underpaid, and politically aware -- promising regularisation can yield massive returns" },
+    { number: 4, bloc: "SHG network", description: "3 lakh women provides ready-made organizational infrastructure for grassroots mobilization" },
+    { number: 5, bloc: "Widows and single women", description: "~8 lakh+ economically vulnerable and respond to targeted welfare promises" },
+  ];
+
+  const congressMessagingPillars: CongressMessagingPillar[] = [
+    { pillar: "Women's Economic Empowerment", description: "Direct income support, skill training, SHG strengthening, FLFPR improvement schemes" },
+    { pillar: "ASHA/Anganwadi Regularization", description: "Promise of pay commission, benefits, and worker status" },
+    { pillar: "Anti-Foeticide & Beti Bachao", description: "District-level campaigns in worst-affected areas (Tarn Taran, Bathinda, Mansa)" },
+    { pillar: "Widow/Single Women Pension", description: "Enhanced pension with automatic enrollment, property rights enforcement" },
+    { pillar: "Women's Safety", description: "Fast-track courts, helplines, one-stop centers in all districts" },
+    { pillar: "Girls' Education", description: "Focus on Mansa, Muktsar, Sangrur where female literacy is below 63%" },
+  ];
+
+  const genderDataGaps: GenderDataGaps[] = [
+    { dataPoint: "Census 2021 results", status: "DELAYED/UNAVAILABLE", sourceNeeded: "Census of India" },
+    { dataPoint: "District-wise women voter turnout 2022", status: "Partially available", sourceNeeded: "CEO Punjab portal" },
+    { dataPoint: "Current FLFPR (2024-25)", status: "VERIFICATION_NEEDED", sourceNeeded: "PLFS latest round" },
+    { dataPoint: "Transgender voter registration 2025-26", status: "VERIFICATION_NEEDED", sourceNeeded: "ECI updated rolls" },
+    { dataPoint: "Constituency-wise gender turnout comparison", status: "VERIFICATION_NEEDED", sourceNeeded: "CEO Punjab detailed data" },
+    { dataPoint: "Women's property ownership rates", status: "VERIFICATION_NEEDED", sourceNeeded: "State revenue records" },
+  ];
 
   const punjabVsHaryanaData = [
     { metric: "Per Capita Income", punjab: "₹2,30,523", haryana: "₹3,25,000", gap: "41% less" },
@@ -834,6 +1480,140 @@ export default function DemographyPage() {
     emigrationImpact: "2019-2020: ~2.37 lakh Punjab youngsters (18-20 years) moved abroad on student visas"
   };
 
+  // === DATA FROM MP1-002-AgeStructure (Age Structure & Political Cohorts) ===
+  const ageStructurePoliticalCohorts = {
+    populationOverview: {
+      projectedPopulationJuly2026: "3.14 crore (31.37 million)",
+      male: "1.65 crore (16.45 million)",
+      female: "1.49 crore (14.92 million)",
+      sexRatio: "110.2 males per 100 females",
+      indiaShare: "2.19%",
+      growthRate2026: "0.58% (10th lowest among states)",
+      tfr: "1.6 (NFHS-5) — below replacement level of 2.1",
+      note: "Punjab's population growth declining steadily: 20.10% (1991-2001) → 13.89% (2001-2011) → 0.58% (2026 projected). State aging faster than most Indian states due to sustained low fertility and significant youth emigration."
+    },
+
+    fiveYearCohortsCensus2011: [
+      { ageGroup: "0-4", population: "21,33,529", percentOfTotal: "7.69%", male: "11,49,956", female: "9,83,573", mPer100F: "116.9" },
+      { ageGroup: "5-9", population: "23,68,019", percentOfTotal: "8.54%", male: "13,01,682", female: "10,66,337", mPer100F: "122.1" },
+      { ageGroup: "10-14", population: "25,83,402", percentOfTotal: "9.31%", male: "14,45,530", female: "11,37,872", mPer100F: "127.0" },
+      { ageGroup: "15-19", population: "28,17,683", percentOfTotal: "10.16%", male: "15,70,180", female: "12,47,503", mPer100F: "125.9" },
+      { ageGroup: "20-24", population: "27,76,636", percentOfTotal: "10.01%", male: "14,65,531", female: "13,11,105", mPer100F: "111.8" },
+      { ageGroup: "25-29", population: "24,63,861", percentOfTotal: "8.88%", male: "12,70,405", female: "11,93,456", mPer100F: "106.4" },
+      { ageGroup: "30-34", population: "21,16,539", percentOfTotal: "7.63%", male: "10,82,533", female: "10,34,006", mPer100F: "104.7" },
+      { ageGroup: "35-39", population: "19,89,071", percentOfTotal: "7.17%", male: "10,10,862", female: "9,78,209", mPer100F: "103.3" },
+      { ageGroup: "40-44", population: "17,88,469", percentOfTotal: "6.45%", male: "9,09,208", female: "8,79,261", mPer100F: "103.4" },
+      { ageGroup: "45-49", population: "15,87,771", percentOfTotal: "5.72%", male: "8,18,135", female: "7,69,636", mPer100F: "106.3" },
+      { ageGroup: "50-54", population: "12,54,464", percentOfTotal: "4.52%", male: "6,63,664", female: "5,90,800", mPer100F: "112.3" },
+      { ageGroup: "55-59", population: "9,56,555", percentOfTotal: "3.45%", male: "4,85,845", female: "4,70,710", mPer100F: "103.2" },
+      { ageGroup: "60-64", population: "9,96,590", percentOfTotal: "3.59%", male: "4,82,483", female: "5,14,107", mPer100F: "93.8" },
+      { ageGroup: "65-69", population: "7,19,588", percentOfTotal: "2.59%", male: "3,72,806", female: "3,46,782", mPer100F: "107.5" },
+      { ageGroup: "70-74", population: "5,13,472", percentOfTotal: "1.85%", male: "2,72,120", female: "2,41,352", mPer100F: "112.7" },
+      { ageGroup: "75-79", population: "2,56,666", percentOfTotal: "0.93%", male: "1,30,203", female: "1,26,463", mPer100F: "103.0" },
+      { ageGroup: "80+", population: "3,79,801", percentOfTotal: "1.37%", male: "1,86,250", female: "1,93,551", mPer100F: "96.2" },
+    ] as DetailedFiveYearCohort[],
+
+    populationPyramidAnalysis: {
+      constrictiveBase: "Punjab's pyramid (2011) showed narrower at bottom (0-14) than middle (15-39), indicating declining fertility. By 2026, this pattern has sharpened.",
+      ageGroupShares2011: { children014: "25.5%", workingAge1559: "64%", elderly60Plus: "10.3%" },
+      ageGroupShares2026Projected: { children014: "~22% (declining births)", workingAge1559: "~64% (plateau)", elderly60Plus: "~12-13%" },
+      birthDecline: "Births dropped from 5,11,058 (2011) to 3,81,200 (2020) — 25.4% decline in a decade"
+    },
+
+    politicalCohorts2027: [
+      { cohortName: "First-time voters", ageRange: "18-22", estPopulation: "~14-16 lakh", percentOfTotal: "~5%", politicalSignificance: "Born 2005-2009; digital-native; AAP's core 2022 base" },
+      { cohortName: "New voters", ageRange: "22-30", estPopulation: "~35-38 lakh", percentOfTotal: "~12%", politicalSignificance: "Job-seekers; emigration aspirants; high anti-incumbency" },
+      { cohortName: "Youth (total)", ageRange: "18-35", estPopulation: "~62-68 lakh", percentOfTotal: "~21%", politicalSignificance: "Largest swing bloc; determines election outcomes" },
+      { cohortName: "Middle-age", ageRange: "35-50", estPopulation: "~52-56 lakh", percentOfTotal: "~17%", politicalSignificance: "Family decision-makers; economically stressed" },
+      { cohortName: "Pre-senior", ageRange: "50-65", estPopulation: "~35-38 lakh", percentOfTotal: "~12%", politicalSignificance: "Farmers, pension-approaching; institutional voters" },
+      { cohortName: "Senior citizens", ageRange: "65+", estPopulation: "~22-25 lakh", percentOfTotal: "~8%", politicalSignificance: "High turnout; pension/social security concerns" },
+      { cohortName: "Pre-voting age", ageRange: "0-17", estPopulation: "~70-75 lakh", percentOfTotal: "~24%", politicalSignificance: "Future electorate; not voting in 2027" },
+    ] as PoliticalCohort[],
+
+    missingYouthParadox: {
+      keyInsight: "UDISE+ 2023-24 reveals Punjab's share of children in 3-7 age group nationally is only 1.73%, down from 2.29% in 2011. Birth registrations fell 25% between 2011-2020.",
+      implication: "Each successive cohort entering voting age is SMALLER than the one before it — but emigration means the 18-35 cohort is also PHYSICALLY DIMINISHED as young Punjabis leave for Canada, UK, Australia, EU."
+    },
+
+    firstTimeVoterPool2027: {
+      birthYears: "2005-2009 (turning 18-22 by Feb 2027)",
+      currentElectorate2022: "2.15 crore registered voters",
+      lokSabha2024: "2.14 crore (with deletions/additions)",
+      sirStatus: "SIR ordered May 2026 — will determine final rolls",
+      estimation: {
+        age1822Population2027: "~14-16 lakh",
+        likelyRegistered: "~10-13 lakh (70-80% norm)",
+        minusEmigration: "~2-3 lakh absent (15-20% of cohort abroad)",
+        netNewVoters2027: "~8-10 lakh"
+      },
+      verificationNeeded: "Exact first-time voter count will only be known after SIR completion (ordered May 14, 2026; expected late 2026)"
+    },
+
+    firstTimeVoterPoliticalCharacter: {
+      birthYears: "2005-2009: Grew up during AAP governance (2022-2027)",
+      memoryGap: "No lived memory of Congress governance (ended 2017)",
+      digitalNative: "TikTok/Instagram/WhatsApp primary information sources",
+      keyIssues: ["unemployment", "emigration", "drugs", "education quality"],
+      votingPattern: "Voted overwhelmingly for AAP in 2022 (per post-poll surveys)"
+    },
+
+    lifeStageVotingPatterns: [
+      { lifeStage: "Students", ageGroup: "18-22", keyConcerns: "Education quality, jobs, emigration", votingBehaviorPattern: "Volatile; low turnout; AAP-leaning" },
+      { lifeStage: "Early career", ageGroup: "23-30", keyConcerns: "Employment, housing, marriage cost", votingBehaviorPattern: "High emigration; anti-establishment" },
+      { lifeStage: "Young families", ageGroup: "30-40", keyConcerns: "Child education, healthcare, income", votingBehaviorPattern: "Economic voting; pragmatic" },
+      { lifeStage: "Established", ageGroup: "40-55", keyConcerns: "Farm income, business, children's future", votingBehaviorPattern: "Traditional loyalty; issue-based swing" },
+      { lifeStage: "Pre-retirement", ageGroup: "55-65", keyConcerns: "Pension, health, debt relief", votingBehaviorPattern: "High turnout; loyalty-based" },
+      { lifeStage: "Elderly", ageGroup: "65+", keyConcerns: "Healthcare, social security, respect", votingBehaviorPattern: "Highest turnout; community-influenced" },
+    ] as LifeStageVoting[],
+
+    temporalChange2001_2011_2026: [
+      { indicator: "Total population", year2001: "2.44 crore", year2011: "2.77 crore", year2026: "3.14 crore" },
+      { indicator: "Decadal growth", year2001: "20.10%", year2011: "13.89%", year2026: "~13.4% (2011-2026)" },
+      { indicator: "0-14 age share", year2001: "~31%", year2011: "25.5%", year2026: "~22%" },
+      { indicator: "15-59 age share", year2001: "~60%", year2011: "64%", year2026: "~64% (plateau)" },
+      { indicator: "60+ age share", year2001: "~8%", year2011: "10.3%", year2026: "~12-13%" },
+      { indicator: "TFR", year2001: "2.47 (NFHS-2)", year2011: "1.7-1.8", year2026: "1.6 (NFHS-5)" },
+      { indicator: "Birth registrations", year2001: "5,11,058", year2011: "~4,50,000", year2026: "~3,81,200 (2020)" },
+      { indicator: "Median age (est.)", year2001: "~24", year2011: "~27", year2026: "~30-31" },
+    ] as TemporalChange[],
+
+    emigrationImpactOnYouthDemographics: {
+      scale: "50,000-80,000 Punjabi youth emigrate annually (students + workers)",
+      profile: "Primarily 18-30 age group; predominantly male; Sikh overrepresentation",
+      impactOn2027Electorate: "Physically present 18-30 cohort is 15-20% smaller than census-projected number",
+      udiseEvidence: "Sikh children at foundational level (3-8 years) are 49% of Punjab enrollment — 8.68pp below their 57.69% population share in 2011",
+      netEffect: "Each election cycle, the most politically volatile age group (18-30) loses a significant chunk to emigration, potentially dampening anti-incumbency waves"
+    },
+
+    regionalAgeVariations: [
+      { region: "Malwa", seats: "69 seats", districts: "Ludhiana, Bathinda, Mansa, Sangrur, Moga, etc.", ageProfileCharacter: "Highest emigration; youngest outward; aging farmer base" },
+      { region: "Majha", seats: "25 seats", districts: "Amritsar, Gurdaspur, Tarn Taran, Pathankot", ageProfileCharacter: "Border districts; higher fertility in some pockets; strong Sikh character" },
+      { region: "Doaba", seats: "23 seats", districts: "Jalandhar, Kapurthala, Hoshiarpur, SBS Nagar", ageProfileCharacter: "Highest NRI connection; most emigration impact; aging fastest" },
+    ] as RegionalAgeProfile[],
+
+    doabaAgingCorridor: {
+      description: "Doaba is Punjab's 'aging corridor' — highest proportion of elderly, lowest youth retention, strongest NRI remittance economy"
+    },
+
+    strategicImplicationsForCongress2027: [
+      { number: 1, implication: "Youth (18-35) is the largest swing bloc at ~21% of population, but physically diminished by emigration. Campaign must target youth who remain — they are job-seekers, not emigration aspirants." },
+      { number: 2, implication: "First-time voters have NO memory of Congress governance. They only know AAP (2022-2027) and have seen Congress as opposition. Congress must rebuild its youth brand from scratch." },
+      { number: 3, implication: "Aging farmer population (50-65, ~12%) is Congress's traditional base — high turnout, loyal, economically stressed by farm debt. This is the reliable vote bank." },
+      { number: 4, implication: "The 'missing youth' paradox: Punjab's youth are either emigrating or politically disengaged. High-profile emigration actually reduces the size of the anti-incumbency cohort — this benefits AAP." },
+      { number: 5, implication: "Middle-age economic voters (35-50) are the decision-makers. They vote on kitchen-table issues: inflation, farm income, jobs for their children. This is Congress's primary persuasion target." },
+      { number: 6, implication: "Declining birth cohort means each successive election has fewer new voters. By 2032, the youth bulge will have shifted to 35-50 — a more conservative, economically-focused electorate." },
+    ] as StrategicImplication[],
+
+    dataGaps: [
+      { dataPoint: "Census 2021 age cohorts", status: "NOT AVAILABLE (census not conducted)", sourceNeeded: "Awaiting Census 2027" },
+      { dataPoint: "Exact first-time voter count 2027", status: "PENDING SIR", sourceNeeded: "ECI post-SIR" },
+      { dataPoint: "District-wise age breakdown 2026", status: "ESTIMATED ONLY", sourceNeeded: "Requires projection modeling" },
+      { dataPoint: "Emigration by age/district", status: "PARTIAL (UDISE+ proxy)", sourceNeeded: "Need MoE/MEA data" },
+      { dataPoint: "Urban vs rural age split 2026", status: "NOT AVAILABLE", sourceNeeded: "Requires Census or NFHS-6" },
+      { dataPoint: "Age-wise voter turnout 2022", status: "NOT FOUND", sourceNeeded: "CEO Punjab post-poll data if available" },
+    ] as AgeStructureDataGaps[]
+  };
+
   // === DATA FROM MP2-003 (Gender Tier 2) ===
   const genderVoterData = {
     totalElectorate: "~2.16 crore (2024)",
@@ -989,6 +1769,305 @@ export default function DemographyPage() {
     }
   };
 
+  // ==========================================
+  // CYCLE 6: INCOME STRATIFICATION DATA
+  // (from research-M2/MP1-foundational/demographics/income-stratification.md)
+  // ==========================================
+
+  // Monthly Income Bands (Household)
+  const incomeBands: IncomeBandEntry[] = [
+    { band: "Below Rs 5,000", monthlyRange: "< Rs 5,000", estPercentage: "8-10%", percentageNum: 9, typicalProfile: "Landless labourers, BPL/AAY cardholders, informal workers", geographyConcentration: "Rural Malwa (Sangrur, Mansa, Bathinda), urban slums" },
+    { band: "Rs 5,000-10,000", monthlyRange: "Rs 5,000-10,000", estPercentage: "15-18%", percentageNum: 16, typicalProfile: "Marginal farmers (<1 ha), casual labour, SC agricultural workers", geographyConcentration: "Rural Doaba (Nawanshahr, Kapurthala), border districts" },
+    { band: "Rs 10,000-20,000", monthlyRange: "Rs 10,000-20,000", estPercentage: "25-28%", percentageNum: 26, typicalProfile: "Small farmers (1-2 ha), petty shopkeepers, low-skill service workers", geographyConcentration: "Across all regions; dominant rural band" },
+    { band: "Rs 20,000-35,000", monthlyRange: "Rs 20,000-35,000", estPercentage: "20-22%", percentageNum: 21, typicalProfile: "Medium farmers (2-4 ha), govt employees, skilled workers", geographyConcentration: "Peri-urban areas, Ludhiana, Jalandhar, Amritsar" },
+    { band: "Rs 35,000-50,000", monthlyRange: "Rs 35,000-50,000", estPercentage: "12-15%", percentageNum: 13, typicalProfile: "Large farmers (4+ ha), small business owners, mid-level professionals", geographyConcentration: "Malwa belt, urban centres" },
+    { band: "Rs 50,000-1,00,000", monthlyRange: "Rs 50,000-1,00,000", estPercentage: "8-10%", percentageNum: 9, typicalProfile: "NRIs/remittance households, established businesses, professionals", geographyConcentration: "Doaba (NRI belt: Jalandhar, Kapurthala, Hoshiarpur)" },
+    { band: "Rs 1,00,000-3,00,000", monthlyRange: "Rs 1,00,000-3,00,000", estPercentage: "3-4%", percentageNum: 3, typicalProfile: "Industrialists, large landowners, traders", geographyConcentration: "Ludhiana (industrial), Amritsar, Chandigarh periphery" },
+    { band: "Above Rs 3,00,000", monthlyRange: "> Rs 3,00,000", estPercentage: "1-2%", percentageNum: 1, typicalProfile: "Industrial houses, political class, large NRIs", geographyConcentration: "Ludhiana, Mohali, Amritsar" },
+  ];
+
+  // Per Capita Consumption (HCES 2023-24)
+  const perCapitaConsumption: PerCapitaConsumption[] = [
+    { region: "India Rural", mpce: "Rs 4,122", note: "National average" },
+    { region: "India Urban", mpce: "Rs 6,996", note: "National average" },
+    { region: "Punjab Rural", mpce: "Rs 4,500-5,000", note: "Above national average - Green Revolution prosperity" },
+    { region: "Punjab Urban", mpce: "Rs 7,500-8,000", note: "Above national average - remittances" },
+  ];
+
+  // NFSA/BPL/AAY Coverage
+  const nfsaCoverage: NFSACoverage[] = [
+    { indicator: "NFSA beneficiaries in Punjab", number: "1.53 crore", source: "State Food & Civil Supplies, Sep 2025" },
+    { indicator: "Ration cards restored (2024)", number: "10.77 lakh beneficiaries", source: "Punjab Cabinet decision, Feb 2024" },
+    { indicator: "Ration cards deleted (2018-2022)", number: "3.1 lakh cards", source: "Verification drive" },
+    { indicator: "NFSA coverage mandate (rural)", number: "75%", source: "NFSA Act 2013" },
+    { indicator: "NFSA coverage mandate (urban)", number: "50%", source: "NFSA Act 2013" },
+  ];
+
+  // Ineligibility criteria
+  const rationCardIneligibility = {
+    annualIncomeThreshold: "Rs 60,000",
+    fertileLandThreshold: "> 2.5 acres",
+    barrenLandThreshold: "> 5 acres",
+    note: "These thresholds are extremely low, effectively excluding many genuinely poor households"
+  };
+
+  // Poverty Rate Trends
+  const povertyRateTrends: PovertyRateTrend[] = [
+    { period: "2011-12 (Tendulkar)", rural: "~7.0%", urban: "~6.0%", source: "Planning Commission" },
+    { period: "2022-23 (Updated Tendulkar)", rural: "~4.9%", urban: "~4.1%", source: "SBI Research" },
+    { period: "2023-24 (HCES-based)", rural: "Below 5%", urban: "Below 4%", source: "MoSPI" },
+  ];
+
+  // Land Holdings (Agriculture Census 2015-16)
+  const landHoldings: LandHolding[] = [
+    { category: "Marginal", sizeRange: "<1 ha (<2.5 acres)", holdings: "1,54,412", percentage: "~14.7%" },
+    { category: "Small", sizeRange: "1-2 ha (2.5-5 acres)", holdings: "2,07,436", percentage: "~19.7%" },
+    { category: "Semi-Medium", sizeRange: "2-4 ha", holdings: "VERIFICATION_NEEDED", percentage: "~25% (est.)" },
+    { category: "Medium", sizeRange: "4-10 ha", holdings: "VERIFICATION_NEEDED", percentage: "~28% (est.)" },
+    { category: "Large", sizeRange: "10+ ha", holdings: "VERIFICATION_NEEDED", percentage: "~12% (est.)" },
+  ];
+
+  const landHoldingSummary = {
+    totalHoldings: "~10.53 lakh",
+    averageHoldingSize: "3.62 ha",
+    nationalAverage: "1.08 ha",
+    note: "Punjab is well above national average but extreme inequality exists",
+    suicideFact: "77% of farmer suicides were marginal/small farmers owning <2 hectares (PAU study, 2000-2018)"
+  };
+
+  // Vehicle Ownership
+  const vehicleOwnership: VehicleOwnership[] = [
+    { vehicleType: "Two-wheelers", penetration: "60-70% rural households", note: "One of India's highest per-capita rates" },
+    { vehicleType: "Four-wheelers", penetration: "15-20% of households", note: "Much higher than national average (~8%)" },
+    { vehicleType: "Tractor ownership", penetration: "~25% of small farmers", note: "Often economically non-viable due to high fixed costs" },
+  ];
+
+  // Smartphone & Digital Access
+  const smartphoneAccess = {
+    smartphonePenetration: "65-75% households",
+    internetUsers: "Higher than national average due to NRI connectivity demands",
+    digitalPayments: "Growing but limited in rural Malwa and border districts",
+  };
+
+  // Debt Metrics
+  const debtMetrics: DebtMetrics[] = [
+    { metric: "Average debt per suicide victim", value: "Rs 8,31,927", source: "PAU/ISADP Study" },
+    { metric: "Institutional share of victim debt", value: "55.09%", source: "PAU/ISADP Study" },
+    { metric: "Non-institutional share", value: "44.91%", source: "PAU/ISADP Study" },
+    { metric: "Non-institutional as suicide driver", value: "88% of cases debt-driven", source: "PAU Study (EPW)" },
+  ];
+
+  // Debt Purpose Breakdown
+  const debtPurpose: DebtPurpose[] = [
+    { purpose: "Farm inputs (seeds, fertilizers, equipment)", percentage: "~40%" },
+    { purpose: "Consumption expenditure (daily needs)", percentage: "~15%" },
+    { purpose: "Medical emergencies", percentage: "~12%" },
+    { purpose: "Education/children", percentage: "~8%" },
+    { purpose: "Daughter's marriage", percentage: "~15%" },
+    { purpose: "Tractor/farm machinery loans", percentage: "~10%" },
+  ];
+
+  // Arthiya (Informal Credit) Data
+  const arthiyaCredit = {
+    interestRate: "18-36% annually",
+    institutionalRate: "7-9%",
+    debtCollection: "Tied to crop sale in mandi",
+    politicalNexus: "Many arthiyas are politically connected or are politicians themselves",
+    informalCreditImpact: "Informal credit from commission agents accounts for 20% of ALL suicides in sample (Sage Journal study)"
+  };
+
+  // Farmer Suicide Data
+  const farmerSuicideStats: FarmerSuicideStats[] = [
+    { period: "2000-2018", suicides: "9,291", districts: "6 districts (Sangrur, Bathinda, Ludhiana, Mansa, Moga, Barnala)", source: "PAU Study (EPW)" },
+    { period: "2023-24 to Nov 2025", suicides: "2,809 (reported)", districts: "State-wide", source: "State Agriculture Dept" },
+    { period: "Peak year 2015", suicides: "515 cases", districts: "6 Malwa districts", source: "PAU Study" },
+  ];
+
+  // District-wise Suicides
+  const districtSuicideData: DistrictSuicideData[] = [
+    { district: "Sangrur", count: 2506 },
+    { district: "Mansa", count: 2098 },
+    { district: "Bathinda", count: 1956 },
+    { district: "Barnala", count: 1126 },
+    { district: "Moga", count: 880 },
+    { district: "Ludhiana", count: 725 },
+  ];
+
+  const suicideDemographics = {
+    age19to35: "75%",
+    male: "92%",
+    illiterate: "45%",
+  };
+
+  // Over-Indebtedness
+  const overIndebtedness = {
+    estimatedRate: "35-45% of farm households",
+    definition: "Debt servicing >50% of income",
+    mostAcuteRegion: "Malwa cotton belt and southwest Punjab",
+  };
+
+  // Caste-Income Correlation
+  const casteIncomeCorrelation: CasteIncomeData[] = [
+    { caste: "General Caste", annualIncome: "Rs 1,49,380", relativePosition: "Baseline (highest)" },
+    { caste: "OBC", annualIncome: "Rs 1,13,415", relativePosition: "76% of General" },
+    { caste: "SC/Dalit", annualIncome: "Rs 85,877", relativePosition: "57% of General" },
+  ];
+
+  const casteIncomeNote = {
+    scPopulation: "~32% of Punjab (HIGHEST among Indian states)",
+    dalitEconomicDisadvantage: "Structurally entrenched despite political representation",
+    landlessnessSC: "70-80% of SC households estimated landless"
+  };
+
+  // Gini Coefficient
+  const giniData = {
+    punjabFarmHouseholdGini: "0.48 (2012-13)",
+    nationalGini: "~0.35-0.40",
+    source: "Saini & Kaur, 2022",
+    interpretation: "High income inequality among farm households; approaches 'severe inequality' threshold"
+  };
+
+  // NRI Remittance Economy
+  const nriRemittanceEconomy = {
+    region: "Doaba (India's NRI remittance heartland)",
+    estimatedAnnualRemittances: "Rs 15,000-20,000 crore",
+    impact: "Creates distinct income tier not captured in traditional income surveys",
+    districts: "Jalandhar, Kapurthala, Hoshiarpur",
+  };
+
+  // Economic Anxiety Indicators
+  const economicAnxieties: EconomicAnxietyData[] = [
+    { rank: 1, fear: "Crop failure", description: "Cotton whitefly (2015), wheat blight, erratic monsoon. Single bad season can push a farmer from middle to BPL." },
+    { rank: 2, fear: "Debt spiral", description: "Inability to repay arthiya before next sowing season. Fear of land auction or social humiliation." },
+    { rank: 3, fear: "Medical emergency", description: "Privatized healthcare costs. One serious illness can cost Rs 5-15 lakh, wiping out years of savings." },
+    { rank: 4, fear: "Daughter's marriage", description: "Sikh and Jat weddings involve substantial expenditure (Rs 5-20 lakh). Dowry expectations persist despite legal prohibition." },
+    { rank: 5, fear: "Job loss/underemployment", description: "Youth unemployment in Punjab estimated at 10-14% (higher than national average). Drug addiction compounds joblessness." },
+    { rank: 6, fear: "Old-age destitution", description: "No universal pension. Landless elderly (especially Dalits) face extreme poverty. Old-age pension Rs 1,500-2,000/month (insufficient)." },
+  ];
+
+  // Regional Anxiety Mapping
+  const regionalAnxiety: RegionalAnxiety[] = [
+    { region: "Malwa (Sangrur, Mansa, Bathinda)", primaryAnxiety: "Farmer debt + suicide + crop failure", politicalImplication: "Anti-incumbency strongest here; AAP won massively in 2022 on these issues" },
+    { region: "Majha (Amritsar, Gurdaspur, Tarn Taran)", primaryAnxiety: "Drug menace + unemployment + border area neglect", politicalImplication: "National security + local economy concerns" },
+    { region: "Doaba (Jalandhar, Kapurthala, Hoshiarpur)", primaryAnxiety: "NRI investment + youth emigration + industrial decline", politicalImplication: "Dual identity politics; aspirational but frustrated" },
+    { region: "Urban (Ludhiana, Amritsar, Jalandhar)", primaryAnxiety: "Inflation + job loss + civic infrastructure", politicalImplication: "Middle-class swing voters" },
+  ];
+
+  // Strategic Implications for Congress Campaign
+  const campaignStrategicImplications: StrategicImplication[] = [
+    { number: 1, issue: "Debt waiver is #1 electoral issue in Malwa", implication: "9,291+ farmer suicides (2000-2018) and 2,809+ (2023-25) under AAP watch. Congress must promise comprehensive debt settlement including non-institutional debt conversion." },
+    { number: 2, issue: "BPL restoration is a live issue", implication: "AAP deleted 3.1 lakh ration cards then restored 10.77 lakh beneficiaries under pressure. Congress can promise permanent, non-arbitrary PDS coverage." },
+    { number: 3, issue: "The 'fragile middle' (Rs 10,000-35,000/month) is the swing voter pool", implication: "Not BPL-poor but one crisis away from poverty. Message: 'economic security for the middle, dignity for the poor.'" },
+    { number: 4, issue: "SC economic empowerment is an untapped Congress opportunity", implication: "32% of Punjab is Dalit with income at 57% of General caste levels. Congress should propose targeted asset-building (land, housing, skill training) beyond reservation." },
+    { number: 5, issue: "Healthcare privatization anxiety is universal", implication: "AAP promised free medicines in hospitals (Jan 2024). Congress must counter with a MORE comprehensive rural health insurance scheme." },
+    { number: 6, issue: "Daughter's marriage + drug menace = dual anxiety", implication: "A 'daughter protection scheme' (marriage assistance + drug rehabilitation centers) addresses both simultaneously." },
+  ];
+
+  // Fragile Middle Class Data
+  const fragileMiddleClass = {
+    incomeRange: "Rs 10,000-35,000/month",
+    percentageOfHouseholds: "45-50%",
+    description: "Rural middle class that is economically precarious — one crop failure or medical emergency pushes them into the Rs 5,000-10,000 band",
+    politicalSignificance: "SWING VOTER POOL — the decisive electoral segment"
+  };
+
+  // ==========================================
+  // VULNERABLE OCCUPATIONS DATA
+  // (from occupation-vulnerable.md - PLFS 2025)
+  // ==========================================
+
+  // Overall Unemployment (PLFS 2025)
+  const overallUnemploymentData = {
+    overall: { rate: 6.7, national: 5.3 },
+    rural: { rate: 7.4, national: 4.2 },
+    urban: { rate: 5.8, national: 6.7 },
+    youth: { rate: 17.0, national: 9.9 },
+    ruralYouth: { rate: 18.7, national: 8.3 },
+    urbanYouth: { rate: 14.5, national: 13.6 },
+  };
+
+  // Educated Unemployment (PLFS 2025)
+  const educatedUnemploymentData = [
+    { level: "Not literate", rate: 0.8 },
+    { level: "Literate & up to primary", rate: 1.0 },
+    { level: "Middle", rate: 2.6 },
+    { level: "Secondary", rate: 2.8 },
+    { level: "Higher secondary", rate: 13.8 },
+    { level: "Diploma/certificate", rate: 8.9 },
+    { level: "Graduate", rate: 11.6 },
+    { level: "Postgraduate & above", rate: 9.4 },
+    { level: "Secondary & above", rate: 9.3 },
+  ];
+
+  // Youth Unemployment by Gender (PLFS 2025)
+  const youthUnemploymentByGenderData = [
+    { area: "Rural", male: 14.7, female: 29.9, total: 18.7 },
+    { area: "Urban", male: 12.1, female: 23.7, total: 14.5 },
+    { area: "Overall", male: 13.6, female: 27.7, total: 17.0 },
+  ];
+
+  // Unemployment Bureau Data
+  const unemploymentBureauData = {
+    registeredApplicants: 122842,
+    date: "September 2025",
+    unskilled: 58,
+    skilled: 42,
+  };
+
+  // Distress Migration & Brain Drain
+  const distressMigrationData = {
+    farmersNotWantingChildrenInAgriculture: 75,
+    studySource: "Prof Ghuman study, 2025",
+    pushFactors: ["Unemployment", "Corruption", "Drug addiction fear", "Social insecurity", "Bad politico-administrative system"],
+    annualGrowthPunjab: 4.62,
+    annualGrowthNational: 5.67,
+    industrialUnitsShutDown: 18700,
+    shutDownPeriod: "2007-2014",
+  };
+
+  // Discouraged Workers & NEET
+  const discouragedWorkersData = {
+    lfpr: 47.0,
+    lfprNational: 46.0,
+    wpr: 39,
+    wprNational: 41.4,
+  };
+
+  // Non-Working Population
+  const nonWorkingPopulationData = {
+    homemakers: "~55-60% of Punjabi women (non-worker category, Census 2011)",
+    population60Plus: "6.8% (Census 2011), projected 8-9% by 2026",
+    pensionBurden: "57.5% of revenue consumed by salaries, pensions, subsidies",
+    disabled: "~2.2% of population (~6 lakh persons, Census 2011)",
+  };
+
+  // Vulnerable Occupations
+  const vulnerableOccupationsData = [
+    { category: "Domestic Workers", estimate: "~4.75 million nationally (ILO)", location: "Ludhiana, Amritsar, Jalandhar, Mohali", demographics: "Women, Dalit/SC, migrant from UP/Bihar" },
+    { category: "Child Labour", estimate: "~73,714 (Census 2011, age 5-14)", location: "Agriculture, brick kilns, dhaba/tea stalls, domestic work" },
+    { category: "Bonded Labour", estimate: "~8 million nationally (India)", location: "Brick kiln industry in Malwa and Doaba regions" },
+    { category: "Ragpickers/Waste Workers", estimate: "Urban cities significant employment", demographics: "Migrant communities (UP, Bihar), Dalit castes" },
+  ];
+
+  // Religious Occupations
+  const religiousOccupationsData = {
+    sgpc: {
+      totalStaff: 11000,
+      goldenTempleStaff: 2800,
+      keyFunctionaries: ["Granthi", "Ragi", "Kathavachak", "Dhadhi", "Sewadar"],
+    },
+    gurdwaraEstimate: "20,000-30,000 total religious workers (SGPC + non-SGPC)",
+  };
+
+  // Political Significance
+  const vulnerablePoliticalSignificance = [
+    { bloc: "Educated Unemployed Youth", description: "17% youth unemployment = hundreds of thousands of frustrated young voters. Graduate unemployment of 11.6-20.6% = most politically aware segment." },
+    { bloc: "Female Youth (27.7%)", description: "More than double the male rate (13.6%). Congress can target with employment guarantee + skill training + safety platform." },
+    { bloc: "Rural Unemployed (7.4%)", description: "Rural exceeds urban (5.8%) — contradicts city job crisis narrative. Farm distress + mechanization displacement." },
+    { bloc: "Vulnerable/Informal Workers", description: "Brick kiln bonded labourers (Dalit/SC) politically organized. Dera followers controlled by dera heads." },
+    { bloc: "Religious Workers", description: "SGPC/religious workers are opinion-makers in every village. Granthi = community leader shaping voting." },
+  ];
+
   return (
     <div className="space-y-8">
       <div className="flex items-center justify-between">
@@ -1112,6 +2191,174 @@ export default function DemographyPage() {
               <div className="flex justify-between"><span className="text-slate-600 dark:text-slate-400">BJP</span><span className="font-medium">2 seats (6%)</span></div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* URBANIZATION & SETTLEMENT CLASSIFICATION (from research-M2/MP1-foundational/demographics/urbanization.md) */}
+      <div className="rounded-xl border border-indigo-200 bg-indigo-50/50 p-6 shadow-sm dark:border-indigo-800 dark:bg-indigo-900/10">
+        <div className="mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-indigo-800 dark:text-indigo-300">
+            Urbanization & Settlement Classification
+          </h3>
+          <Badge variant="info">Demographics</Badge>
+        </div>
+        <p className="mb-6 text-sm text-indigo-700 dark:text-indigo-400">
+          Punjab urbanization trends, municipal corporation data, and urban-rural electoral implications
+        </p>
+
+        {/* Key Urbanization Metrics */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
+          <MetricCard
+            title="Urbanization Rate 2011"
+            value="37.49%"
+            subtitle="Census 2011"
+            color="bg-indigo-500"
+          />
+          <MetricCard
+            title="Urban Population 2011"
+            value="10.4M"
+            subtitle="37.49% of 27.7M total"
+            color="bg-indigo-500"
+          />
+          <MetricCard
+            title="Projected Urban 2026"
+            value="~41-42%"
+            subtitle="Driven by Mohali, Ludhiana, Amritsar"
+            color="bg-indigo-500"
+          />
+          <MetricCard
+            title="Urban vs National"
+            value="+6.3pp"
+            subtitle="Above 31.16% national avg"
+            color="bg-indigo-500"
+          />
+        </div>
+
+        {/* Urban Trajectory */}
+        <div className="mb-6 rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+          <h4 className="mb-3 text-sm font-medium text-slate-700 dark:text-slate-300">Urbanization Trajectory</h4>
+          <div className="grid gap-4 md:grid-cols-4">
+            {urbanizationTrajectoryData.map((item, idx) => (
+              <div key={idx} className="rounded-lg bg-indigo-50 p-3 dark:bg-indigo-900/20">
+                <div className="text-xl font-bold text-indigo-600 dark:text-indigo-400">{item.percent}%</div>
+                <div className="text-sm text-slate-600 dark:text-slate-400">{item.label}</div>
+                {item.isProjection && <span className="text-xs text-amber-600">(projected)</span>}
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-slate-500">Pace slowed: +3.6pp (2001-2011) vs +6.2pp (1991-2001)</p>
+        </div>
+
+        {/* Top Municipal Corporations */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-medium text-slate-700 dark:text-slate-300">Top Municipal Corporations (2022 Est. Population)</h4>
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-6">
+            {municipalCorpPopulationData.slice(0, 6).map((city) => (
+              <div key={city.city} className="rounded-lg border border-slate-200 p-3 dark:border-slate-700">
+                <div className="flex items-center gap-2">
+                  <div className="h-3 w-3 rounded-full" style={{ backgroundColor: city.color }} />
+                  <span className="font-semibold text-slate-700 dark:text-slate-300">{city.city}</span>
+                </div>
+                <div className="mt-2 text-lg font-bold text-slate-800 dark:text-white">
+                  {(city.pop2022 / 1000000).toFixed(2)}M
+                </div>
+                <div className="text-xs text-slate-500">
+                  {(city.pop2022).toLocaleString()} est.
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* District Urbanization */}
+        <div className="mb-6 rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+          <h4 className="mb-3 text-sm font-medium text-slate-700 dark:text-slate-300">District Urbanization Levels (Census 2011)</h4>
+          <div className="grid gap-4 md:grid-cols-3">
+            {urbanizationData.districtUrbanization.map((cat) => (
+              <div key={cat.category} className="rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
+                <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">{cat.category}</div>
+                <div className="mt-1 text-xs text-slate-500">{cat.urbanPercentRange}</div>
+                <div className="mt-2 space-y-1">
+                  {cat.districts.slice(0, 4).map((d) => (
+                    <div key={d} className="text-xs text-slate-600 dark:text-slate-400">{d}</div>
+                  ))}
+                  {cat.districts.length > 4 && (
+                    <div className="text-xs text-slate-400">+{cat.districts.length - 4} more</div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-amber-600 dark:text-amber-400">
+            <strong>Critical:</strong> Top 4 urbanized districts (Ludhiana, Mohali, Amritsar, Jalandhar) hold ~50% of urban population and 35-40 seats.
+          </p>
+        </div>
+
+        {/* Peri-Urban Belts */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-indigo-50 to-purple-50 p-4 dark:from-indigo-900/20 dark:to-purple-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-indigo-700 dark:text-indigo-400">Peri-Urban Growth Corridors</h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            {urbanizationData.periUrbanZones.belts.map((belt) => (
+              <div key={belt.name} className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <div className="font-medium text-slate-700 dark:text-slate-300">{belt.name}</div>
+                <div className="mt-1 text-xs text-slate-500">Anchor: {belt.anchorCity}</div>
+                <div className="mt-2 text-xs text-slate-600 dark:text-slate-400">{belt.characteristics}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Slum Data */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-medium text-slate-700 dark:text-slate-300">Slum Population (Census 2011) — Total: ~1.45M</h4>
+          <div className="grid gap-3 md:grid-cols-5">
+            {slumConcentrationData.slice(0, 5).map((slum) => (
+              <div key={slum.city} className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-800 dark:bg-red-900/20">
+                <div className="font-semibold text-slate-700 dark:text-slate-300">{slum.city}</div>
+                <div className="mt-1 text-lg font-bold text-red-600 dark:text-red-400">{slum.slumPop.toLocaleString()}</div>
+                <div className="text-xs text-slate-500">{slum.percent}% of city pop</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-2 text-xs text-amber-600">VERIFICATION_NEEDED: Post-2011 slum estimates show 15-20% growth in Ludhiana and Amritsar</p>
+        </div>
+
+        {/* Electoral Implications */}
+        <div className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-purple-700 dark:text-purple-400">Electoral Implications: Urban vs Rural</h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="font-semibold text-slate-700 dark:text-slate-300 mb-2">Urban Voter Priorities</div>
+              <div className="space-y-1 text-sm text-slate-600 dark:text-slate-400">
+                <div>• Jobs, air pollution, civic infrastructure</div>
+                <div>• Social media, YouTube, digital news</div>
+                <div>• Turnout: 55-65% (lower)</div>
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="font-semibold text-slate-700 dark:text-slate-300 mb-2">Rural Voter Priorities</div>
+              <div className="space-y-1 text-sm text-slate-600 dark:text-slate-400">
+                <div>• MSP, farm debt, canal water, rural roads</div>
+                <div>• Cable TV, WhatsApp, vernacular print</div>
+                <div>• Turnout: 70-80% (higher)</div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
+            <div className="text-sm font-medium text-amber-700 dark:text-amber-400">Congress Strategy</div>
+            <div className="mt-2 space-y-2 text-xs text-slate-600 dark:text-slate-400">
+              <div><strong>Urban offensive:</strong> Build narrative on jobs, pollution, civic infrastructure. Target 10-12 urban seats.</div>
+              <div><strong>Peri-urban swing zone:</strong> 35-40 semi-urban seats where elections are won.</div>
+              <div><strong>Slum voters:</strong> ~1.45M slum dwellers in AAP strongholds — offer housing/sanitation alternatives.</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Data Quality */}
+        <div className="mt-4 rounded-lg bg-slate-100 p-3 dark:bg-slate-800">
+          <p className="text-xs text-slate-500">
+            <strong>Note:</strong> Census 2021 was NOT conducted. All 2022-2026 figures are extrapolated from 2011 baseline. Data gaps marked VERIFICATION_NEEDED require post-2019 verification.
+          </p>
         </div>
       </div>
 
@@ -2673,28 +3920,32 @@ export default function DemographyPage() {
           Minority Religious Demographics — Buddhist, Jain, Muslim Trajectory — 2026
         </h3>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          Buddhist 33,237, Jain 45,040. Muslim population collapsed from 38.4% (1941) to 1.93% (2011) — Partition's massive impact. 165 mosques, 948 churches with 65,000 pastors.
+          Buddhist 33,237, Jain 45,040. Muslim population collapsed from 38.4% (1941) to 1.93% (2011) — Partition&apos;s massive impact. {religiousMinoritiesOverview.sourcesConsulted} sources consulted. Data confidence: {religiousMinoritiesOverview.confidence}.
         </p>
         <div className="mt-6 grid gap-4 md:grid-cols-4">
           <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
-            <div className="text-2xl font-bold text-red-600 dark:text-red-400">33,237</div>
+            <div className="text-2xl font-bold text-red-600 dark:text-red-400">{buddhistCommunity.population2011.toLocaleString()}</div>
             <div className="mt-1 text-sm font-semibold text-red-700 dark:text-red-300">Buddhist</div>
-            <div className="text-xs text-red-600 dark:text-red-300">0.12% — border districts</div>
+            <div className="text-xs text-red-600 dark:text-red-300">{buddhistCommunity.sharePercent}% — {buddhistCommunity.urbanConcentration.join(", ")}</div>
+            <div className="mt-1 text-xs text-red-500">Literacy: {buddhistCommunity.literacyRate2001}%</div>
           </div>
           <div className="rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
-            <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">45,040</div>
+            <div className="text-2xl font-bold text-orange-600 dark:text-orange-400">{jainCommunity.population2011.toLocaleString()}</div>
             <div className="mt-1 text-sm font-semibold text-orange-700 dark:text-orange-300">Jain</div>
-            <div className="text-xs text-orange-600 dark:text-orange-300">0.16% — urban trading</div>
+            <div className="text-xs text-orange-600 dark:text-orange-300">{jainCommunity.sharePercent}% — urban trading</div>
+            <div className="mt-1 text-xs text-orange-500">Literacy: {jainCommunity.literacyRate2001}% (highest)</div>
           </div>
           <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
-            <div className="text-2xl font-bold text-green-600 dark:text-green-400">165</div>
-            <div className="mt-1 text-sm font-semibold text-green-700 dark:text-green-300">Mosques</div>
-            <div className="text-xs text-green-600 dark:text-green-300">Built/restored</div>
+            <div className="text-2xl font-bold text-green-600 dark:text-green-400">{muslimCommunity.population2011.toLocaleString()}</div>
+            <div className="mt-1 text-sm font-semibold text-green-700 dark:text-green-300">Muslim</div>
+            <div className="text-xs text-green-600 dark:text-green-300">{muslimCommunity.sharePercent}% — {muslimCommunity.decadalGrowth.percentIncrease}% decadal growth</div>
+            <div className="mt-1 text-xs text-green-500">Malerkotla: {muslimCommunity.malerkotla.muslimPopulationPercent}%</div>
           </div>
           <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
-            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">948</div>
-            <div className="mt-1 text-sm font-semibold text-blue-700 dark:text-blue-300">Churches</div>
-            <div className="text-xs text-blue-600 dark:text-blue-300">65,000 pastors</div>
+            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{christianCommunity.growthDynamics.census2011.population.toLocaleString()}</div>
+            <div className="mt-1 text-sm font-semibold text-blue-700 dark:text-blue-300">Christian (2011)</div>
+            <div className="text-xs text-blue-600 dark:text-blue-300">{christianCommunity.growthDynamics.census2011.sharePercent}%</div>
+            <div className="mt-1 text-xs text-blue-500">Est. {christianCommunity.growthDynamics.estimatedCurrentShare.lowEstimate}-{christianCommunity.growthDynamics.estimatedCurrentShare.highEstimate}% now</div>
           </div>
         </div>
         <div className="mt-4 overflow-x-auto">
@@ -2715,8 +3966,196 @@ export default function DemographyPage() {
         </div>
         <div className="mt-4 rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            <span className="font-semibold">Christian Growth:</span> 948 churches, 65,000 pastors — driven by Dalit conversions (Valmiki, Mazhabi Sikh). Gurdaspur district highest at 7.7% Christian. <span className="font-semibold text-blue-700 dark:text-blue-400">Mosques concentrated in Malerkotla (68% Muslim).</span>
+            <span className="font-semibold">Christian Growth:</span> Driven by Dalit conversions (Valmiki, Mazhabi Sikh). Punjab has India&apos;s highest SC proportion at {getPunjabDalitPercent()}%. {christianCommunity.growthDynamics.reportedConversions.number.toLocaleString()} reportedly converted {christianCommunity.growthDynamics.reportedConversions.period} (media reports - needs verification). <span className="font-semibold text-blue-700 dark:text-blue-400">Mosques concentrated in Malerkotla ({muslimCommunity.malerkotla.muslimPopulationPercent}% Muslim).</span>
           </p>
+        </div>
+      </div>
+
+      {/* DALIT CHRISTIAN RESERVATION ISSUE - CRITICAL POLITICAL MATTER */}
+      <div className="rounded-xl border border-red-200 bg-red-50 p-6 shadow-sm dark:border-red-800 dark:bg-red-900/20">
+        <div className="flex items-start gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-red-500 text-white font-bold">
+            !
+          </div>
+          <div className="flex-1">
+            <h3 className="text-lg font-semibold text-red-700 dark:text-red-400">
+              CRITICAL: Dalit Christian SC Reservation Issue
+            </h3>
+            <p className="mt-2 text-sm text-red-600 dark:text-red-300">
+              <span className="font-semibold">Supreme Court Ruling ({dalitChristianReservationIssue.supremeCourtRuling.rulingDate}):</span> In{" "}
+              <em>{dalitChristianReservationIssue.supremeCourtRuling.caseName}</em>, SC ruled that converting to Christianity results in loss of Scheduled Caste status and protections under SC/ST Prevention of Atrocities Act.
+            </p>
+          </div>
+        </div>
+        <div className="mt-4 grid gap-4 md:grid-cols-3">
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="text-sm font-semibold text-red-600 dark:text-red-400">Impact on Punjab</h4>
+            <ul className="mt-2 space-y-1 text-xs text-slate-600 dark:text-slate-400">
+              {dalitChristianReservationIssue.impactOnPunjab.affectedCommunities.map((community, i) => (
+                <li key={i}>• {community}</li>
+              ))}
+            </ul>
+            <div className="mt-2 text-xs text-slate-500">
+              Consequences: Dalit Christians lose SC reservation (jobs, education, political representation)
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="text-sm font-semibold text-red-600 dark:text-red-400">Historical Context</h4>
+            <div className="mt-2 space-y-1 text-xs text-slate-600 dark:text-slate-400">
+              <p>1950: Presidential Order excluded non-Hindu Dalits</p>
+              <p>1956: Added Sikhs</p>
+              <p>1990: Added Buddhists</p>
+              <p className="font-semibold text-red-500">Christians & Muslims remain excluded</p>
+            </div>
+          </div>
+          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+            <h4 className="text-sm font-semibold text-red-600 dark:text-red-400">Political Exploitation</h4>
+            <div className="mt-2 text-xs text-slate-600 dark:text-slate-400">
+              <p><span className="font-semibold">{dalitChristianReservationIssue.politicalExploitation.party}</span> - {dalitChristianReservationIssue.politicalExploitation.leader}</p>
+              <p className="mt-1 text-red-500">{dalitChristianReservationIssue.politicalExploitation.statement}</p>
+            </div>
+            <div className="mt-2 text-xs">
+              <span className="font-semibold text-slate-500">Community Response:</span>
+              {dalitChristianReservationIssue.communityResponse.leaders.map((leader, i) => (
+                <p key={i} className="text-slate-600 dark:text-slate-400">{leader.name} ({leader.role})</p>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="mt-4 rounded-lg bg-yellow-100 p-3 dark:bg-yellow-900/30">
+          <p className="text-sm font-semibold text-yellow-700 dark:text-yellow-400">
+            Congress Opportunity: Dalit Christian reservation issue is THE defining political opportunity
+          </p>
+          <ul className="mt-2 space-y-1 text-xs text-yellow-600 dark:text-yellow-300">
+            <li>• Publicly commit to extending SC reservation benefits to Dalit Christians</li>
+            <li>• Advocate at national level for amendment to Presidential Order of 1950</li>
+            <li>• Contrast with BJP&apos;s anti-conversion law stance</li>
+            <li>• Position Congress as protector of both Dalit rights AND religious freedom</li>
+          </ul>
+        </div>
+      </div>
+
+      {/* DISTRICT-WISE MUSLIM POPULATION */}
+      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+          District-wise Muslim Population (2011 Census)
+        </h3>
+        <p className="text-sm text-slate-500 dark:text-slate-400">
+          Total Muslim population: {muslimCommunity.population2011.toLocaleString()} ({muslimCommunity.sharePercent}%). Highest concentration in Sangrur/Malerkotla at {muslimCommunity.highestConcentration.percentOfDistrict}%.
+        </p>
+        <div className="mt-4 overflow-x-auto">
+          <DataTable
+            headers={["District", "Muslim Population", "% of District"]}
+            rows={districtMuslimPopulation.slice(0, 12).map(d => [
+              d.district,
+              d.muslimPopulation.toLocaleString(),
+              `${d.percentOfDistrict}%`,
+            ])}
+            caption="Top 12 districts by Muslim population"
+          />
+        </div>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+            <h4 className="text-sm font-semibold text-green-700 dark:text-green-400">Malerkotla - India&apos;s Only Muslim-Majority Municipality</h4>
+            <div className="mt-2 space-y-1 text-xs text-green-600 dark:text-green-300">
+              <p>Muslim Population: {muslimCommunity.malerkotla.muslimPopulationPercent}%</p>
+              <p>Created as separate district: {muslimCommunity.malerkotla.createdAsDistrictYear}</p>
+              <p>Native Punjabi Muslims who stayed during Partition</p>
+            </div>
+          </div>
+          <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+            <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-400">Qadian - Ahmadiyya Headquarters</h4>
+            <div className="mt-2 space-y-1 text-xs text-blue-600 dark:text-blue-300">
+              <p>Founded by: {muslimCommunity.qadian.founder} ({muslimCommunity.qadian.founderBirthYear})</p>
+              <p>District: {muslimCommunity.qadian.district}</p>
+              <p>Ahmadiyya community faces persecution</p>
+            </div>
+          </div>
+        </div>
+        <div className="mt-4 rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
+          <h4 className="text-sm font-semibold text-slate-600 dark:text-slate-400">Urban Migrant Muslim Pockets</h4>
+          <div className="mt-2 grid gap-2 md:grid-cols-2">
+            {muslimCommunity.urbanMigrantPockets.map((pocket, i) => (
+              <div key={i} className="flex justify-between text-xs">
+                <span className="text-slate-600 dark:text-slate-400">{pocket.city}:</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-300">{pocket.population.toLocaleString()}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* STRATEGIC IMPLICATIONS FOR CONGRESS - MINORITIES */}
+      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+          Strategic Implications for Congress - Minority Vote Banks
+        </h3>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          {/* Muslim Vote Bank */}
+          <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+            <h4 className="text-sm font-semibold text-green-700 dark:text-green-400">
+              Muslim Vote Bank (Est. {religiousMinoritiesStrategicImplications.muslimVoteBank.estimatedVoters} voters)
+            </h4>
+            <ul className="mt-2 space-y-2 text-xs text-green-600 dark:text-green-300">
+              {religiousMinoritiesStrategicImplications.muslimVoteBank.strategies.map((strategy, i) => (
+                <li key={i} className="rounded bg-white/50 p-2 dark:bg-slate-800/50">
+                  <span className="font-semibold">{strategy.component}:</span> {strategy.description}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Christian Vote Bank */}
+          <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+            <h4 className="text-sm font-semibold text-blue-700 dark:text-blue-400">
+              Christian Vote Bank (Est. {religiousMinoritiesStrategicImplications.christianVoteBank.estimatedVoters} - contested)
+            </h4>
+            <ul className="mt-2 space-y-2 text-xs text-blue-600 dark:text-blue-300">
+              {religiousMinoritiesStrategicImplications.christianVoteBank.strategies.map((strategy, i) => (
+                <li key={i} className="rounded bg-white/50 p-2 dark:bg-slate-800/50">
+                  <span className="font-semibold">{strategy.component}:</span> {strategy.description[0]}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <div className="mt-4 rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
+          <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-400">Cross-Cutting Minority Strategy</h4>
+          <div className="mt-2 space-y-2 text-xs text-purple-600 dark:text-purple-300">
+            <p><span className="font-semibold">Reforms:</span> {religiousMinoritiesStrategicImplications.crossCuttingStrategy.reforms.join(", ")}</p>
+            <p><span className="font-semibold">Employment:</span> {religiousMinoritiesStrategicImplications.crossCuttingStrategy.employment}</p>
+            <p><span className="font-semibold">Coalition:</span> {religiousMinoritiesStrategicImplications.crossCuttingStrategy.coalitionBuilding}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* DATA QUALITY & GAPS */}
+      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
+          Religious Minorities Data Quality & Gaps
+        </h3>
+        <p className="text-sm text-slate-500 dark:text-slate-400">
+          Confidence: <Badge variant={religiousMinoritiesOverview.confidence === "HIGH" ? "success" : religiousMinoritiesOverview.confidence === "MEDIUM" ? "warning" : "danger"}>{religiousMinoritiesOverview.confidence}</Badge> | Sources: {religiousMinoritiesOverview.sourcesConsulted} | Research Date: {religiousMinoritiesOverview.researchDate}
+        </p>
+        <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {getCriticalDataGaps().map((gap) => (
+            <div key={gap.id} className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-800 dark:bg-red-900/20">
+              <h4 className="text-xs font-semibold text-red-600 dark:text-red-400">CRITICAL: {gap.topic}</h4>
+              <p className="mt-1 text-xs text-red-500">{gap.description}</p>
+            </div>
+          ))}
+          {religiousMinoritiesDataGaps.filter(g => g.priority !== "CRITICAL").slice(0, 6).map((gap) => (
+            <div key={gap.id} className="rounded-lg border border-yellow-200 bg-yellow-50 p-3 dark:border-yellow-800 dark:bg-yellow-900/20">
+              <h4 className="text-xs font-semibold text-yellow-600 dark:text-yellow-400">{gap.priority}: {gap.topic}</h4>
+              <p className="mt-1 text-xs text-yellow-500">{gap.description}</p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 overflow-x-auto">
+          <DataTable
+            headers={["Metric", "Value", "Source", "Date"]}
+            rows={religiousMinoritiesDataPoints.slice(0, 10).map(dp => [dp.metric, dp.value, dp.source, dp.date])}
+            caption="Key Data Points"
+          />
         </div>
       </div>
 
@@ -2847,6 +4286,492 @@ export default function DemographyPage() {
       </div>
 
       {/* CYCLE 1 ENHANCEMENT: Punjab State Overview */}
+      {/* GENDER INDICATORS SECTION (from research-M2/MP1-foundational/demographics/gender-indicators.md) */}
+      <div className="rounded-xl border-2 border-pink-500 bg-pink-50 p-6 dark:border-pink-700 dark:bg-pink-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-500 text-lg font-bold text-white">
+            G
+          </span>
+          <div>
+            <h3 className="text-lg font-semibold text-pink-700 dark:text-pink-400">Gender Demographics & Women Indicators — Punjab</h3>
+            <p className="text-sm text-pink-600 dark:text-pink-400">Sources: Census 2011, NFHS-5 (2019-21), CEO Punjab, ECI, MoSPI, NSSO/PLFS, Mission Shakti</p>
+          </div>
+        </div>
+
+        {/* Population by Gender */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Population by Gender</h4>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">3.23 Cr</div>
+              <div className="mt-1 text-sm font-semibold text-blue-700 dark:text-blue-300">Total Population (2026 proj.)</div>
+              <div className="text-xs text-blue-600 dark:text-blue-300">Census projections</div>
+            </div>
+            <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+              <div className="text-2xl font-bold text-green-600 dark:text-green-400">1.64 Cr</div>
+              <div className="mt-1 text-sm font-semibold text-green-700 dark:text-green-300">Male Population</div>
+              <div className="text-xs text-green-600 dark:text-green-300">StatisticsTimes 2026</div>
+            </div>
+            <div className="rounded-lg bg-pink-50 p-4 dark:bg-pink-900/20">
+              <div className="text-2xl font-bold text-pink-600 dark:text-pink-400">~1.49 Cr</div>
+              <div className="mt-1 text-sm font-semibold text-pink-700 dark:text-pink-300">Female Population</div>
+              <div className="text-xs text-pink-600 dark:text-pink-300">Derived from sex ratio</div>
+            </div>
+            <div className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
+              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">895</div>
+              <div className="mt-1 text-sm font-semibold text-purple-700 dark:text-purple-300">Sex Ratio (Census 2011)</div>
+              <div className="text-xs text-purple-600 dark:text-purple-300">Females per 1000 males</div>
+            </div>
+          </div>
+          <div className="mt-4 grid gap-4 md:grid-cols-3">
+            <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
+              <div className="text-xl font-bold text-red-600 dark:text-red-400">846</div>
+              <div className="mt-1 text-sm font-semibold text-red-700 dark:text-red-300">Child Sex Ratio (0-6)</div>
+              <div className="text-xs text-red-600 dark:text-red-300">Census 2011 — alarmingly low</div>
+            </div>
+            <div className="rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
+              <div className="text-xl font-bold text-orange-600 dark:text-orange-400">918</div>
+              <div className="mt-1 text-sm font-semibold text-orange-700 dark:text-orange-300">NFHS-5 Sex Ratio</div>
+              <div className="text-xs text-orange-600 dark:text-orange-300">2019-21</div>
+            </div>
+            <div className="rounded-lg bg-teal-50 p-4 dark:bg-teal-900/20">
+              <div className="text-xl font-bold text-teal-600 dark:text-teal-400">904</div>
+              <div className="mt-1 text-sm font-semibold text-teal-700 dark:text-teal-300">Sex Ratio at Birth (NFHS-5)</div>
+              <div className="text-xs text-teal-600 dark:text-teal-300">Improved from 860 (NFHS-4)</div>
+            </div>
+          </div>
+        </div>
+
+        {/* District-Wise Child Sex Ratio */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">District-Wise Child Sex Ratio (Lowest) — Census 2011</h4>
+          <div className="grid gap-3 md:grid-cols-3">
+            {districtChildSexRatio.map((d) => (
+              <div key={d.district} className="flex items-center justify-between rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{d.district}</span>
+                <span className={`text-sm font-bold ${d.childSexRatio < 846 ? "text-red-600" : "text-green-600"}`}>
+                  {d.childSexRatio}
+                </span>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
+            <p className="text-sm text-red-700 dark:text-red-400">
+              <strong>Concern:</strong> Child sex ratio at 846 remains alarmingly low -- indicating persistent son preference. Tarn Taran (820) is the worst district.
+            </p>
+          </div>
+        </div>
+
+        {/* Female Literacy Trends */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Female Literacy Trends</h4>
+          <div className="overflow-x-auto">
+            <DataTable
+              headers={["Year", "Male", "Female", "Total", "Gender Gap"]}
+              rows={femaleLiteracyTrends.map(d => [d.year, d.male, d.female, d.total, d.gap])}
+            />
+          </div>
+          <div className="mt-3 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
+            <p className="text-sm text-amber-700 dark:text-amber-400">
+              <strong>Pattern:</strong> Malwa districts (Mansa, Muktsar, Sangrur, Bathinda, Tarn Taran) have the lowest female literacy, all below 63%. These are also the districts with the worst child sex ratios -- a double disadvantage for women.
+            </p>
+          </div>
+        </div>
+
+        {/* Female Literacy - Bottom 10 Districts */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Female Literacy by District (Census 2011) — Lowest 10</h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            {districtFemaleLiteracy.slice(-10).map((d) => (
+              <div key={d.district} className="flex items-center justify-between rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{d.district}</span>
+                <div className="text-right">
+                  <span className="text-sm font-bold text-pink-600">{d.female}%</span>
+                  <span className="ml-2 text-xs text-slate-500">Gap: {d.gap}pp</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Voter Turnout by Gender (2022) */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Electorate & Voter Turnout by Gender (2022 Assembly Election)</h4>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">68.7%</div>
+              <div className="mt-1 text-sm font-semibold text-blue-700 dark:text-blue-300">Male Turnout</div>
+              <div className="text-xs text-blue-600 dark:text-blue-300">~77.6 lakh voters</div>
+            </div>
+            <div className="rounded-lg bg-pink-50 p-4 dark:bg-pink-900/20">
+              <div className="text-2xl font-bold text-pink-600 dark:text-pink-400">68.4%</div>
+              <div className="mt-1 text-sm font-semibold text-pink-700 dark:text-pink-300">Female Turnout</div>
+              <div className="text-xs text-pink-600 dark:text-pink-300">~69.8 lakh voters</div>
+            </div>
+            <div className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
+              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">0.3pp</div>
+              <div className="mt-1 text-sm font-semibold text-purple-700 dark:text-purple-300">Gender Gap</div>
+              <div className="text-xs text-purple-600 dark:text-purple-300">Nearly at par!</div>
+            </div>
+            <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+              <div className="text-2xl font-bold text-green-600 dark:text-green-400">727</div>
+              <div className="mt-1 text-sm font-semibold text-green-700 dark:text-green-300">Transgender Voters</div>
+              <div className="text-xs text-green-600 dark:text-green-300">Massively undercounted</div>
+            </div>
+          </div>
+          <div className="mt-3 rounded-lg bg-green-100 p-3 dark:bg-green-900/40">
+            <p className="text-sm text-green-700 dark:text-green-400">
+              <strong>Positive:</strong> Female turnout at ~68.4% was nearly at par with male turnout at ~68.7% -- a gender turnout gap of only 0.3 percentage points. In many individual constituencies, women turnout exceeded men.
+            </p>
+          </div>
+        </div>
+
+        {/* Female Workforce Participation */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Female Workforce Participation Rate</h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
+              <div className="text-3xl font-bold text-red-600 dark:text-red-400">~24-28%</div>
+              <div className="mt-1 text-sm font-semibold text-red-700 dark:text-red-300">Punjab Female LFPR (PLFS 2022-23)</div>
+              <div className="text-xs text-red-600 dark:text-red-300">Estimated — significantly below national</div>
+            </div>
+            <div className="rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
+              <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">37.0%</div>
+              <div className="mt-1 text-sm font-semibold text-orange-700 dark:text-orange-300">India Female LFPR (PLFS 2022-23)</div>
+              <div className="text-xs text-orange-600 dark:text-orange-300">National average</div>
+            </div>
+          </div>
+          <div className="mt-3 rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
+            <p className="text-sm text-slate-600 dark:text-slate-400">
+              <strong>Key Characteristics:</strong> Rural FLFPR higher than urban due to agricultural work; SC women have higher participation but in lower-quality informal work; Agriculture (56%), domestic work, ASHA/Anganwadi, SHG-related enterprises.
+            </p>
+          </div>
+        </div>
+
+        {/* Health & Social Indicators (NFHS-5) */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Health & Social Indicators (NFHS-5, 2019-21)</h4>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {healthSocialIndicators.map((h) => (
+              <div key={h.indicator} className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">{h.indicator}</div>
+                <div className="mt-1 flex items-baseline gap-2">
+                  <span className="text-lg font-bold text-pink-600">{h.punjab}</span>
+                  <span className="text-xs text-slate-500">vs India {h.india}</span>
+                </div>
+                <div className="mt-1 text-xs text-slate-500">{h.notes}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 grid gap-3 md:grid-cols-2">
+            <div className="rounded-lg bg-green-100 p-3 dark:bg-green-900/40">
+              <p className="text-sm text-green-700 dark:text-green-400">
+                <strong>Positives:</strong> Punjab performs better than national average on marriage age, bank account ownership, mobile phone ownership, and domestic violence rates.
+              </p>
+            </div>
+            <div className="rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
+              <p className="text-sm text-red-700 dark:text-red-400">
+                <strong>Concerns:</strong> Anaemia remains high at ~40%. Obesity among women is rising rapidly. SRB at 904 still reflects gender-biased sex selection.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Widow, Single Women & Female-Headed Households */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Widow, Single Women & Female-Headed Households</h4>
+          <div className="grid gap-4 md:grid-cols-3">
+            {widowSingleWomenData.map((w) => (
+              <div key={w.category} className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
+                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{w.count}</div>
+                <div className="mt-1 text-sm font-semibold text-purple-700 dark:text-purple-300">{w.category}</div>
+                <div className="text-xs text-purple-600 dark:text-purple-300">{w.source}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
+            <p className="text-sm text-amber-700 dark:text-amber-400">
+              <strong>Political Relevance:</strong> Widows and single women are a highly mobilizable voting bloc. Punjab has one of the highest widow populations among Indian states, partly due to military/service casualties and agricultural distress-related male mortality.
+            </p>
+          </div>
+        </div>
+
+        {/* SHG, ASHA & Anganwadi Workers */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">SHG, ASHA & Anganwadi Workers</h4>
+          <div className="grid gap-4 md:grid-cols-5">
+            {frontlineWomenWorkers.map((f) => (
+              <div key={f.category} className="rounded-lg bg-teal-50 p-4 dark:bg-teal-900/20">
+                <div className="text-xl font-bold text-teal-600 dark:text-teal-400">{f.count}</div>
+                <div className="mt-1 text-sm font-semibold text-teal-700 dark:text-teal-300">{f.category}</div>
+                <div className="text-xs text-teal-600 dark:text-teal-300">{f.notes}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
+            <p className="text-sm text-blue-700 dark:text-blue-400">
+              <strong>Strategic Value:</strong> ~95,000+ women working as ASHA, Anganwadi workers, and SHG leaders have direct contact with virtually every rural household. This is a massive grassroots network that can be mobilized for political messaging.
+            </p>
+          </div>
+        </div>
+
+        {/* Strategic Implications for Congress Women Outreach */}
+        <div className="mb-6">
+          <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Strategic Implications for Congress Women Outreach</h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div>
+              <h5 className="text-sm font-medium text-green-700 dark:text-green-400 mb-2">Key Swing Bloc Identification</h5>
+              <div className="space-y-2">
+                {genderStrategicImplications.map((g) => (
+                  <div key={g.number} className="flex items-start gap-2 rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-xs font-bold text-white">
+                      {g.number}
+                    </span>
+                    <div>
+                      <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{g.bloc}:</span>
+                      <span className="ml-1 text-sm text-slate-600 dark:text-slate-400">{g.description}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h5 className="text-sm font-medium text-blue-700 dark:text-blue-400 mb-2">Recommended Congress Messaging Pillars</h5>
+              <div className="space-y-2">
+                {congressMessagingPillars.map((m, idx) => (
+                  <div key={idx} className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                    <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">{m.pillar}</div>
+                    <div className="text-xs text-slate-500">{m.description}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Data Gaps & Verification Needs */}
+        <div className="rounded-lg bg-yellow-50 p-4 dark:bg-yellow-900/20">
+          <h4 className="text-sm font-semibold text-yellow-700 dark:text-yellow-400 mb-2">Data Gaps & Verification Needs</h4>
+          <div className="grid gap-2 md:grid-cols-2">
+            {genderDataGaps.map((g) => (
+              <div key={g.dataPoint} className="flex items-center justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">{g.dataPoint}:</span>
+                <div className="text-right">
+                  <span className="font-medium text-orange-600">{g.status}</span>
+                  <span className="ml-2 text-xs text-slate-500">({g.sourceNeeded})</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Jat Sikh Demographics Section */}
+      <div className="rounded-xl border-2 border-amber-500 bg-amber-50 p-6 dark:border-amber-700 dark:bg-amber-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">JS</span>
+          <div>
+            <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-400">Jat Sikh Demographics & Clan Structure</h3>
+            <p className="text-sm text-amber-600 dark:text-amber-400">MP1-Foundational | Core Community Analysis | 20-25% of Punjab Population</p>
+          </div>
+        </div>
+
+        {/* Population Overview */}
+        <div className="grid gap-4 md:grid-cols-4 mb-6">
+          <MetricCard
+            title="Jat Sikh Population"
+            value="20-25%"
+            subtitle="~6-8 million people"
+            color="bg-amber-500"
+          />
+          <MetricCard
+            title="Share of Sikhs"
+            value="50-66%"
+            subtitle="Of total Sikh population"
+            color="bg-amber-600"
+          />
+          <MetricCard
+            title="Rural Population Share"
+            value="~35-40%"
+            subtitle="Of rural Punjab"
+            color="bg-orange-500"
+          />
+          <MetricCard
+            title="Agricultural Land"
+            value="80-95%"
+            subtitle="Owned by Jat Sikhs"
+            color="bg-green-600"
+          />
+        </div>
+
+        {/* Regional Distribution */}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Regional Distribution (117 Total Seats)</h4>
+          <div className="grid gap-4 md:grid-cols-3">
+            {regionalJatDistribution.map((region) => (
+              <div key={region.region} className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-semibold text-amber-700 dark:text-amber-400">{region.region}</span>
+                  <Badge variant={region.region === "Malwa" ? "warning" : "default"}>{region.assemblySeats} seats</Badge>
+                </div>
+                <div className="space-y-1 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Concentration:</span>
+                    <span className="font-medium">{region.jatSikhConcentration}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-slate-500">Population %:</span>
+                    <span className="font-medium">{region.concentrationPercent}</span>
+                  </div>
+                </div>
+                <p className="mt-2 text-xs text-slate-500">{region.character}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Landholding Stratification */}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Landholding Stratification</h4>
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <div className="mb-3 flex items-center justify-between text-sm">
+              <span className="text-slate-500">Critical Stat:</span>
+              <span className="font-medium text-red-600">{smallFarmerStatistic.percentage}% of Punjab farmers own less than 5 acres</span>
+            </div>
+            <div className="space-y-3">
+              {landholdingStratification.map((stratum) => {
+                const pct = parseInt(stratum.shareOfJatSikhFarmers.replace(/[^0-9]/g, ""));
+                const trendColors: Record<string, string> = {
+                  DECLINING: "bg-red-500",
+                  STABLE: "bg-blue-500",
+                  GROWING: "bg-yellow-500",
+                  GROWING_RAPIDLY: "bg-orange-500",
+                };
+                return (
+                  <div key={stratum.category} className="flex items-center gap-3">
+                    <div className="w-32 text-sm font-medium">{stratum.category}</div>
+                    <div className="flex-1">
+                      <ProgressBar
+                        label={stratum.landholdingSize}
+                        value={pct}
+                        max={40}
+                        color={trendColors[stratum.trend]}
+                        showPercentage
+                      />
+                    </div>
+                    <Badge variant={stratum.trend === "DECLINING" ? "danger" : stratum.trend === "GROWING_RAPIDLY" ? "warning" : "default"}>
+                      {stratum.trend.replace("_", " ")}
+                    </Badge>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Agricultural Debt Crisis */}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Agricultural Debt Crisis (2024-2026)</h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            {agriculturalDebtData.slice(0, 4).map((debt) => (
+              <div key={debt.indicator} className="rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+                <div className="flex items-start justify-between">
+                  <span className="text-sm font-medium text-red-700 dark:text-red-400">{debt.indicator}</span>
+                </div>
+                <p className="mt-1 text-lg font-bold text-red-600 dark:text-red-300">{debt.figure}</p>
+                <p className="text-xs text-slate-500">{debt.source}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
+            <p className="text-sm text-red-700 dark:text-red-300">
+              <strong>Suicide Concentration:</strong> 97%+ in Malwa region (Joint study: Punjabi University/PAU/GNDU)
+            </p>
+          </div>
+        </div>
+
+        {/* Major Clans Table */}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Major Jat Sikh Clans (Gotra) — {jatSikhClans.length} Clans Documented</h4>
+          <div className="overflow-x-auto rounded-lg border border-slate-200 dark:border-slate-700">
+            <table className="w-full text-sm">
+              <thead className="bg-slate-50 dark:bg-slate-800">
+                <tr>
+                  <th className="px-3 py-2 text-left font-medium text-slate-600 dark:text-slate-400">Clan</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-600 dark:text-slate-400">Rank</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-600 dark:text-slate-400">Primary Region</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-600 dark:text-slate-400">Notable Politicians</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
+                {jatSikhClans.slice(0, 12).map((clan) => (
+                  <tr key={clan.name} className="hover:bg-slate-50 dark:hover:bg-slate-800">
+                    <td className="px-3 py-2 font-medium text-slate-700 dark:text-slate-300">
+                      {clan.name}
+                      {clan.isAsalJat && <span className="ml-2 text-xs text-amber-600">*asal</span>}
+                    </td>
+                    <td className="px-3 py-2 text-slate-600 dark:text-slate-400">{clan.estimatedRank}</td>
+                    <td className="px-3 py-2 text-slate-600 dark:text-slate-400">{clan.primaryRegion}</td>
+                    <td className="px-3 py-2 text-slate-600 dark:text-slate-400">
+                      {clan.notablePoliticians.length > 0 ? clan.notablePoliticians.join(", ") : "—"}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-1 text-xs text-slate-500">*asal = traditionally regarded as "genuine Jats" (Mann, Chahal, Bhullar)</p>
+        </div>
+
+        {/* Priority Constituency Clusters */}
+        <div className="mb-6">
+          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Congress Strategy: Priority Constituency Clusters</h4>
+          <div className="space-y-3">
+            {constituencyClusters.map((cluster) => (
+              <div key={cluster.priority} className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+                <div className="flex items-center gap-2 mb-2">
+                  <Badge variant={cluster.priority === "Priority 1" ? "danger" : cluster.priority === "Priority 2" ? "warning" : "default"}>
+                    {cluster.priority}
+                  </Badge>
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{cluster.description}</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {cluster.seatGroups.map((group) => (
+                    <span key={group} className="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-600 dark:bg-slate-700 dark:text-slate-300">
+                      {group}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Congress Strategy Points */}
+        <div className="rounded-lg bg-amber-100 p-4 dark:bg-amber-900/40">
+          <h4 className="text-sm font-semibold text-amber-700 dark:text-amber-400 mb-3">Congress 2027 Strategy Points</h4>
+          <div className="grid gap-2 md:grid-cols-2">
+            {congressStrategyPoints.slice(0, 4).map((strategy, idx) => (
+              <div key={idx} className="flex gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-amber-500 text-xs font-bold text-white">
+                  {idx + 1}
+                </span>
+                <div>
+                  <p className="text-sm font-medium text-amber-700 dark:text-amber-400">{strategy.point}</p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">{strategy.recommendation.substring(0, 100)}...</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-yellow-50 p-3 dark:bg-yellow-900/20">
+          <p className="text-sm text-yellow-700 dark:text-yellow-400">
+            <strong>Verification Status:</strong> {jatSikhPopulationData.verificationStatus} — Population estimates cross-referenced; clan distributions based on historical/ethnographic sources.
+          </p>
+        </div>
+      </div>
+
       <div className="rounded-xl border-2 border-teal-500 bg-teal-50 p-6 dark:border-teal-700 dark:bg-teal-900/20">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500 text-lg font-bold text-white">P</span>
@@ -2893,6 +4818,1462 @@ export default function DemographyPage() {
         <div className="mt-4 rounded-lg bg-teal-100 p-3 dark:bg-teal-900/40">
           <p className="text-sm text-teal-700 dark:text-teal-300">
             <strong>Key Insight:</strong> Punjab's demographic transition — low TFR (1.6), aging population, high SC proportion (32%) — creates unique electoral dynamics. Youth unemployment at 18.8% and groundwater crisis (157% extraction) drive voter dissatisfaction.
+          </p>
+        </div>
+      </div>
+
+      {/* CYCLE 6: INCOME STRATIFICATION UI */}
+      <div className="rounded-xl border-2 border-amber-500 bg-amber-50 p-6 dark:border-amber-700 dark:bg-amber-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </span>
+          <div>
+            <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-400">Income Stratification & Economic Fragility</h3>
+            <p className="text-sm text-amber-600 dark:text-amber-500">Punjab Income, Poverty & Economic Stratification — 19 May 2026</p>
+          </div>
+          <Badge variant="warning">Cycle 6 Data</Badge>
+        </div>
+
+        {/* Fragile Middle Class Highlight */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-amber-100 to-orange-100 p-4 dark:from-amber-900/40 dark:to-orange-900/40">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-2xl font-bold text-amber-700 dark:text-amber-400">{fragileMiddleClass.percentageOfHouseholds}</span>
+            <span className="text-lg font-semibold text-amber-600 dark:text-amber-500">of households</span>
+          </div>
+          <p className="text-sm text-amber-700 dark:text-amber-400 font-medium">{fragileMiddleClass.incomeRange}</p>
+          <p className="mt-1 text-xs text-amber-600 dark:text-amber-500">{fragileMiddleClass.description}</p>
+          <div className="mt-2 flex items-center gap-2">
+            <Badge variant="warning">SWING VOTER POOL</Badge>
+            <span className="text-xs text-amber-600 dark:text-amber-500">{fragileMiddleClass.politicalSignificance}</span>
+          </div>
+        </div>
+
+        {/* Income Distribution Chart */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Monthly Household Income Distribution</h4>
+          <div className="space-y-2">
+            {incomeBands.map((band) => (
+              <div key={band.band} className="flex items-center gap-3">
+                <div className="w-36 text-xs font-medium text-slate-600 dark:text-slate-400">{band.band}</div>
+                <div className="flex-1">
+                  <ProgressBar label="" value={band.percentageNum} max={30} color="bg-amber-500" showPercentage />
+                </div>
+                <div className="w-24 text-xs text-slate-500">{band.typicalProfile.split(',')[0]}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Key Stats Grid */}
+        <div className="mb-6 grid gap-4 md:grid-cols-4">
+          <MetricCard title="NFSA Beneficiaries" value="1.53 Cr" subtitle="Sep 2025" color="bg-amber-500" />
+          <MetricCard title="Poverty Rate (Rural)" value="~5%" subtitle="Below national avg" color="bg-green-500" />
+          <MetricCard title="Farm Debt/Victim" value="Rs 8.3L" subtitle="PAU/ISADP Study" color="bg-red-500" />
+          <MetricCard title="Gini Coefficient" value="0.48" subtitle="High inequality" color="bg-purple-500" />
+        </div>
+
+        {/* Per Capita Consumption */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Monthly Per Capita Consumption (MPCE 2023-24)</h4>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
+            {perCapitaConsumption.map((item) => (
+              <div key={item.region} className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <div className="text-xs text-slate-500">{item.region}</div>
+                <div className="text-lg font-bold text-slate-700 dark:text-slate-300">{item.mpce}</div>
+                <div className="text-xs text-slate-400">{item.note}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Land Holdings */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Land Holdings Distribution (Agriculture Census 2015-16)</h4>
+          <div className="grid gap-3 md:grid-cols-5">
+            {landHoldings.map((holding) => (
+              <div key={holding.category} className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <div className="text-xs font-medium text-slate-500">{holding.category}</div>
+                <div className="text-sm font-bold text-slate-700 dark:text-slate-300">{holding.percentage}</div>
+                <div className="text-xs text-slate-400">{holding.sizeRange}</div>
+                <div className="mt-1 text-xs text-slate-500">{holding.holdings}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+            <p className="text-xs text-red-600 dark:text-red-400">
+              <strong>Critical:</strong> {landHoldingSummary.suicideFact}
+            </p>
+          </div>
+        </div>
+
+        {/* Farmer Suicide Data */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Farmer Suicide Crisis</h4>
+          <div className="grid gap-3 md:grid-cols-3">
+            {farmerSuicideStats.map((stat) => (
+              <div key={stat.period} className="rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+                <div className="text-xs text-slate-500">{stat.period}</div>
+                <div className="text-xl font-bold text-red-600">{stat.suicides}</div>
+                <div className="text-xs text-slate-500">{stat.districts}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* District-wise Suicides */}
+          <div className="mt-4 rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <h5 className="mb-2 text-xs font-semibold text-slate-600 dark:text-slate-400">District-wise Suicides (2000-2018)</h5>
+            <div className="space-y-2">
+              {districtSuicideData.map((data) => (
+                <div key={data.district} className="flex items-center justify-between">
+                  <span className="text-sm text-slate-600 dark:text-slate-400">{data.district}</span>
+                  <div className="flex items-center gap-2">
+                    <ProgressBar label="" value={data.count} max={2506} color="bg-red-500" showPercentage={false} />
+                    <span className="w-12 text-right text-sm font-medium text-red-600">{data.count.toLocaleString()}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 flex gap-4 text-xs text-slate-500">
+              <span>Victim demographics: {suicideDemographics.age19to35} aged 19-35 | {suicideDemographics.male} male | {suicideDemographics.illiterate} illiterate</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Debt Metrics */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Agricultural Debt Profile</h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+              <h5 className="mb-2 text-xs font-semibold text-slate-600 dark:text-slate-400">Debt Metrics</h5>
+              <div className="space-y-2">
+                {debtMetrics.map((metric) => (
+                  <div key={metric.metric} className="flex justify-between text-xs">
+                    <span className="text-slate-500">{metric.metric}:</span>
+                    <span className="font-medium text-slate-700 dark:text-slate-300">{metric.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+              <h5 className="mb-2 text-xs font-semibold text-slate-600 dark:text-slate-400">Debt Purpose Breakdown</h5>
+              <div className="space-y-2">
+                {debtPurpose.map((item) => (
+                  <div key={item.purpose} className="flex justify-between text-xs">
+                    <span className="text-slate-500 w-48 truncate">{item.purpose}:</span>
+                    <span className="font-medium text-amber-600">{item.percentage}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Arthiya Credit Crisis */}
+          <div className="mt-3 rounded-lg bg-orange-50 p-3 dark:bg-orange-900/20">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-xs font-semibold text-orange-700 dark:text-orange-400">ARTHIYA (Informal Credit) Crisis</span>
+              <Badge variant="warning">Critical</Badge>
+            </div>
+            <div className="grid gap-2 text-xs text-orange-600 dark:text-orange-400">
+              <div>Interest Rate: <strong>{arthiyaCredit.interestRate}</strong> vs Institutional: {arthiyaCredit.institutionalRate}</div>
+              <div>{arthiyaCredit.debtCollection}</div>
+              <div className="text-red-600 dark:text-red-400">{arthiyaCredit.informalCreditImpact}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Caste-Income Correlation */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Caste-Income Correlation</h4>
+          <div className="grid gap-3 md:grid-cols-3">
+            {casteIncomeCorrelation.map((data) => (
+              <div key={data.caste} className="rounded-lg bg-purple-50 p-3 dark:bg-purple-900/20">
+                <div className="text-xs text-slate-500">{data.caste}</div>
+                <div className="text-lg font-bold text-purple-700 dark:text-purple-400">{data.annualIncome}</div>
+                <div className="text-xs text-slate-500">{data.relativePosition}</div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 rounded-lg bg-purple-50 p-3 dark:bg-purple-900/20">
+            <p className="text-xs text-purple-600 dark:text-purple-400">
+              <strong>SC Population:</strong> {casteIncomeNote.scPopulation} | {casteIncomeNote.dalitEconomicDisadvantage} | Landlessness: {casteIncomeNote.landlessnessSC}
+            </p>
+          </div>
+        </div>
+
+        {/* Regional Anxiety Mapping */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Regional Economic Anxiety Mapping</h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            {regionalAnxiety.map((region) => (
+              <div key={region.region} className="rounded-lg bg-slate-50 p-3 dark:bg-slate-800">
+                <div className="text-xs font-semibold text-slate-600 dark:text-slate-400">{region.region}</div>
+                <div className="mt-1 text-sm font-medium text-red-600">{region.primaryAnxiety}</div>
+                <div className="mt-1 text-xs text-slate-500">{region.politicalImplication}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Primary Economic Fears */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Primary Economic Fears (Ranked by Prevalence)</h4>
+          <div className="space-y-2">
+            {economicAnxieties.map((anxiety) => (
+              <div key={anxiety.rank} className="flex items-start gap-3 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-600 dark:bg-red-900/40 dark:text-red-400">
+                  {anxiety.rank}
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">{anxiety.fear}</div>
+                  <div className="text-xs text-slate-500">{anxiety.description}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* NRI Remittance Economy */}
+        <div className="mb-6 rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-lg font-bold text-blue-700 dark:text-blue-400">NRI Remittance Economy</span>
+            <Badge variant="info">Doaba</Badge>
+          </div>
+          <div className="grid gap-2 text-sm md:grid-cols-2">
+            <div>
+              <span className="text-xs text-slate-500">Annual Remittances:</span>
+              <span className="ml-2 font-bold text-blue-600 dark:text-blue-400">{nriRemittanceEconomy.estimatedAnnualRemittances}</span>
+            </div>
+            <div>
+              <span className="text-xs text-slate-500">Key Districts:</span>
+              <span className="ml-2 text-blue-600 dark:text-blue-400">{nriRemittanceEconomy.districts}</span>
+            </div>
+          </div>
+          <p className="mt-2 text-xs text-blue-600 dark:text-blue-400">{nriRemittanceEconomy.impact}</p>
+        </div>
+
+        {/* Strategic Implications for Congress */}
+        <div className="rounded-lg bg-gradient-to-r from-blue-50 to-purple-50 p-4 dark:from-blue-900/20 dark:to-purple-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Strategic Implications for Congress Campaign</h4>
+          <div className="space-y-2">
+            {campaignStrategicImplications.map((item) => (
+              <div key={item.number} className="flex items-start gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-xs font-bold text-white">
+                  {item.number}
+                </span>
+                <div>
+                  <div className="text-xs font-semibold text-slate-600 dark:text-slate-400">{item.issue}</div>
+                  <div className="text-xs text-slate-500">{item.implication}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Vulnerable Occupations & Unemployment Section */}
+      <div className="rounded-xl border border-red-200 bg-red-50/50 p-6 shadow-sm dark:border-red-800 dark:bg-red-900/10">
+        <div className="mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-red-800 dark:text-red-300">
+            Vulnerable Occupations & Unemployment (PLFS 2025)
+          </h3>
+          <Badge variant="warning">Critical Issue</Badge>
+        </div>
+        <p className="mb-6 text-sm text-red-700 dark:text-red-400">
+          Youth unemployment, educated unemployment, informal labor, and religious occupations — key electoral demographics
+        </p>
+
+        {/* Key Unemployment Metrics */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <MetricCard
+            title="Youth Unemployment (15-29)"
+            value={`${overallUnemploymentData.youth.rate}%`}
+            subtitle="Punjab vs National: 9.9%"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Rural Unemployment"
+            value={`${overallUnemploymentData.rural.rate}%`}
+            subtitle="Exceeds urban (5.8%) — reverse of national pattern"
+            color="bg-orange-500"
+          />
+          <MetricCard
+            title="Female Youth Unemployment"
+            value={`${youthUnemploymentByGenderData.find(g => g.area === "Overall")?.female}%`}
+            subtitle="More than double male rate (13.6%)"
+            color="bg-pink-500"
+          />
+          <MetricCard
+            title="State Unemployment Bureau"
+            value="1.23 Lakh"
+            subtitle={`${unemploymentBureauData.registeredApplicants.toLocaleString()} applicants (Sep 2025)`}
+            color="bg-purple-500"
+          />
+        </div>
+
+        {/* Unemployment Breakdown */}
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          {/* Overall Unemployment Rates */}
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Overall Unemployment Rates (PLFS 2025)</h4>
+            <div className="space-y-2">
+              {[
+                { label: "Overall (15+)", punjab: overallUnemploymentData.overall.rate, national: overallUnemploymentData.overall.national },
+                { label: "Rural", punjab: overallUnemploymentData.rural.rate, national: overallUnemploymentData.rural.national },
+                { label: "Urban", punjab: overallUnemploymentData.urban.rate, national: overallUnemploymentData.urban.national },
+                { label: "Youth (15-29)", punjab: overallUnemploymentData.youth.rate, national: overallUnemploymentData.youth.national },
+                { label: "Rural Youth", punjab: overallUnemploymentData.ruralYouth.rate, national: overallUnemploymentData.ruralYouth.national },
+                { label: "Urban Youth", punjab: overallUnemploymentData.urbanYouth.rate, national: overallUnemploymentData.urbanYouth.national },
+              ].map((item) => (
+                <div key={item.label} className="flex items-center justify-between text-sm">
+                  <span className="text-slate-600 dark:text-slate-400">{item.label}</span>
+                  <div className="flex gap-2">
+                    <span className="font-semibold text-red-600">{item.punjab}%</span>
+                    <span className="text-slate-400">/</span>
+                    <span className="text-slate-500">{item.national}% (Nat.)</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 rounded bg-red-50 p-2 text-xs text-red-600 dark:bg-red-900/30 dark:text-red-400">
+              Key Finding: Punjab's rural unemployment (7.4%) exceeds urban (5.8%), reverse of national pattern
+            </div>
+          </div>
+
+          {/* Educated Unemployment */}
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Educated Unemployment (PLFS 2025)</h4>
+            <div className="space-y-2">
+              {educatedUnemploymentData.map((item) => (
+                <div key={item.level} className="flex items-center justify-between text-sm">
+                  <span className="text-slate-600 dark:text-slate-400">{item.level}</span>
+                  <span className={`font-semibold ${item.rate > 10 ? "text-red-600" : "text-orange-500"}`}>
+                    {item.rate}%
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-3 rounded bg-orange-50 p-2 text-xs text-orange-600 dark:bg-orange-900/30 dark:text-orange-400">
+              Critical: Higher secondary (13.8%) and Graduate (11.6%) unemployment are highest
+            </div>
+          </div>
+        </div>
+
+        {/* Youth Unemployment by Gender */}
+        <div className="mt-6 rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Youth Unemployment by Gender (15-29, PLFS 2025)</h4>
+          <div className="grid gap-4 md:grid-cols-3">
+            {youthUnemploymentByGenderData.map((item) => (
+              <div key={item.area} className="rounded-lg bg-pink-50 p-3 dark:bg-pink-900/20">
+                <div className="text-xs text-slate-500">{item.area}</div>
+                <div className="mt-2 grid grid-cols-3 gap-2 text-center">
+                  <div>
+                    <div className="text-xs text-slate-500">Male</div>
+                    <div className="text-lg font-bold text-blue-600">{item.male}%</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-500">Female</div>
+                    <div className="text-lg font-bold text-pink-600">{item.female}%</div>
+                  </div>
+                  <div>
+                    <div className="text-xs text-slate-500">Total</div>
+                    <div className="text-lg font-bold text-slate-600">{item.total}%</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="mt-3 rounded bg-pink-50 p-2 text-xs text-pink-600 dark:bg-pink-900/30 dark:text-pink-400">
+            Female youth unemployment at 27.7% is more than double the male rate and 2.5x the national female rate (11.3%)
+          </div>
+        </div>
+
+        {/* Distress Migration & Brain Drain */}
+        <div className="mt-6 rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
+          <div className="flex items-center gap-2 mb-3">
+            <h4 className="text-sm font-semibold text-orange-700 dark:text-orange-300">Distress Migration & Brain Drain</h4>
+            <Badge variant="warning">Critical</Badge>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">Farmers not wanting children in agriculture</span>
+                <span className="font-bold text-orange-600">{distressMigrationData.farmersNotWantingChildrenInAgriculture}%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">Punjab annual growth (2014-23)</span>
+                <span className="font-bold text-orange-600">{distressMigrationData.annualGrowthPunjab}%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">National average growth</span>
+                <span className="text-slate-500">{distressMigrationData.annualGrowthNational}%</span>
+              </div>
+            </div>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">Industrial units shut down (2007-14)</span>
+                <span className="font-bold text-red-600">{distressMigrationData.industrialUnitsShutDown.toLocaleString()}</span>
+              </div>
+              <div className="text-xs text-slate-500">Push factors: {distressMigrationData.pushFactors.join(", ")}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Discouraged Workers & Non-Working Population */}
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
+          <div className="rounded-lg bg-slate-100 p-4 dark:bg-slate-800">
+            <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Discouraged Workers & NEET</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">Labour Force Participation Rate</span>
+                <span className="font-semibold">{discouragedWorkersData.lfpr}%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">National LFPR</span>
+                <span className="text-slate-500">{discouragedWorkersData.lfprNational}%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">Worker Population Ratio</span>
+                <span className="font-semibold text-red-600">{discouragedWorkersData.wpr}%</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">National WPR</span>
+                <span className="text-slate-500">{discouragedWorkersData.wprNational}%</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-lg bg-slate-100 p-4 dark:bg-slate-800">
+            <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Non-Working Population</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-start justify-between">
+                <span className="text-slate-600 dark:text-slate-400">Homemakers</span>
+                <span className="text-right font-semibold">{nonWorkingPopulationData.homemakers}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">Population 60+</span>
+                <span className="font-semibold">{nonWorkingPopulationData.population60Plus}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">Pension burden</span>
+                <span className="text-red-600">{nonWorkingPopulationData.pensionBurden}</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-slate-600 dark:text-slate-400">Disabled</span>
+                <span className="font-semibold">{nonWorkingPopulationData.disabled}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Vulnerable Occupations */}
+        <div className="mt-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Vulnerable & Informal Occupations</h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            {vulnerableOccupationsData.map((occ) => (
+              <div key={occ.category} className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">{occ.category}</div>
+                    <div className="text-xs text-slate-500">{occ.demographics || occ.location}</div>
+                  </div>
+                  <Badge variant="warning">{occ.estimate}</Badge>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Religious Occupations */}
+        <div className="mt-6 rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
+          <div className="flex items-center gap-2 mb-3">
+            <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-300">Religious Occupations</h4>
+            <Badge variant="info">Opinion Makers</Badge>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">SGPC Religious Workers</div>
+              <div className="mt-2 space-y-1 text-xs">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Total SGPC Staff</span>
+                  <span className="font-semibold">{religiousOccupationsData.sgpc.totalStaff.toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Golden Temple</span>
+                  <span className="font-semibold">{religiousOccupationsData.sgpc.goldenTempleStaff.toLocaleString()}</span>
+                </div>
+                <div className="mt-2 text-slate-500">
+                  Functionaries: {religiousOccupationsData.sgpc.keyFunctionaries.join(", ")}
+                </div>
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">Total Religious Workers Estimate</div>
+              <div className="mt-2 text-center">
+                <div className="text-2xl font-bold text-purple-600">{religiousOccupationsData.gurdwaraEstimate}</div>
+                <div className="text-xs text-slate-500">Including SGPC and non-SGPC gurdwaras</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Political Significance for Congress */}
+        <div className="mt-6 rounded-lg bg-gradient-to-r from-red-50 to-orange-50 p-4 dark:from-red-900/20 dark:to-orange-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Political Significance for Congress</h4>
+          <div className="space-y-3">
+            {vulnerablePoliticalSignificance.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-3">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-red-100 text-xs font-bold text-red-600 dark:bg-red-900/40 dark:text-red-400">
+                  {idx + 1}
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">{item.bloc}</div>
+                  <div className="text-xs text-slate-500">{item.description}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ========================================== */}
+        {/* HINDUISM & INTERFAITH DYNAMICS */}
+        {/* ========================================== */}
+
+        {/* Hindu Population Overview */}
+        <div className="mb-6 rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
+          <h3 className="mb-3 text-lg font-semibold text-orange-700 dark:text-orange-400">
+            Hinduism & Interfaith Dynamics
+          </h3>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Hindu Population</div>
+              <div className="text-2xl font-bold text-orange-600">{hinduPopulationOverview.percentageOfState}</div>
+              <div className="text-xs text-slate-500">~{hinduPopulationOverview.estimatedPopulation}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Hindu Dalits</div>
+              <div className="text-2xl font-bold text-orange-600">{hinduDalitData.populationPercentage}</div>
+              <div className="text-xs text-slate-500">of Punjab population</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">SC Reserved Seats</div>
+              <div className="text-2xl font-bold text-orange-600">{hinduDalitData.reservedSeats}</div>
+              <div className="text-xs text-slate-500">of {hinduDalitData.totalSeats} total seats</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">RSS Shakhas</div>
+              <div className="text-2xl font-bold text-orange-600">1,000-1,200</div>
+              <div className="text-xs text-slate-500">across Punjab</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Regional Distribution */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Hindu Regional Distribution</h4>
+          <div className="grid gap-3 md:grid-cols-3">
+            {hinduPopulationOverview.regionalDistribution.map((region) => (
+              <div key={region.region} className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-orange-600">{region.region}</span>
+                  <Badge variant="warning">{region.seats} seats</Badge>
+                </div>
+                <div className="mt-2 text-xs text-slate-500">Hindu share: {region.hinduShare}</div>
+                <div className="mt-1 text-xs text-slate-400">Key: {region.keyDistricts.join(", ")}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Hindu Traditions */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Hindu Religious Traditions</h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <h5 className="text-xs font-semibold text-orange-600">Arya Samaj</h5>
+              <p className="mt-1 text-xs text-slate-500">{aryaSamajData.founder}, {aryaSamajData.founded}</p>
+              <div className="mt-2 space-y-1">
+                <div className="text-xs"><span className="font-medium">DAV Network:</span> {aryaSamajData.davNetwork.colleges} colleges, {aryaSamajData.davNetwork.schools}</div>
+                <div className="text-xs"><span className="font-medium">Political:</span> {aryaSamajData.politicalAlignment}</div>
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <h5 className="text-xs font-semibold text-orange-600">Sanatan Dharma</h5>
+              <p className="mt-1 text-xs text-slate-500">{sanatanDharmaData.description}</p>
+              <div className="mt-2 text-xs text-slate-400">{sanatanDharmaData.keyCharacteristics[0]}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <h5 className="text-xs font-semibold text-orange-600">ISKCON</h5>
+              <p className="mt-1 text-xs text-slate-500">Temples: {iskconData.temples.length}</p>
+              <div className="mt-2 text-xs text-slate-400">Growing youth engagement in Malwa</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <h5 className="text-xs font-semibold text-orange-600">Dev Samaj</h5>
+              <p className="mt-1 text-xs text-slate-500">{devSamajData.founder}, {devSamajData.founded}</p>
+              <div className="mt-2 text-xs text-slate-400">HQ: {devSamajData.headquarters}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* RSS District Density */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">RSS Shakha Density by District Cluster</h4>
+          <div className="space-y-2">
+            {rssDistrictDensity.map((cluster) => (
+              <div key={cluster.districtCluster} className="flex items-center justify-between rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                <div>
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{cluster.districtCluster}</span>
+                  <span className="ml-2 text-xs text-slate-400">({cluster.estimatedShakhas} shakhas)</span>
+                </div>
+                <Badge variant={cluster.strength.includes("Strongest") || cluster.strength.includes("Strong") ? "danger" : "default"}>
+                  {cluster.strength}
+                </Badge>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* RSS Victory Plan 2026 */}
+        <div className="mb-6 rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
+          <div className="flex items-center gap-2 mb-3">
+            <h4 className="text-sm font-semibold text-red-700 dark:text-red-400">RSS Punjab Victory Plan 2026</h4>
+            <Badge variant="danger">Threat</Badge>
+          </div>
+          <div className="space-y-2">
+            {rssVictoryPlan2026.fivePointStrategy.map((point) => (
+              <div key={point.number} className="flex items-start gap-2 rounded bg-white p-2 shadow-sm dark:bg-slate-800">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+                  {point.number}
+                </span>
+                <div>
+                  <div className="text-xs font-semibold text-slate-700 dark:text-slate-300">{point.name}</div>
+                  <div className="text-xs text-slate-500">{point.description}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Hindu Dalit Voting Pattern */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Hindu Dalit Voting Pattern (2022)</h4>
+          <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="border-b text-slate-500">
+                  <th className="pb-2 text-left">Party</th>
+                  <th className="pb-2 text-right">Dalit Sikh</th>
+                  <th className="pb-2 text-right">Dalit Hindu</th>
+                </tr>
+              </thead>
+              <tbody>
+                {hinduDalitVoting2022.map((row) => (
+                  <tr key={row.party} className="border-b last:border-0">
+                    <td className="py-2 font-medium">{row.party}</td>
+                    <td className="py-2 text-right">{row.dalitSikhVote}</td>
+                    <td className="py-2 text-right">{row.dalitHinduVote}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Key Hindu Mobilisation Issues */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Key Hindu Mobilisation Issues</h4>
+          <div className="space-y-2">
+            {hinduMobilizationIssues.map((issue) => (
+              <div key={issue.issue} className="flex items-start justify-between rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <div>
+                  <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">{issue.issue}</div>
+                  <div className="mt-1 text-xs text-slate-500">{issue.sentiment}</div>
+                  <div className="mt-1 text-xs text-slate-400">{issue.politicalImpact}</div>
+                </div>
+                <Badge variant={issue.salience === "High" ? "danger" : issue.salience === "Moderate" ? "warning" : "default"}>
+                  {issue.salience}
+                </Badge>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Major Temples */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Major Hindu Temples & Pilgrimage Sites</h4>
+          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {majorTemplesData.slice(0, 6).map((temple) => (
+              <div key={temple.name} className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                <div className="text-xs font-semibold text-orange-600">{temple.name}</div>
+                <div className="text-xs text-slate-500">{temple.location} | {temple.deity}</div>
+                <div className="mt-1 text-xs text-slate-400">{temple.constituencyRelevance}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Shared Sacred Calendar - Sikh-Hindu Syncretism */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Shared Sacred Calendar (Sikh-Hindu Syncretism)</h4>
+          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {sharedSacredCalendar.map((item) => (
+              <div key={item.occasion} className="flex items-center gap-2 rounded-lg bg-purple-50 p-2 dark:bg-purple-900/20">
+                <span className="text-sm font-medium text-purple-700 dark:text-purple-400">{item.occasion}</span>
+                <span className="text-xs text-slate-500">{item.sharedParticipation}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Potential Flashpoints */}
+        <div className="mb-6 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
+          <h4 className="mb-2 text-xs font-semibold text-amber-700 dark:text-amber-400">Potential Hindu-Sikh Flashpoints</h4>
+          <div className="space-y-2">
+            {potentialFlashpoints.map((point, idx) => (
+              <div key={idx} className="text-xs">
+                <span className="font-medium text-amber-700 dark:text-amber-400">{point.issue}:</span>
+                <span className="ml-1 text-amber-600 dark:text-amber-500"> {point.risk}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Strategic Implications for Congress */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-blue-50 to-orange-50 p-4 dark:from-blue-900/20 dark:to-orange-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Strategic Implications for Congress</h4>
+          <div className="space-y-2">
+            {strategicImplicationsForCongress.map((item) => (
+              <div key={item.number} className="flex items-start gap-2">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-xs font-bold text-white">
+                  {item.number}
+                </span>
+                <div>
+                  <div className="text-xs font-semibold text-slate-600 dark:text-slate-400">{item.implication}</div>
+                  <div className="mt-1 text-xs text-blue-600 dark:text-blue-400">{item.strategicValue}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* CYCLE 4: EDUCATION & DIGITAL ACCESS SECTION */}
+      <div className="rounded-xl border-2 border-cyan-500 bg-cyan-50 p-6 dark:border-cyan-700 dark:bg-cyan-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500 text-lg font-bold text-white">E</span>
+          <div>
+            <h3 className="text-lg font-semibold text-cyan-700 dark:text-cyan-400">Education & Digital Access Intelligence</h3>
+            <p className="text-sm text-cyan-600 dark:text-cyan-400">Literacy, School Infrastructure, Digital Penetration & Social Media</p>
+          </div>
+          <Badge variant="info">MP1-Foundational</Badge>
+        </div>
+
+        {/* Key Education Metrics */}
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 mb-6">
+          <MetricCard
+            title="Overall Literacy"
+            value="~83-85%"
+            subtitle="2024-25 projection (Census 2011: 76.7%)"
+            color="bg-cyan-500"
+          />
+          <MetricCard
+            title="Female Literacy"
+            value="~76-78%"
+            subtitle="Narrowing gap from 10pp (2011) to ~4-6pp (2025)"
+            change={7.1}
+            trend="up"
+            color="bg-pink-500"
+          />
+          <MetricCard
+            title="SC Enrolment Share"
+            value="36.1%"
+            subtitle="Highest of any Indian state"
+            color="bg-orange-500"
+          />
+          <MetricCard
+            title="Female Teachers"
+            value="76.6%"
+            subtitle="Highest in India"
+            color="bg-purple-500"
+          />
+        </div>
+
+        {/* Literacy Rates Table */}
+        <div className="mb-6 rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Literacy Rates (Census 2011 vs Estimated 2024-25)</h4>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-xs">
+              <thead>
+                <tr className="border-b border-slate-200 dark:border-slate-700">
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">Metric</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">Census 2011</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">Est. 2024-25</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">Note</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
+                {educationDigitalData.literacyRates.map((row, idx) => (
+                  <tr key={idx}>
+                    <td className="px-3 py-2 font-medium text-slate-700 dark:text-slate-300">{row.metric}</td>
+                    <td className="px-3 py-2 text-slate-600 dark:text-slate-400">{row.census2011}</td>
+                    <td className="px-3 py-2 text-cyan-600 dark:text-cyan-400">{row.estimated2024_25}</td>
+                    <td className="px-3 py-2 text-slate-500">{row.note || "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* School Infrastructure Grid */}
+        <div className="mb-6 grid gap-6 lg:grid-cols-2">
+          {/* Infrastructure Metrics */}
+          <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+            <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">School Infrastructure (UDISE+ 2024-25)</h4>
+            <div className="space-y-2">
+              {educationDigitalData.schoolInfrastructure.map((item, idx) => (
+                <div key={idx} className="flex items-center justify-between text-xs">
+                  <span className="text-slate-600 dark:text-slate-400">{item.indicator}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="font-medium text-cyan-600 dark:text-cyan-400">{item.punjab}</span>
+                    {item.nationalAverage !== "—" && (
+                      <span className="text-slate-400">vs {item.nationalAverage}</span>
+                    )}
+                    {item.note && (
+                      <Badge variant="success" className="text-[10px]">{item.note}</Badge>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* GER and Dropout */}
+          <div className="space-y-4">
+            <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+              <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Gross Enrolment Ratio (GER)</h4>
+              <div className="space-y-3">
+                {educationDigitalData.gerData.map((item, idx) => (
+                  <div key={idx}>
+                    <div className="mb-1 flex items-center justify-between text-xs">
+                      <span className="text-slate-600 dark:text-slate-400">{item.level}</span>
+                      <span className="font-medium text-cyan-600 dark:text-cyan-400">{item.punjab} <span className="text-slate-400">vs {item.national}</span></span>
+                    </div>
+                    <ProgressBar
+                      label=""
+                      value={parseFloat(item.punjab)}
+                      color="bg-cyan-500"
+                      showPercentage={false}
+                      maxValue={120}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+              <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Dropout Rates</h4>
+              <div className="space-y-2 text-xs">
+                {educationDigitalData.dropoutData.map((item, idx) => (
+                  <div key={idx} className="flex items-center justify-between">
+                    <span className="text-slate-600 dark:text-slate-400">{item.level}</span>
+                    <div className="flex items-center gap-2">
+                      <span className={`font-medium ${parseFloat(item.punjab) > parseFloat(item.national) ? "text-red-600" : "text-green-600"}`}>
+                        {item.punjab}
+                      </span>
+                      <span className="text-slate-400">vs {item.national}</span>
+                      {item.note && <Badge variant="warning" className="text-[10px]">{item.note}</Badge>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Digital Access Section */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-indigo-50 to-purple-50 p-4 dark:from-indigo-900/20 dark:to-purple-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-indigo-700 dark:text-indigo-400">Digital Access & Internet Penetration</h4>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-lg font-bold text-indigo-600 dark:text-indigo-400">~77/100</div>
+              <div className="text-xs text-slate-500">Internet subscribers per 100 (Punjab)</div>
+              <div className="text-xs text-slate-400">vs ~72/100 national average</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-lg font-bold text-orange-600 dark:text-orange-400">~42.5/100</div>
+              <div className="text-xs text-slate-500">Rural internet subscribers per 100</div>
+              <div className="text-xs text-red-500">Stark rural-urban digital divide</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-lg font-bold text-green-600 dark:text-green-400">65-70%</div>
+              <div className="text-xs text-slate-500">Smartphone penetration</div>
+              <div className="text-xs text-slate-400">Estimated household penetration</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-lg font-bold text-cyan-600 dark:text-cyan-400">99.0%</div>
+              <div className="text-xs text-slate-500">School computer access</div>
+              <div className="text-xs text-slate-400">vs ~65% nationally (HIGHEST)</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-lg font-bold text-purple-600 dark:text-purple-400">88.9%</div>
+              <div className="text-xs text-slate-500">School internet connectivity</div>
+              <div className="text-xs text-slate-400">vs ~55% nationally (HIGHEST)</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-lg font-bold text-pink-600 dark:text-pink-400">85%</div>
+              <div className="text-xs text-slate-500">Rural children smartphone access</div>
+              <div className="text-xs text-slate-400">ASER data, Feb 2026</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Digital Literacy Tiers */}
+        <div className="mb-6 rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Digital Literacy Tiers (Estimated Punjab Population)</h4>
+          <div className="grid gap-3 md:grid-cols-3 lg:grid-cols-6">
+            {educationDigitalData.digitalLiteracyTiers.map((tier, idx) => (
+              <div key={idx} className="rounded-lg border border-slate-200 p-3 dark:border-slate-700">
+                <div className="text-xs font-medium text-cyan-600 dark:text-cyan-400">{tier.tier}</div>
+                <div className="mt-1 text-xs text-slate-600 dark:text-slate-400">{tier.description}</div>
+                <div className="mt-2 text-lg font-bold text-slate-800 dark:text-slate-200">{tier.estimatedPct}</div>
+              </div>
+            ))}
+          </div>
+          <p className="mt-3 text-xs text-slate-500">Note: Tiers estimated from national patterns and Punjab-specific data points. VERIFICATION_NEEDED for state-specific figures.</p>
+        </div>
+
+        {/* Social Media Platform Penetration */}
+        <div className="mb-6 rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Social Media Platform Penetration (India vs Punjab Estimates)</h4>
+          <div className="overflow-x-auto">
+            <table className="min-w-full text-xs">
+              <thead>
+                <tr className="border-b border-slate-200 dark:border-slate-700">
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">Platform</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">India MAU</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">Favorite %</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">Punjab Estimate</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-500">Key Demographic</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
+                {educationDigitalData.socialMediaPlatforms.map((platform, idx) => (
+                  <tr key={idx}>
+                    <td className="px-3 py-2 font-medium text-slate-700 dark:text-slate-300">{platform.platform}</td>
+                    <td className="px-3 py-2 text-slate-600 dark:text-slate-400">{platform.indiaMAU}</td>
+                    <td className="px-3 py-2 text-slate-600 dark:text-slate-400">{platform.favoritePct}</td>
+                    <td className="px-3 py-2 font-medium text-cyan-600 dark:text-cyan-400">{platform.punjabEstimate}</td>
+                    <td className="px-3 py-2 text-slate-500">{platform.demographic}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-3 text-xs text-slate-500">Source: Meltwater/We Are Social, Digital 2025 India; DataReportal. Punjab estimates are projections adjusted for above-average income and NRI connectivity.</p>
+        </div>
+
+        {/* Network Coverage & Dark Zones */}
+        <div className="mb-6 grid gap-4 lg:grid-cols-2">
+          <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+            <h4 className="mb-2 text-sm font-semibold text-green-700 dark:text-green-400">4G/5G Coverage</h4>
+            <div className="space-y-2 text-xs">
+              <div className="flex items-start gap-2">
+                <span className="font-medium text-green-600">4G:</span>
+                <span className="text-slate-600 dark:text-slate-400">{networkCoverage.coverage}</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="font-medium text-green-600">5G:</span>
+                <span className="text-slate-600 dark:text-slate-400">{networkCoverage.fiveG}</span>
+              </div>
+            </div>
+          </div>
+          <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
+            <h4 className="mb-2 text-sm font-semibold text-red-700 dark:text-red-400">Potential Dark Zones</h4>
+            <div className="space-y-1 text-xs text-slate-600 dark:text-slate-400">
+              {networkCoverage.darkZones.map((zone, idx) => (
+                <div key={idx}>• {zone}</div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* SC Education Metrics */}
+        <div className="mb-6 rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-orange-700 dark:text-orange-400">SC Education Metrics</h4>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-2xl font-bold text-orange-600">{scEducationMetrics.scPopulationShare}</div>
+              <div className="text-xs text-slate-500">SC Population Share</div>
+              <div className="text-xs text-slate-400">Highest in India</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-2xl font-bold text-orange-600">{scEducationMetrics.scPrimaryGER}</div>
+              <div className="text-xs text-slate-500">SC Primary GER</div>
+              <div className="text-xs text-green-500">Near-universal access</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-2xl font-bold text-orange-600">{scEducationMetrics.scSecondaryGER}</div>
+              <div className="text-xs text-slate-500">SC Secondary GER</div>
+              <div className="text-xs text-slate-400">Strong progression</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-2xl font-bold text-orange-600">{scEducationMetrics.scHSGER}</div>
+              <div className="text-xs text-slate-500">SC HS GER</div>
+              <div className="text-xs text-slate-400">Highest SC share in India</div>
+            </div>
+          </div>
+          <p className="mt-3 text-xs text-orange-600 dark:text-orange-400">Source: UDISE+ 2024-25 analysis by Prof. Arun C. Mehta (educationforallinindia.com, Feb 2026)</p>
+        </div>
+
+        {/* ========================================== */}
+        {/* SIKHISM INTERNAL TAXONOMY */}
+        {/* Derived from: research-M2/MP1-foundational/demographics/sikhism-internal.md */}
+        {/* ========================================== */}
+
+        {/* Sikh Population Overview */}
+        <div className="mb-6 rounded-lg bg-emerald-50 p-4 dark:bg-emerald-900/20">
+          <h3 className="mb-3 text-lg font-semibold text-emerald-700 dark:text-emerald-400">
+            Sikhism Internal Dynamics
+          </h3>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Sikh Population (2011)</div>
+              <div className="text-2xl font-bold text-emerald-600">{sikhPopulationData.census2011.percentage}%</div>
+              <div className="text-xs text-slate-500">of Punjab population</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Sikh Population (2025 Est)</div>
+              <div className="text-2xl font-bold text-emerald-600">{sikhPopulationData.currentEstimates2025.percentage}</div>
+              <div className="text-xs text-slate-500">Estimated range</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">SGPC Budget</div>
+              <div className="text-2xl font-bold text-emerald-600">Rs {sgpcData.structure.annualBudgetCrore} Cr</div>
+              <div className="text-xs text-slate-500">Annual budget</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">SGPC Election</div>
+              <div className="text-2xl font-bold text-red-600">{sgpcData.electionStatus.yearsOverdue} Yrs</div>
+              <div className="text-xs text-slate-500">Overdue since {sgpcData.electionStatus.lastElection}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Sikh Observance Tiers */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Sikh Identity Tiers (Observance Levels)</h4>
+          <div className="grid gap-3 md:grid-cols-3">
+            {observanceTiers.map((tier) => (
+              <div key={tier.type} className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-emerald-600">{tier.type}</span>
+                  <Badge variant="success">{tier.percentage}</Badge>
+                </div>
+                <p className="mt-2 text-xs text-slate-500">{tier.definition}</p>
+                <div className="mt-3 border-t border-slate-200 pt-2 dark:border-slate-700">
+                  <p className="text-xs font-medium text-slate-600 dark:text-slate-400">Political Behavior:</p>
+                  <p className="mt-1 text-xs text-slate-500">{tier.politicalBehavior}</p>
+                </div>
+                <p className="mt-2 text-xs text-emerald-600 dark:text-emerald-400">{tier.electoralSignificance}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Major Sects & Influential Groups */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Major Sikh Sects &amp; Sampardas</h4>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-blue-600">Damdami Taksal</span>
+                <Badge variant="info">Most Political</Badge>
+              </div>
+              <p className="mt-2 text-xs text-slate-500">HQ: {damdamiTaksalData.headquarters.location}, {damdamiTaksalData.headquarters.district}</p>
+              <p className="mt-1 text-xs text-slate-500">Head: {damdamiTaksalData.currentHead}</p>
+              <p className="mt-2 text-xs text-amber-600 dark:text-amber-400">Risk: {damdamiTaksalData.congressRisk}</p>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-blue-600">Namdhari (Kuka)</span>
+                <Badge variant="success">~200-300K</Badge>
+              </div>
+              <p className="mt-2 text-xs text-slate-500">HQ: {namdhariData.headquarters.location}, {namdhariData.headquarters.district}</p>
+              <p className="mt-1 text-xs text-slate-500">Belief: {namdhariData.belief}</p>
+              <p className="mt-2 text-xs text-emerald-600 dark:text-emerald-400">Opportunity: {namdhariData.congressOpportunity}</p>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-blue-600">Radha Soami (Beas)</span>
+                <Badge variant="success">Millions</Badge>
+              </div>
+              <p className="mt-2 text-xs text-slate-500">HQ: {radhaSoamiData.headquarters.location}, {radhaSoamiData.headquarters.district}</p>
+              <p className="mt-1 text-xs text-slate-500">Nature: {radhaSoamiData.nature}</p>
+              <p className="mt-2 text-xs text-emerald-600 dark:text-emerald-400">Opportunity: {radhaSoamiData.congressOpportunity}</p>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-blue-600">Nihang Sikhs</span>
+                <Badge variant="warning">Cultural</Badge>
+              </div>
+              <p className="mt-2 text-xs text-slate-500">Factions: {nihangData.factions?.join(", ")}</p>
+              <p className="mt-1 text-xs text-slate-500">Region: Primarily Majha & Anandpur Sahib</p>
+              <p className="mt-2 text-xs text-slate-500">Congress: {nihangData.congressNote}</p>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-red-600">Nirankari</span>
+                <Badge variant="danger">Heretical</Badge>
+              </div>
+              <p className="mt-2 text-xs text-slate-500">HQ: {nirankariData.headquarters.location}</p>
+              <p className="mt-1 text-xs text-red-500">1978 clash: 13 Sikhs killed</p>
+              <p className="mt-2 text-xs text-red-600 dark:text-red-400">Risk: {nirankariData.congressRisk}</p>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-semibold text-blue-600">Akhand Kirtani Jatha</span>
+                <Badge variant="info">Small</Badge>
+              </div>
+              <p className="mt-2 text-xs text-slate-500">Influence: {akjData.influence.regions.join(", ")}</p>
+              <p className="mt-1 text-xs text-slate-500">Pockets: {akjData.influence.constituencies.join(", ")}</p>
+              <p className="mt-2 text-xs text-slate-500">Behavior: {akjData.politicalBehavior}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Key Sikh Institutions */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Key Sikh Institutions</h4>
+          <div className="grid gap-4 lg:grid-cols-2">
+            <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+              <h5 className="text-sm font-semibold text-blue-700 dark:text-blue-400">Akal Takht</h5>
+              <div className="mt-2 space-y-1 text-xs">
+                <p><span className="font-medium">Current Jathedar:</span> {akalTakhtData.currentJathedar}</p>
+                {akalTakhtData.actingJathedar && (
+                  <p><span className="font-medium">Acting Jathedar:</span> {akalTakhtData.actingJathedar}</p>
+                )}
+                {akalTakhtData.recentAction && (
+                  <div className="mt-2 rounded bg-red-100 p-2 dark:bg-red-900/40">
+                    <p className="font-medium text-red-700 dark:text-red-400">Dec 2024 Action:</p>
+                    <p className="text-red-600 dark:text-red-300">Tankhah on {akalTakhtData.recentAction.target}</p>
+                    <p className="text-red-500">{akalTakhtData.recentAction.reasons.slice(0, 2).join("; ")}...</p>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
+              <h5 className="text-sm font-semibold text-purple-700 dark:text-purple-400">SGPC Structure</h5>
+              <div className="mt-2 space-y-1 text-xs">
+                <p><span className="font-medium">Elected Members:</span> {sgpcData.structure.electedMembers}</p>
+                <p><span className="font-medium">Nominated:</span> {sgpcData.structure.nominatedMembers}</p>
+                <p><span className="font-medium">Takht Jathedars:</span> {sgpcData.structure.takhtJathedars}</p>
+                <p><span className="font-medium">Keshdhari Voters:</span> {(sgpcData.voterRegistration.keshdhariVoters / 1000000).toFixed(1)}M</p>
+                <p className="mt-2 text-amber-600">{sgpcData.keyTension}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Critical Political Issues */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Critical Political Issues</h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            <div className="rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+              <h5 className="text-sm font-semibold text-red-700 dark:text-red-400">2015 Sacrilege (Bargari)</h5>
+              <p className="mt-1 text-xs text-slate-500">{sacrilegeIssue["2015Bargari"].description}</p>
+              <p className="mt-1 text-xs text-slate-500">Location: {sacrilegeIssue["2015Bargari"].location}, {sacrilegeIssue["2015Bargari"].district}</p>
+              <p className="mt-2 text-xs text-red-600 dark:text-red-400">{sacrilegeIssue.congressPositioning}</p>
+            </div>
+            <div className="rounded-lg bg-orange-50 p-3 dark:bg-orange-900/20">
+              <h5 className="text-sm font-semibold text-orange-700 dark:text-orange-400">1984 Anti-Sikh Riots</h5>
+              <p className="mt-1 text-xs text-slate-500">Killed: {riots1984Issue.killings}</p>
+              <p className="mt-1 text-xs text-slate-500">Liability: {riots1984Issue.congressLiability[0]}</p>
+              <p className="mt-2 text-xs text-orange-600 dark:text-orange-400">{riots1984Issue.congressStrategy}</p>
+            </div>
+            <div className="rounded-lg bg-yellow-50 p-3 dark:bg-yellow-900/20">
+              <h5 className="text-sm font-semibold text-yellow-700 dark:text-yellow-400">Bandi Singh Prisoners</h5>
+              <p className="mt-1 text-xs text-slate-500">{bandiSinghIssue.description}</p>
+              <p className="mt-1 text-xs text-slate-500">Key: {bandiSinghIssue.keyPrisoners[0].name} ({bandiSinghIssue.keyPrisoners[0].status})</p>
+              <p className="mt-2 text-xs text-emerald-600 dark:text-emerald-400">{bandiSinghIssue.congressPositioning}</p>
+            </div>
+            <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
+              <h5 className="text-sm font-semibold text-blue-700 dark:text-blue-400">Khalistan</h5>
+              <p className="mt-1 text-xs text-slate-500">Reality: {khalistanIssue.realityCheck}</p>
+              <p className="mt-1 text-xs text-blue-600 dark:text-blue-400">Positioning: {khalistanIssue.congressPositioning}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Sect-Constituency Mapping */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Sect-Constituency Influence Mapping</h4>
+          <div className="overflow-x-auto rounded-lg bg-white shadow-sm dark:bg-slate-800">
+            <table className="min-w-full text-xs">
+              <thead className="bg-slate-100 dark:bg-slate-700">
+                <tr>
+                  <th className="px-3 py-2 text-left font-medium text-slate-600 dark:text-slate-300">Constituency Belt</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-600 dark:text-slate-300">Dominant Sect</th>
+                  <th className="px-3 py-2 text-left font-medium text-slate-600 dark:text-slate-300">Lean</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 dark:divide-slate-700">
+                {sectConstituencyMapping.slice(0, 8).map((mapping, idx) => (
+                  <tr key={idx}>
+                    <td className="px-3 py-2 font-medium text-slate-700 dark:text-slate-300">{mapping.constituencyBelt}</td>
+                    <td className="px-3 py-2 text-slate-500">{mapping.dominantSect}</td>
+                    <td className="px-3 py-2">
+                      <Badge
+                        variant={
+                          mapping.politicalLean === "Panthic"
+                            ? "danger"
+                            : mapping.politicalLean === "Swing"
+                            ? "warning"
+                            : mapping.politicalLean === "Dera-influenced"
+                            ? "info"
+                            : "default"
+                        }
+                      >
+                        {mapping.politicalLean}
+                      </Badge>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Congress Strategic Summary */}
+        <div className="mb-6 grid gap-4 lg:grid-cols-2">
+          <div className="rounded-lg bg-emerald-50 p-4 dark:bg-emerald-900/20">
+            <h4 className="mb-3 text-sm font-semibold text-emerald-700 dark:text-emerald-400">
+              Congress Opportunities ({strategicSummary.opportunities.length})
+            </h4>
+            <div className="space-y-2">
+              {strategicSummary.opportunities.slice(0, 4).map((opp) => (
+                <div key={opp.number} className="flex items-start gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-white">
+                    {opp.number}
+                  </span>
+                  <div>
+                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">{opp.title}</p>
+                    <p className="text-xs text-slate-500">{opp.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
+            <h4 className="mb-3 text-sm font-semibold text-red-700 dark:text-red-400">
+              Congress Risks ({strategicSummary.risks.length})
+            </h4>
+            <div className="space-y-2">
+              {strategicSummary.risks.slice(0, 4).map((risk) => (
+                <div key={risk.number} className="flex items-start gap-2">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+                    {risk.number}
+                  </span>
+                  <div>
+                    <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">{risk.title}</p>
+                    <p className="text-xs text-slate-500">{risk.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Top Recommendations */}
+        <div className="rounded-lg bg-gradient-to-r from-amber-50 to-orange-50 p-4 dark:from-amber-900/20 dark:to-orange-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-amber-700 dark:text-amber-400">Top 3 Actionable Recommendations</h4>
+          <div className="grid gap-3 md:grid-cols-3">
+            {strategicSummary.topRecommendations.map((rec) => (
+              <div key={rec.number} className="flex items-start gap-2 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-amber-500 text-xs font-bold text-white">
+                  {rec.number}
+                </span>
+                <div>
+                  <p className="text-xs font-semibold text-slate-700 dark:text-slate-300">{rec.action}</p>
+                  <p className="mt-1 text-xs text-slate-500">{rec.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Campaign Strategic Implications */}
+        <div className="rounded-lg bg-gradient-to-r from-purple-50 to-indigo-50 p-4 dark:from-purple-900/20 dark:to-indigo-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-purple-700 dark:text-purple-400">Strategic Implications for Congress Campaign</h4>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {campaignImplications.map((item) => (
+              <div key={item.number} className="flex items-start gap-2 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-purple-500 text-xs font-bold text-white">
+                  {item.number}
+                </span>
+                <span className="text-xs text-slate-600 dark:text-slate-400">{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ========================================== */}
+        {/* SYNTHESIS INTELLIGENCE SECTION */}
+        {/* Derived from: s1-s4 synthesis MD files */}
+        {/* ========================================== */}
+
+        {/* Synthesis Overview */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-indigo-50 to-purple-50 p-4 dark:from-indigo-900/20 dark:to-purple-900/20">
+          <h3 className="mb-3 text-lg font-semibold text-indigo-700 dark:text-indigo-400">
+            Synthesis Intelligence Overview
+          </h3>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Documents Validated</div>
+              <div className="text-2xl font-bold text-indigo-600">{crossReferenceValidation.documentsReviewed.total}</div>
+              <div className="text-xs text-slate-400">Track A: {crossReferenceValidation.documentsReviewed.trackA} + Track B: {crossReferenceValidation.documentsReviewed.trackB}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Quality Pass Rate</div>
+              <div className="text-2xl font-bold text-green-600">{qualityValidation.passRate}%</div>
+              <div className="text-xs text-slate-400">{qualityValidation.overallAssessment}</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Critical Gap Categories</div>
+              <div className="text-2xl font-bold text-red-600">{gapAnalysis.categoryGapAnalysis.filter(c => c.coverageRating === "CRITICAL_GAP").length}</div>
+              <div className="text-xs text-slate-400">Require immediate attention</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Corroborated Findings</div>
+              <div className="text-2xl font-bold text-green-600">{crossReferenceValidation.corroboratedFindings.length}</div>
+              <div className="text-xs text-slate-400">Cross-validated</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Demographics Synthesis Metrics */}
+        <div className="mb-6 rounded-lg bg-slate-50 p-4 dark:bg-slate-800/50">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">
+            Demographics Key Metrics (Synthesized from s1 Cross-Reference)
+          </h4>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {KEY_SYNTHESIS_METRICS
+              .filter(m => m.category === "Demographics")
+              .map((metric) => (
+                <div key={metric.id} className="flex items-start gap-2 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-700">
+                  <div className="flex flex-col items-center">
+                    <span className={`h-2 w-2 rounded-full ${
+                      metric.status === "CORROBORATED" ? "bg-green-500" :
+                      metric.status === "PARTIAL" ? "bg-yellow-500" : "bg-red-500"
+                    }`}></span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-xs text-slate-500">{metric.metric}</div>
+                    <div className="text-lg font-bold text-slate-800 dark:text-slate-200">{metric.value}</div>
+                    <div className="text-xs text-slate-400">Source: {metric.source}</div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+
+        {/* Demographics Gap Analysis */}
+        <div className="mb-6 rounded-lg bg-amber-50 p-4 dark:bg-amber-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-amber-700 dark:text-amber-400">
+            Demographics Gap Analysis (s4)
+          </h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Coverage Rating</div>
+              <div className="text-xl font-bold text-amber-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Demography")?.coverageRating || "N/A"}
+              </div>
+              <div className="text-xs text-slate-400">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Demography")?.coveragePercent || 0}% framework coverage
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Documents in Category</div>
+              <div className="text-xl font-bold text-indigo-600">
+                Track A: {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Demography")?.trackAFiles || 0} /
+                Track B: {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Demography")?.trackBFiles || 0}
+              </div>
+              <div className="text-xs text-slate-400">Framework sections: {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Demography")?.frameworkSections || 0}</div>
+            </div>
+          </div>
+          {/* Missing Sections */}
+          {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Demography")?.missingSections && (
+            <div className="mt-3 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">Missing Sections:</div>
+              <div className="flex flex-wrap gap-2">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Demography")?.missingSections.map((gap, idx) => (
+                  <span key={idx} className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
+                    gap.severity === "CRITICAL" ? "bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-400" :
+                    gap.severity === "HIGH" ? "bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-400" :
+                    "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/50 dark:text-yellow-400"
+                  }`}>
+                    {gap.section}: {gap.description} ({gap.severity})
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Quality Validation Summary */}
+        <div className="mb-6 rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-green-700 dark:text-green-400">
+            Quality Validation Summary (s3)
+          </h4>
+          <div className="grid gap-3 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track A HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackASummary.high}/{qualityValidation.trackASummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track A MEDIUM</div>
+              <div className="text-xl font-bold text-yellow-600">{qualityValidation.trackASummary.medium}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track B HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackBSummary.high}/{qualityValidation.trackBSummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Best Practice Docs</div>
+              <div className="text-xl font-bold text-indigo-600">{qualityValidation.bestPracticesDocuments.length}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Tier 1 Critical Gaps */}
+        <div className="mb-6 rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-red-700 dark:text-red-400">
+            Tier 1 Critical Gaps (Require Immediate Remediation)
+          </h4>
+          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {gapAnalysis.tier1Gaps.map((gap, idx) => (
+              <div key={idx} className="flex items-start gap-2 rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+                  {idx + 1}
+                </span>
+                <span className="text-xs text-slate-600 dark:text-slate-400">{gap}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Data Sources */}
+        <div className="mt-4 rounded-lg bg-slate-100 p-3 dark:bg-slate-800">
+          <p className="text-xs text-slate-500">
+            <strong>Sources:</strong> UDISE+ 2024-25 (Prof. Arun C. Mehta); ASER 2024 (Pratham); TRAI QPIR Jan 2025; Meltwater/We Are Social Digital 2025 India; Census 2011; CEIC Data Mar 2026; LinkedIn/Saad Sahil (Feb 2026)
+          </p>
+          <p className="mt-1 text-xs text-slate-500">
+            <strong>Synthesis Sources:</strong> s1-cross-reference-validation.md (68 docs); s2-master-index.md (67 docs); s3-quality-validation.md (97% pass rate); s4-gap-analysis.md (405-section framework)
+          </p>
+          <p className="mt-1 text-xs text-amber-600 dark:text-amber-400">
+            <strong>Note:</strong> Data gaps marked VERIFICATION_NEEDED should be confirmed with NSO surveys, state-specific TRAI data, and Census 2025 when available.
           </p>
         </div>
       </div>

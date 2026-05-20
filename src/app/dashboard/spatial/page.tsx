@@ -1,0 +1,942 @@
+"use client";
+
+import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
+import {
+  CAMPAIGN_SPATIAL_METADATA,
+  PUNJAB_GEOGRAPHY,
+  CAMPAIGN_CORRIDORS,
+  INTER_CONSTITUENCY_DISTANCES,
+  CAMPAIGN_CIRCUITS,
+  RALLY_VENUES,
+  ACCESSIBILITY_CONSTRAINTS,
+  BOOTH_DISTRIBUTION,
+  D2D_CLUSTER_TYPES,
+  D2D_PHASES,
+  D2D_REQUIREMENTS,
+  VEHICLE_FLEET,
+  FUEL_BUDGET,
+  MARKET_DAYS,
+  FESTIVAL_CALENDAR,
+  LEADER_CATEGORIES,
+  REGIONAL_TIME_ALLOCATION,
+  SEAT_TARGETS,
+  NIGHT_HALT_HUBS,
+  SPATIAL_ADVANTAGES,
+  SPATIAL_CHALLENGES,
+  PRIORITY_ACTIONS,
+  VERIFICATION_ITEMS,
+  CAMPAIGN_SPATIAL_STATS,
+} from "@/lib/campaign-spatial-data";
+import {
+  WATER_HAZARDS_METADATA,
+  GROUNDWATER_STATS,
+  FLOOD_STATS,
+  BLOCK_CATEGORIES,
+  SAFE_DISTRICTS,
+  WATER_TABLE_DECLINE,
+  FREE_ELECTRICITY_NEXUS,
+  URANIUM_CONTAMINATION,
+  CONTAMINANT_DATA,
+  MAJOR_CANALS,
+  CANAL_RELINING_PROJECTS,
+  CANAL_IRRIGATION_DATA,
+  MAJOR_RIVERS,
+  MAJOR_RESERVOIRS,
+  FLOOD_DATA,
+  SEISMIC_HAZARD,
+  DROUGHT_PRONE_AREAS,
+  ELECTORAL_IMPLICATIONS,
+} from "@/lib/water-hazards-data";
+
+export default function SpatialCampaignPage() {
+  return (
+    <div className="space-y-8">
+      {/* Header */}
+      <div className="border-b border-slate-200 pb-4">
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+          Spatial Campaign Optimization
+        </h1>
+        <p className="mt-2 text-slate-500 dark:text-slate-400">
+          {CAMPAIGN_SPATIAL_METADATA.pillar} | Task: {CAMPAIGN_SPATIAL_METADATA.task}
+        </p>
+        <div className="mt-2 flex items-center gap-2">
+          <Badge variant="success">{CAMPAIGN_SPATIAL_METADATA.status}</Badge>
+          <span className="text-sm text-slate-400">Updated: {CAMPAIGN_SPATIAL_METADATA.date}</span>
+        </div>
+      </div>
+
+      {/* Key Stats Grid */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <MetricCard
+          title="Punjab Area"
+          value={CAMPAIGN_SPATIAL_STATS.punjabArea}
+          subtitle="Across 23 districts"
+          color="bg-blue-500"
+        />
+        <MetricCard
+          title="Constituencies"
+          value={CAMPAIGN_SPATIAL_STATS.constituencies}
+          subtitle="117 Assembly seats"
+          color="bg-green-500"
+        />
+        <MetricCard
+          title="Polling Stations"
+          value={CAMPAIGN_SPATIAL_STATS.pollingStations}
+          subtitle="~200 booths per constituency"
+          color="bg-purple-500"
+        />
+        <MetricCard
+          title="D2D Volunteers Needed"
+          value={CAMPAIGN_SPATIAL_STATS.totalD2DVolunteersNeeded}
+          subtitle="Statewide for full coverage"
+          color="bg-orange-500"
+        />
+      </div>
+
+      {/* Road Network */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Punjab Road Network
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <MetricCard
+            title="National Highways"
+            value={`${PUNJAB_GEOGRAPHY.roadNetwork.nationalHighways} km`}
+            subtitle="NH-44 primary spine"
+            color="bg-slate-600"
+          />
+          <MetricCard
+            title="State Highways"
+            value={`${PUNJAB_GEOGRAPHY.roadNetwork.stateHighways} km`}
+            subtitle="Plus extensive MDRs"
+            color="bg-slate-500"
+          />
+          <MetricCard
+            title="Average Elevation"
+            value={`${PUNJAB_GEOGRAPHY.averageElevation}m`}
+            subtitle="Flat alluvial terrain"
+            color="bg-teal-500"
+          />
+        </div>
+      </section>
+
+      {/* Campaign Corridors */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Key Campaign Corridors
+        </h2>
+        <DataTable
+          headers={["Corridor", "NH/Route", "Distance", "Travel Time", "Constituencies Served"]}
+          rows={CAMPAIGN_CORRIDORS.map((c) => [
+            c.name,
+            c.nh,
+            `${c.distance} km`,
+            c.travelTime,
+            c.constituenciesServed,
+          ])}
+          caption="Primary routes for campaign routing across Punjab"
+        />
+      </section>
+
+      {/* Inter-Constituency Distances */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Inter-Constituency Travel Times
+        </h2>
+        <DataTable
+          headers={["Distance Type", "Range (km)", "Travel Time"]}
+          rows={INTER_CONSTITUENCY_DISTANCES.map((d) => [
+            d.type.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+            d.distanceRange,
+            d.travelTime,
+          ])}
+        />
+      </section>
+
+      {/* Campaign Circuits */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          5 Campaign Circuits
+        </h2>
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
+          {CAMPAIGN_CIRCUITS.map((circuit) => (
+            <div
+              key={circuit.id}
+              className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800"
+            >
+              <div className="flex items-start justify-between">
+                <div>
+                  <h3 className="font-semibold text-slate-900 dark:text-white">
+                    Circuit {circuit.id}: {circuit.name}
+                  </h3>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">
+                    Hub: {circuit.hub}
+                  </p>
+                </div>
+                <Badge
+                  variant={
+                    circuit.strategicPriority === "CRITICAL"
+                      ? "danger"
+                      : circuit.strategicPriority === "HIGH"
+                        ? "warning"
+                        : "info"
+                  }
+                >
+                  {circuit.strategicPriority}
+                </Badge>
+              </div>
+              <div className="mt-3 space-y-2">
+                <div className="flex justify-between text-sm">
+                  <span className="text-slate-500 dark:text-slate-400">Constituencies:</span>
+                  <span className="font-medium">{circuit.constituencies}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-slate-500 dark:text-slate-400">Duration:</span>
+                  <span className="font-medium">{circuit.circuitDuration}</span>
+                </div>
+                <div className="flex justify-between text-sm">
+                  <span className="text-slate-500 dark:text-slate-400">Coverage:</span>
+                  <span className="font-medium text-right text-xs">{circuit.coverage}</span>
+                </div>
+              </div>
+              <p className="mt-3 border-t border-slate-100 pt-3 text-xs text-slate-600 dark:border-slate-700 dark:text-slate-400">
+                {circuit.strategicNote}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Rally Venues */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Major Rally Venues
+        </h2>
+        <DataTable
+          headers={["Venue", "Location", "Region", "Capacity", "Accessibility"]}
+          rows={RALLY_VENUES.map((v) => [v.name, v.location, v.region, v.capacity, v.accessibility])}
+          caption="Recommended rally venues by region"
+        />
+      </section>
+
+      {/* Accessibility Constraints */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Accessibility Constraints
+        </h2>
+        <DataTable
+          headers={["Factor", "Impact", "Mitigation"]}
+          rows={ACCESSIBILITY_CONSTRAINTS.map((c) => [c.factor, c.impact, c.mitigation])}
+          caption="Planning considerations for campaign routing"
+        />
+      </section>
+
+      {/* Booth Distribution */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Booth-Level D2D Parameters
+        </h2>
+        <DataTable
+          headers={["Area Type", "Booths/Constituency", "Voters/Booth", "D2D Time/Booth"]}
+          rows={BOOTH_DISTRIBUTION.map((b) => [
+            b.areaType.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
+            b.avgBoothsPerConstituency,
+            b.votersPerBooth,
+            b.d2dTimePerBooth,
+          ])}
+        />
+      </section>
+
+      {/* D2D Phases */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          D2D Coverage Phases (Per Constituency)
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {D2D_PHASES.map((phase) => (
+            <div
+              key={phase.phase}
+              className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-sm font-medium text-slate-500">Phase {phase.phase}</span>
+                <span className="text-xs text-slate-400">{phase.duration}</span>
+              </div>
+              <p className="mt-2 text-sm font-medium">{phase.activity}</p>
+              <p className="mt-1 text-xs text-slate-500">
+                {phase.teamSize} | {phase.targetBooths} booths
+              </p>
+            </div>
+          ))}
+        </div>
+        <div className="mt-4 rounded-lg bg-slate-50 p-4 dark:bg-slate-800">
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            <strong>Total per constituency:</strong> {D2D_REQUIREMENTS.totalDays} | {D2D_REQUIREMENTS.volunteers} volunteers
+          </p>
+          <p className="text-sm text-slate-600 dark:text-slate-400">
+            <strong>Statewide total:</strong> {D2D_REQUIREMENTS.statewideVolunteers} volunteers
+          </p>
+        </div>
+      </section>
+
+      {/* D2D Cluster Types */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          D2D Cluster Strategy
+        </h2>
+        <DataTable
+          headers={["Cluster Type", "Description", "Team Size", "Completion"]}
+          rows={D2D_CLUSTER_TYPES.map((c) => [
+            c.type.replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase()),
+            c.description,
+            c.teamSize,
+            c.completionTime,
+          ])}
+        />
+      </section>
+
+      {/* Vehicle Fleet */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Vehicle Fleet Requirements
+        </h2>
+        <DataTable
+          headers={["Vehicle Type", "Purpose", "Qty", "Range", "Daily Cost"]}
+          rows={VEHICLE_FLEET.map((v) => [
+            v.vehicleType,
+            v.purpose,
+            v.qtyNeeded.toString(),
+            v.range,
+            v.dailyCost,
+          ])}
+          caption="5-circuit parallel operation fleet"
+        />
+        <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
+          {FUEL_BUDGET.map((f) => (
+            <MetricCard
+              key={f.period}
+              title={f.period}
+              value={f.cost}
+              subtitle={f.note}
+              color="bg-amber-500"
+            />
+          ))}
+        </div>
+      </section>
+
+      {/* Market Days */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Market Day Campaign Calendar
+        </h2>
+        <DataTable
+          headers={["Day", "Key Mandi Towns", "Best Activity"]}
+          rows={MARKET_DAYS.map((m) => [m.day, m.keyMandiTowns, m.bestCampaignActivity])}
+          caption="Fixed weekly schedules - maximum farmer footfall guaranteed"
+        />
+      </section>
+
+      {/* Festival Calendar */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Festival Calendar (Oct 2026 - Feb 2027)
+        </h2>
+        <DataTable
+          headers={["Date", "Festival", "Region Focus", "Campaign Opportunity", "Expected Attendance"]}
+          rows={FESTIVAL_CALENDAR.map((f) => [
+            f.date,
+            f.festival,
+            f.regionFocus,
+            f.campaignOpportunity,
+            f.expectedAttendance || "-",
+          ])}
+          caption="Major political mobilization opportunities"
+        />
+      </section>
+
+      {/* Leader Time Allocation */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Leader Time Allocation
+        </h2>
+        <DataTable
+          headers={["Category", "Role", "Available Days", "Constituency Allocation"]}
+          rows={LEADER_CATEGORIES.map((l) => [
+            l.category,
+            l.role,
+            l.availableDays,
+            l.constituencyAllocation,
+          ])}
+        />
+      </section>
+
+      {/* Seat Targets by Region */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Seat Targets by Region (Congress 2027)
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {SEAT_TARGETS.map((s) => (
+            <div
+              key={s.region}
+              className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800"
+            >
+              <h3 className="font-semibold text-slate-900 dark:text-white">{s.region}</h3>
+              <div className="mt-3 space-y-2">
+                <div className="flex justify-between">
+                  <span className="text-sm text-slate-500">Total Seats:</span>
+                  <span className="font-medium">{s.totalSeats}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm text-slate-500">2022 Result:</span>
+                  <span className="font-medium text-red-500">{s.congress2022} seats</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm text-slate-500">2027 Target:</span>
+                  <span className="font-bold text-green-600">{s.target2027} seats</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-sm text-slate-500">Gains Needed:</span>
+                  <span className="font-medium text-blue-600">+{s.gainsNeeded}</span>
+                </div>
+              </div>
+              <div className="mt-4">
+                <ProgressBar
+                  label="Target Progress"
+                  value={parseInt(s.target2027.split("-")[0])}
+                  max={s.totalSeats}
+                  color="bg-green-500"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+        <p className="rounded-lg bg-amber-50 p-4 text-sm text-amber-800 dark:bg-amber-900/20 dark:text-amber-300">
+          <strong>Strategic Focus:</strong> Malwa is the decisive battleground — 69 seats, Congress won only 8 in 2022. To reach 59+, Congress needs 35-40 from Malwa alone.
+        </p>
+      </section>
+
+      {/* Regional Campaigner Days */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Campaigner Days by Region
+        </h2>
+        <DataTable
+          headers={["Region", "Seats", "2022", "2027 Target", "CM Face Time", "Star Campaigner Time"]}
+          rows={REGIONAL_TIME_ALLOCATION.map((r) => [
+            r.region,
+            r.seats,
+            r.congress2022,
+            r.target2027,
+            r.campaignerDaysAllocation.split(";")[0],
+            r.campaignerDaysAllocation.split(";")[1] || "-",
+          ])}
+        />
+      </section>
+
+      {/* Night-Halt Hubs */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Night-Halt Hubs
+        </h2>
+        <DataTable
+          headers={["Hub City", "Region", "Constituencies (60 min)", "Hotels", "Strategic Value"]}
+          rows={NIGHT_HALT_HUBS.map((h) => [
+            h.hubCity,
+            h.region,
+            `${h.constituenciesWithin60min}+`,
+            h.hotelsDharamshalas,
+            h.strategicValue,
+          ])}
+          caption="Recommended overnight stops for maximum coverage"
+        />
+      </section>
+
+      {/* Strategic Advantages */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Spatial Advantages for Congress
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {SPATIAL_ADVANTAGES.map((adv, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-900/20"
+            >
+              <h3 className="font-medium text-green-800 dark:text-green-300">
+                {adv.title}
+              </h3>
+              <p className="mt-2 text-sm text-green-700 dark:text-green-400">
+                {adv.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Spatial Challenges */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Spatial Challenges for Congress
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {SPATIAL_CHALLENGES.map((challenge, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20"
+            >
+              <h3 className="font-medium text-red-800 dark:text-red-300">
+                {challenge.title}
+              </h3>
+              <p className="mt-2 text-sm text-red-700 dark:text-red-400">
+                {challenge.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Priority Actions */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Recommended Priority Actions
+        </h2>
+        <DataTable
+          headers={["#", "Action", "Timeline"]}
+          rows={PRIORITY_ACTIONS.map((a) => [a.number.toString(), a.action, a.deadline])}
+          caption="Immediate action items for spatial campaign readiness"
+        />
+      </section>
+
+      {/* Verification Items */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Data Gaps & Verification Items
+        </h2>
+        <DataTable
+          headers={["Item", "Status", "Action Required"]}
+          rows={VERIFICATION_ITEMS.map((v) => [
+            v.item,
+            <Badge
+              key={v.item}
+              variant={
+                v.status === "NOT_BUILT" || v.status === "NOT_COLLECTED"
+                  ? "danger"
+                  : v.status === "VERIFICATION_NEEDED"
+                    ? "warning"
+                    : "info"
+              }
+            >
+              {v.status.replace(/_/g, " ")}
+            </Badge>,
+            v.actionRequired,
+          ])}
+          caption="Items requiring additional research or verification"
+        />
+      </section>
+
+      {/* ==========================================
+          WATER HAZARDS SECTION
+          ========================================== */}
+
+      {/* Water Hazards Header */}
+      <div className="border-b border-slate-200 pb-4">
+        <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+          Water Resources & Natural Hazards
+        </h1>
+        <p className="mt-2 text-slate-500 dark:text-slate-400">
+          {WATER_HAZARDS_METADATA.pillar} | Task: {WATER_HAZARDS_METADATA.task}
+        </p>
+        <div className="mt-2 flex items-center gap-2">
+          <Badge variant="warning">{WATER_HAZARDS_METADATA.status}</Badge>
+          <span className="text-sm text-slate-400">Updated: {WATER_HAZARDS_METADATA.date}</span>
+        </div>
+      </div>
+
+      {/* Groundwater Crisis Overview */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Groundwater Crisis — The Core Electoral Issue
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <MetricCard
+            title="Extraction Rate"
+            value={GROUNDWATER_STATS.extractionRate}
+            subtitle="Highest in India"
+            color="bg-red-600"
+          />
+          <MetricCard
+            title="Annual Withdrawal"
+            value={GROUNDWATER_STATS.annualWithdrawal}
+            subtitle="Against 16.8 BCM replenishable"
+            color="bg-orange-500"
+          />
+          <MetricCard
+            title="Overexploited Blocks"
+            value={GROUNDWATER_STATS.overexploitedBlocks}
+            subtitle={GROUNDWATER_STATS.overexploitedPercentage}
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Uranium Exceedance"
+            value={GROUNDWATER_STATS.uraniumExceedance}
+            subtitle="Samples exceed WHO/BIS 30ppb limit"
+            color="bg-purple-500"
+          />
+        </div>
+      </section>
+
+      {/* Block-Level Groundwater Categories */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Groundwater Block Categories (GWRA 2025)
+        </h2>
+        <DataTable
+          headers={["Category", "Threshold", "Blocks", "Percentage"]}
+          rows={BLOCK_CATEGORIES.map((b) => [
+            b.category,
+            b.threshold,
+            b.blocks.toString(),
+            `${b.percentage}%`,
+          ])}
+          caption="153 assessment units — 72.55% are overexploited (7x national average)"
+        />
+      </section>
+
+      {/* Safe Districts */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Safe Groundwater Districts
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          {SAFE_DISTRICTS.map((d) => (
+            <div
+              key={d.name}
+              className="rounded-xl border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-900/20"
+            >
+              <h3 className="font-semibold text-green-800 dark:text-green-300">{d.name}</h3>
+              <div className="mt-2 space-y-1 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-green-600 dark:text-green-400">Safe Blocks:</span>
+                  <span className="font-medium">{d.blocks} ({d.safePercentage}%)</span>
+                </div>
+                <p className="text-xs text-green-700 dark:text-green-400">{d.reason}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Water Table Decline */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Water Table Decline
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <MetricCard
+            title="Statewide Decline"
+            value={`${WATER_TABLE_DECLINE.statewideRate} m/year`}
+            subtitle="ISADP study"
+            color="bg-amber-500"
+          />
+          <MetricCard
+            title="Peak Decline"
+            value={`${WATER_TABLE_DECLINE.localPeakDecline} cm/year`}
+            subtitle="In worst-affected blocks"
+            color="bg-red-500"
+          />
+          <MetricCard
+            title="Area >15m Decline"
+            value={`${WATER_TABLE_DECLINE.areaWithDeclineOver15m}%`}
+            subtitle="Barnala, Bathinda, Hoshiarpur, Jalandhar"
+            color="bg-orange-500"
+          />
+        </div>
+        <div className="rounded-lg bg-amber-50 p-4 text-sm text-amber-800 dark:bg-amber-900/20 dark:text-amber-300">
+          <strong>NGT Projection:</strong> Punjab&apos;s groundwater will drop below {WATER_TABLE_DECLINE.ngtProjectionDepth}m by {WATER_TABLE_DECLINE.ngtProjectionYear} at current rates
+        </div>
+      </section>
+
+      {/* Free Electricity Nexus */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Free Electricity-Groundwater Depletion Nexus
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+          <MetricCard
+            title="Free Electricity Since"
+            value={FREE_ELECTRICITY_NEXUS.policyYear}
+            subtitle="Tubewells announced"
+            color="bg-slate-600"
+          />
+          <MetricCard
+            title="Tubewell Irrigation"
+            value={`${FREE_ELECTRICITY_NEXUS.currentTubewellPercentage}%`}
+            subtitle="vs canal irrigation"
+            color="bg-blue-500"
+          />
+          <MetricCard
+            title="Agricultural Pumps"
+            value={(FREE_ELECTRICITY_NEXUS.agriculturalPumpSets / 1000000).toFixed(2) + "M"}
+            subtitle="1.45 million pump sets"
+            color="bg-purple-500"
+          />
+          <MetricCard
+            title="Cotton Area Lost"
+            value={`${(FREE_ELECTRICITY_NEXUS.cottonArea2024 / 100000).toFixed(0)}%`}
+            subtitle="Of 2012 area (6L ha to 1L ha)"
+            color="bg-red-500"
+          />
+        </div>
+        <DataTable
+          headers={["Metric", "Value"]}
+          rows={[
+            ["Groundwater for irrigation", `${FREE_ELECTRICITY_NEXUS.groundwaterForIrrigation} BCM (${FREE_ELECTRICITY_NEXUS.groundwaterForIrrigationPercentage}%)`],
+            ["Paddy water requirement", FREE_ELECTRICITY_NEXUS.paddyWaterRequirement],
+            ["Central Punjab paddy area", `${FREE_ELECTRICITY_NEXUS.centralPunjabPaddyAreaPercentage}% of cropped area`],
+            ["Tubewell surpassed canal", `${FREE_ELECTRICITY_NEXUS.tubewellSurpassedCanalYear}`],
+          ]}
+          caption="Political implication: Every party promises free electricity; nobody talks about groundwater crash"
+        />
+      </section>
+
+      {/* Groundwater Contamination */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Groundwater Contamination — Public Health Crisis
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <MetricCard
+            title="Uranium Exceedance"
+            value={`${URANIUM_CONTAMINATION.exceedanceRate}%`}
+            subtitle="62.50% post-monsoon (highest in India)"
+            color="bg-red-600"
+          />
+          <MetricCard
+            title="Districts Above Safe Limit"
+            value={`${URANIUM_CONTAMINATION.districtsAboveSafeLimits}/23`}
+            subtitle="Uranium >30 ppb WHO/BIS limit"
+            color="bg-orange-500"
+          />
+          <MetricCard
+            title="Samples >100ppb"
+            value={`${URANIUM_CONTAMINATION.samplesExceeding100ppb}%`}
+            subtitle="Dangerous territory"
+            color="bg-red-500"
+          />
+        </div>
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200">Other Contaminants</h3>
+        <DataTable
+          headers={["Contaminant", "Safety Limit", "Districts", "Exceedance", "Health Impact"]}
+          rows={CONTAMINANT_DATA.filter(c => c.name !== "Iron").map((c) => [
+            c.name,
+            c.safetyLimit,
+            c.districtsAffected.toString(),
+            `${c.exceedanceRate}%`,
+            c.healthImpact,
+          ])}
+          caption="Bathinda: 46% samples fail nitrate test — one of India's 15 worst-affected districts"
+        />
+      </section>
+
+      {/* Canal Irrigation */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Canal Irrigation Network
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+          <MetricCard
+            title="Tubewell vs Canal"
+            value={`${CANAL_IRRIGATION_DATA.tubewellPercentage}% vs ${CANAL_IRRIGATION_DATA.canalPercentage}%`}
+            subtitle="Dramatic reversal from pre-1972"
+            color="bg-blue-500"
+          />
+          <MetricCard
+            title="Rajasthan Feeder"
+            value={`${CANAL_IRRIGATION_DATA.rajasthanFeederFlow.toLocaleString()} cusecs`}
+            subtitle="Much flows to Rajasthan"
+            color="bg-teal-500"
+          />
+          <MetricCard
+            title="Relining Cost"
+            value={`Rs ${(CANAL_RELINING_PROJECTS[0].cost + CANAL_RELINING_PROJECTS[1].cost).toLocaleString()} crore`}
+            subtitle="Sirhind + Rajasthan Feeder (2018)"
+            color="bg-amber-500"
+          />
+        </div>
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200">Major Canal Systems</h3>
+        <DataTable
+          headers={["Canal", "Source", "Command Area", "Key Districts"]}
+          rows={MAJOR_CANALS.map((c) => [
+            c.name,
+            c.source.split(" (")[0],
+            c.commandArea,
+            c.keyDistricts.slice(0, 3).join(", ") + (c.keyDistricts.length > 3 ? "..." : ""),
+          ])}
+          caption="Head-reach farmers get reliable water; tail-end farmers forced to rely on tubewells"
+        />
+      </section>
+
+      {/* Major Rivers */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Surface Water Resources
+        </h2>
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200">Major Rivers</h3>
+        <DataTable
+          headers={["River", "Origin", "Flow Through", "Key Districts"]}
+          rows={MAJOR_RIVERS.map((r) => [r.name, r.origin, r.flowThrough, r.keyDistricts.slice(0, 3).join(", ")])}
+          caption="Sutlej is the largest river in Punjab"
+        />
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200">Major Reservoirs</h3>
+        <DataTable
+          headers={["Dam", "River", "State", "Relevance"]}
+          rows={MAJOR_RESERVOIRS.map((r) => [r.name, r.river, r.state, r.relevance])}
+          caption="Bhakra provides irrigation + flood control for entire state"
+        />
+      </section>
+
+      {/* September 2025 Floods */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          September 2025 Floods — Worst in 4 Decades
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+          <MetricCard
+            title="Lives Lost"
+            value={FLOOD_STATS.livesLost}
+            subtitle="September 2025"
+            color="bg-red-600"
+          />
+          <MetricCard
+            title="People Affected"
+            value={FLOOD_STATS.peopleAffected}
+            subtitle={`${FLOOD_STATS.villagesAffected}+ villages`}
+            color="bg-orange-500"
+          />
+          <MetricCard
+            title="Agricultural Land"
+            value={FLOOD_STATS.agriculturalLand}
+            subtitle="Primarily paddy"
+            color="bg-amber-500"
+          />
+          <MetricCard
+            title="Districts Hit"
+            value={FLOOD_STATS.districtsHit}
+            subtitle="All 23 districts declared flood-hit"
+            color="bg-red-500"
+          />
+        </div>
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200">Worst-Hit Districts</h3>
+        <div className="flex flex-wrap gap-2">
+          {FLOOD_DATA.impact.worstHitDistricts.map((d) => (
+            <Badge key={d} variant="danger">{d}</Badge>
+          ))}
+        </div>
+        <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200">Causes</h3>
+        <DataTable
+          headers={["Factor", "Description"]}
+          rows={FLOOD_DATA.causes.factors.slice(0, 5).map((f, i) => [`${i + 1}. ${f.split(" — ")[0]}`, f.split(" — ")[1] || ""])}
+          caption="24% surplus monsoon + Himachal runoff + weak Dhussi Bandhs + illegal encroachments"
+        />
+        <div className="rounded-lg bg-blue-50 p-4 text-sm text-blue-800 dark:bg-blue-900/20 dark:text-blue-300">
+          <strong>Historical Pattern:</strong> Major floods in {FLOOD_DATA.causes.historicalPattern.join(", ")} — increasing frequency
+        </div>
+      </section>
+
+      {/* Seismic Hazard */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Seismic Hazard
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          <div className="rounded-xl border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
+            <div className="flex items-center justify-between">
+              <h3 className="font-semibold text-red-800 dark:text-red-300">Zone IV — High Risk</h3>
+              <Badge variant="danger">MSK Intensity VIII</Badge>
+            </div>
+            <div className="mt-2 flex flex-wrap gap-1">
+              {SEISMIC_HAZARD.zones[0].districts.map((d) => (
+                <span key={d} className="rounded bg-red-200 px-2 py-0.5 text-xs text-red-800 dark:bg-red-800 dark:text-red-200">
+                  {d}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
+            <div className="flex items-center justify-between">
+              <h3 className="font-semibold text-amber-800 dark:text-amber-300">Zone III — Moderate Risk</h3>
+              <Badge variant="warning">Moderate</Badge>
+            </div>
+            <div className="mt-2 flex flex-wrap gap-1">
+              {SEISMIC_HAZARD.zones[1].districts.map((d) => (
+                <span key={d} className="rounded bg-amber-200 px-2 py-0.5 text-xs text-amber-800 dark:bg-amber-800 dark:text-amber-200">
+                  {d}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <p className="text-sm text-slate-600 dark:text-slate-400">
+          <strong>Vulnerable Reason:</strong> {SEISMIC_HAZARD.vulnerableReason}
+        </p>
+      </section>
+
+      {/* Drought Prone Areas */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Drought-Prone Areas
+        </h2>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {DROUGHT_PRONE_AREAS.map((area) => (
+            <div
+              key={area.belt}
+              className="rounded-xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20"
+            >
+              <h3 className="font-semibold text-amber-800 dark:text-amber-300">{area.belt}</h3>
+              <div className="mt-2 space-y-1 text-sm text-amber-700 dark:text-amber-400">
+                <p><strong>Districts:</strong> {area.districts.join(", ")}</p>
+                <p><strong>Rainfall:</strong> {area.rainfallPattern}</p>
+                <p><strong>Groundwater:</strong> {area.groundwaterDependence}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Strategic Electoral Implications */}
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold text-slate-900 dark:text-white">
+          Strategic Electoral Implications
+        </h2>
+        <div className="grid grid-cols-1 gap-4">
+          {ELECTORAL_IMPLICATIONS.map((impl, i) => (
+            <div
+              key={i}
+              className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-700 dark:bg-slate-800"
+            >
+              <div className="flex items-start justify-between">
+                <h3 className="font-semibold text-slate-900 dark:text-white">{impl.issue}</h3>
+                <Badge variant="info">Congress Opportunity</Badge>
+              </div>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
+                <strong>Electoral Angle:</strong> {impl.electoralAngle}
+              </p>
+              <p className="mt-1 text-sm text-green-700 dark:text-green-400">
+                <strong>Opportunity:</strong> {impl.congressOpportunity}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <div className="border-t border-slate-200 pt-4 text-center text-sm text-slate-400">
+        <p>
+          Document prepared by Intelligence Research Agent for Punjab Congress 2027 Election Intelligence Project.
+        </p>
+        <p className="mt-1">Serves as foundation for operational campaign planning in Phase C (Campaign Strategy).</p>
+      </div>
+    </div>
+  );
+}

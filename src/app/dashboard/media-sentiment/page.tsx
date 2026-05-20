@@ -19,6 +19,12 @@ import type {
   SocialMetric,
   Journalist,
 } from "@/types/media-narrative";
+import {
+  KEY_SYNTHESIS_METRICS,
+  crossReferenceValidation,
+  qualityValidation,
+  gapAnalysis,
+} from "@/lib/synthesis-data";
 
 export default function MediaSentimentPage() {
   // Congress Coverage Sentiment (A37 Research)
@@ -2871,6 +2877,112 @@ export default function MediaSentimentPage() {
             ["CPJ election safety concerns for Punjab journalists", "Apr 2024", "VERIFIED — CPJ documented"],
           ]}
         />
+
+        {/* ========================================== */}
+        {/* SYNTHESIS INTELLIGENCE SECTION */}
+        {/* Derived from: s1-s4 synthesis MD files */}
+        {/* ========================================== */}
+
+        {/* Gap Analysis - Media Sentiment (CRITICAL GAP) */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-red-50 to-orange-50 p-4 dark:from-red-900/20 dark:to-orange-900/20">
+          <h3 className="mb-3 text-lg font-semibold text-red-700 dark:text-red-400">
+            Gap Analysis: Media Sentiment (CRITICAL GAP)
+          </h3>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Coverage Rating</div>
+              <div className="text-2xl font-bold text-red-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Media Sentiment")?.coverageRating || "CRITICAL_GAP"}
+              </div>
+              <div className="text-xs text-slate-400">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Media Sentiment")?.coveragePercent || 0}% framework coverage
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track A Documents</div>
+              <div className="text-2xl font-bold text-amber-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Media Sentiment")?.trackAFiles || 0}
+              </div>
+              <div className="text-xs text-slate-400">Current research gap</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track B Documents</div>
+              <div className="text-2xl font-bold text-indigo-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Media Sentiment")?.trackBFiles || 0}
+              </div>
+              <div className="text-xs text-slate-400">Existing documentation</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Framework Sections</div>
+              <div className="text-2xl font-bold text-slate-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Media Sentiment")?.frameworkSections || 0}
+              </div>
+              <div className="text-xs text-slate-400">Requiring coverage</div>
+            </div>
+          </div>
+          {/* Missing Sections */}
+          {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Media Sentiment")?.missingSections && (
+            <div className="mt-3 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">Missing Sections (Require Immediate Research):</div>
+              <div className="flex flex-wrap gap-2">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Media Sentiment")?.missingSections.map((gap, idx) => (
+                  <span key={idx} className="inline-flex items-center rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-700 dark:bg-red-900/50 dark:text-red-400">
+                    {gap.section}: {gap.description} ({gap.severity})
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Quality Validation Summary */}
+        <div className="mb-6 rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-green-700 dark:text-green-400">
+            Quality Validation Summary (s3)
+          </h4>
+          <div className="grid gap-3 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Total Documents</div>
+              <div className="text-xl font-bold text-indigo-600">{qualityValidation.scope.total}</div>
+              <div className="text-xs text-slate-400">Pass Rate: {qualityValidation.passRate}%</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track A HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackASummary.high}/{qualityValidation.trackASummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track B HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackBSummary.high}/{qualityValidation.trackBSummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Assessment</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.overallAssessment}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Critical Gaps Requiring Immediate Attention */}
+        <div className="mb-6 rounded-lg bg-amber-50 p-4 dark:bg-amber-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-amber-700 dark:text-amber-400">
+            Critical Gaps Requiring Immediate Research
+          </h4>
+          <div className="grid gap-2 md:grid-cols-2">
+            {gapAnalysis.gapSeverityMatrix
+              .filter(g => g.severity === "CRITICAL")
+              .slice(0, 6)
+              .map((gap, idx) => (
+                <div key={idx} className="flex items-start gap-2 rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-red-500 text-xs font-bold text-white">
+                    {idx + 1}
+                  </span>
+                  <div>
+                    <div className="text-xs font-medium text-slate-700 dark:text-slate-300">{gap.gap}</div>
+                    <div className="text-xs text-slate-500">Impact: {gap.impact} | Priority: {gap.priority}</div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
       </div>
 
     </div>

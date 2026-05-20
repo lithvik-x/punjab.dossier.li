@@ -52,12 +52,14 @@ interface ProgressBarProps {
   label: string;
   value: number;
   max?: number;
+  maxValue?: number;
   color?: string;
   showPercentage?: boolean;
 }
 
-export function ProgressBar({ label, value, max = 100, color = "bg-blue-500", showPercentage = true }: ProgressBarProps) {
-  const percentage = Math.round((value / max) * 100);
+export function ProgressBar({ label, value, max = 100, maxValue, color = "bg-blue-500", showPercentage = true }: ProgressBarProps) {
+  const effectiveMax = maxValue ?? max;
+  const percentage = Math.round((value / effectiveMax) * 100);
 
   return (
     <div className="space-y-2">
@@ -79,7 +81,7 @@ export function ProgressBar({ label, value, max = 100, color = "bg-blue-500", sh
 
 interface DataTableProps {
   headers: string[];
-  rows: (string | number)[][];
+  rows: (string | number | React.ReactNode)[][];
   caption?: string;
 }
 
@@ -152,9 +154,10 @@ export function MiniChart({ data, color = "bg-blue-500", height = 40 }: MiniChar
 interface BadgeProps {
   children: React.ReactNode;
   variant?: "default" | "success" | "warning" | "danger" | "info";
+  className?: string;
 }
 
-export function Badge({ children, variant = "default" }: BadgeProps) {
+export function Badge({ children, variant = "default", className = "" }: BadgeProps) {
   const variants = {
     default: "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300",
     success: "bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400",
@@ -164,7 +167,7 @@ export function Badge({ children, variant = "default" }: BadgeProps) {
   };
 
   return (
-    <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${variants[variant]}`}>
+    <span className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium ${variants[variant]} ${className}`}>
       {children}
     </span>
   );

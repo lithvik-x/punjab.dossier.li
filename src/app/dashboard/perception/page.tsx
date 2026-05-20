@@ -1,6 +1,12 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge, MiniChart } from "@/components/ui/MetricCard";
+import {
+  KEY_SYNTHESIS_METRICS,
+  crossReferenceValidation,
+  qualityValidation,
+  gapAnalysis,
+} from "@/lib/synthesis-data";
 
 // ============================================================
 // CYCLE 2: OPPOSITION INTELLIGENCE - PERCEPTION INTERFACES
@@ -2026,6 +2032,109 @@ export default function PerceptionPage() {
           <p className="text-sm text-emerald-700 dark:text-emerald-300">
             <strong>Key Insight:</strong> Manifesto must lead with Drugs Eradication (10/10 salience) and Youth Employment (9/10). These match AAP's biggest governance failures and offer clearest contrast. CM face announcement should precede manifesto release (Dec 2026) to maximize narrative impact.
           </p>
+        </div>
+
+        {/* ========================================== */}
+        {/* SYNTHESIS INTELLIGENCE SECTION */}
+        {/* Derived from: s1-s4 synthesis MD files */}
+        {/* ========================================== */}
+
+        {/* Gap Analysis - Perception Strategy (CRITICAL GAP) */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-red-50 to-orange-50 p-4 dark:from-red-900/20 dark:to-orange-900/20">
+          <h3 className="mb-3 text-lg font-semibold text-red-700 dark:text-red-400">
+            Gap Analysis: Perception Strategy (CRITICAL GAP)
+          </h3>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Coverage Rating</div>
+              <div className="text-2xl font-bold text-red-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Perception Strategy")?.coverageRating || "CRITICAL_GAP"}
+              </div>
+              <div className="text-xs text-slate-400">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Perception Strategy")?.coveragePercent || 0}% framework coverage
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track A Documents</div>
+              <div className="text-2xl font-bold text-amber-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Perception Strategy")?.trackAFiles || 0}
+              </div>
+              <div className="text-xs text-slate-400">Current research gap</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track B Documents</div>
+              <div className="text-2xl font-bold text-indigo-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Perception Strategy")?.trackBFiles || 0}
+              </div>
+              <div className="text-xs text-slate-400">Existing documentation</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Framework Sections</div>
+              <div className="text-2xl font-bold text-slate-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Perception Strategy")?.frameworkSections || 0}
+              </div>
+              <div className="text-xs text-slate-400">Requiring coverage</div>
+            </div>
+          </div>
+          {/* Missing Sections */}
+          {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Perception Strategy")?.missingSections && (
+            <div className="mt-3 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">Missing Sections (Require Immediate Research):</div>
+              <div className="flex flex-wrap gap-2">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Perception Strategy")?.missingSections.map((gap, idx) => (
+                  <span key={idx} className="inline-flex items-center rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-700 dark:bg-red-900/50 dark:text-red-400">
+                    {gap.section}: {gap.description} ({gap.severity})
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Quality Validation Summary */}
+        <div className="mb-6 rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-green-700 dark:text-green-400">
+            Quality Validation Summary (s3)
+          </h4>
+          <div className="grid gap-3 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Total Documents</div>
+              <div className="text-xl font-bold text-indigo-600">{qualityValidation.scope.total}</div>
+              <div className="text-xs text-slate-400">Pass Rate: {qualityValidation.passRate}%</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track A HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackASummary.high}/{qualityValidation.trackASummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track B HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackBSummary.high}/{qualityValidation.trackBSummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Assessment</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.overallAssessment}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Remediation Wave 1 */}
+        <div className="mb-6 rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-blue-700 dark:text-blue-400">
+            Remediation Wave 1 (June-July 2026) - Immediate Priority
+          </h4>
+          <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
+            {gapAnalysis.remediationWaves.find(w => w.wave === 1)?.items.slice(0, 5).map((item, idx) => (
+              <div key={idx} className="flex items-start gap-2 rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blue-500 text-xs font-bold text-white">
+                  {idx + 1}
+                </span>
+                <div>
+                  <div className="text-xs font-medium text-slate-700 dark:text-slate-300">{item.gap}</div>
+                  <div className="text-xs text-slate-500">{item.category}</div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

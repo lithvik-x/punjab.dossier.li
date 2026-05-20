@@ -2,6 +2,13 @@
 
 import { MetricCard, ProgressBar, DataTable, Badge, MiniChart } from "@/components/ui/MetricCard";
 import { REGIONS } from "@/lib/constants";
+import {
+  synthesisDemographicData,
+  KEY_SYNTHESIS_METRICS,
+  crossReferenceValidation,
+  qualityValidation,
+  gapAnalysis,
+} from "@/lib/synthesis-data";
 
 // ==========================================
 // CYCLE 2: ELECTORAL DATA (from research-P3/electoral-data)
@@ -1299,7 +1306,7 @@ export default function ConstituencyPage() {
           </div>
           <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
             <p className="text-sm text-amber-700 dark:text-amber-400">
-              <strong>Note:</strong> Assembly composition reflects post-defection state. AAP 94 includes original 92 + 2 (Chog 1,IND 1). Congress reduced from 18 to 16 after Jakhar brothers' resignation.
+              <strong>Note:</strong> Assembly composition reflects post-defection state. AAP 94 includes original 92 + 2 (Chog 1,IND 1). Congress reduced from 18 to 16 after Jakhar brothers&apos; resignation.
             </p>
           </div>
         </div>
@@ -1477,7 +1484,7 @@ export default function ConstituencyPage() {
                 <span className="font-bold text-amber-600">12-18%</span>
               </div>
             </div>
-            <p className="mt-3 text-xs text-slate-500">Sikh-majority region. Drug crisis, groundwater critical. AAP's strongest region.</p>
+            <p className="mt-3 text-xs text-slate-500">Sikh-majority region. Drug crisis, groundwater critical. AAP&apos;s strongest region.</p>
           </div>
 
           <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
@@ -1503,7 +1510,7 @@ export default function ConstituencyPage() {
                 <span className="font-bold text-slate-600">Minimal</span>
               </div>
             </div>
-            <p className="mt-3 text-xs text-slate-500">Border region. Channi's weakness (Jat-Sikh ceiling). BJP organizational presence.</p>
+            <p className="mt-3 text-xs text-slate-500">Border region. Channi&apos;s weakness (Jat-Sikh ceiling). BJP organizational presence.</p>
           </div>
 
           <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
@@ -1529,7 +1536,7 @@ export default function ConstituencyPage() {
                 <span className="font-bold text-red-600">High</span>
               </div>
             </div>
-            <p className="mt-3 text-xs text-slate-500">NRI belt. 9,000+ deras concentrated. Channi's Dalit base strongest here.</p>
+            <p className="mt-3 text-xs text-slate-500">NRI belt. 9,000+ deras concentrated. Channi&apos;s Dalit base strongest here.</p>
           </div>
         </div>
 
@@ -1553,7 +1560,7 @@ export default function ConstituencyPage() {
 
         <div className="mt-4 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20">
           <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Key Insight:</strong> Congress must expand beyond Channi's Dalit base (Doaba) into Jat-Sikh dominant Malwa and Majha regions. Regional candidate archetype vs national candidate strategy critical for 2027.
+            <strong>Key Insight:</strong> Congress must expand beyond Channi&apos;s Dalit base (Doaba) into Jat-Sikh dominant Malwa and Majha regions. Regional candidate archetype vs national candidate strategy critical for 2027.
           </p>
         </div>
       </div>
@@ -1830,7 +1837,7 @@ export default function ConstituencyPage() {
             <span className="text-sm font-medium">Channi Factor</span>
           </div>
           <p className="mt-2 text-sm text-purple-600 dark:text-purple-400">
-            Punjab's first Dalit CM (Charanjit Singh Channi) elevated in Sept 2021. Despite losing both seats in 2022, his Ravidasia identity remains a key variable for Congress's Dalit coalition strategy in 2027.
+            Punjab&apos;s first Dalit CM (Charanjit Singh Channi) elevated in Sept 2021. Despite losing both seats in 2022, his Ravidasia identity remains a key variable for Congress&apos;s Dalit coalition strategy in 2027.
           </p>
         </div>
       </div>
@@ -1878,7 +1885,7 @@ export default function ConstituencyPage() {
               <p className="text-sm font-semibold text-red-700 dark:text-red-300">Critical Threat</p>
               <p className="text-2xl font-bold text-red-600 mt-1">5,967%</p>
               <p className="text-xs text-red-500">Increase in drone smuggling (2021-2024)</p>
-              <p className="text-xs text-red-600 dark:text-red-400 mt-2">45% of India's heroin trade occurs in Punjab</p>
+              <p className="text-xs text-red-600 dark:text-red-400 mt-2">45% of India&apos;s heroin trade occurs in Punjab</p>
             </div>
           </div>
         </div>
@@ -2471,6 +2478,327 @@ export default function ConstituencyPage() {
           <p className="text-sm text-violet-700 dark:text-violet-300">
             <strong>Key Insight:</strong> 79% of seats (92/117) are within swing margin — three-way splits determine winners. Congress must defend 2024 LS momentum in urban seats while fighting AAP for SC reserved seats. Priority: narrow-margin Congress seats (Dera Baba Nanak, Ferozpur).
           </p>
+        </div>
+      </div>
+
+      {/* CYCLE 2: GEOGRAPHIC PROFILE DATA (from MP1-foundational/geography/constituency-profile-cards.md) */}
+      <div className="rounded-xl border-2 border-emerald-500 bg-emerald-50 p-6 dark:border-emerald-700 dark:bg-emerald-900/20">
+        <div className="flex items-center gap-3 mb-4">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-lg font-bold text-white">
+            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+          </span>
+          <div>
+            <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400">Geographic & Constituency Profiles</h3>
+            <p className="text-sm text-emerald-600 dark:text-emerald-400">Regional overview, district data, crop patterns, border analysis</p>
+          </div>
+        </div>
+
+        {/* Regional Overview */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Regional Overview</h4>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500 text-sm font-bold text-white">M</span>
+                <span className="font-semibold">Majha</span>
+                <Badge variant="info">25 seats</Badge>
+              </div>
+              <p className="text-xs text-slate-500">Border belt, Ravi/Beas rivers, high defence presence, sacred Sikh sites</p>
+              <p className="mt-2 text-xs text-slate-400">Districts: Amritsar, Gurdaspur, Pathankot, Tarn Taran</p>
+            </div>
+            <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-500 text-sm font-bold text-white">D</span>
+                <span className="font-semibold">Doaba</span>
+                <Badge variant="success">23 seats</Badge>
+              </div>
+              <p className="text-xs text-slate-500">NRI hub, Beas/Sutlej rivers, high literacy, hoshiarpur foothills</p>
+              <p className="mt-2 text-xs text-slate-400">Districts: Jalandhar, Kapurthala, Hoshiarpur, SBS Nagar</p>
+            </div>
+            <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500 text-sm font-bold text-white">M</span>
+                <span className="font-semibold">Malwa</span>
+                <Badge variant="warning">69 seats</Badge>
+              </div>
+              <p className="text-xs text-slate-500">Largest region, cotton belt, paddy-wheat dominant, semi-arid south</p>
+              <p className="mt-2 text-xs text-slate-400">15 districts including Ludhiana, Bathinda, Patiala, Sangrur</p>
+            </div>
+          </div>
+        </div>
+
+        {/* District Reference Table */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">District Reference (Census 2011)</h4>
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs">
+              <thead className="bg-slate-100 dark:bg-slate-700">
+                <tr>
+                  <th className="px-2 py-1 text-left text-slate-600 dark:text-slate-300">District</th>
+                  <th className="px-2 py-1 text-left text-slate-600 dark:text-slate-300">Area</th>
+                  <th className="px-2 py-1 text-left text-slate-600 dark:text-slate-300">Population</th>
+                  <th className="px-2 py-1 text-left text-slate-600 dark:text-slate-300">Density</th>
+                  <th className="px-2 py-1 text-left text-slate-600 dark:text-slate-300">Region</th>
+                  <th className="px-2 py-1 text-left text-slate-600 dark:text-slate-300">Border</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 dark:divide-slate-600">
+                <tr><td className="px-2 py-1">Amritsar</td><td className="px-2 py-1">2,647</td><td className="px-2 py-1">24.9L</td><td className="px-2 py-1">932</td><td className="px-2 py-1">Majha</td><td><Badge variant="danger">YES</Badge></td></tr>
+                <tr><td className="px-2 py-1">Ludhiana</td><td className="px-2 py-1">3,767</td><td className="px-2 py-1">34.9L</td><td className="px-2 py-1">975</td><td className="px-2 py-1">Malwa</td><td><Badge variant="default">No</Badge></td></tr>
+                <tr><td className="px-2 py-1">Bathinda</td><td className="px-2 py-1">3,385</td><td className="px-2 py-1">13.9L</td><td className="px-2 py-1">414</td><td className="px-2 py-1">Malwa</td><td><Badge variant="default">No</Badge></td></tr>
+                <tr><td className="px-2 py-1">Jalandhar</td><td className="px-2 py-1">2,632</td><td className="px-2 py-1">21.8L</td><td className="px-2 py-1">831</td><td className="px-2 py-1">Doaba</td><td><Badge variant="default">No</Badge></td></tr>
+                <tr><td className="px-2 py-1">Patiala</td><td className="px-2 py-1">3,218</td><td className="px-2 py-1">18.9L</td><td className="px-2 py-1">596</td><td className="px-2 py-1">Malwa</td><td><Badge variant="default">No</Badge></td></tr>
+                <tr><td className="px-2 py-1">Mansa</td><td className="px-2 py-1">2,171</td><td className="px-2 py-1">7.7L</td><td className="px-2 py-1">350</td><td className="px-2 py-1">Malwa</td><td><Badge variant="default">No</Badge></td></tr>
+                <tr><td className="px-2 py-1">Pathankot</td><td className="px-2 py-1">929</td><td className="px-2 py-1">6.8L</td><td className="px-2 py-1">728</td><td className="px-2 py-1">Majha</td><td><Badge variant="danger">YES</Badge></td></tr>
+                <tr><td className="px-2 py-1">Tarn Taran</td><td className="px-2 py-1">2,449</td><td className="px-2 py-1">11.2L</td><td className="px-2 py-1">464</td><td className="px-2 py-1">Majha</td><td><Badge variant="danger">YES</Badge></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Agricultural Zones */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Agricultural Zones & Crop Patterns</h4>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <p className="text-sm font-medium text-green-700 dark:text-green-400">Paddy-Wheat (Central)</p>
+              <p className="text-xs text-slate-500 mt-1">Ludhiana, Jalandhar, Moga, Patiala</p>
+              <p className="text-xs text-slate-400 mt-1">Green Revolution heartland; MSP critical</p>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <p className="text-sm font-medium text-amber-700 dark:text-amber-400">Cotton Belt (Southwest)</p>
+              <p className="text-xs text-slate-500 mt-1">Bathinda, Mansa, Muktsar, Fazilka, Faridkot</p>
+              <p className="text-xs text-slate-400 mt-1">Bt cotton, pink bollworm, water scarcity</p>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <p className="text-sm font-medium text-blue-700 dark:text-blue-400">Basmati Zone</p>
+              <p className="text-xs text-slate-500 mt-1">Gurdaspur, Amritsar, Tarn Taran, Firozpur</p>
+              <p className="text-xs text-slate-400 mt-1">Export-oriented, premium pricing</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Border Constituencies */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Border Districts & Key Constituencies</h4>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-800 dark:bg-red-900/20">
+              <p className="text-sm font-semibold text-red-700 dark:text-red-400">Pathankot (3 seats)</p>
+              <p className="text-xs text-red-600 dark:text-red-300 mt-1">J&K + Pakistan border; defence-heavy</p>
+              <p className="text-xs text-slate-500 mt-1">Sujanpur, Bhoa, Pathankot</p>
+            </div>
+            <div className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-800 dark:bg-red-900/20">
+              <p className="text-sm font-semibold text-red-700 dark:text-red-400">Tarn Taran (4 seats)</p>
+              <p className="text-xs text-red-600 dark:text-red-300 mt-1">Pakistan border; Harike wetland; flood risk</p>
+              <p className="text-xs text-slate-500 mt-1">Tarn Taran, Khem Karan, Patti, Khadoor Sahib</p>
+            </div>
+            <div className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-800 dark:bg-red-900/20">
+              <p className="text-sm font-semibold text-red-700 dark:text-red-400">Fazilka (4 seats)</p>
+              <p className="text-xs text-red-600 dark:text-red-300 mt-1">Pakistan border; Sulemanki post; cotton belt</p>
+              <p className="text-xs text-slate-500 mt-1">Jalalabad, Fazilka, Abohar, Balluana</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Geographic Type Summary */}
+        <div className="mb-6">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">Constituency Classification</h4>
+          <div className="grid gap-3 md:grid-cols-5">
+            <div className="rounded-lg bg-blue-50 p-3 text-center dark:bg-blue-900/20">
+              <p className="text-2xl font-bold text-blue-600">~20</p>
+              <p className="text-xs text-blue-600">Urban</p>
+            </div>
+            <div className="rounded-lg bg-cyan-50 p-3 text-center dark:bg-cyan-900/20">
+              <p className="text-2xl font-bold text-cyan-600">~35</p>
+              <p className="text-xs text-cyan-600">Semi-Urban</p>
+            </div>
+            <div className="rounded-lg bg-green-50 p-3 text-center dark:bg-green-900/20">
+              <p className="text-2xl font-bold text-green-600">~55</p>
+              <p className="text-xs text-green-600">Rural</p>
+            </div>
+            <div className="rounded-lg bg-red-50 p-3 text-center dark:bg-red-900/20">
+              <p className="text-2xl font-bold text-red-600">~18</p>
+              <p className="text-xs text-red-600">Border</p>
+            </div>
+            <div className="rounded-lg bg-purple-50 p-3 text-center dark:bg-purple-900/20">
+              <p className="text-2xl font-bold text-purple-600">~6</p>
+              <p className="text-xs text-purple-600">Pilgrimage</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Strategic Insights */}
+        <div className="rounded-lg bg-emerald-100 p-4 dark:bg-emerald-900/40">
+          <h4 className="mb-3 text-sm font-semibold text-emerald-700 dark:text-emerald-300">Strategic Implications for Congress</h4>
+          <div className="grid gap-3 md:grid-cols-2">
+            <div className="flex gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-white">1</span>
+              <div>
+                <p className="text-sm font-medium text-emerald-800 dark:text-emerald-200">Malwa Dominance is Key</p>
+                <p className="text-xs text-emerald-600 dark:text-emerald-300">69 seats; reclaim cotton belt through farmer distress messaging</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-white">2</span>
+              <div>
+                <p className="text-sm font-medium text-emerald-800 dark:text-emerald-200">Border Constituencies</p>
+                <p className="text-xs text-emerald-600 dark:text-emerald-300">18-20 seats with unique BSF, drug smuggling concerns</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-white">3</span>
+              <div>
+                <p className="text-sm font-medium text-emerald-800 dark:text-emerald-200">Urban-Rural Divide</p>
+                <p className="text-xs text-emerald-600 dark:text-emerald-300">Tailored messaging: urban=jobs, rural=MSP/water</p>
+              </div>
+            </div>
+            <div className="flex gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-white">4</span>
+              <div>
+                <p className="text-sm font-medium text-emerald-800 dark:text-emerald-200">Pilgrimage Rally Points</p>
+                <p className="text-xs text-emerald-600 dark:text-emerald-300">Anandpur Sahib, Muktsar, Talwandi Sabo for mass outreach</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-lg bg-amber-100 p-3 dark:bg-amber-900/40">
+          <p className="text-sm text-amber-700 dark:text-amber-300">
+            <strong>Data Source:</strong> MP1-foundational/geography/constituency-profile-cards.md (Research Date: 19 May 2026) |
+            Census 2011, ECI 2022, Punjab State Disaster Management Plan |
+            Confidence: MEDIUM (district-level verified; granular AC-level data marked VERIFICATION_NEEDED)
+          </p>
+        </div>
+
+        {/* ========================================== */}
+        {/* SYNTHESIS INTELLIGENCE SECTION */}
+        {/* Derived from: s1-s4 synthesis MD files */}
+        {/* ========================================== */}
+
+        {/* Regional Seats Synthesis */}
+        <div className="mb-6 rounded-lg bg-gradient-to-r from-indigo-50 to-purple-50 p-4 dark:from-indigo-900/20 dark:to-purple-900/20">
+          <h3 className="mb-3 text-lg font-semibold text-indigo-700 dark:text-indigo-400">
+            Synthesis Intelligence: Regional Demographics
+          </h3>
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Malwa Seats</div>
+              <div className="text-2xl font-bold text-indigo-600">{synthesisDemographicData.regionalSeats.malwa}</div>
+              <div className="text-xs text-slate-400">Dominant region</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Majha Seats</div>
+              <div className="text-2xl font-bold text-blue-600">{synthesisDemographicData.regionalSeats.majha}</div>
+              <div className="text-xs text-slate-400">Border region</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Doaba Seats</div>
+              <div className="text-2xl font-bold text-green-600">{synthesisDemographicData.regionalSeats.doaba}</div>
+              <div className="text-xs text-slate-400">Kashmir border</div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Total Voters</div>
+              <div className="text-2xl font-bold text-amber-600">{synthesisDemographicData.voterData.voters}</div>
+              <div className="text-xs text-slate-400">First-time: {synthesisDemographicData.voterData.firstTimeVoters}</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Demographics Key Metrics from Synthesis */}
+        <div className="mb-6 rounded-lg bg-slate-50 p-4 dark:bg-slate-800/50">
+          <h4 className="mb-3 text-sm font-semibold text-slate-700 dark:text-slate-300">
+            Demographics Key Metrics (Synthesized from s1 Cross-Reference)
+          </h4>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {KEY_SYNTHESIS_METRICS
+              .filter(m => m.category === "Demographics")
+              .map((metric) => (
+                <div key={metric.id} className="flex items-start gap-2 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-700">
+                  <div className="flex flex-col items-center">
+                    <span className={`h-2 w-2 rounded-full ${
+                      metric.status === "CORROBORATED" ? "bg-green-500" :
+                      metric.status === "PARTIAL" ? "bg-yellow-500" : "bg-red-500"
+                    }`}></span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-xs text-slate-500">{metric.metric}</div>
+                    <div className="text-lg font-bold text-slate-800 dark:text-slate-200">{metric.value}</div>
+                    <div className="text-xs text-slate-400">Source: {metric.source}</div>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+
+        {/* Gap Analysis - Constituency (WEAK) */}
+        <div className="mb-6 rounded-lg bg-amber-50 p-4 dark:bg-amber-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-amber-700 dark:text-amber-400">
+            Gap Analysis: Constituency (WEAK Coverage)
+          </h4>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Coverage Rating</div>
+              <div className="text-xl font-bold text-amber-600">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Constituency")?.coverageRating || "WEAK"}
+              </div>
+              <div className="text-xs text-slate-400">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Constituency")?.coveragePercent || 0}% framework coverage
+              </div>
+            </div>
+            <div className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Documents in Category</div>
+              <div className="text-xl font-bold text-indigo-600">
+                Track A: {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Constituency")?.trackAFiles || 0} /
+                Track B: {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Constituency")?.trackBFiles || 0}
+              </div>
+              <div className="text-xs text-slate-400">Framework sections: {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Constituency")?.frameworkSections || 0}</div>
+            </div>
+          </div>
+          {/* Missing Sections */}
+          {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Constituency")?.missingSections && (
+            <div className="mt-3 rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
+              <div className="text-xs font-semibold text-slate-600 dark:text-slate-400 mb-2">Missing Sections:</div>
+              <div className="flex flex-wrap gap-2">
+                {gapAnalysis.categoryGapAnalysis.find(c => c.category === "Constituency")?.missingSections.map((gap, idx) => (
+                  <span key={idx} className={`inline-flex items-center rounded-full px-2 py-1 text-xs font-medium ${
+                    gap.severity === "CRITICAL" ? "bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-400" :
+                    gap.severity === "HIGH" ? "bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-400" :
+                    "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/50 dark:text-yellow-400"
+                  }`}>
+                    {gap.section}: {gap.description} ({gap.severity})
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Quality Validation Summary */}
+        <div className="mb-6 rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
+          <h4 className="mb-3 text-sm font-semibold text-green-700 dark:text-green-400">
+            Quality Validation Summary (s3)
+          </h4>
+          <div className="grid gap-3 md:grid-cols-4">
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Total Documents</div>
+              <div className="text-xl font-bold text-indigo-600">{qualityValidation.scope.total}</div>
+              <div className="text-xs text-slate-400">Pass Rate: {qualityValidation.passRate}%</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track A HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackASummary.high}/{qualityValidation.trackASummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Track B HIGH</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.trackBSummary.high}/{qualityValidation.trackBSummary.total}</div>
+            </div>
+            <div className="rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
+              <div className="text-xs text-slate-500">Assessment</div>
+              <div className="text-xl font-bold text-green-600">{qualityValidation.overallAssessment}</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
