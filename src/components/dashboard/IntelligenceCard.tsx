@@ -53,7 +53,7 @@ export function PartyBadge({ party, className = "" }: PartyBadgeProps) {
 }
 
 interface MarginIndicatorProps {
-  margin: number;
+  margin: number | null;
   party: Party;
   className?: string;
 }

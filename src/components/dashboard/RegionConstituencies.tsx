@@ -79,7 +79,7 @@ function ConstituencyAccordion({ intelligence }: { intelligence: ElectionIntelli
           </div>
 
           {/* Metadata */}
-          <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 grid gap-4 md:grid-cols-3">
+          <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700 grid gap-4 md:grid-cols-4">
             <div>
               <p className="text-xs font-medium text-slate-500">District</p>
               <p className="text-sm text-slate-900 dark:text-white">{intelligence.district}</p>
@@ -91,6 +91,13 @@ function ConstituencyAccordion({ intelligence }: { intelligence: ElectionIntelli
             <div>
               <p className="text-xs font-medium text-slate-500">Type</p>
               <p className="text-sm text-slate-900 dark:text-white">{intelligence.type}</p>
+            </div>
+            <div>
+              <p className="text-xs font-medium text-slate-500">Electors / Turnout</p>
+              <p className="text-sm text-slate-900 dark:text-white">
+                {intelligence.totalElectors ? `${intelligence.totalElectors.toLocaleString()}` : "N/A"}
+                {intelligence.voterTurnout ? ` / ${intelligence.voterTurnout}%` : ""}
+              </p>
             </div>
           </div>
 
@@ -130,6 +137,21 @@ function ConstituencyAccordion({ intelligence }: { intelligence: ElectionIntelli
                   </span>
                 ))}
               </div>
+            </div>
+          )}
+
+          {/* Cross References */}
+          {intelligence.crossReferences.length > 0 && (
+            <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+              <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Cross References</h4>
+              <ul className="space-y-1">
+                {intelligence.crossReferences.map((ref, idx) => (
+                  <li key={idx} className="text-xs text-slate-600 dark:text-slate-400 flex items-start gap-2">
+                    <span className="text-blue-500">→</span>
+                    {ref}
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </div>

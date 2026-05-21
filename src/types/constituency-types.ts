@@ -208,14 +208,14 @@ export interface ElectionIntelligence {
   type: "General" | "SC" | "ST";
   lokSabha: string;
   electionResults: ElectionResult[];
-  totalElectors?: string;
-  voterTurnout?: string;
+  totalElectors?: number | string;
+  voterTurnout?: number | string;
   casteComposition: CasteComposition[];
   topIssues: LocalIssue[];
   congressPosition: string;
-  recommendedCandidate: CandidateProfile;
+  recommendedCandidate: CandidateProfile | null;
   attackLines: AttackLine[];
-  margin: number;
+  margin: number | null;
   party: Party;
   priorityTier: PriorityTier;
   dataGaps: string[];
