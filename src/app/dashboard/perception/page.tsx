@@ -577,7 +577,7 @@ export default function PerceptionPage() {
         </div>
         <div className="mt-4 p-3 rounded-lg bg-emerald-100 dark:bg-emerald-900/40">
           <p className="text-sm text-emerald-700 dark:text-emerald-300">
-            <strong>Key Insight:</strong> Hung assembly is the base case scenario. Congress needs to exceed the 45-58 range significantly to approach majority (59 seats). AAP is projected to lose significant seats from 2022's 92.
+            <strong>Key Insight:</strong> Hung assembly is the base case scenario. Congress needs to exceed the 45-58 range significantly to approach majority (59 seats). AAP is projected to lose significant seats from 2022&apos;s 92.
           </p>
         </div>
       </div>
@@ -1700,7 +1700,7 @@ export default function PerceptionPage() {
                 <span className="font-bold text-red-600">Ongoing controversy</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">"Remote Control" Narrative:</span>
+                <span className="text-slate-500">&quot;Remote Control&quot; Narrative:</span>
                 <span className="font-bold text-red-600">Kejriwal vs Mann</span>
               </div>
             </div>
@@ -1719,7 +1719,7 @@ export default function PerceptionPage() {
               </div>
               <div className="flex justify-between">
                 <span className="text-slate-500">AAP Label:</span>
-                <span className="font-bold text-red-600">"#Gaddar trending"</span>
+                <span className="font-bold text-red-600">&quot;#Gaddar trending&quot;</span>
               </div>
             </div>
           </div>
@@ -2030,7 +2030,7 @@ export default function PerceptionPage() {
 
         <div className="mt-4 rounded-lg bg-emerald-100 p-3 dark:bg-emerald-900/40">
           <p className="text-sm text-emerald-700 dark:text-emerald-300">
-            <strong>Key Insight:</strong> Manifesto must lead with Drugs Eradication (10/10 salience) and Youth Employment (9/10). These match AAP's biggest governance failures and offer clearest contrast. CM face announcement should precede manifesto release (Dec 2026) to maximize narrative impact.
+            <strong>Key Insight:</strong> Manifesto must lead with Drugs Eradication (10/10 salience) and Youth Employment (9/10). These match AAP&apos;s biggest governance failures and offer clearest contrast. CM face announcement should precede manifesto release (Dec 2026) to maximize narrative impact.
           </p>
         </div>
 

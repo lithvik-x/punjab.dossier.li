@@ -1618,7 +1618,7 @@ const voterRegistrationData = {
           <div className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
             <p className="text-sm font-medium text-purple-700 dark:text-purple-400">Voters Under 35</p>
             <p className="mt-1 text-2xl font-bold text-purple-600">{communicationData.votersUnder35Percent}%</p>
-            <p className="mt-1 text-xs text-purple-600/70">Punjab's digital-native voter base</p>
+            <p className="mt-1 text-xs text-purple-600/70">Punjab&apos;s digital-native voter base</p>
           </div>
           <div className="rounded-lg bg-teal-50 p-4 dark:bg-teal-900/20">
             <p className="text-sm font-medium text-teal-700 dark:text-teal-400">War Room Setup</p>
@@ -1837,7 +1837,7 @@ const voterRegistrationData = {
 
         <div className="mt-4 rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
           <p className="text-sm text-red-700 dark:text-red-300">
-            <strong>Critical Alert:</strong> ECI's own deduplication software was described as "defective" to Supreme Court (Dec 2025). Congress must build voter database from scratch — import ECI roll immediately and begin field enrichment.
+            <strong>Critical Alert:</strong> ECI&apos;s own deduplication software was described as &quot;defective&quot; to Supreme Court (Dec 2025). Congress must build voter database from scratch — import ECI roll immediately and begin field enrichment.
           </p>
         </div>
       </div>
@@ -2041,7 +2041,7 @@ const voterRegistrationData = {
 
         <div className="mt-4 rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
           <p className="text-sm text-red-700 dark:text-red-300">
-            <strong>Critical Gap:</strong> Congress has NO dedicated worker mobile app for Punjab 2027. BJP's Saral app with 2.9M+ downloads represents a significant competitive technology advantage. Build or procure app by July 2026.
+            <strong>Critical Gap:</strong> Congress has NO dedicated worker mobile app for Punjab 2027. BJP&apos;s Saral app with 2.9M+ downloads represents a significant competitive technology advantage. Build or procure app by July 2026.
           </p>
         </div>
       </div>
@@ -4054,7 +4054,7 @@ const voterRegistrationData = {
           <div className="mt-4 grid gap-4 md:grid-cols-2">
             <div className="rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
               <p className="text-sm font-medium text-red-700 dark:text-red-400">Congress Opportunity</p>
-              <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">SAD-BJP split creates space for Congress to gain 10-15 seats in Malwa region. SAD's Sikh voter base now contested between SAD (traditional) and BJP (polarizing Hindu vote).</p>
+              <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">SAD-BJP split creates space for Congress to gain 10-15 seats in Malwa region. SAD&apos;s Sikh voter base now contested between SAD (traditional) and BJP (polarizing Hindu vote).</p>
             </div>
             <div className="rounded-lg bg-orange-50 p-3 dark:bg-orange-900/20">
               <p className="text-sm font-medium text-orange-700 dark:text-orange-400">Strategic Implications</p>
@@ -4204,7 +4204,7 @@ const voterRegistrationData = {
 
         <div className="mt-4 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
           <p className="text-sm text-red-700 dark:text-red-300">
-            <strong>Strategic Exploit:</strong> Counter AAP "welfare" narrative by documenting delivery gaps. Focus on: (1) ₹1,000 stipends actual vs claimed, (2) 25L jobs vs unemployment rise, (3) Drug promises vs overdose deaths. These are verifiable, emotionally resonant counter-narratives.
+            <strong>Strategic Exploit:</strong> Counter AAP &quot;welfare&quot; narrative by documenting delivery gaps. Focus on: (1) ₹1,000 stipends actual vs claimed, (2) 25L jobs vs unemployment rise, (3) Drug promises vs overdose deaths. These are verifiable, emotionally resonant counter-narratives.
           </p>
         </div>
 

@@ -911,19 +911,19 @@ export default function PartyPage() {
             <h4 className="font-semibold text-yellow-700 dark:text-yellow-400">BJP Swayamsevak Network</h4>
             <p className="text-2xl font-bold text-yellow-600 mt-2">11 Lakh+</p>
             <p className="text-sm text-slate-600 dark:text-slate-400">RSS-organized volunteers</p>
-            <p className="text-xs text-slate-500 mt-2">India's largest grassroots organization. RSS integration provides ideological coherence. Active in 600+ mandals across Punjab.</p>
+            <p className="text-xs text-slate-500 mt-2">India&apos;s largest grassroots organization. RSS integration provides ideological coherence. Active in 600+ mandals across Punjab.</p>
           </div>
           <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
             <h4 className="font-semibold text-blue-700 dark:text-blue-400">Congress Booth Organization</h4>
             <p className="text-2xl font-bold text-blue-600 mt-2">300,000</p>
             <p className="text-sm text-slate-600 dark:text-slate-400">Booth-level workers</p>
-            <p className="text-xs text-slate-500 mt-2">78% booth coverage (target 100% by Aug 2026). No equivalent to BJP's RSS-structured Swayamsevak network.</p>
+            <p className="text-xs text-slate-500 mt-2">78% booth coverage (target 100% by Aug 2026). No equivalent to BJP&apos;s RSS-structured Swayamsevak network.</p>
           </div>
         </div>
 
         <div className="mt-4 p-3 rounded-lg bg-slate-100 dark:bg-slate-800">
           <p className="text-sm text-slate-600 dark:text-slate-300">
-            <strong>Critical Gap:</strong> AAP's WhatsApp-centric model (15,000+ groups) provides fast information flow but lacks RSS-equivalent grassroots penetration. Congress digital deficit vs AAP is 2-3x on social media. <strong>Source: MP3-007</strong>
+            <strong>Critical Gap:</strong> AAP&apos;s WhatsApp-centric model (15,000+ groups) provides fast information flow but lacks RSS-equivalent grassroots penetration. Congress digital deficit vs AAP is 2-3x on social media. <strong>Source: MP3-007</strong>
           </p>
         </div>
       </div>
@@ -1107,13 +1107,13 @@ export default function PartyPage() {
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
             <p className="text-xs text-slate-500">Primary Slogan</p>
-            <p className="text-2xl font-bold text-red-600 mt-1">"Judega Block, Jittegi Congress"</p>
+            <p className="text-2xl font-bold text-red-600 mt-1">&quot;Judega Block, Jittegi Congress&quot;</p>
             <p className="text-xs text-slate-500 mt-1">From MP4-004 — the unifying campaign cry</p>
           </div>
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
             <p className="text-xs text-slate-500">Core Attack Line</p>
-            <p className="text-2xl font-bold text-orange-600 mt-1">"4 Saal 0 Kaam"</p>
-            <p className="text-xs text-slate-500 mt-1">From MP4-012 — AAP's 4 years, zero delivery</p>
+            <p className="text-2xl font-bold text-orange-600 mt-1">&quot;4 Saal 0 Kaam&quot;</p>
+            <p className="text-xs text-slate-500 mt-1">From MP4-012 — AAP&apos;s 4 years, zero delivery</p>
           </div>
         </div>
 
@@ -1151,22 +1151,22 @@ export default function PartyPage() {
         <h4 className="mt-6 font-semibold text-red-900 dark:text-red-100">Message Architecture</h4>
         <div className="mt-3 grid gap-3 md:grid-cols-3">
           <div className="rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
-            <p className="text-sm font-medium text-red-700">"Haath Uthao Punjab Banao"</p>
+            <p className="text-sm font-medium text-red-700">&quot;Haath Uthao Punjab Banao&quot;</p>
             <p className="text-xs text-red-600 mt-1">Uplift message</p>
           </div>
           <div className="rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
-            <p className="text-sm font-medium text-red-700">"4 Saal 0 Kaam"</p>
+            <p className="text-sm font-medium text-red-700">&quot;4 Saal 0 Kaam&quot;</p>
             <p className="text-xs text-red-600 mt-1">Attack line — 4 years, zero work</p>
           </div>
           <div className="rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
-            <p className="text-sm font-medium text-red-700">"AAP Ka Haath, Bagal Mein Duniya"</p>
-            <p className="text-xs text-red-600 mt-1">AAP's hand, world in pocket (inaccessible)</p>
+            <p className="text-sm font-medium text-red-700">&quot;AAP Ka Haath, Bagal Mein Duniya&quot;</p>
+            <p className="text-xs text-red-600 mt-1">AAP&apos;s hand, world in pocket (inaccessible)</p>
           </div>
         </div>
 
         <div className="mt-4 rounded-lg bg-amber-100 p-3 dark:bg-amber-900/40">
           <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Central Narrative:</strong> "AAP made big promises in 2022. Four years later: zero delivery. Congress will deliver from Day One."
+            <strong>Central Narrative:</strong> &quot;AAP made big promises in 2022. Four years later: zero delivery. Congress will deliver from Day One.&quot;
           </p>
         </div>
       </div>
@@ -1941,7 +1941,7 @@ export default function PartyPage() {
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
             <p className="text-sm font-medium text-slate-600 dark:text-slate-300">2022 Punjab Campaign (Central HQ)</p>
             <p className="text-2xl font-bold text-orange-600">₹6.23 Cr</p>
-            <p className="text-xs text-slate-500">vs SAD's ₹16.57 Cr (same election)</p>
+            <p className="text-xs text-slate-500">vs SAD&apos;s ₹16.57 Cr (same election)</p>
           </div>
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
             <p className="text-sm font-medium text-slate-600 dark:text-slate-300">ECI Expenditure Limit</p>
@@ -1965,7 +1965,7 @@ export default function PartyPage() {
         </div>
         <div className="mt-4 rounded-lg border border-orange-200 bg-orange-100/50 p-3 dark:border-orange-800 dark:bg-orange-900/20">
           <p className="text-sm font-medium text-orange-600">Advantage: Ruling Party Access to Development Funds</p>
-          <p className="text-xs text-slate-600 mt-1">Timing of welfare announcements, MLA-linked constituency funds (₹5L each), government ad spending (₹10.59 Cr alleged "reputation management")</p>
+          <p className="text-xs text-slate-600 mt-1">Timing of welfare announcements, MLA-linked constituency funds (₹5L each), government ad spending (₹10.59 Cr alleged &quot;reputation management&quot;)</p>
         </div>
       </div>
 
@@ -2126,8 +2126,8 @@ export default function PartyPage() {
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
             <p className="text-sm font-medium text-red-600">Enemies</p>
             <div className="mt-2 space-y-2 text-xs">
-              <div><span className="font-medium">BJP:</span> Primary adversary; "anti-Punjab" on farm laws, Chandigarh, SYL canal; PM Modi to make Punjab "AAP-free"</div>
-              <div><span className="font-medium">Congress:</span> Electoral rival; "two sides of same coin" per Congress leader</div>
+              <div><span className="font-medium">BJP:</span> Primary adversary; &quot;anti-Punjab&quot; on farm laws, Chandigarh, SYL canal; PM Modi to make Punjab &quot;AAP-free&quot;</div>
+              <div><span className="font-medium">Congress:</span> Electoral rival; &quot;two sides of same coin&quot; per Congress leader</div>
               <div><span className="font-medium">SAD:</span> Competes for Sikh voter base; SAD accuses RSS of infiltrating Sikh shrines</div>
             </div>
           </div>
@@ -2136,13 +2136,13 @@ export default function PartyPage() {
             <div className="mt-2 space-y-2 text-xs">
               <div><span className="font-medium">Delhi vs Punjab:</span> Kejriwal accused of remotely controlling Mann government</div>
               <div><span className="font-medium">Outsider vs Punjab:</span> Rajya Sabha nominations for non-Punjabis (Sandeep Pathak-Chhattisgarh, Raghav Chadha-Delhi)</div>
-              <div><span className="font-medium">Defector Faction:</span> 7 MPs (incl. Chadha "super CM", Pathak strategist) → BJP April 2026</div>
+              <div><span className="font-medium">Defector Faction:</span> 7 MPs (incl. Chadha &quot;super CM&quot;, Pathak strategist) → BJP April 2026</div>
             </div>
           </div>
         </div>
         <div className="mt-4 rounded-lg border border-yellow-200 bg-yellow-100/50 p-3 dark:border-yellow-800 dark:bg-yellow-900/20">
           <p className="text-sm font-medium text-yellow-600">2027 Alliance Probability: NIL</p>
-          <p className="text-xs text-slate-600 mt-1">AAP and Congress will go solo in Punjab 2027. INDIA alliance at national level does NOT extend to Punjab. Mann: "AAP will get 13 seats" (Jan 2024) — confirming no seat-sharing.</p>
+          <p className="text-xs text-slate-600 mt-1">AAP and Congress will go solo in Punjab 2027. INDIA alliance at national level does NOT extend to Punjab. Mann: &quot;AAP will get 13 seats&quot; (Jan 2024) — confirming no seat-sharing.</p>
         </div>
       </div>
 
@@ -2264,7 +2264,7 @@ export default function PartyPage() {
             <div className="mt-2 space-y-2 text-xs">
               <div><span className="font-medium text-indigo-600">Relocated to Punjab:</span> Delhi strategy team moved post-Delhi defeat (Feb 2025)</div>
               <div><span className="font-medium text-indigo-600">War Room:</span> Chandigarh-based dedicated election war room established</div>
-              <div><span className="font-medium text-indigo-600">Rebranding:</span> "Delhi Model" → "Kejriwal Model" (Punjabi edition launched)</div>
+              <div><span className="font-medium text-indigo-600">Rebranding:</span> &quot;Delhi Model&quot; → &quot;Kejriwal Model&quot; (Punjabi edition launched)</div>
               <div><span className="font-medium text-indigo-600">Regional Focus:</span> Heavy Malwa concentration (69/117 seats)</div>
             </div>
           </div>
@@ -2283,7 +2283,7 @@ export default function PartyPage() {
           <div className="mt-1 text-xs text-slate-600 space-y-1">
             <p>• Booth-level organization specifics (no disclosed voter contact methodology)</p>
             <p>• Digital campaign budget (no figures available)</p>
-            <p>• Mann's CM candidacy (internal deliberations opaque)</p>
+            <p>• Mann&apos;s CM candidacy (internal deliberations opaque)</p>
             <p>• Scheme sustainability funding (no disclosed fiscal plan for Rs 1,000/month given depleted exchequer)</p>
             <p>• Defection impact (organizational damage from 7 MP defections unquantified)</p>
           </div>
@@ -2798,7 +2798,7 @@ export default function PartyPage() {
               <span className="font-semibold text-cyan-600">Position:</span> Congress as the natural alternative governance party
             </p>
             <p className="text-slate-600 dark:text-slate-300">
-              <span className="font-semibold text-cyan-600">Character:</span> Party of "Experienced, Inclusive, Punjab-First" leadership
+              <span className="font-semibold text-cyan-600">Character:</span> Party of &quot;Experienced, Inclusive, Punjab-First&quot; leadership
             </p>
             <p className="text-slate-600 dark:text-slate-300">
               <span className="font-semibold text-cyan-600">Window:</span> AAP governance failures have created a vacuum - 9 months to February 2027
@@ -2880,19 +2880,19 @@ export default function PartyPage() {
           <div className="grid gap-3 md:grid-cols-2">
             <div className="rounded-lg bg-slate-50 p-3 dark:bg-slate-700">
               <p className="text-xs font-semibold text-slate-600 dark:text-slate-300">Punjabi (Gurmukhi)</p>
-              <p className="text-sm text-slate-700 dark:text-slate-200 mt-1">"AAP ne kiya? 4 saal, kuch nahi. Congress laayega tabdeeli."</p>
+              <p className="text-sm text-slate-700 dark:text-slate-200 mt-1">&quot;AAP ne kiya? 4 saal, kuch nahi. Congress laayega tabdeeli.&quot;</p>
             </div>
             <div className="rounded-lg bg-slate-50 p-3 dark:bg-slate-700">
               <p className="text-xs font-semibold text-slate-600 dark:text-slate-300">Punjabi (Roman)</p>
-              <p className="text-sm text-slate-700 dark:text-slate-200 mt-1">"AAP promised. AAP failed. Congress delivers."</p>
+              <p className="text-sm text-slate-700 dark:text-slate-200 mt-1">&quot;AAP promised. AAP failed. Congress delivers.&quot;</p>
             </div>
             <div className="rounded-lg bg-slate-50 p-3 dark:bg-slate-700">
               <p className="text-xs font-semibold text-slate-600 dark:text-slate-300">Hindi</p>
-              <p className="text-sm text-slate-700 dark:text-slate-200 mt-1">"4 साल, शून्य नतीजा - कांग्रेस लाएगी बदलाव"</p>
+              <p className="text-sm text-slate-700 dark:text-slate-200 mt-1">&quot;4 साल, शून्य नतीजा - कांग्रेस लाएगी बदलाव&quot;</p>
             </div>
             <div className="rounded-lg bg-slate-50 p-3 dark:bg-slate-700">
               <p className="text-xs font-semibold text-slate-600 dark:text-slate-300">English</p>
-              <p className="text-sm text-slate-700 dark:text-slate-200 mt-1">"Experience matters. Results, not rhetoric."</p>
+              <p className="text-sm text-slate-700 dark:text-slate-200 mt-1">&quot;Experience matters. Results, not rhetoric.&quot;</p>
             </div>
           </div>
         </div>
@@ -3095,9 +3095,9 @@ export default function PartyPage() {
 
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
-            <p className="text-sm font-semibold text-red-600">Channi's January 17, 2026 Statement</p>
+            <p className="text-sm font-semibold text-red-600">Channi&apos;s January 17, 2026 Statement</p>
             <p className="mt-2 text-xs italic text-slate-600 dark:text-slate-400">
-              "In Punjab, if you accept that there is a population of 35-38% [of SCs], which is there, then why are we not getting representation? Punjab [Congress] president is from upper caste, CLP leader is from upper caste, women wing of Punjab Congress from upper caste, Punjab [Congress] general secretary from upper caste."
+              &quot;In Punjab, if you accept that there is a population of 35-38% [of SCs], which is there, then why are we not getting representation? Punjab [Congress] president is from upper caste, CLP leader is from upper caste, women wing of Punjab Congress from upper caste, Punjab [Congress] general secretary from upper caste.&quot;
             </p>
             <p className="mt-2 text-xs text-slate-500">— The Hindu, January 22, 2026</p>
           </div>
@@ -3179,7 +3179,7 @@ export default function PartyPage() {
 
         <div className="mt-4 rounded-lg bg-cyan-100 p-3 dark:bg-cyan-900/40">
           <p className="text-sm text-cyan-700 dark:text-cyan-300">
-            <strong>Inspired by BJP:</strong> Congress adopted BJP's "Panna Pramukh" (page chief) concept. Each booth sevak manages one page of voter list (~30-35 voters). Source: New Indian Express, May 16, 2026
+            <strong>Inspired by BJP:</strong> Congress adopted BJP&apos;s &quot;Panna Pramukh&quot; (page chief) concept. Each booth sevak manages one page of voter list (~30-35 voters). Source: New Indian Express, May 16, 2026
           </p>
         </div>
       </div>
@@ -3226,7 +3226,7 @@ export default function PartyPage() {
             <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">Three-Survey Process</p>
             <div className="mt-3 space-y-2 text-xs">
               <div className="flex items-center gap-2"><span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-xs font-bold text-white">1</span><span className="text-slate-500">Surveys 1 & 2: Agencies under Bhupesh Baghel supervision</span></div>
-              <div className="flex items-center gap-2"><span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-xs font-bold text-white">2</span><span className="text-slate-500">Survey 3: Rahul Gandhi's team (independent assessment)</span></div>
+              <div className="flex items-center gap-2"><span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-xs font-bold text-white">2</span><span className="text-slate-500">Survey 3: Rahul Gandhi&apos;s team (independent assessment)</span></div>
               <div className="flex items-center gap-2"><span className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500 text-xs font-bold text-white">3</span><span className="text-slate-500">Winnability is sole criterion (per Baghel)</span></div>
             </div>
           </div>
@@ -3261,7 +3261,7 @@ export default function PartyPage() {
         <div className="grid gap-4 md:grid-cols-2">
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
             <p className="text-sm font-semibold text-orange-600">2017 Manifesto (121-page document)</p>
-            <p className="text-xs text-slate-500 mt-1">"Nawan Nawan Punjab Layee Captain De Naun Nukte"</p>
+            <p className="text-xs text-slate-500 mt-1">&quot;Nawan Nawan Punjab Layee Captain De Naun Nukte&quot;</p>
             <div className="mt-3 space-y-1 text-xs">
               <div className="flex justify-between"><span className="text-slate-500">Farm loan waiver:</span><span className="text-orange-600">PARTIAL</span></div>
               <div className="flex justify-between"><span className="text-slate-500">Drug elimination:</span><span className="text-red-600">FAILED</span></div>
@@ -3270,7 +3270,7 @@ export default function PartyPage() {
             </div>
           </div>
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
-            <p className="text-sm font-semibold text-red-600">2022 Manifesto ("Congress De Waade")</p>
+            <p className="text-sm font-semibold text-red-600">2022 Manifesto (&quot;Congress De Waade&quot;)</p>
             <p className="text-xs text-slate-500 mt-1">Released Feb 18, 2022 - just 2 days before polling</p>
             <div className="mt-3 space-y-1 text-xs">
               <div className="flex justify-between"><span className="text-slate-500">1L govt jobs/year:</span><span className="text-red-600">FAILED</span></div>
@@ -3283,7 +3283,7 @@ export default function PartyPage() {
 
         <div className="mt-4 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
           <p className="text-sm text-red-700 dark:text-red-300">
-            <strong>Credibility Crisis:</strong> PPRC (Punjab Political Reform Council) analysis shows &lt;11% of 2017 promises fulfilled. Congress track record undermines 2027 promises. AAP attacks: "Congress makes promises, never delivers."
+            <strong>Credibility Crisis:</strong> PPRC (Punjab Political Reform Council) analysis shows &lt;11% of 2017 promises fulfilled. Congress track record undermines 2027 promises. AAP attacks: &quot;Congress makes promises, never delivers.&quot;
           </p>
         </div>
       </div>
@@ -3344,12 +3344,12 @@ export default function PartyPage() {
             </div>
           </div>
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
-            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">"Mission 2027" Status (Feb 16, 2026)</p>
+            <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">&quot;Mission 2027&quot; Status (Feb 16, 2026)</p>
             <div className="mt-3 space-y-2 text-xs">
               <div className="flex justify-between"><span className="text-slate-500">Leadership Meeting:</span><span className="font-medium text-green-600">Concluded</span></div>
               <div className="flex justify-between"><span className="text-slate-500">Faction Unity:</span><span className="font-medium text-orange-600">Forced public display</span></div>
               <div className="flex justify-between"><span className="text-slate-500">By-election Record:</span><span className="font-medium text-red-600">6 defeats in 7 by-elections</span></div>
-              <div className="flex justify-between"><span className="text-slate-500">Rahul Warning:</span><span className="font-medium text-red-600">"Made to sit in reserves"</span></div>
+              <div className="flex justify-between"><span className="text-slate-500">Rahul Warning:</span><span className="font-medium text-red-600">&quot;Made to sit in reserves&quot;</span></div>
             </div>
           </div>
         </div>

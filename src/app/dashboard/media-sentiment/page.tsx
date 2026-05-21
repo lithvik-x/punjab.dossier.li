@@ -888,7 +888,7 @@ export default function MediaSentimentPage() {
         <div className="mt-4 rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
           <h4 className="font-semibold text-red-700 dark:text-red-300">AAP Government Media Actions (2025-2026)</h4>
           <ul className="mt-2 text-sm text-slate-600 space-y-1">
-            <li>Nov 2025: Stopped government ads to newspapers publishing "sheeshmahal" story</li>
+            <li>Nov 2025: Stopped government ads to newspapers publishing &quot;sheeshmahal&quot; story</li>
             <li>Nov 2025: Trucks stopped/searched under drug pretext, delaying newspaper delivery</li>
             <li>Jan 2026: Raids on Punjab Kesari Group establishments (excise, GST, food dept)</li>
             <li>Jan 2026: Police deployment outside Punjab Kesari offices in Jalandhar, Ludhiana, Bathinda</li>
@@ -1149,7 +1149,7 @@ export default function MediaSentimentPage() {
               ["WhatsApp Broadcast", "Near-zero", "Near-zero", "Cost = platform tools + labor"],
             ]}
           />
-          <p className="mt-2 text-xs text-slate-500">India has among world's lowest digital ad CPMs — ~1/5th to 1/10th of US/UK rates</p>
+          <p className="mt-2 text-xs text-slate-500">India has among world&apos;s lowest digital ad CPMs — ~1/5th to 1/10th of US/UK rates</p>
         </div>
 
         {/* Punjabi Influencers */}
@@ -1473,7 +1473,7 @@ export default function MediaSentimentPage() {
 
         {/* BJP Ground Campaign */}
         <div className="mt-6 rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
-          <h4 className="font-semibold text-orange-700 dark:text-orange-300">BJP "De Sevadar" Ground Campaign (May 2025)</h4>
+          <h4 className="font-semibold text-orange-700 dark:text-orange-300">BJP &quot;De Sevadar&quot; Ground Campaign (May 2025)</h4>
           <ul className="mt-2 text-sm text-slate-600 space-y-1">
             <li>Six-month village campaign covering 50 constituencies</li>
             <li>Target: 1.57 lakh beneficiaries of central schemes (Kisan Samman Nidhi, Ayushman Bharat)</li>
@@ -1514,7 +1514,7 @@ export default function MediaSentimentPage() {
           <h4 className="font-semibold text-red-700 dark:text-red-300">Dera Sacha Sauda Political Machine</h4>
           <ul className="mt-2 text-sm text-slate-600 space-y-1">
             <li>Active since 2007 as political force in Punjab</li>
-            <li>Headquarters in Sirsa, Haryana; influence spans Punjab's Malwa belt</li>
+            <li>Headquarters in Sirsa, Haryana; influence spans Punjab&apos;s Malwa belt</li>
             <li>Ram Rahim parole strategy: BJP govt in Haryana granted parole 9 times since conviction (7 times in past 2 years)</li>
             <li>Ram Rahim currently serving 20-year rape sentence + life for murder</li>
             <li>2007 violent clashes with Sikhs: 1 dead, most serious since insurgency</li>
@@ -1526,7 +1526,7 @@ export default function MediaSentimentPage() {
           <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
             <h4 className="font-semibold text-slate-700 dark:text-slate-300">Ravidassia Vote Bank (Dera Ballan)</h4>
             <ul className="mt-2 text-sm text-slate-600 space-y-1">
-              <li>32% of Punjab's total vote bank</li>
+              <li>32% of Punjab&apos;s total vote bank</li>
               <li>Doaba region: Jalandhar, Hoshiarpur, Nawanshahr, Kapurthala</li>
               <li>BJP facilitated meeting: PM Modi + Sant Niranjan Dass (Dec 2025)</li>
               <li>AAP: Rs 25 crore for Sri Guru Ravidas Research Centre</li>
@@ -1624,8 +1624,8 @@ export default function MediaSentimentPage() {
               <p className="text-xl font-bold">10M+</p>
             </div>
           </div>
-          <p className="mt-2 text-sm text-slate-600">Explicitly ruled out political entry (May 2026): "I love my work and want to continue doing that"</p>
-          <p className="mt-1 text-sm text-slate-600">Prominent supporter of 2020-21 farmers' agitation; songs about farm laws turned protest into cultural movement</p>
+          <p className="mt-2 text-sm text-slate-600">Explicitly ruled out political entry (May 2026): &quot;I love my work and want to continue doing that&quot;</p>
+          <p className="mt-1 text-sm text-slate-600">Prominent supporter of 2020-21 farmers&apos; agitation; songs about farm laws turned protest into cultural movement</p>
         </div>
 
         {/* Celebrity Endorsement Effectiveness */}
@@ -1806,7 +1806,7 @@ export default function MediaSentimentPage() {
             </div>
             <div>
               <p className="text-sm font-semibold text-blue-600">AAP-Monitoring Frame</p>
-              <p className="text-xs text-slate-600 mt-1">Legislative activity, international investor outreach, "standing up to Delhi"</p>
+              <p className="text-xs text-slate-600 mt-1">Legislative activity, international investor outreach, &quot;standing up to Delhi&quot;</p>
             </div>
             <div>
               <p className="text-sm font-semibold text-slate-600">Congress-Gap Frame</p>
@@ -1819,7 +1819,7 @@ export default function MediaSentimentPage() {
         <div className="mt-6">
           <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Cost of Commissioning Opinion/Research</h4>
           <p className="text-sm text-slate-500">No verifiable evidence of specific monetary amounts; currency is access, relationships, political alignment</p>
-          <p className="mt-1 text-sm text-slate-500">Opinion of Punjab platform labeled "advertorial" by ANI — indicates paid political content disguised as journalism</p>
+          <p className="mt-1 text-sm text-slate-500">Opinion of Punjab platform labeled &quot;advertorial&quot; by ANI — indicates paid political content disguised as journalism</p>
         </div>
       </div>
 
@@ -1855,7 +1855,7 @@ export default function MediaSentimentPage() {
           <h4 className="font-semibold text-red-700 dark:text-red-300">Maghi Mela — Political Benchmark</h4>
           <ul className="mt-2 text-sm text-slate-600 space-y-1">
             <li>Commemorates 40 Muktas who died fighting Mughals in 1705</li>
-            <li>AAP 2016: Kejriwal launched AAP's 2017 Punjab campaign here with massive rally</li>
+            <li>AAP 2016: Kejriwal launched AAP&apos;s 2017 Punjab campaign here with massive rally</li>
             <li>2026 (January): AAP returned with CM Bhagwant Mann mega rally after 10-year hiatus</li>
             <li>SAD, BJP (first independent conference), SAD (Waris Punjab De), SAD (Amritsar) all held separate conferences</li>
             <li>Congress 2026: Abided by Akal Takht directive; no rally organized</li>
@@ -1922,7 +1922,7 @@ export default function MediaSentimentPage() {
 
         {/* BJP IT Cell */}
         <div className="mt-6 rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
-          <h4 className="font-semibold text-orange-700 dark:text-orange-300">BJP IT Cell — World's Largest Political CIB Network</h4>
+          <h4 className="font-semibold text-orange-700 dark:text-orange-300">BJP IT Cell — World&apos;s Largest Political CIB Network</h4>
           <div className="grid gap-4 md:grid-cols-4 mt-2">
             <div>
               <p className="text-sm text-slate-500">Core IT Cell Staff</p>
@@ -2220,7 +2220,7 @@ export default function MediaSentimentPage() {
           WhatsApp: The Indispensable Multiplier (MP5 Deliverable 1)
         </h3>
         <p className="mt-1 text-sm text-green-600 dark:text-green-400">
-          WhatsApp is the backbone of Congress's entire last-mile voter contact architecture
+          WhatsApp is the backbone of Congress&apos;s entire last-mile voter contact architecture
         </p>
 
         {/* Key Stats */}
@@ -2260,7 +2260,7 @@ export default function MediaSentimentPage() {
           </div>
           <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
             <p className="text-sm font-medium text-green-600">Trusted Peer-to-Peer</p>
-            <p className="text-xs text-slate-600 mt-1">Messages arrive from known contacts. In Punjab's kinship society, forwarded messages carry higher credibility than ads.</p>
+            <p className="text-xs text-slate-600 mt-1">Messages arrive from known contacts. In Punjab&apos;s kinship society, forwarded messages carry higher credibility than ads.</p>
           </div>
           <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
             <p className="text-sm font-medium text-green-600">Multi-Format Support</p>
@@ -2380,7 +2380,7 @@ export default function MediaSentimentPage() {
 
         <div className="mt-4 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
           <p className="text-sm text-red-700 dark:text-red-300">
-            <strong>Critical Gap:</strong> Congress's WhatsApp counter-misinformation capability is underdeveloped. BJP IT Cell has 150,000+ WhatsApp workers vs Congress's 5,000 monitors.
+            <strong>Critical Gap:</strong> Congress&apos;s WhatsApp counter-misinformation capability is underdeveloped. BJP IT Cell has 150,000+ WhatsApp workers vs Congress&apos;s 5,000 monitors.
           </p>
         </div>
       </div>
@@ -2481,7 +2481,7 @@ export default function MediaSentimentPage() {
         <div className="mt-2 rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
           <p className="text-sm font-medium text-blue-700">Mobilization and wave narrative:</p>
           <div className="mt-2 grid gap-2 md:grid-cols-3">
-            <span className="text-xs">• "Every vote counts"</span>
+            <span className="text-xs">• &quot;Every vote counts&quot;</span>
             <span className="text-xs">• Congress wave narrative</span>
             <span className="text-xs">• Anti-BJP nationalist framing</span>
           </div>
@@ -2792,10 +2792,10 @@ export default function MediaSentimentPage() {
           <h4 className="font-semibold text-red-700 dark:text-red-300">Key Hostile Actions (2025-2026)</h4>
           <ul className="mt-2 text-sm text-slate-600 space-y-1">
             <li>Jan 2026: Raids on Punjab Kesari Group establishments (excise, GST, food dept)</li>
-            <li>Nov 2025: Government stopped ads to newspapers publishing "sheeshmahal" story</li>
+            <li>Nov 2025: Government stopped ads to newspapers publishing &quot;sheeshmahal&quot; story</li>
             <li>Nov 2025: Trucks stopped/searched under drug pretext, delaying newspaper delivery</li>
             <li>Apr 2026: Journalists filed formal complaints about censorship by AAP government</li>
-            <li>May 2026: Rs 10.59 crore contract for "online reputation management"</li>
+            <li>May 2026: Rs 10.59 crore contract for &quot;online reputation management&quot;</li>
           </ul>
         </div>
 

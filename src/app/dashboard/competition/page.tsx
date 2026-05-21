@@ -827,7 +827,7 @@ export default function CompetitionPage() {
 
         <div className="mt-4 p-3 rounded-lg bg-slate-100 dark:bg-slate-800">
           <p className="text-sm text-slate-600 dark:text-slate-300">
-            <strong>Congress Financial Deficit:</strong> AAP 2027 projected spending Rs 260-400 Cr vs Congress Rs 220-350 Cr. Congress relies on local leaders' self-funding model — creates equity issues and limits war chest scalability. <strong>Source: MP3-005</strong>
+            <strong>Congress Financial Deficit:</strong> AAP 2027 projected spending Rs 260-400 Cr vs Congress Rs 220-350 Cr. Congress relies on local leaders&apos; self-funding model — creates equity issues and limits war chest scalability. <strong>Source: MP3-005</strong>
           </p>
         </div>
       </div>
@@ -842,7 +842,7 @@ export default function CompetitionPage() {
           </div>
           <div>
             <p className="font-semibold text-orange-700 dark:text-orange-400">30 AAP MLAs in Contact with Congress — MP3-017 Research</p>
-            <p className="text-sm text-orange-600 dark:text-orange-300">February 2025: Congress claimed nearly one-third of AAP's 92 MLAs were in contact for nearly a year. This indicates 10-15% of AAP's 2022 voters are accessible to Congress through candidate defection. Source: Business Today, Indian Express</p>
+            <p className="text-sm text-orange-600 dark:text-orange-300">February 2025: Congress claimed nearly one-third of AAP&apos;s 92 MLAs were in contact for nearly a year. This indicates 10-15% of AAP&apos;s 2022 voters are accessible to Congress through candidate defection. Source: Business Today, Indian Express</p>
           </div>
         </div>
       </div>
@@ -1634,7 +1634,7 @@ export default function CompetitionPage() {
 
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
-            <h4 className="font-semibold text-purple-700 dark:text-purple-400">BJP's Punjab Strategy</h4>
+            <h4 className="font-semibold text-purple-700 dark:text-purple-400">BJP&apos;s Punjab Strategy</h4>
             <ul className="mt-2 space-y-1 text-sm text-purple-600 dark:text-purple-300">
               <li>• &quot;Haryana Model&quot; replication: 6.6% → 18.6% vote share</li>
               <li>• Amit Shah March 2026: &quot;BJP will fight solo in 2027&quot;</li>
@@ -1645,7 +1645,7 @@ export default function CompetitionPage() {
             </ul>
           </div>
           <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
-            <h4 className="font-semibold text-red-700 dark:text-red-400">BJP's Delhi Governance Attack</h4>
+            <h4 className="font-semibold text-red-700 dark:text-red-400">BJP&apos;s Delhi Governance Attack</h4>
             <ul className="mt-2 space-y-1 text-sm text-red-600 dark:text-red-300">
               <li>• 70% school buses sold by AAP Delhi govt</li>
               <li>• Liquor policy lost 1000s Crores revenue</li>
@@ -1676,7 +1676,7 @@ export default function CompetitionPage() {
 
         <div className="mt-4 p-3 rounded-lg bg-slate-100 dark:bg-slate-800">
           <p className="text-sm text-slate-600 dark:text-slate-300">
-            <strong>Counter-narrative on AAP:</strong> BJP IT cell targets AAP's &quot;Delhi model&quot; with specific data points — 70% school buses sold, liquor policy failure causing 1000s Cr loss, water bill 3x increase. These feed into Punjab voter perception of AAP governance gap.
+            <strong>Counter-narrative on AAP:</strong> BJP IT cell targets AAP&apos;s &quot;Delhi model&quot; with specific data points — 70% school buses sold, liquor policy failure causing 1000s Cr loss, water bill 3x increase. These feed into Punjab voter perception of AAP governance gap.
           </p>
         </div>
       </div>
@@ -1728,7 +1728,7 @@ export default function CompetitionPage() {
           <div className="mt-2 grid gap-3 md:grid-cols-2">
             <div className="flex items-start gap-2">
               <span className="text-red-500 font-bold">1.</span>
-              <p className="text-sm text-yellow-700 dark:text-yellow-300">Leadership Vacuum: Kejriwal's Delhi imprisonment creates authority gap</p>
+              <p className="text-sm text-yellow-700 dark:text-yellow-300">Leadership Vacuum: Kejriwal&apos;s Delhi imprisonment creates authority gap</p>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-red-500 font-bold">2.</span>
@@ -1892,7 +1892,7 @@ export default function CompetitionPage() {
             <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
               <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Tarn Taran By-election (Nov 2025)</p>
               <p className="text-xl font-bold text-red-600">Raja Warring - 4th, Lost Deposit</p>
-              <p className="text-xs text-slate-500">Raja Warring's casteist remark cost Congress the seat; finished fourth, lost deposit. AAP won with Dr. Joginder Singh Mann (Mazhabi Sikh candidate).</p>
+              <p className="text-xs text-slate-500">Raja Warring&apos;s casteist remark cost Congress the seat; finished fourth, lost deposit. AAP won with Dr. Joginder Singh Mann (Mazhabi Sikh candidate).</p>
             </div>
             <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
               <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Dallewal 123-Day Hunger Strike</p>
@@ -1902,7 +1902,7 @@ export default function CompetitionPage() {
             <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
               <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Waris Punjab De Margin</p>
               <p className="text-xl font-bold text-purple-600">197,120 votes</p>
-              <p className="text-xs text-slate-500">Amritpal Singh's Waris Punjab De 2022 margin in Lok Sabha. Party competing with SAD for Panthic Sikh votes.</p>
+              <p className="text-xs text-slate-500">Amritpal Singh&apos;s Waris Punjab De 2022 margin in Lok Sabha. Party competing with SAD for Panthic Sikh votes.</p>
             </div>
             <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
               <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Sunil Kanugolu Ticket Selection</p>
@@ -2259,7 +2259,7 @@ export default function CompetitionPage() {
                 <p className="text-sm font-semibold text-red-700">Drug Crisis Failure</p>
                 <span className="text-xs px-2 py-0.5 rounded bg-red-100 text-red-700">CRITICAL</span>
               </div>
-              <p className="text-xs text-slate-500 mt-1">6.6 million users, 697,000 child users, overdose deaths "spiraling"</p>
+              <p className="text-xs text-slate-500 mt-1">6.6 million users, 697,000 child users, overdose deaths &quot;spiraling&quot;</p>
             </div>
             <div className="rounded-lg border border-orange-200 p-3 dark:border-orange-800">
               <div className="flex items-center justify-between">
@@ -2284,7 +2284,7 @@ export default function CompetitionPage() {
           <div className="rounded-lg bg-red-100 p-4 dark:bg-red-900/40">
             <p className="text-sm font-semibold text-red-700 dark:text-red-300">7 Rajya Sabha MPs defected to BJP</p>
             <p className="text-xs text-slate-600 mt-1">Including key AAP strategists Raghav Chadha and Sandeep Pathak</p>
-            <p className="text-sm text-red-600 mt-2 font-medium">This fundamentally alters Punjab's 2027 electoral calculus</p>
+            <p className="text-sm text-red-600 mt-2 font-medium">This fundamentally alters Punjab&apos;s 2027 electoral calculus</p>
           </div>
         </div>
 
@@ -2418,7 +2418,7 @@ export default function CompetitionPage() {
 
         <div className="mt-4 p-3 rounded-lg bg-slate-100 dark:bg-slate-800">
           <p className="text-xs text-slate-600 dark:text-slate-300">
-            <strong>Congress Strategy:</strong> With BJP's 12x financial advantage, Congress must maximize efficiency through booth-level organizing,
+            <strong>Congress Strategy:</strong> With BJP&apos;s 12x financial advantage, Congress must maximize efficiency through booth-level organizing,
             targeted voter contact, and leveraging anti-incumbency rather than matching spending. Resource allocation should prioritize
             high-margin seats in Malwa and Doaba regions.
           </p>
@@ -2466,7 +2466,7 @@ export default function CompetitionPage() {
           <h4 className="text-sm font-semibold text-purple-700 dark:text-purple-400">WhatsApp: Dominant Political Platform</h4>
           <p className="text-xs text-purple-600 dark:text-purple-300 mt-1">
             All parties use WhatsApp for voter outreach and internal coordination. TMC model (150,000 groups, 1 crore+ members)
-            shows what's achievable. WhatsApp forwards during Operation Sindoor (May 2025) spread massive misinformation - Amritsar
+            shows what&apos;s achievable. WhatsApp forwards during Operation Sindoor (May 2025) spread massive misinformation - Amritsar
             district experienced viral false attack reports causing real evacuations.
           </p>
         </div>
@@ -2478,7 +2478,7 @@ export default function CompetitionPage() {
           </div>
           <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-3 dark:border-yellow-800 dark:bg-yellow-900/20">
             <p className="text-xs font-semibold text-yellow-700">CM Mann Misinformation Target</p>
-            <p className="text-xs text-yellow-600 mt-1">10 individuals registered for fake helicopter flight data, fake "Deep Mangli" Facebook profile.</p>
+            <p className="text-xs text-yellow-600 mt-1">10 individuals registered for fake helicopter flight data, fake &quot;Deep Mangli&quot; Facebook profile.</p>
           </div>
         </div>
       </div>
@@ -2570,7 +2570,7 @@ export default function CompetitionPage() {
               <p className="text-xs text-slate-500">Vote share tripled</p>
             </div>
           </div>
-          <p className="mt-2 text-xs text-yellow-600">Farm Laws 2020-21 protests devastated BJP's rural base. BJP support among Sikh voters collapsed. Recovery in 2024 came from urban/Dalit/OBC consolidation.</p>
+          <p className="mt-2 text-xs text-yellow-600">Farm Laws 2020-21 protests devastated BJP&apos;s rural base. BJP support among Sikh voters collapsed. Recovery in 2024 came from urban/Dalit/OBC consolidation.</p>
         </div>
 
         {/* Caste Coalition Target */}
@@ -2593,7 +2593,7 @@ export default function CompetitionPage() {
               <p className="text-xs text-slate-500">Target segment</p>
             </div>
           </div>
-          <p className="mt-2 text-xs text-purple-600">BJP's "70% non-Jat" voter strategy aims to replicate Haryana success. Targets Dalit outreach at 32% SC population.</p>
+          <p className="mt-2 text-xs text-purple-600">BJP&apos;s &quot;70% non-Jat&quot; voter strategy aims to replicate Haryana success. Targets Dalit outreach at 32% SC population.</p>
         </div>
 
         {/* Dera Outreach */}
@@ -2992,7 +2992,7 @@ export default function CompetitionPage() {
         <div className="mt-4 grid gap-4 md:grid-cols-2">
           <div className="rounded-lg bg-amber-50 p-4 dark:bg-amber-900/20">
             <h4 className="text-sm font-semibold text-amber-700 dark:text-amber-400">Samrasta Abhiyan (Cremation Grounds)</h4>
-            <p className="text-xs text-amber-600 mt-1">250 villages targeted with separate Dalit/upper caste cremation grounds. Volunteers creating "model villages" with shared facilities. Secondary sites repurposed as yoga centers/gyms.</p>
+            <p className="text-xs text-amber-600 mt-1">250 villages targeted with separate Dalit/upper caste cremation grounds. Volunteers creating &quot;model villages&quot; with shared facilities. Secondary sites repurposed as yoga centers/gyms.</p>
           </div>
           <div className="rounded-lg bg-rose-50 p-4 dark:bg-rose-900/20">
             <h4 className="text-sm font-semibold text-rose-700 dark:text-rose-400">Sant Ravidas 650th Anniversary</h4>
@@ -3002,9 +3002,9 @@ export default function CompetitionPage() {
 
         <div className="mt-4 p-3 rounded-lg bg-slate-100 dark:bg-slate-800">
           <p className="text-xs text-slate-600 dark:text-slate-300">
-            <strong>Intelligence Assessment:</strong> BJP-RSS combine is executing "Haryana Model" in Punjab - granular caste mapping + booth-level
-            mobilization. Political analyst Ashutosh Kumar: "No other party has tried to tap this potential so systematically...
-            What the BJP is attempting is to convert cultural assertion into political alignment."
+            <strong>Intelligence Assessment:</strong> BJP-RSS combine is executing &quot;Haryana Model&quot; in Punjab - granular caste mapping + booth-level
+            mobilization. Political analyst Ashutosh Kumar: &quot;No other party has tried to tap this potential so systematically...
+            What the BJP is attempting is to convert cultural assertion into political alignment.&quot;
           </p>
         </div>
 

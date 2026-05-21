@@ -1457,7 +1457,7 @@ const communicationStrategyData: CommunicationStrategy = {
               </div>
               <div className="mt-3 rounded bg-blue-100 p-2 dark:bg-blue-900/40">
                 <p className="text-sm text-blue-700 dark:text-blue-400">
-                  <strong>Amritsar:</strong> Highest arsenic — 111 ppb found (safe limit: 0.05 ppm / 50 ppb). 44.10% of samples show "very high" health risk. Tarn Taran has highest uranium in Majha. Study published in Environmental Geochemistry and Health (2024).
+                  <strong>Amritsar:</strong> Highest arsenic — 111 ppb found (safe limit: 0.05 ppm / 50 ppb). 44.10% of samples show &quot;very high&quot; health risk. Tarn Taran has highest uranium in Majha. Study published in Environmental Geochemistry and Health (2024).
                 </p>
               </div>
               <div className="mt-2 flex flex-wrap gap-1">
@@ -1494,7 +1494,7 @@ const communicationStrategyData: CommunicationStrategy = {
               </div>
               <div className="mt-3 rounded bg-purple-100 p-2 dark:bg-purple-900/40">
                 <p className="text-sm text-purple-700 dark:text-purple-400">
-                  AAP passed "Jagat Jot Sri Guru Granth Sahib Satkar (Amendment) Act" (Apr 2026) with life imprisonment — but ZERO past convictions achieved. Justice Ranjit Singh Commission findings still not acted upon.
+                  AAP passed &quot;Jagat Jot Sri Guru Granth Sahib Satkar (Amendment) Act&quot; (Apr 2026) with life imprisonment — but ZERO past convictions achieved. Justice Ranjit Singh Commission findings still not acted upon.
                 </p>
               </div>
               <div className="mt-2 flex flex-wrap gap-1">
@@ -1597,7 +1597,7 @@ const communicationStrategyData: CommunicationStrategy = {
                 <h4 className="font-semibold text-slate-700 dark:text-slate-300">Youth Unemployment & Migration Crisis</h4>
                 <Badge variant="danger">EXTREME Priority</Badge>
               </div>
-              <p className="mt-1 text-sm text-slate-500">All 23 seats | Existential for Doaba's demographic future</p>
+              <p className="mt-1 text-sm text-slate-500">All 23 seats | Existential for Doaba&apos;s demographic future</p>
               <div className="mt-3 grid gap-2 md:grid-cols-3">
                 <div className="rounded bg-green-50 p-2 dark:bg-green-900/30">
                   <p className="text-xs text-green-600 dark:text-green-400">Assets Sold (2021-23)</p>
@@ -1614,7 +1614,7 @@ const communicationStrategyData: CommunicationStrategy = {
               </div>
               <div className="mt-3 rounded bg-green-100 p-2 dark:bg-green-900/40">
                 <p className="text-sm text-green-700 dark:text-green-400">
-                  <strong>Pressure Valve Closing:</strong> Visa tightening in Canada (2024), UK deportations, US removals. "Reverse dowry" system emerging — families finance women's IELTS/education as pathway for men to emigrate through marriage. Inability to migrate seen as social failure affecting marriage prospects.
+                  <strong>Pressure Valve Closing:</strong> Visa tightening in Canada (2024), UK deportations, US removals. &quot;Reverse dowry&quot; system emerging — families finance women&apos;s IELTS/education as pathway for men to emigrate through marriage. Inability to migrate seen as social failure affecting marriage prospects.
                 </p>
               </div>
               <div className="mt-2 flex flex-wrap gap-1">
@@ -1637,7 +1637,7 @@ const communicationStrategyData: CommunicationStrategy = {
               <p className="mt-1 text-sm text-slate-500">Jalandhar (all 7 seats), parts of Kapurthala | Core economic identity of Jalandhar</p>
               <div className="mt-3 grid gap-2 md:grid-cols-4">
                 <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
-                  <p className="text-xs text-blue-600 dark:text-blue-400">India's Sports Goods</p>
+                  <p className="text-xs text-blue-600 dark:text-blue-400">India&apos;s Sports Goods</p>
                   <p className="text-lg font-bold text-blue-700 dark:text-blue-300">75%</p>
                 </div>
                 <div className="rounded bg-blue-50 p-2 dark:bg-blue-900/30">
@@ -1711,7 +1711,7 @@ const communicationStrategyData: CommunicationStrategy = {
               <p className="mt-1 text-sm text-slate-500">Jalandhar, Kapurthala, Phagwara (industrial belt seats) | Slow-motion crisis</p>
               <div className="mt-3 rounded bg-slate-100 p-2 dark:bg-slate-700">
                 <p className="text-sm text-slate-700 dark:text-slate-300">
-                  <strong>Key Dynamics:</strong> Capital flight to Himachal/Haryana. GT Road belt losing competitiveness. Kapurthala's rail coach factory is only major public-sector employer. Phagwara's industrial base eroding — sugar, paper, textile units shutting. Hoshiarpur's horticulture economy (Kinnow, mango, guava) needs processing infrastructure.
+                  <strong>Key Dynamics:</strong> Capital flight to Himachal/Haryana. GT Road belt losing competitiveness. Kapurthala&apos;s rail coach factory is only major public-sector employer. Phagwara&apos;s industrial base eroding — sugar, paper, textile units shutting. Hoshiarpur&apos;s horticulture economy (Kinnow, mango, guava) needs processing infrastructure.
                 </p>
               </div>
               <div className="mt-2 flex flex-wrap gap-1">
@@ -1738,7 +1738,7 @@ const communicationStrategyData: CommunicationStrategy = {
           <div className="mt-3 grid gap-3 md:grid-cols-2">
             <div className="rounded bg-red-50 p-3 dark:bg-red-900/30">
               <p className="text-xs text-red-600 dark:text-red-400">AAP MLAs Criticised Own Government (Mar 2025)</p>
-              <p className="text-sm font-medium text-red-700 dark:text-red-300">"Feels like Pakistan, ask Finance Minister for funds"</p>
+              <p className="text-sm font-medium text-red-700 dark:text-red-300">&quot;Feels like Pakistan, ask Finance Minister for funds&quot;</p>
             </div>
             <div className="rounded bg-red-50 p-3 dark:bg-red-900/30">
               <p className="text-xs text-red-600 dark:text-red-400">Congress Claim (Feb 2025)</p>
@@ -1750,7 +1750,7 @@ const communicationStrategyData: CommunicationStrategy = {
             </div>
             <div className="rounded bg-amber-50 p-3 dark:bg-amber-900/30">
               <p className="text-xs text-amber-600 dark:text-amber-400">Block Elections (Dec 2025)</p>
-              <p className="text-sm font-medium text-amber-700 dark:text-amber-300">"Semi-finals" before 2027 — AAP vs Congress direct fight in Doaba</p>
+              <p className="text-sm font-medium text-amber-700 dark:text-amber-300">&quot;Semi-finals&quot; before 2027 — AAP vs Congress direct fight in Doaba</p>
             </div>
           </div>
         </div>
@@ -1784,7 +1784,7 @@ const communicationStrategyData: CommunicationStrategy = {
           <h4 className="font-semibold text-slate-700 dark:text-slate-300">Migration as Political Pressure Valve</h4>
           <div className="mt-3 rounded bg-amber-50 p-3 dark:bg-amber-900/30">
             <p className="text-sm text-amber-700 dark:text-amber-400">
-              <strong>Historical Context:</strong> Emigration has acted as "pressure valve" for Jat Sikh discontent — without it, agrarian anger would explode politically (Frontline analysis). Canada/UK visa tightening + US deportations = pressure valve closing.
+              <strong>Historical Context:</strong> Emigration has acted as &quot;pressure valve&quot; for Jat Sikh discontent — without it, agrarian anger would explode politically (Frontline analysis). Canada/UK visa tightening + US deportations = pressure valve closing.
             </p>
           </div>
           <div className="mt-3 grid gap-2 md:grid-cols-3">
@@ -1835,7 +1835,7 @@ const communicationStrategyData: CommunicationStrategy = {
               </div>
               <div className="flex items-start gap-2 rounded bg-red-50 p-2 dark:bg-red-900/20">
                 <span className="text-sm font-medium text-red-700 dark:text-red-300">Sacrilege Justice:</span>
-                <span className="text-sm text-slate-600 dark:text-slate-400">Beyond AAP's prospective law — demand convictions for 97 past cases</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Beyond AAP&apos;s prospective law — demand convictions for 97 past cases</span>
               </div>
               <div className="flex items-start gap-2 rounded bg-red-50 p-2 dark:bg-red-900/20">
                 <span className="text-sm font-medium text-red-700 dark:text-red-300">Water Crisis:</span>
@@ -1873,7 +1873,7 @@ const communicationStrategyData: CommunicationStrategy = {
               </div>
               <div className="flex items-start gap-2 rounded bg-green-50 p-2 dark:bg-green-900/20">
                 <span className="text-sm font-medium text-green-700 dark:text-green-300">Dalit Outreach:</span>
-                <span className="text-sm text-slate-600 dark:text-slate-400">Doaba's high SC population needs targeted commitments</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">Doaba&apos;s high SC population needs targeted commitments</span>
               </div>
             </div>
           </div>
@@ -2025,7 +2025,7 @@ const communicationStrategyData: CommunicationStrategy = {
           <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
             <p className="text-sm text-slate-500">Promise Date</p>
             <p className="text-xl font-bold text-red-600">March 2022</p>
-            <p className="text-xs text-slate-500">Announced in AAP's 2022 manifesto</p>
+            <p className="text-xs text-slate-500">Announced in AAP&apos;s 2022 manifesto</p>
           </div>
           <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
             <p className="text-sm text-slate-500">Implementation</p>
@@ -2069,7 +2069,7 @@ const communicationStrategyData: CommunicationStrategy = {
         </div>
         <div className="mt-4 p-3 rounded-lg bg-red-50 dark:bg-red-900/20">
           <p className="text-sm text-red-700 dark:text-red-400">
-            <strong>Gap:</strong> Despite 63K+ cases and 85K arrests, drugs remain Punjab's #1 voter issue. 230K opioid-dependent, 106 overdose deaths (2024). Supply chains intact.
+            <strong>Gap:</strong> Despite 63K+ cases and 85K arrests, drugs remain Punjab&apos;s #1 voter issue. 230K opioid-dependent, 106 overdose deaths (2024). Supply chains intact.
           </p>
         </div>
       </div>
@@ -2113,7 +2113,7 @@ const communicationStrategyData: CommunicationStrategy = {
           <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
             Women Voter Landscape (MP2-003, MP2-018)
           </h3>
-          <p className="text-sm text-slate-500 dark:text-slate-400">Women are AAP's most loyal demographic — but Rs 1,000/month promise remains unfulfilled</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Women are AAP&apos;s most loyal demographic — but Rs 1,000/month promise remains unfulfilled</p>
           <div className="mt-4 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-slate-600 dark:text-slate-400">Women Electorate</span>
@@ -2146,7 +2146,7 @@ const communicationStrategyData: CommunicationStrategy = {
           <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
             Youth Voter Demographics (MP2-016, MP2-022)
           </h3>
-          <p className="text-sm text-slate-500 dark:text-slate-400">Youth: AAP's MOST VULNERABLE demographic — 18-25% of 2022 youth voters exhausted</p>
+          <p className="text-sm text-slate-500 dark:text-slate-400">Youth: AAP&apos;s MOST VULNERABLE demographic — 18-25% of 2022 youth voters exhausted</p>
           <div className="mt-4 space-y-3">
             <div className="flex items-center justify-between">
               <span className="text-sm text-slate-600 dark:text-slate-400">Youth (18-35) Share</span>
@@ -3141,7 +3141,7 @@ const communicationStrategyData: CommunicationStrategy = {
 
         <div className="mt-4 p-3 rounded-lg bg-red-100 dark:bg-red-900/40 border border-red-300">
           <p className="text-sm text-red-700 dark:text-red-300">
-            <strong>CRITICAL:</strong> "Congress is Anti-Sikh" narrative requires immediate pre-bunking. Probability 85%, Impact Severe. Historical record + 1984 context + comparative framing required before narrative gains traction.
+            <strong>CRITICAL:</strong> &quot;Congress is Anti-Sikh&quot; narrative requires immediate pre-bunking. Probability 85%, Impact Severe. Historical record + 1984 context + comparative framing required before narrative gains traction.
           </p>
         </div>
       </div>
@@ -3206,7 +3206,7 @@ const communicationStrategyData: CommunicationStrategy = {
         {/* Executive Summary */}
         <div className="mt-4 rounded-lg bg-rose-100 p-3 dark:bg-rose-900/40">
           <p className="text-sm text-rose-700 dark:text-rose-300">
-            <strong>Executive Summary:</strong> Public satisfaction with the Bhagwant Mann-led AAP government has undergone a steep decline from the euphoric post-election high of March 2022. While the government retains a single credible achievement (free electricity), it faces deep dissatisfaction on the issues that matter most: drug eradication, employment, women's welfare, and corruption-free governance. The 2024 Lok Sabha results (AAP won only 3 of 13 seats) serve as the most authoritative satisfaction proxy.
+            <strong>Executive Summary:</strong> Public satisfaction with the Bhagwant Mann-led AAP government has undergone a steep decline from the euphoric post-election high of March 2022. While the government retains a single credible achievement (free electricity), it faces deep dissatisfaction on the issues that matter most: drug eradication, employment, women&apos;s welfare, and corruption-free governance. The 2024 Lok Sabha results (AAP won only 3 of 13 seats) serve as the most authoritative satisfaction proxy.
           </p>
         </div>
 
@@ -3367,11 +3367,11 @@ const communicationStrategyData: CommunicationStrategy = {
         <div className="mt-6 bg-white rounded-lg p-4 shadow-sm dark:bg-slate-800">
           <h4 className="text-base font-semibold text-slate-700 dark:text-slate-300 mb-3">Strategic Implications for Congress</h4>
           <div className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
-            <p>• <strong>AAP's floor:</strong> ~35-40% re-election willingness (40-50 seats, down from 92 in 2022) — Congress needs 59+ for majority</p>
-            <p>• <strong>#1 Attack Vector:</strong> Drug crisis — AAP promised to end in 4 weeks; 4 years later it's worse. Resonates across ALL demographics</p>
+            <p>• <strong>AAP&apos;s floor:</strong> ~35-40% re-election willingness (40-50 seats, down from 92 in 2022) — Congress needs 59+ for majority</p>
+            <p>• <strong>#1 Attack Vector:</strong> Drug crisis — AAP promised to end in 4 weeks; 4 years later it&apos;s worse. Resonates across ALL demographics</p>
             <p>• <strong>Women voters:</strong> Winnable — 4-year delay on Rs 1000 is a betrayal narrative. Congress should announce superior package</p>
             <p>• <strong>Youth crisis:</strong> 19.3% unemployment at crisis level — need credible employment plan, not just government jobs</p>
-            <p>• <strong>Mann vs Government:</strong> Mann's personal approval (42-45%) exceeds government satisfaction (38-42%) — focus on failures, not person</p>
+            <p>• <strong>Mann vs Government:</strong> Mann&apos;s personal approval (42-45%) exceeds government satisfaction (38-42%) — focus on failures, not person</p>
             <p>• <strong>Proof of concept:</strong> 2024 Lok Sabha proves AAP is beatable — Congress recovered from 2022 low of 18 seats</p>
             <p>• <strong>Historical pattern:</strong> No Punjab government won 3 consecutive terms — anti-incumbency building but not yet decisive</p>
           </div>

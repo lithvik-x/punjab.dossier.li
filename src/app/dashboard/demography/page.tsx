@@ -4720,7 +4720,7 @@ export default function DemographyPage() {
               </tbody>
             </table>
           </div>
-          <p className="mt-1 text-xs text-slate-500">*asal = traditionally regarded as "genuine Jats" (Mann, Chahal, Bhullar)</p>
+          <p className="mt-1 text-xs text-slate-500">*asal = traditionally regarded as &quot;genuine Jats&quot; (Mann, Chahal, Bhullar)</p>
         </div>
 
         {/* Priority Constituency Clusters */}
@@ -4817,7 +4817,7 @@ export default function DemographyPage() {
 
         <div className="mt-4 rounded-lg bg-teal-100 p-3 dark:bg-teal-900/40">
           <p className="text-sm text-teal-700 dark:text-teal-300">
-            <strong>Key Insight:</strong> Punjab's demographic transition — low TFR (1.6), aging population, high SC proportion (32%) — creates unique electoral dynamics. Youth unemployment at 18.8% and groundwater crisis (157% extraction) drive voter dissatisfaction.
+            <strong>Key Insight:</strong> Punjab&apos;s demographic transition — low TFR (1.6), aging population, high SC proportion (32%) — creates unique electoral dynamics. Youth unemployment at 18.8% and groundwater crisis (157% extraction) drive voter dissatisfaction.
           </p>
         </div>
       </div>
@@ -5138,7 +5138,7 @@ export default function DemographyPage() {
               ))}
             </div>
             <div className="mt-3 rounded bg-red-50 p-2 text-xs text-red-600 dark:bg-red-900/30 dark:text-red-400">
-              Key Finding: Punjab's rural unemployment (7.4%) exceeds urban (5.8%), reverse of national pattern
+              Key Finding: Punjab&apos;s rural unemployment (7.4%) exceeds urban (5.8%), reverse of national pattern
             </div>
           </div>
 

@@ -2581,7 +2581,7 @@ export default function VoterPage() {
         </div>
         <div className="mt-4 rounded-lg border border-red-200 bg-red-100/50 p-3 dark:border-red-800 dark:bg-red-900/20">
           <p className="text-sm font-medium text-red-600">2026 Erosion Assessment: Coalition fracturing</p>
-          <p className="text-xs text-slate-600 mt-1">Rural voters (Malwa): 26% vote share in 2024 LS (down from 43% in 2022). Dalit vote largely remained with BSP/Congress. Women voters disillusioned by broken Rs 1,000/month promise. "Aam Aadmi turned Khaas" (entitled) narrative emerged June 2024.</p>
+          <p className="text-xs text-slate-600 mt-1">Rural voters (Malwa): 26% vote share in 2024 LS (down from 43% in 2022). Dalit vote largely remained with BSP/Congress. Women voters disillusioned by broken Rs 1,000/month promise. &quot;Aam Aadmi turned Khaas&quot; (entitled) narrative emerged June 2024.</p>
         </div>
       </div>
 
@@ -2632,7 +2632,7 @@ export default function VoterPage() {
               <div className="flex justify-between"><span>AAP realistic range:</span><span className="font-bold text-red-600">30-37-52 (Low-Mid-High)</span></div>
               <div className="flex justify-between"><span>Congress range:</span><span className="font-bold text-green-600">45-55-70 (Low-Mid-High)</span></div>
               <div className="flex justify-between"><span>SAD+BJP combined:</span><span className="font-bold text-orange-600">31-32% vote share</span></div>
-              <div className="flex justify-between"><span>AAP's own claim:</span><span className="font-bold text-slate-600">100+ seats (Manish Sisodia)</span></div>
+              <div className="flex justify-between"><span>AAP&apos;s own claim:</span><span className="font-bold text-slate-600">100+ seats (Manish Sisodia)</span></div>
             </div>
           </div>
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
@@ -2651,7 +2651,7 @@ export default function VoterPage() {
           <div className="mt-3 grid gap-3 md:grid-cols-3">
             <div className="rounded-lg bg-green-100 p-3 dark:bg-green-900/40">
               <p className="text-xs font-bold text-green-700 dark:text-green-400">BEST CASE - Congress 65-75 seats</p>
-              <p className="mt-1 text-xs text-green-600 dark:text-green-300">Anti-incumbency peaks, excellent candidate selection, caste coalition consolidation, CM face decision doesn't fracture party</p>
+              <p className="mt-1 text-xs text-green-600 dark:text-green-300">Anti-incumbency peaks, excellent candidate selection, caste coalition consolidation, CM face decision doesn&apos;t fracture party</p>
             </div>
             <div className="rounded-lg bg-yellow-100 p-3 dark:bg-yellow-900/40">
               <p className="text-xs font-bold text-yellow-700 dark:text-yellow-400">BASE CASE - Congress 50-58 seats</p>
@@ -2786,7 +2786,7 @@ export default function VoterPage() {
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
             <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Women Protested Outside</p>
             <p className="text-2xl font-bold text-red-600">Jan 4, 2025</p>
-            <p className="text-xs text-slate-500">Holding placards "Sadda haq, itthe rakh" (Our right, put it here)</p>
+            <p className="text-xs text-slate-500">Holding placards &quot;Sadda haq, itthe rakh&quot; (Our right, put it here)</p>
           </div>
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
             <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Budget Allocation</p>
@@ -2806,8 +2806,8 @@ export default function VoterPage() {
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
             <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Opposition Narrative</p>
             <div className="mt-2 text-xs space-y-1">
-              <div>"Kejriwal lied" / "jhooth di pand" (sack of lies)</div>
-              <div>"Those who couldn't give Rs 1,000 in Punjab, how will they give Rs 2,100 in Delhi?"</div>
+              <div>&quot;Kejriwal lied&quot; / &quot;jhooth di pand&quot; (sack of lies)</div>
+              <div>&quot;Those who couldn&apos;t give Rs 1,000 in Punjab, how will they give Rs 2,100 in Delhi?&quot;</div>
             </div>
           </div>
         </div>
@@ -2870,7 +2870,7 @@ export default function VoterPage() {
 
         <div className="mt-4 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20">
           <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Key Insight:</strong> Turnout dropped 12.68 percentage points (78% to 65%) between 2017 and 2022. This drop disproportionately affected Congress urban and rural voters, contributing to AAP's massive win. Congress needs GOTV (Get Out The Vote) strategy targeting: first-time voters (57% turnout), urban areas (below 60%), and 18-29 age cohort.
+            <strong>Key Insight:</strong> Turnout dropped 12.68 percentage points (78% to 65%) between 2017 and 2022. This drop disproportionately affected Congress urban and rural voters, contributing to AAP&apos;s massive win. Congress needs GOTV (Get Out The Vote) strategy targeting: first-time voters (57% turnout), urban areas (below 60%), and 18-29 age cohort.
           </p>
         </div>
       </div>
@@ -3130,25 +3130,25 @@ export default function VoterPage() {
               <p className="text-sm font-semibold text-blue-700">PERSONA A: Disappointed AAP Voter</p>
               <p className="text-xs text-slate-500 mt-1">Size: ~12-15 lakh | 30-50 yrs | Jat Sikh, Mazhabi, OBC</p>
               <p className="text-xs text-slate-600 mt-1">Trigger: Drug crisis persistence, broken MSP promise</p>
-              <p className="text-xs font-medium text-blue-600 mt-2">Engagement: "AAP promised. AAP failed. Congress delivers."</p>
+              <p className="text-xs font-medium text-blue-600 mt-2">Engagement: &quot;AAP promised. AAP failed. Congress delivers.&quot;</p>
             </div>
             <div className="rounded-lg border border-green-200 p-3 dark:border-green-800">
               <p className="text-sm font-semibold text-green-700">PERSONA B: Jat Sikh Farmer (Malwa)</p>
               <p className="text-xs text-slate-500 mt-1">Size: ~28-32 lakh | 35-70 yrs | Marginal to large farmers</p>
               <p className="text-xs text-slate-600 mt-1">Trigger: MSP guarantee, debt relief, drug menace</p>
-              <p className="text-xs font-medium text-green-600 mt-2">Engagement: "MSP guarantee in writing. Your land, your dignity."</p>
+              <p className="text-xs font-medium text-green-600 mt-2">Engagement: &quot;MSP guarantee in writing. Your land, your dignity.&quot;</p>
             </div>
             <div className="rounded-lg border border-orange-200 p-3 dark:border-orange-800">
               <p className="text-sm font-semibold text-orange-700">PERSONA C: Dalit Youth (Doaba)</p>
               <p className="text-xs text-slate-500 mt-1">Size: ~14 lakh | 18-30 yrs | Ravidasia/Ramdasia Sikh</p>
               <p className="text-xs text-slate-600 mt-1">Trigger: Jobs (primary), drug addiction, caste discrimination</p>
-              <p className="text-xs font-medium text-orange-600 mt-2">Engagement: "Jobs for SC youth — not just promises."</p>
+              <p className="text-xs font-medium text-orange-600 mt-2">Engagement: &quot;Jobs for SC youth — not just promises.&quot;</p>
             </div>
             <div className="rounded-lg border border-pink-200 p-3 dark:border-pink-800">
               <p className="text-sm font-semibold text-pink-700">PERSONA D: Rural Sikh Woman</p>
               <p className="text-xs text-slate-500 mt-1">Size: ~25-30 lakh | 30-55 yrs | All 117 seats</p>
-              <p className="text-xs text-slate-600 mt-1">Trigger: Children's future, drug crisis (lost sons/brothers)</p>
-              <p className="text-xs font-medium text-pink-600 mt-2">Engagement: "Your children's future, your family's safety."</p>
+              <p className="text-xs text-slate-600 mt-1">Trigger: Children&apos;s future, drug crisis (lost sons/brothers)</p>
+              <p className="text-xs font-medium text-pink-600 mt-2">Engagement: &quot;Your children&apos;s future, your family&apos;s safety.&quot;</p>
             </div>
           </div>
         </div>
@@ -3211,21 +3211,21 @@ export default function VoterPage() {
           <div className="space-y-2 text-xs">
             <div className="flex gap-2 items-start">
               <span className="font-bold text-red-600">AAP Promise:</span>
-              <span className="text-slate-600">"Drug-free Punjab in 1 month"</span>
+              <span className="text-slate-600">&quot;Drug-free Punjab in 1 month&quot;</span>
               <span className="text-slate-400">→</span>
               <span className="font-bold text-indigo-600">Reality:</span>
               <span className="text-slate-600">232,000+ opioid dependent (AIIMS 2025)</span>
             </div>
             <div className="flex gap-2 items-start">
               <span className="font-bold text-red-600">AAP Promise:</span>
-              <span className="text-slate-600">"10 lakh jobs"</span>
+              <span className="text-slate-600">&quot;10 lakh jobs&quot;</span>
               <span className="text-slate-400">→</span>
               <span className="font-bold text-indigo-600">Reality:</span>
               <span className="text-slate-600">Youth unemployment rose to 22.5%</span>
             </div>
             <div className="flex gap-2 items-start">
               <span className="font-bold text-red-600">AAP Promise:</span>
-              <span className="text-slate-600">"MSP guarantee"</span>
+              <span className="text-slate-600">&quot;MSP guarantee&quot;</span>
               <span className="text-slate-400">→</span>
               <span className="font-bold text-indigo-600">Reality:</span>
               <span className="text-slate-600">Not legislated in 2 years</span>
