@@ -244,7 +244,7 @@ export default function DemographyReligiousPage() {
           <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-slate-800 dark:text-slate-200">Nirankari</span>
-              <Badge variant="error">Sensitive</Badge>
+              <Badge variant="danger">Sensitive</Badge>
             </div>
             <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">HQ: Delhi (Punjab presence in Doaba)</p>
             <p className="mt-2 text-xs text-red-600 dark:text-red-400">Risk: Perceived closeness triggers backlash from mainstream Sikhs</p>
@@ -352,7 +352,7 @@ export default function DemographyReligiousPage() {
               {hinduMobilizationIssues.map((issue) => (
                 <div key={issue.issue} className="flex items-center justify-between border-b border-slate-100 pb-2 dark:border-slate-700">
                   <span className="text-sm text-slate-700 dark:text-slate-300">{issue.issue}</span>
-                  <Badge variant={issue.salience === "High" ? "error" : issue.salience === "Moderate" ? "warning" : "info"}>
+                  <Badge variant={issue.salience === "High" ? "danger" : issue.salience === "Moderate" ? "warning" : "info"}>
                     {issue.salience}
                   </Badge>
                 </div>
