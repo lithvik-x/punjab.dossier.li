@@ -1,0 +1,333 @@
+/**
+ * AC045-Garhshankar Constituency Dossier Types
+ * Generated through 6-cycle enhancement pipeline
+ * Source files: AC045-Garhshankar.md, AC045-Garhshankar-deep.md
+ */
+
+// ============================================================================
+// CORE CONSTITUENCY IDENTITY
+// ============================================================================
+
+export interface ConstituencyIdentity {
+  acNumber: number;
+  name: string;
+  district: string;
+  region: string;
+  category: "General" | "SC" | "ST" | "BC";
+  lokSabhaSeat: string;
+  date: string;
+}
+
+export interface ConstituencyProfile {
+  acNumber: string;
+  officialName: string;
+  district: string;
+  region: string;
+  category: string;
+  lokSabhaSeat: string;
+}
+
+export interface ExecutiveSummary {
+  overview: string;
+  winner: string;
+  margin: string;
+  marginNote: string;
+  congressOpportunity: string;
+}
+
+// ============================================================================
+// ELECTION RESULTS
+// ============================================================================
+
+export interface ElectionResult2022 {
+  winner: string;
+  party: string;
+  margin: string;
+  marginType: "NARROW" | "MODERATE" | "WIDE";
+  runnerUp: string;
+  note: string;
+}
+
+export interface ElectionResult2017 {
+  winner: string;
+  party: string;
+  margin?: string;
+  note: string;
+}
+
+export interface ElectionResult2012 {
+  winner: string;
+  party: string;
+  note: string;
+}
+
+export interface ElectionHistory {
+  result2022: ElectionResult2022;
+  result2017: ElectionResult2017;
+  result2012: ElectionResult2012;
+  keyTrend: string;
+}
+
+// ============================================================================
+// ELECTORATE DATA
+// ============================================================================
+
+export interface ElectorateRecord {
+  election: string;
+  totalElectors: string;
+  voterTurnout: string;
+  turnoutPercentage: string;
+}
+
+export interface ElectorateData {
+  records: ElectorateRecord[];
+}
+
+// ============================================================================
+// CASTE COMPOSITION
+// ============================================================================
+
+export interface CasteCategory {
+  category: string;
+  estimatedPercentage: string;
+}
+
+export interface CasteCompositionData {
+  categories: CasteCategory[];
+  keyDemographics: string[];
+  totalSikhPercentage: string;
+  totalHinduPercentage: string;
+  totalSCPercentage: string;
+  totalOtherPercentage: string;
+}
+
+// ============================================================================
+// LOCAL ISSUES
+// ============================================================================
+
+export interface LocalIssue {
+  rank: number;
+  title: string;
+  description: string;
+}
+
+export interface KeyLocalIssues {
+  issues: LocalIssue[];
+}
+
+export interface DeepLocalIssues {
+  issues: string[];
+}
+
+// ============================================================================
+// CONGRESS STRATEGIC POSITION
+// ============================================================================
+
+export interface CongressStrategicPosition {
+  lossIn2022: string;
+  opportunity: string;
+  advantage: string;
+}
+
+export interface WhyCongressCanWin {
+  factors: string[];
+}
+
+export interface StrategicRecommendations {
+  recommendations: string[];
+}
+
+export interface CongressRecommendations {
+  list: string[];
+}
+
+// ============================================================================
+// CANDIDATE PROFILE
+// ============================================================================
+
+export interface CandidateAttribute {
+  attribute: string;
+  idealProfile: string;
+}
+
+export interface RecommendedCandidateProfile {
+  table: CandidateAttribute[];
+}
+
+// ============================================================================
+// ATTACK LINES
+// ============================================================================
+
+export interface AttackLine {
+  rank: number;
+  title: string;
+  description: string;
+}
+
+export interface AttackLinesAgainstAAP {
+  lines: AttackLine[];
+}
+
+// ============================================================================
+// VOTE SHARE ANALYSIS
+// ============================================================================
+
+export interface PartyVoteShare {
+  party: string;
+  estimatedPercentage: string;
+}
+
+export interface VoteShareAnalysis {
+  parties: PartyVoteShare[];
+  congressGapToWin: string;
+  gapCalculation: string;
+}
+
+// ============================================================================
+// RECOMMENDATIONS SUMMARY
+// ============================================================================
+
+export interface RecommendationsSummary {
+  priority: string;
+  priorityLevel: "CRITICAL" | "HIGH" | "MODERATE" | "LOW";
+  candidate: string;
+  narrative: string;
+  groundGame: string;
+  marginReversalPotential: string;
+}
+
+// ============================================================================
+// DEEP RESEARCH TYPES
+// ============================================================================
+
+export interface DeepConstituencyIdentity {
+  acNo: string;
+  name: string;
+  district: string;
+  region: string;
+  category: string;
+  lokSabha: string;
+  location: string;
+}
+
+export interface HoshiarpurDistrict {
+  totalPopulation: string;
+  description: string;
+  mix: string;
+}
+
+export interface GarhshankarTehsil {
+  description: string;
+  tradingCommunity: string;
+  agriculturalCommunities: string;
+}
+
+export interface DeepDemographics {
+  hoshiarpurDistrict: HoshiarpurDistrict;
+  garhshankarTehsil: GarhshankarTehsil;
+}
+
+export interface DeepElectoralHistory2022 {
+  candidate: string;
+  party: string;
+  votes: string;
+  margin: string;
+}
+
+export interface DeepElectoralHistoryRunnerUp {
+  candidate: string;
+  party: string;
+  votes: string;
+}
+
+export interface DeepElectoralHistory {
+  election2022: DeepElectoralHistory2022;
+  runnerUp: DeepElectoralHistoryRunnerUp;
+  historicalPattern: string;
+  aapWon: string;
+  congressSadChallenge: string;
+}
+
+export interface PublicSentimentIndicators {
+  narrowMarginVolatility: string;
+  antiIncumbencyPossible: string;
+  localCandidateMatters: string;
+}
+
+export interface AAPStrategy {
+  points: string[];
+}
+
+export interface CongressStrategyDeep {
+  canWin: string;
+  needStrongCandidate: string;
+  localIssuesFocus: string;
+}
+
+export interface SADBPPStrategy {
+  canCombineToWin: string;
+  traditionalVoteBase: string;
+}
+
+export interface StrategicBlueprint {
+  aapStrategy: AAPStrategy;
+  congressStrategy: CongressStrategyDeep;
+  sadBppStrategy: SADBPPStrategy;
+}
+
+export interface DeepResearch {
+  constituencyIdentity: DeepConstituencyIdentity;
+  demographics: DeepDemographics;
+  electoralHistory: DeepElectoralHistory;
+  publicSentiment: PublicSentimentIndicators;
+  localIssues: DeepLocalIssues;
+  strategicBlueprint: StrategicBlueprint;
+}
+
+export interface VerificationStatus {
+  status: "VERIFIED" | "PARTIALLY VERIFIED" | "UNVERIFIED";
+  notes: string[];
+}
+
+export interface DataQuality {
+  sources: string[];
+  compiledDate: string;
+  verificationStatus: VerificationStatus;
+  dataCurrency: string;
+}
+
+// ============================================================================
+// COMPLETE CONSTITUENCY DOSSIER
+// ============================================================================
+
+export interface AC045GarhshankarTypes {
+  // Identity
+  identity: ConstituencyIdentity;
+  profile: ConstituencyProfile;
+  executiveSummary: ExecutiveSummary;
+
+  // Elections
+  electionHistory: ElectionHistory;
+  electorateData: ElectorateData;
+
+  // Demographics
+  casteComposition: CasteCompositionData;
+
+  // Issues
+  keyLocalIssues: KeyLocalIssues;
+
+  // Strategy
+  congressStrategicPosition: CongressStrategicPosition;
+  whyCongressCanWin: WhyCongressCanWin;
+  strategicRecommendations: StrategicRecommendations;
+  recommendedCandidateProfile: RecommendedCandidateProfile;
+  attackLines: AttackLinesAgainstAAP;
+  voteShareAnalysis: VoteShareAnalysis;
+  recommendationsSummary: RecommendationsSummary;
+
+  // Deep Research
+  deepResearch: DeepResearch;
+
+  // Quality
+  dataQuality: DataQuality;
+}

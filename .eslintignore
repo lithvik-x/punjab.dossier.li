@@ -1,0 +1,6 @@
+.open-next/
+.next/
+build/
+*.js
+*.mjs
+node_modules/
