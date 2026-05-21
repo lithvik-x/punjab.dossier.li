@@ -53,7 +53,7 @@ const rssBjpConnection = {
 const bjpGrowthMetrics = [
   { metric: "Vote Share 2022", value: "6.6%", context: "Assembly election result" },
   { metric: "Vote Share 2024", value: "18.6%", context: "Lok Sabha surge (3x growth)" },
-  { metric: "Lok Sabha Seats 2024", value: "5/13", context: "BJP's best-ever Punjab performance" },
+  { metric: "Lok Sabha Seats 2024", value: "0/13", context: "Drew blank in Punjab despite 18.56% vote share" },
   { metric: "Mandals Established", value: "600+", context: "Organizational grid across Punjab" },
   { metric: "Target 2027", value: "25-30%", context: "Ambitious vote share target" },
   { metric: "OBC Outreach", value: "31%", context: "OBC population target (34 Lok Sabha seats)" },
@@ -105,7 +105,7 @@ export default function BJPGrowthPage() {
       {/* Core Metrics */}
       <div className="grid gap-6 lg:grid-cols-4">
         <MetricCard title="BJP Vote Share" value="18.6%" subtitle="Up from 6.6% in 2022" change={182} trend="up" color="bg-yellow-500" />
-        <MetricCard title="BJP Lok Sabha 2024" value="5/13" subtitle="Best-ever Punjab result" change={400} trend="up" color="bg-yellow-500" />
+        <MetricCard title="BJP Lok Sabha 2024" value="0/13" subtitle="Drew blank despite 18.56% vote share" change={0} trend="neutral" color="bg-yellow-500" />
         <MetricCard title="Mandals Established" value="600+" subtitle="Organizational grid" color="bg-orange-500" />
         <MetricCard title="Target 2027" value="25-30%" subtitle="Vote share target" color="bg-blue-500" />
       </div>
