@@ -207,20 +207,110 @@ export interface ElectionIntelligence {
   region: Region;
   type: "General" | "SC" | "ST";
   lokSabha: string;
+
+  // Executive Summary from deep docs
+  executiveSummary?: string;
+
+  // Basic Information
   electionResults: ElectionResult[];
-  totalElectors?: number | string;
-  voterTurnout?: number | string;
-  casteComposition: CasteComposition[];
-  topIssues: LocalIssue[];
-  congressPosition: string;
-  recommendedCandidate: CandidateProfile | null;
-  attackLines: AttackLine[];
+  totalElectors?: number | string | null;
+  voterTurnout?: number | string | null;
   margin: number | null;
   party: Party;
   priorityTier: PriorityTier;
+
+  // Geographic Context
+  geographicContext?: string;
+  borderProximity?: string;
+  floodRisk?: string;
+  topographicZone?: string;
+
+  // Caste Composition
+  casteComposition: CasteComposition[];
+  religionBreakdown?: Record<string, string>;
+
+  // Demographics
+  demographics?: {
+    totalPopulation?: number;
+    male?: number;
+    female?: number;
+    urban?: number;
+    rural?: number;
+    sexRatio?: string;
+  };
+
+  // Local Issues (expanded)
+  topIssues: LocalIssue[];
+  keyIssues?: { issue: string; description: string; source?: string }[];
+
+  // Governance
+  congressPosition: string;
+  governanceGap?: string[];
+  mlaperformance?: string[];
+
+  // Influencers & Power Structure
+  influencers?: {
+    political?: string[];
+    social?: string[];
+    religious?: string[];
+  };
+
+  // Media Landscape
+  mediaLandscape?: {
+    local?: string[];
+    social?: string[];
+  };
+
+  // Physical Mapping
+  physicalMapping?: {
+    voterDemographics?: Record<string, string | number>;
+    keyGeography?: string;
+  };
+
+  // SWOT Analysis
+  swotAnalysis?: {
+    strengths?: string[];
+    weaknesses?: string[];
+    opportunities?: string[];
+    threats?: string[];
+  };
+
+  // Strategic Blueprint
+  strategicBlueprint?: {
+    forAAP?: string[];
+    forCongress?: string[];
+    forSADBJP?: string[];
+  };
+
+  // Course Changing Factors
+  courseChangingFactors?: { factor: string; probability: string; impact: string }[];
+
+  // Attack Lines (expanded)
+  attackLines: AttackLine[];
+
+  // Recommended Candidate
+  recommendedCandidate: CandidateProfile | null;
+
+  // Government Schemes
+  governmentSchemes?: string[];
+
+  // Voter Outreach
+  voterOutreach?: {
+    voterTurnout?: string;
+    voterProfile?: string[];
+  };
+
+  // Data Quality
   dataGaps: string[];
+  intelligenceGaps?: string[];
+  requiresVerification?: string[];
+
+  // References
   crossReferences: string[];
   strategicImplications: string[];
+  sources?: string[];
+
+  // Visualization & UI
   visualizationRecommendations?: string[];
   uiComponentSpecs?: string[];
 }
