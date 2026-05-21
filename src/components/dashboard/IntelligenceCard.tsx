@@ -59,12 +59,9 @@ interface MarginIndicatorProps {
 }
 
 export function MarginIndicator({ margin, party, className = "" }: MarginIndicatorProps) {
-  if (margin === null || margin === undefined) {
-    return (
-      <div className={`font-mono ${className}`}>
-        <span className="text-slate-400 text-sm">N/A</span>
-      </div>
-    );
+  // Hide when margin is null, undefined, 0, or NaN
+  if (margin === null || margin === undefined || margin === 0 || Number.isNaN(margin)) {
+    return null;
   }
   const isNegative = margin < 0;
   const absMargin = Math.abs(margin);

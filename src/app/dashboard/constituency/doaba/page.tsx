@@ -1,12 +1,10 @@
 import RegionConstituencies from "@/components/dashboard/RegionConstituencies";
-import constituencies from "@/lib/constituencies.json";
+import { doabaData } from "@/lib/constituency-data-loader";
 import type { ElectionIntelligence } from "@/types/constituency-types";
 
 export default function DoabaPage() {
-  // Filter Doaba constituencies from full dataset
-  const doabaConstituencies = (constituencies as unknown as ElectionIntelligence[]).filter(
-    ac => ac.region === "Doaba"
-  );
+  // Use all extracted deep data for Doaba region
+  const doabaConstituencies = doabaData;
 
   return (
     <div className="space-y-6">

@@ -29,7 +29,16 @@ function transformToElectionIntelligence(extracted: ExtractedConstituency): Elec
     if (typeof mlaPerf === 'object' && !Array.isArray(mlaPerf)) {
       party = extractPartyFromWinner(mlaPerf.winner, mlaPerf.party);
       winner = mlaPerf.winner || "";
-      margin = mlaPerf.marginOfVictory || 0;
+      // Parse margin - if it's a string like "NEEDS VERIFICATION" or invalid, set to 0
+      const marginVal = mlaPerf.marginOfVictory;
+      if (typeof marginVal === 'number' && !Number.isNaN(marginVal)) {
+        margin = marginVal;
+      } else if (typeof marginVal === 'string') {
+        const parsed = parseInt(marginVal.replace(/[^0-9]/g, ''), 10);
+        margin = Number.isNaN(parsed) ? 0 : parsed;
+      } else {
+        margin = 0;
+      }
     }
   }
 
@@ -51,9 +60,15 @@ function transformToElectionIntelligence(extracted: ExtractedConstituency): Elec
       }
     }
   }
-  // Add SC if available
-  if (extracted.demographics?.casteWise?.SC) {
-    casteComposition.unshift({ category: "SC", percentage: extracted.demographics.casteWise.SC });
+  // Extract from demographics if casteBreakdown didn't work
+  if (casteComposition.length === 0 && extracted.demographics) {
+    const demo = extracted.demographics;
+    if (demo.jatSikhPercentage) casteComposition.push({ category: "Jat Sikh", percentage: demo.jatSikhPercentage });
+    if (demo.hinduGeneralPercentage) casteComposition.push({ category: "Hindu General", percentage: demo.hinduGeneralPercentage });
+    if (demo.scPercentage) casteComposition.push({ category: "SC", percentage: demo.scPercentage });
+    if (demo.obcPercentage) casteComposition.push({ category: "OBC", percentage: demo.obcPercentage });
+    if (demo.muslimPercentage) casteComposition.push({ category: "Muslim", percentage: demo.muslimPercentage });
+    if (demo.scheduledCastes) casteComposition.push({ category: "SC", percentage: demo.scheduledCastes });
   }
 
   // Transform religion breakdown
@@ -148,9 +163,19 @@ function transformToElectionIntelligence(extracted: ExtractedConstituency): Elec
     governanceGap: Array.isArray(extracted.governanceGap)
       ? extracted.governanceGap
       : extracted.governanceGap ? [String(extracted.governanceGap)] : [],
-    mlaperformance: Array.isArray(extracted.mlaperformance)
-      ? extracted.mlaperformance
-      : extracted.mlaperformance ? [String(extracted.mlaperformance)] : [],
+    mlaperformance: (() => {
+      if (Array.isArray(extracted.mlaperformance)) return extracted.mlaperformance;
+      if (typeof extracted.mlaperformance === 'object' && extracted.mlaperformance !== null) {
+        const mla = extracted.mlaperformance as Record<string, string>;
+        const parts: string[] = [];
+        if (mla.winner && mla.winner !== "NEEDS VERIFICATION") parts.push(`Winner: ${mla.winner}`);
+        if (mla.party) parts.push(`Party: ${mla.party}`);
+        if (mla.marginOfVictory && mla.marginOfVictory !== "NEEDS VERIFICATION") parts.push(`Margin: ${mla.marginOfVictory}`);
+        if (mla.votesSecured && mla.votesSecured !== "NEEDS VERIFICATION") parts.push(`Votes: ${mla.votesSecured}`);
+        return parts.length > 0 ? parts : [];
+      }
+      return [];
+    })(),
 
     influencers: extracted.influencers,
     mediaLandscape: extracted.mediaLandscape,
@@ -186,7 +211,9 @@ function transformToElectionIntelligence(extracted: ExtractedConstituency): Elec
 // Transform all extracted data
 export function loadAllConstituencyData(): ElectionIntelligence[] {
   const entries = Object.values(allExtractedData) as ExtractedConstituency[];
-  return entries.map(transformToElectionIntelligence);
+  // Filter out entries that don't have valid constituency data (placeholder entries with research metadata)
+  const validEntries = entries.filter(e => e.acId && e.acId.startsWith('AC') && e.name);
+  return validEntries.map(transformToElectionIntelligence);
 }
 
 // Get data by region
