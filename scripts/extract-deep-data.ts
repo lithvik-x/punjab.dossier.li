@@ -1,13 +1,18 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 interface DeepDoc {
   acId: string;
+  name?: string;
+  district?: string;
+  region?: string;
+  acNumber?: number;
   executiveSummary?: string;
   geographicContext?: string;
-  borderProximity?: string;
-  floodRisk?: string;
-  topographicZone?: string;
   demographics?: {
     totalPopulation?: number;
     male?: number;
@@ -15,11 +20,18 @@ interface DeepDoc {
     urban?: number;
     rural?: number;
     sexRatio?: string;
+    casteComposition?: Record<string, string>;
   };
   religionBreakdown?: Record<string, string>;
-  keyIssues?: { issue: string; description: string; source?: string }[];
+  keyIssues?: { issue: string; description: string }[];
   governanceGap?: string[];
   mlaperformance?: string[];
+  electionResults?: {
+    year: number;
+    winner: string;
+    party: string;
+    margin?: string;
+  }[];
   influencers?: {
     political?: string[];
     social?: string[];
@@ -29,10 +41,6 @@ interface DeepDoc {
     local?: string[];
     social?: string[];
   };
-  physicalMapping?: {
-    voterDemographics?: Record<string, string | number>;
-    keyGeography?: string;
-  };
   swotAnalysis?: {
     strengths?: string[];
     weaknesses?: string[];
@@ -40,12 +48,10 @@ interface DeepDoc {
     threats?: string[];
   };
   strategicBlueprint?: {
-    forAAP?: string[];
-    forCongress?: string[];
-    forSADBJP?: string[];
+    narratives?: string[];
+    voterSegments?: string[];
   };
   courseChangingFactors?: { factor: string; probability: string; impact: string }[];
-  governmentSchemes?: string[];
   voterOutreach?: {
     voterTurnout?: string;
     voterProfile?: string[];
@@ -55,209 +61,283 @@ interface DeepDoc {
   sources?: string[];
 }
 
+// Extract content between two section headers
+function extractSection(content: string, sectionHeader: RegExp, endHeader?: RegExp): string {
+  const startMatch = content.match(sectionHeader);
+  if (!startMatch) return "";
+
+  const startIndex = content.indexOf(startMatch[0]);
+  let endIndex = content.length;
+
+  if (endHeader) {
+    const endMatch = content.slice(startIndex + 1).match(endHeader);
+    if (endMatch) {
+      endIndex = startIndex + 1 + content.slice(startIndex + 1).indexOf(endMatch[0]);
+    }
+  } else {
+    // Find next ## header
+    const nextSection = content.slice(startIndex + 1).match(/##\s*\d+\./);
+    if (nextSection) {
+      endIndex = startIndex + 1 + content.slice(startIndex + 1).indexOf(nextSection[0]);
+    }
+  }
+
+  return content.slice(startIndex, endIndex);
+}
+
+// Extract bullet points from section text
+function extractBullets(text: string): string[] {
+  const bullets: string[] = [];
+  const lines = text.split('\n');
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('- ')) {
+      const clean = trimmed.slice(2).replace(/\*\*/g, '').trim();
+      if (clean && clean.length > 3) {
+        bullets.push(clean);
+      }
+    }
+  }
+  return bullets;
+}
+
 function parseDeepDoc(content: string, acId: string): DeepDoc {
   const doc: DeepDoc = { acId };
 
-  // Extract Executive Summary
-  const execMatch = content.match(/##\s*1\.?\s*Executive Summary\s*\n([\s\S]*?)(?=##|$)/i);
-  if (execMatch) {
-    doc.executiveSummary = execMatch[1].trim();
+  // Extract header metadata from YAML frontmatter
+  const yamlMatch = content.match(/^---\s*\n([\s\S]*?)\n---/);
+  if (yamlMatch) {
+    const yaml = yamlMatch[1];
+    const acNumMatch = yaml.match(/AC Number:\s*(\d+)/);
+    if (acNumMatch) doc.acNumber = parseInt(acNumMatch[1]);
+    const nameMatch = yaml.match(/Name:\s*(.+)/);
+    if (nameMatch) doc.name = nameMatch[1].trim();
+    const districtMatch = yaml.match(/District:\s*(.+)/);
+    if (districtMatch) doc.district = districtMatch[1].trim();
+    const regionMatch = yaml.match(/Region:\s*(.+)/);
+    if (regionMatch) doc.region = regionMatch[1].trim();
   }
 
-  // Extract Geographic Context
-  const geoMatch = content.match(/Geographic Context\s*\n([\s\S]*?)(?=##|###|$)/i);
-  if (geoMatch) {
-    doc.geographicContext = geoMatch[1].trim();
+  // Extract from title line format like "# AC011 — Ajnala Assembly Constituency Deep Research"
+  const titleMatch = content.match(/^#\s*AC\d+\s*[—–-]\s*([^"\n#]+)/);
+  if (titleMatch && !doc.name) {
+    doc.name = titleMatch[1].replace(/Assembly Constituency Deep Research|Dossier/g, '').trim();
   }
 
-  // Extract Demographics
-  const demoMatch = content.match(/##\s*.*Demographics\s*\n([\s\S]*?)(?=##|###|$)/i);
-  if (demoMatch) {
-    const demoContent = demoMatch[1];
-    const popMatch = demoContent.match(/Total Population[\s:]*([\d,]+)/i);
-    const maleMatch = demoContent.match(/Male[\s:]*([\d,]+)/i);
-    const femaleMatch = demoContent.match(/Female[\s:]*([\d,]+)/i);
-    const urbanMatch = demoContent.match(/Urban[\s:]*([\d,]+)/i);
-    const ruralMatch = demoContent.match(/Rural[\s:]*([\d,]+)/i);
-    const sexRatioMatch = demoContent.match(/Sex Ratio[\s:]*([\d]+)/i);
+  // Extract metadata from the line with **District:** | **Region:** | **AC No:**
+  if (!doc.district) {
+    const metaMatch = content.match(/\*\*District:\*\*\s*([^|]+)\s*\|\s*\*\*Region:\*\*\s*([^|]+)\s*\|\s*\*\*AC No:\*\*\s*(\d+)/);
+    if (metaMatch) {
+      doc.district = metaMatch[1].trim();
+      doc.region = metaMatch[2].trim();
+      doc.acNumber = parseInt(metaMatch[3]);
+    }
+  }
 
-    if (popMatch || maleMatch || femaleMatch || urbanMatch || ruralMatch) {
-      doc.demographics = {};
-      if (popMatch) doc.demographics.totalPopulation = parseInt(popMatch[1].replace(/,/g, ""));
-      if (maleMatch) doc.demographics.male = parseInt(maleMatch[1].replace(/,/g, ""));
-      if (femaleMatch) doc.demographics.female = parseInt(femaleMatch[1].replace(/,/g, ""));
-      if (urbanMatch) doc.demographics.urban = parseInt(urbanMatch[1].replace(/,/g, ""));
-      if (ruralMatch) doc.demographics.rural = parseInt(ruralMatch[1].replace(/,/g, ""));
-      if (sexRatioMatch) doc.demographics.sexRatio = sexRatioMatch[1];
+  // Extract Geographic Context from section 1
+  const section1 = extractSection(content, /##\s*1\.\s*CONSTITUENCY IDENTITY/i, /##\s*2\./);
+  if (section1) {
+    const geoMatch = section1.match(/\*\*Geographic Profile:\*\*([\s\S]*?)(?=\*\*|###)/i);
+    if (geoMatch) {
+      doc.geographicContext = geoMatch[1].replace(/\n+/g, ' ').trim();
+    }
+  }
+
+  // Extract Demographics from section 2
+  const section2 = extractSection(content, /##\s*2\.\s*DEMOGRAPHIC/i, /##\s*3\./);
+  if (section2) {
+    doc.demographics = {};
+
+    // Extract population
+    const popMatch = section2.match(/population[^:]*:\s*([\d,]+)/i);
+    if (popMatch) {
+      doc.demographics.totalPopulation = parseInt(popMatch[1].replace(/,/g, ''));
+    }
+
+    // Extract sex ratio
+    const sexMatch = section2.match(/Sex Ratio[^:]*:\s*([\d,]+)/i);
+    if (sexMatch) {
+      doc.demographics.sexRatio = sexMatch[1];
+    }
+
+    // Extract caste composition
+    const casteMatch = section2.match(/Caste Composition[^\n]*\n([\s\S]*?)(?=\*\*|##)/i);
+    if (casteMatch) {
+      doc.demographics.casteComposition = {};
+      const lines = casteMatch[1].split('\n');
+      for (const line of lines) {
+        const match = line.match(/[:-]\s*([^:]+):\s*([\d.~]+)/);
+        if (match) {
+          doc.demographics.casteComposition[match[1].trim()] = match[2].trim();
+        }
+      }
     }
   }
 
   // Extract Religion Breakdown
-  const religionMatch = content.match(/Religion Breakdown[^:]*\n([\s\S]*?)(?=##|###|$)/i);
-  if (religionMatch) {
-    doc.religionBreakdown = {};
-    const lines = religionMatch[1].split("\n");
-    for (const line of lines) {
-      const match = line.match(/([^:]+)[\s:]+(~?[\d.]+)%/);
-      if (match) {
-        doc.religionBreakdown[match[1].trim()] = match[2];
+  const section2b = extractSection(content, /##\s*2\.\s*DEMOGRAPHIC/i, /##\s*3\./);
+  if (section2b) {
+    const religionMatch = section2b.match(/Religion Breakdown[^\n]*\n([\s\S]*?)(?=\*\*##|##)/i);
+    if (religionMatch) {
+      doc.religionBreakdown = {};
+      const lines = religionMatch[1].split('\n');
+      for (const line of lines) {
+        const match = line.match(/[:-]\s*([^:]+):\s*([\d.~]+)/);
+        if (match) {
+          doc.religionBreakdown[match[1].trim()] = match[2].trim();
+        }
       }
     }
   }
 
-  // Extract Key Issues (section 6 or similar)
-  const issuesMatch = content.match(/##\s*6\.?\s*Local Issues\s*\n([\s\S]*?)(?=##|### Key Attack|$)/i);
-  if (issuesMatch) {
+  // Extract Key Issues from section 6
+  const section6 = extractSection(content, /##\s*6\.\s*LOCAL ISSUES/i, /##\s*7\./);
+  if (section6) {
     doc.keyIssues = [];
-    const issueBlocks = issuesMatch[1].match(/\d+\.\s*\*\*[^*]+\*\*\s*\n([\s\S]*?)(?=\n\d+\.|##|$)/gi) || [];
-    for (const block of issueBlocks) {
-      const titleMatch = block.match(/\d+\.\s*\*\*([^*]+)\*\*/);
-      const descLines = block.match(/(?:[-•]?\s*[^\n]+\n)+/g) || [];
-      const descriptions = descLines.map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
-      if (titleMatch) {
-        doc.keyIssues.push({
-          issue: titleMatch[1].trim(),
-          description: descriptions.join(" ").trim()
-        });
-      }
+    // Extract issue taxonomy items
+    const issueMatches = section6.matchAll(/\*\*([^**]+)\*\*\s*-\s*([^\n]+)/g);
+    for (const match of issueMatches) {
+      doc.keyIssues.push({
+        issue: match[1].trim(),
+        description: match[2].trim()
+      });
     }
   }
 
-  // Extract Governance Gap
-  const govMatch = content.match(/##\s*5\.?\s*Governance Gap\s*\n([\s\S]*?)(?=##|###|$)/i);
-  if (govMatch) {
-    doc.governanceGap = govMatch[1].split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
+  // Extract Governance Gap from section 5
+  const section5 = extractSection(content, /##\s*5\.\s*GOVERNANCE GAP/i, /##\s*6\./);
+  if (section5) {
+    doc.governanceGap = extractBullets(section5);
   }
 
-  // Extract MLA Performance
-  const mlaMatch = content.match(/MLA Performance[^\n]*\n([\s\S]*?)(?=##|###|$)/i);
-  if (mlaMatch) {
-    doc.mlaperformance = mlaMatch[1].split("\n").filter(l => l.trim()).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
+  // Extract MLA Performance / Electoral History from section 3
+  const section3 = extractSection(content, /##\s*3\.\s*ELECTORAL HISTORY/i, /##\s*4\./);
+  if (section3) {
+    doc.mlaperformance = [];
+    doc.electionResults = [];
+
+    // Match table rows
+    const tableMatches = section3.matchAll(/\|\s*(\d{4})\s*\|\s*([^|]+)\s*\|\s*([^|]+)\s*\|\s*([^|]*)\s*\|/g);
+    for (const match of tableMatches) {
+      const year = parseInt(match[1]);
+      const winner = match[2].trim();
+      const party = match[3].trim();
+      const margin = match[4].trim();
+      doc.electionResults!.push({ year, winner, party, margin });
+      doc.mlaperformance!.push(`${year}: ${winner} (${party}) - Margin: ${margin}`);
+    }
   }
 
-  // Extract Influencers
-  const influMatch = content.match(/##\s*7\.?\s*Influencers[^&]*&\s*Power Structure\s*\n([\s\S]*?)(?=##|###|$)/i);
-  if (influMatch) {
+  // Extract Influencers from section 7
+  const section7 = extractSection(content, /##\s*7\.\s*INFLUENCERS/i, /##\s*8\./);
+  if (section7) {
     doc.influencers = { political: [], social: [], religious: [] };
-    const sections = influMatch[1].split(/###\s*/);
-    for (const section of sections) {
-      if (section.toLowerCase().includes("political")) {
-        doc.influencers.political = section.split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
+
+    // Split by subsections and extract
+    const subsections = section7.split(/###\s*\d+\.\s*/);
+    for (const subsection of subsections) {
+      const lowerSub = subsection.toLowerCase();
+      if (lowerSub.includes('political')) {
+        doc.influencers.political = extractBullets(subsection);
+      } else if (lowerSub.includes('social')) {
+        doc.influencers.social = extractBullets(subsection);
+      } else if (lowerSub.includes('caste') || lowerSub.includes('religious')) {
+        doc.influencers.religious = extractBullets(subsection);
       }
-      if (section.toLowerCase().includes("social") || section.toLowerCase().includes("religious")) {
-        doc.influencers.religious = section.split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
-      }
+    }
+
+    // If nothing matched by subsection, just get all bullets
+    if (doc.influencers.political!.length === 0 && doc.influencers.religious!.length === 0) {
+      const allBullets = extractBullets(section7);
+      doc.influencers.political = allBullets.slice(0, Math.ceil(allBullets.length / 2));
+      doc.influencers.religious = allBullets.slice(Math.ceil(allBullets.length / 2));
     }
   }
 
-  // Extract Media Landscape
-  const mediaMatch = content.match(/##\s*8\.?\s*Media Landscape\s*\n([\s\S]*?)(?=##|###|$)/i);
-  if (mediaMatch) {
+  // Extract Media Landscape from section 8
+  const section8 = extractSection(content, /##\s*8\.\s*MEDIA/i, /##\s*9\./);
+  if (section8) {
     doc.mediaLandscape = { local: [], social: [] };
-    const lines = mediaMatch[1].split("\n");
-    let currentSection: "local" | "social" = "local";
-    for (const line of lines) {
-      if (line.toLowerCase().includes("social media")) currentSection = "social";
-      if (line.trim().startsWith("-") || line.trim().startsWith("•")) {
-        if (currentSection === "local") {
-          doc.mediaLandscape.local!.push(line.replace(/^[-•]\s*/, "").trim());
-        } else {
-          doc.mediaLandscape.social!.push(line.replace(/^[-•]\s*/, "").trim());
-        }
+
+    const subsections = section8.split(/###\s*\d+\.\s*/);
+    for (const subsection of subsections) {
+      const lowerSub = subsection.toLowerCase();
+      if (lowerSub.includes('social') || lowerSub.includes('digital')) {
+        doc.mediaLandscape.social = extractBullets(subsection);
+      } else {
+        doc.mediaLandscape.local = extractBullets(subsection);
       }
+    }
+
+    // If nothing was categorized, just extract all bullets
+    if (doc.mediaLandscape.local!.length === 0) {
+      doc.mediaLandscape.local = extractBullets(section8);
     }
   }
 
-  // Extract SWOT Analysis
-  const swotMatch = content.match(/##\s*10\.?\s*SWOT[^\n]*\n([\s\S]*?)(?=##|### Strategic|$)/i);
-  if (swotMatch) {
+  // Extract SWOT Analysis from section 10
+  const section10 = extractSection(content, /##\s*10\.\s*SWOT/i, /##\s*11\./);
+  if (section10) {
     doc.swotAnalysis = { strengths: [], weaknesses: [], opportunities: [], threats: [] };
-    const sections = swotMatch[1].split(/###\s*/);
-    for (const section of sections) {
-      if (section.toLowerCase().includes("strength")) {
-        doc.swotAnalysis.strengths = section.split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
-      }
-      if (section.toLowerCase().includes("weakness")) {
-        doc.swotAnalysis.weaknesses = section.split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
-      }
-      if (section.toLowerCase().includes("opportunit")) {
-        doc.swotAnalysis.opportunities = section.split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
-      }
-      if (section.toLowerCase().includes("threat")) {
-        doc.swotAnalysis.threats = section.split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
+
+    const subsections = section10.split(/###\s*/);
+    for (const subsection of subsections) {
+      const lowerSub = subsection.toLowerCase();
+      if (lowerSub.includes('strength')) {
+        doc.swotAnalysis.strengths = extractBullets(subsection);
+      } else if (lowerSub.includes('weakness')) {
+        doc.swotAnalysis.weaknesses = extractBullets(subsection);
+      } else if (lowerSub.includes('opportunit')) {
+        doc.swotAnalysis.opportunities = extractBullets(subsection);
+      } else if (lowerSub.includes('threat')) {
+        doc.swotAnalysis.threats = extractBullets(subsection);
       }
     }
   }
 
-  // Extract Strategic Blueprint
-  const stratMatch = content.match(/##\s*11\.?\s*Strategic[^\n]*\n([\s\S]*?)(?=##|###|$)/i);
-  if (stratMatch) {
-    doc.strategicBlueprint = { forAAP: [], forCongress: [], forSADBJP: [] };
-    const sections = stratMatch[1].split(/###\s*For\s*/i);
-    for (const section of sections) {
-      if (section.toLowerCase().startsWith("aap")) {
-        doc.strategicBlueprint.forAAP = section.split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
-      }
-      if (section.toLowerCase().startsWith("congress")) {
-        doc.strategicBlueprint.forCongress = section.split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
-      }
-      if (section.toLowerCase().startsWith("sad")) {
-        doc.strategicBlueprint.forSADBJP = section.split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
+  // Extract Strategic Blueprint from section 11
+  const section11 = extractSection(content, /##\s*11\.\s*STRATEGIC/i, /##\s*12\./);
+  if (section11) {
+    doc.strategicBlueprint = { narratives: [], voterSegments: [] };
+
+    const bullets = extractBullets(section11);
+    for (const bullet of bullets) {
+      if (bullet.match(/\d+\.\s*\*\*.*\*\*/)) {
+        doc.strategicBlueprint.narratives!.push(bullet);
+      } else {
+        doc.strategicBlueprint.voterSegments!.push(bullet);
       }
     }
   }
 
-  // Extract Course Changing Factors
-  const factorsMatch = content.match(/##\s*12\.?\s*Course[- ]Changing[^\n]*\n([\s\S]*?)(?=##|### Intelligence|$)/i);
-  if (factorsMatch) {
+  // Extract Course-Changing Factors from section 12
+  const section12 = extractSection(content, /##\s*12\.\s*COURSE/i, /---/);
+  if (section12) {
     doc.courseChangingFactors = [];
-    const tableMatch = factorsMatch[1].match(/\|\s*([^\|]+)\s*\|\s*([^\|]+)\s*\|\s*([^\|]+)\s*\|/g);
-    if (tableMatch) {
-      for (const row of tableMatch.slice(1)) {
-        const cols = row.split("|").map(c => c.trim()).filter(Boolean);
-        if (cols.length >= 3) {
-          doc.courseChangingFactors.push({
-            factor: cols[0],
-            probability: cols[1],
-            impact: cols[2]
-          });
-        }
+    const tableMatches = section12.matchAll(/\|\s*([^|]+)\s*\|\s*([^|]+)\s*\|\s*([^|]+)\s*\|/g);
+    for (const match of tableMatches) {
+      const factor = match[1].trim();
+      const probability = match[2].trim();
+      const impact = match[3].trim();
+      if (factor && !factor.includes('---') && !factor.toLowerCase().includes('factor')) {
+        doc.courseChangingFactors.push({ factor, probability, impact });
       }
     }
-  }
-
-  // Extract Government Schemes
-  const schemesMatch = content.match(/##\s*9\.?\s*Government[^\n]*\n([\s\S]*?)(?=##|### Key Attack|$)/i);
-  if (schemesMatch) {
-    doc.governmentSchemes = schemesMatch[1].split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
-  }
-
-  // Extract Voter Outreach
-  const voterMatch = content.match(/##\s*8\.?\s*Voter[^\n]*\n([\s\S]*?)(?=##|### Government|$)/i);
-  if (voterMatch) {
-    doc.voterOutreach = { voterProfile: [] };
-    const lines = voterMatch[1].split("\n");
-    for (const line of lines) {
-      if (line.match(/Voter Turnout/i)) {
-        doc.voterOutreach.voterTurnout = line.split(":")[1]?.trim();
-      }
-      if (line.trim().startsWith("-") || line.trim().startsWith("•")) {
-        doc.voterOutreach.voterProfile.push(line.replace(/^[-•]\s*/, "").trim());
-      }
-    }
-  }
-
-  // Extract Intelligence Gaps
-  const gapsMatch = content.match(/##\s*(?:Intelligence Gaps|13\.)\s*[^\n]*\n([\s\S]*?)(?=##|###|$)/i);
-  if (gapsMatch) {
-    doc.intelligenceGaps = gapsMatch[1].split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•") || l.includes("[NEEDS")).map(l => l.replace(/^[-•]\s*/, "").replace(/\[[^\]]+\]/g, "").trim()).filter(Boolean);
-    doc.requiresVerification = gapsMatch[1].match(/\[NEEDS[^\]]+\]/g)?.map(s => s.replace(/[\[\]]/g, "").trim()) || [];
   }
 
   // Extract Sources
-  const sourcesMatch = content.match(/Sources[^\n]*\n([\s\S]*?)$/i);
+  const sourcesMatch = content.match(/\*\*Data Sources:\*\*([\s\S]*?)$/i);
   if (sourcesMatch) {
-    doc.sources = sourcesMatch[1].split("\n").filter(l => l.trim().startsWith("-") || l.trim().startsWith("•") || l.includes("http")).map(l => l.replace(/^[-•]\s*/, "").trim()).filter(Boolean);
+    doc.sources = sourcesMatch[1].split('\n')
+      .map(s => s.replace(/^[-*]\s*/, '').trim())
+      .filter(s => s.length > 0);
+  }
+
+  // Extract Intelligence Gaps
+  const gapsMatch = content.match(/\[NEEDS VERIFICATION[^\]]*\]/g);
+  if (gapsMatch) {
+    doc.requiresVerification = gapsMatch;
+    doc.intelligenceGaps = gapsMatch.map(g => g.replace(/[\[\]]/g, '').trim());
   }
 
   return doc;
@@ -269,13 +349,17 @@ const files = fs.readdirSync(deepDir).filter(f => f.endsWith("-deep.md"));
 const allData: Record<string, DeepDoc> = {};
 
 for (const file of files) {
-  const acId = file.replace("-deep.md", "").replace("AC", "AC");
+  const acId = file.replace("-deep.md", "");
   const content = fs.readFileSync(path.join(deepDir, file), "utf-8");
   const parsed = parseDeepDoc(content, acId);
   allData[acId] = parsed;
 }
 
 console.log(`Extracted ${Object.keys(allData).length} constituencies`);
+
+// Show sample of what was extracted
+const sample = Object.values(allData)[0];
+console.log("Sample entry (first):", JSON.stringify(sample, null, 2).substring(0, 800));
 
 // Write to the actual JSON file
 const outputPath = path.join(__dirname, "../src/lib/all-extracted-deep-data.json");

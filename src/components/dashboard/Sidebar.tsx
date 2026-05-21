@@ -67,6 +67,11 @@ const iconMap: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
     </svg>
   ),
+  Scale: (
+    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+    </svg>
+  ),
 };
 
 const regionColors: Record<string, string> = {
@@ -76,11 +81,155 @@ const regionColors: Record<string, string> = {
   powadh: "bg-purple-500",
 };
 
+const DEMOGRAPHY_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Key metrics & summary" },
+  { id: "population", name: "Population", description: "Density, households, migration" },
+  { id: "gender", name: "Gender", description: "Sex ratio, women voters" },
+  { id: "age", name: "Age Structure", description: "Age cohorts, political demographics" },
+  { id: "caste", name: "Caste Composition", description: "SC, OBC, Upper Caste" },
+  { id: "religious", name: "Religious", description: "Sikh, Hindu, Muslim demographics" },
+  { id: "urbanization", name: "Urbanization", description: "Urban-rural divide" },
+  { id: "dera-sects", name: "Dera & Sects", description: "Radha Soami, SGPC, RSS" },
+  { id: "income", name: "Income", description: "Economic stratification" },
+];
+
+const PARTY_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Key metrics & summary" },
+  { id: "congress-status", name: "Congress Status", description: "Party factions, CM prospects" },
+  { id: "congress-workers", name: "Congress Workers", description: "Worker hierarchy & digital deficit" },
+  { id: "campaign-strategy", name: "Campaign Strategy", description: "Narrative & caste coalitions" },
+  { id: "campaign-budget", name: "Campaign Budget", description: "Budget & resources" },
+  { id: "aap-intelligence", name: "AAP Intelligence", description: "Competitor analysis" },
+  { id: "sad-status", name: "SAD Status", description: "Electoral decline & factions" },
+  { id: "resources-logistics", name: "Resources & Logistics", description: "Rally venues & MCC" },
+];
+
+const CANDIDATE_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Key metrics & summary" },
+  { id: "leadership", name: "Leadership", description: "CM face, leadership matrix" },
+  { id: "winnability", name: "Winnability", description: "CQI, ticket authority" },
+  { id: "strategy", name: "Strategy", description: "Campaign, digital, perception" },
+  { id: "booth-ops", name: "Booth Operations", description: "Infrastructure, SC seats" },
+  { id: "aap-analysis", name: "AAP Analysis", description: "Turncoats, vulnerability" },
+  { id: "young-turks", name: "Young Turks", description: "Next gen candidates" },
+  { id: "rebels", name: "Rebel MLAs", description: "Ticket denial patterns" },
+];
+
+const VOTER_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Key metrics & summary" },
+  { id: "caste-demographics", name: "Caste Demographics", description: "SC, OBC, Jat Sikh composition" },
+  { id: "women-voters", name: "Women Voters", description: "Gender turnout, schemes" },
+  { id: "nri-voters", name: "NRI Voters", description: "Diaspora influence" },
+  { id: "voter-psychology", name: "Voter Psychology", description: "Maslow hierarchy, channels" },
+  { id: "message-strategy", name: "Message Strategy", description: "Message architecture" },
+  { id: "social-crisis", name: "Social Crisis", description: "Drugs, unemployment" },
+  { id: "ground-game", name: "Ground Game", description: "Booth ops, GOTV, VRM" },
+  { id: "party-dynamics", name: "Party Dynamics", description: "AAP collapse, swing" },
+  { id: "regional-analysis", name: "Regional Analysis", description: "Malwa, Majha, Doaba" },
+  { id: "voter-synthesis", name: "Voter Synthesis", description: "Mega-Pillar summary" },
+];
+
+const COMPETITION_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Key metrics & summary" },
+  { id: "aap", name: "AAP Analysis", description: "AAP SWOT, broken promises" },
+  { id: "sad", name: "SAD Status", description: "SAD factions, alliance breakdown" },
+  { id: "bjp", name: "BJP Growth", description: "BJP growth trajectory" },
+  { id: "caste", name: "Caste Demographics", description: "Caste coalition math" },
+  { id: "regional", name: "Regional Analysis", description: "Malwa, Majha, Doaba" },
+  { id: "synthesis", name: "Synthesis", description: "M1 mega-pillar synthesis" },
+];
+
+const PUBLIC_SENTIMENT_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Key metrics & summary" },
+  { id: "socio-economic", name: "Socio-Economic", description: "Economic distress drivers" },
+  { id: "regional-issues", name: "Regional Issues", description: "Majha, Doaba, Malwa issues" },
+  { id: "sentiment-analytics", name: "Sentiment Analytics", description: "Seat projections, swing analysis" },
+  { id: "digital-media", name: "Digital & Media", description: "Social media, influencers" },
+  { id: "emotion-analysis", name: "Emotion Analysis", description: "Voter emotions, buzz tracking" },
+  { id: "voter-demographics", name: "Voter Demographics", description: "Women, youth, SC patterns" },
+  { id: "governance", name: "Governance", description: "AAP satisfaction, broken promises" },
+];
+
+const MEDIA_SENTIMENT_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Metrics, coverage volume" },
+  { id: "party-sentiment", name: "Party Sentiment", description: "Congress, AAP, BJP coverage" },
+  { id: "traditional-media", name: "Traditional Media", description: "TV, Radio, Print, Cable" },
+  { id: "digital-media", name: "Digital Media", description: "Social, YouTube, WhatsApp" },
+  { id: "influencers", name: "Influencers", description: "Celebrities, religious, journalists" },
+  { id: "media-ecosystem", name: "Media Ecosystem", description: "News agencies, opinion makers, MELA" },
+  { id: "misinformation", name: "Misinformation", description: "BJP IT Cell, deepfakes, threats" },
+  { id: "strategy", name: "Strategy & Budget", description: "Budget phases, endgame, rapid response" },
+];
+
+const INTELLIGENCE_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Intelligence hub" },
+  { id: "economic-macro", name: "Economic Macro", description: "GDP, debt, fiscal data" },
+  { id: "eci-election-data", name: "ECI Election Data", description: "Voter rolls, ECI readiness" },
+  { id: "predictive-analytics", name: "Predictive Analytics", description: "Swing models, seat projections" },
+  { id: "campaign-technology", name: "Campaign Tech", description: "Voter data, analytics, apps" },
+];
+
+const GOVERNANCE_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Key metrics & summary" },
+  { id: "agrarian-distress", name: "Agrarian Distress", description: "Farmer suicides, MSP, water crisis" },
+  { id: "economic-fiscal", name: "Economic & Fiscal", description: "Debt, deficits, unemployment" },
+  { id: "puadh-urban-seats", name: "Puadh Region", description: "Urban seats analysis" },
+  { id: "local-issues-malwa", name: "Local Issues Malwa", description: "Drug crisis, cancer belt" },
+  { id: "synthesis", name: "Synthesis", description: "Cross-referenced intelligence" },
+];
+
+const PERCEPTION_SECTIONS = [
+  { id: "overview", name: "Overview", description: "Key metrics & summary" },
+  { id: "swot-analysis", name: "SWOT Analysis", description: "Congress strengths, weaknesses, opportunities, threats" },
+  { id: "campaign-strategy", name: "Campaign Strategy", description: "Timeline, phases, strategic priorities" },
+  { id: "seat-projections", name: "Seat Projections", description: "Vote share trajectory, poll consensus, scenarios" },
+  { id: "grievance-analysis", name: "Grievance Analysis", description: "Priority issues, angry voter profiles" },
+  { id: "religious-politics", name: "Religious Politics", description: "SGPC, Sikh issues, 1984, sacrilege law" },
+  { id: "regional-analysis", name: "Regional Analysis", description: "Malwa, Majha, Doaba grievances" },
+  { id: "student-politics", name: "Student Politics", description: "Panjab University, NSUI/ABVP" },
+  { id: "election-security", name: "Election Security", description: "CAPF, high-risk constituencies, gangster networks" },
+  { id: "ground-operations", name: "Ground Operations", description: "Booth-level, karyakarta network" },
+  { id: "campaign-budget", name: "Campaign Budget", description: "Congress vs AAP budget comparison" },
+  { id: "welfare-delivery", name: "Welfare Delivery", description: "Government schemes, attribution challenges" },
+  { id: "kpi-framework", name: "KPI Framework", description: "Leading/lagging indicators, organizational KPIs" },
+  { id: "perception-audit", name: "Perception Audit", description: "Party & leader tracking, media tone" },
+  { id: "scenario-planning", name: "Scenario Planning", description: "Post-election scenarios, CM selection" },
+  { id: "eci-compliance", name: "ECI Compliance", description: "Election laws, expenditure limits" },
+  { id: "weather-planning", name: "Weather Planning", description: "February weather patterns, logistics" },
+  { id: "opposition-research", name: "Opposition Research", description: "Attack strategy, vulnerability identification" },
+  { id: "intelligence-pipeline", name: "Intelligence Pipeline", description: "Collection, analysis, synthesis, activation" },
+  { id: "victory-pathways", name: "Victory Pathways", description: "Three strategic routes to majority" },
+  { id: "aap-governance", name: "AAP Governance", description: "Claims vs delivery, Mann performance" },
+  { id: "offline-assets", name: "Offline Assets", description: "Karyakarta network inventory" },
+  { id: "manifesto-framework", name: "Manifesto Framework", description: "15-pillar framework" },
+  { id: "synthesis-intelligence", name: "Synthesis Intelligence", description: "Gap analysis, remediation waves" },
+];
+
 export function Sidebar() {
   const pathname = usePathname();
   const [constituencyExpanded, setConstituencyExpanded] = useState(false);
+  const [demographyExpanded, setDemographyExpanded] = useState(false);
+  const [partyExpanded, setPartyExpanded] = useState(false);
+  const [candidateExpanded, setCandidateExpanded] = useState(false);
+  const [voterExpanded, setVoterExpanded] = useState(false);
+  const [competitionExpanded, setCompetitionExpanded] = useState(false);
+  const [publicSentimentExpanded, setPublicSentimentExpanded] = useState(false);
+  const [mediaSentimentExpanded, setMediaSentimentExpanded] = useState(false);
+  const [intelligenceExpanded, setIntelligenceExpanded] = useState(false);
+  const [perceptionExpanded, setPerceptionExpanded] = useState(false);
+  const [governanceExpanded, setGovernanceExpanded] = useState(false);
 
-  const isConstituencyActive = pathname?.startsWith("/dashboard/constituency");
+  const isGovernanceActive = pathname === "/dashboard/governance" || pathname?.startsWith("/dashboard/governance/");
+  const isGovernanceChildActive = pathname?.startsWith("/dashboard/governance/");
+  const isDemographyActive = pathname?.startsWith("/dashboard/demography");
+  const isPartyActive = pathname?.startsWith("/dashboard/party");
+  const isCandidateActive = pathname?.startsWith("/dashboard/candidate");
+  const isVoterActive = pathname?.startsWith("/dashboard/voter");
+  const isCompetitionActive = pathname?.startsWith("/dashboard/competition");
+  const isPublicSentimentActive = pathname?.startsWith("/dashboard/public-sentiment");
+  const isMediaSentimentActive = pathname?.startsWith("/dashboard/media-sentiment");
+  const isIntelligenceActive = pathname?.startsWith("/dashboard/intelligence");
+  const isPerceptionActive = pathname?.startsWith("/dashboard/perception");
 
   return (
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-slate-900 text-white">
@@ -107,6 +256,74 @@ export function Sidebar() {
           </div>
           <ul className="space-y-1">
             {OPERATIONAL_HEADS.map((head) => {
+              // Special handling for demography - it's a parent with sub-items
+              if (head.id === "demography") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/demography/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setDemographyExpanded(!demographyExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${demographyExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {demographyExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/demography"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/demography"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {DEMOGRAPHY_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/demography/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
               // Special handling for constituency - it's a parent with sub-items
               if (head.id === "constituency") {
                 const isActive = pathname === `/dashboard/${head.id}`;
@@ -178,24 +395,638 @@ export function Sidebar() {
                 );
               }
 
-              const isActive = pathname === `/dashboard/${head.id}`;
+              // Special handling for party - it's a parent with sub-items
+              if (head.id === "party") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/party/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setPartyExpanded(!partyExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${partyExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {partyExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/party"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/party"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {PARTY_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/party/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
+              // Special handling for candidate - it's a parent with sub-items
+              if (head.id === "candidate") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/candidate/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setCandidateExpanded(!candidateExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${candidateExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {candidateExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/candidate"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/candidate"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {CANDIDATE_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/candidate/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
+              // Special handling for voter - it's a parent with sub-items
+              if (head.id === "voter") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/voter/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setVoterExpanded(!voterExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${voterExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {voterExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/voter"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/voter"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {VOTER_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/voter/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
+              // Special handling for competition - it's a parent with sub-items
+              if (head.id === "competition") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/competition/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setCompetitionExpanded(!competitionExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${competitionExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {competitionExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/competition"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/competition"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {COMPETITION_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/competition/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
+              // Special handling for public-sentiment - it's a parent with sub-items
+              if (head.id === "public-sentiment") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/public-sentiment/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setPublicSentimentExpanded(!publicSentimentExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${publicSentimentExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {publicSentimentExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/public-sentiment"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/public-sentiment"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {PUBLIC_SENTIMENT_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/public-sentiment/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
+              // Special handling for media-sentiment - it's a parent with sub-items
+              if (head.id === "media-sentiment") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/media-sentiment/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setMediaSentimentExpanded(!mediaSentimentExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${mediaSentimentExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {mediaSentimentExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/media-sentiment"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/media-sentiment"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {MEDIA_SENTIMENT_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/media-sentiment/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
+              // Special handling for intelligence - it's a parent with sub-items
+              if (head.id === "intelligence") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/intelligence/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setIntelligenceExpanded(!intelligenceExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${intelligenceExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {intelligenceExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/intelligence"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/intelligence"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {INTELLIGENCE_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/intelligence/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
+              // Special handling for perception - it's a parent with sub-items
+              if (head.id === "perception") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/perception/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setPerceptionExpanded(!perceptionExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${perceptionExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {perceptionExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/perception"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/perception"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {PERCEPTION_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/perception/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
+              // Special handling for governance - it's a parent with sub-items
+              if (head.id === "governance") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/governance/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setGovernanceExpanded(!governanceExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${governanceExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {governanceExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/governance"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/governance"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {GOVERNANCE_SECTIONS.slice(1).map((section) => {
+                            const sectionPath = `/dashboard/governance/${section.id}`;
+                            const isSectionActive = pathname === sectionPath;
+                            return (
+                              <Link
+                                key={section.id}
+                                href={sectionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isSectionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className="text-slate-500">→</span>
+                                <span className="flex-1">{section.name}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
+              // Default rendering for items without special submenu handling
+              const item = head as (typeof OPERATIONAL_HEADS)[number];
+              const isActive = pathname === `/dashboard/${item.id}`;
               return (
-                <li key={head.id}>
+                <li key={item.id}>
                   <Link
-                    href={`/dashboard/${head.id}`}
+                    href={`/dashboard/${item.id}`}
                     className={`flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                       isActive
                         ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
                         : "text-slate-300 hover:bg-slate-800 hover:text-white"
                     }`}
                   >
-                    <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
-                      {iconMap[head.icon]}
+                    <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${item.color}`}>
+                      {iconMap[item.icon]}
                     </span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-medium text-slate-400">{head.number}</span>
-                        <span className="text-sm font-medium truncate">{head.title}</span>
+                        <span className="text-xs font-medium text-slate-400">{item.number}</span>
+                        <span className="text-sm font-medium truncate">{item.title}</span>
                       </div>
                     </div>
                   </Link>
