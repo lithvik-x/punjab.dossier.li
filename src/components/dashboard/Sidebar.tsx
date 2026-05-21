@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { OPERATIONAL_HEADS } from "@/lib/constants";
+import { useState } from "react";
+import { OPERATIONAL_HEADS, REGIONS } from "@/lib/constants";
 
 const iconMap: Record<string, React.ReactNode> = {
   Users: (
@@ -56,10 +57,30 @@ const iconMap: Record<string, React.ReactNode> = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
     </svg>
   ),
+  ChevronDown: (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+    </svg>
+  ),
+  Map: (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+    </svg>
+  ),
+};
+
+const regionColors: Record<string, string> = {
+  malwa: "bg-orange-500",
+  majha: "bg-blue-500",
+  doaba: "bg-green-500",
+  powadh: "bg-purple-500",
 };
 
 export function Sidebar() {
   const pathname = usePathname();
+  const [constituencyExpanded, setConstituencyExpanded] = useState(false);
+
+  const isConstituencyActive = pathname?.startsWith("/dashboard/constituency");
 
   return (
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-slate-900 text-white">
@@ -86,6 +107,77 @@ export function Sidebar() {
           </div>
           <ul className="space-y-1">
             {OPERATIONAL_HEADS.map((head) => {
+              // Special handling for constituency - it's a parent with sub-items
+              if (head.id === "constituency") {
+                const isActive = pathname === `/dashboard/${head.id}`;
+                const isChildActive = pathname?.startsWith("/dashboard/constituency/");
+                return (
+                  <li key={head.id}>
+                    <div>
+                      <button
+                        onClick={() => setConstituencyExpanded(!constituencyExpanded)}
+                        className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
+                          isActive || isChildActive
+                            ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
+                            : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                        }`}
+                      >
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                          {iconMap[head.icon]}
+                        </span>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs font-medium text-slate-400">{head.number}</span>
+                            <span className="text-sm font-medium truncate">{head.title}</span>
+                          </div>
+                        </div>
+                        <span className={`transition-transform ${constituencyExpanded ? "rotate-180" : ""}`}>
+                          {iconMap["ChevronDown"]}
+                        </span>
+                      </button>
+
+                      {/* Submenu */}
+                      {constituencyExpanded && (
+                        <div className="ml-4 mt-1 space-y-1 border-l border-slate-700 pl-3">
+                          <Link
+                            href="/dashboard/constituency"
+                            className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                              pathname === "/dashboard/constituency"
+                                ? "bg-blue-600/30 text-blue-300"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                            }`}
+                          >
+                            <span className="text-slate-500">→</span>
+                            Overview
+                          </Link>
+                          {REGIONS.map((region) => {
+                            const regionPath = `/dashboard/constituency/${region.id}`;
+                            const isRegionActive = pathname === regionPath;
+                            return (
+                              <Link
+                                key={region.id}
+                                href={regionPath}
+                                className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
+                                  isRegionActive
+                                    ? "bg-blue-600/30 text-blue-300"
+                                    : "text-slate-400 hover:bg-slate-800 hover:text-white"
+                                }`}
+                              >
+                                <span className={`flex h-5 w-5 items-center justify-center rounded ${regionColors[region.id]}`}>
+                                  {iconMap["Map"]}
+                                </span>
+                                <span className="flex-1">{region.name}</span>
+                                <span className="text-xs text-slate-500">{region.constituencies}</span>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
+                  </li>
+                );
+              }
+
               const isActive = pathname === `/dashboard/${head.id}`;
               return (
                 <li key={head.id}>

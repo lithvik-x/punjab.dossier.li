@@ -513,6 +513,54 @@ export default function ConstituencyPage() {
         <Badge variant="success">117 ACs Active</Badge>
       </div>
 
+      {/* Region Navigation Tabs */}
+      <div className="border-b border-slate-200 dark:border-slate-700">
+        <nav className="flex gap-1 -mb-px">
+          <a
+            href="/dashboard/constituency"
+            className="px-4 py-3 text-sm font-medium border-b-2 border-green-500 text-green-600 dark:text-green-400"
+          >
+            Overview
+          </a>
+          <a
+            href="/dashboard/constituency/malwa"
+            className="px-4 py-3 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+          >
+            <span className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-orange-500"></span>
+              Malwa (69)
+            </span>
+          </a>
+          <a
+            href="/dashboard/constituency/majha"
+            className="px-4 py-3 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+          >
+            <span className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-blue-500"></span>
+              Majha (25)
+            </span>
+          </a>
+          <a
+            href="/dashboard/constituency/doaba"
+            className="px-4 py-3 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+          >
+            <span className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-green-500"></span>
+              Doaba (23)
+            </span>
+          </a>
+          <a
+            href="/dashboard/constituency/powadh"
+            className="px-4 py-3 text-sm font-medium border-b-2 border-transparent text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+          >
+            <span className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-purple-500"></span>
+              Powadh (10)
+            </span>
+          </a>
+        </nav>
+      </div>
+
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         <MetricCard
           title="Total Constituencies"
