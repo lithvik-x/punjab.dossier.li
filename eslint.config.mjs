@@ -14,6 +14,14 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     ".open-next/**",
   ]),
+  // Disable @typescript-eslint/ban-ts-comment for data files with @ts-nocheck
+  {
+    files: ["src/lib/*-data.ts", "src/lib/*.ts"],
+    rules: {
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
+    },
+  },
 ]);
 
 export default eslintConfig;

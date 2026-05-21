@@ -476,6 +476,6 @@ export interface AC106AmargarhTypes {
 }
 
 // Named exports for combined dossiers
-export interface AC106AmargarhMainDossier extends MainDossierData {}
-export interface AC106AmargarhDeepResearch extends DeepResearchData {}
-export interface AC106AmargarhDossierComplete extends AC106AmargarhTypes {}
+export type AC106AmargarhMainDossier = MainDossierData;
+export type AC106AmargarhDeepResearch = DeepResearchData;
+export type AC106AmargarhDossierComplete = AC106AmargarhTypes;

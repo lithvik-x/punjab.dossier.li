@@ -169,7 +169,7 @@ export interface KeyLocalIssue {
   description: string;
 }
 
-export interface LocalIssue extends KeyLocalIssue {}
+export type LocalIssue = KeyLocalIssue;
 
 export interface PrimaryIssues {
   issues: LocalIssue[];

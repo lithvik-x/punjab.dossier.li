@@ -2934,7 +2934,7 @@ export default function VoterPage() {
           <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
             <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-3">Swing Voter Timing Breakdown</p>
             <div className="space-y-3">
-              {(Object.entries(swingVoterTimingBreakdown) as [string, any][])
+              {(Object.entries(swingVoterTimingBreakdown) as [string, { percentage: string; profile: string }][])
                 .filter(([key]) => key !== "note")
                 .map(([phase, item]) => (
                 <div key={phase} className="flex items-center gap-3">
