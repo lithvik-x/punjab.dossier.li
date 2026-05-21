@@ -229,8 +229,8 @@ export function getConstituencyById(acId: string): ElectionIntelligence | undefi
 // Export all data for direct use
 export const allConstituencyData = loadAllConstituencyData();
 
-// Export by region for convenience
-export const malwaData = allConstituencyData.filter(c => c.region === "Malwa");
+// Export by region for convenience (use startsWith to handle variants like "Malwa (Border)")
+export const malwaData = allConstituencyData.filter(c => c.region.startsWith("Malwa"));
 export const majhaData = allConstituencyData.filter(c => c.region === "Majha");
-export const doabaData = allConstituencyData.filter(c => c.region === "Doaba");
-export const powadhData = allConstituencyData.filter(c => c.region === "Powadh");
+export const doabaData = allConstituencyData.filter(c => c.region.startsWith("Doaba"));
+export const powadhData = allConstituencyData.filter(c => c.region.startsWith("Powadh"));

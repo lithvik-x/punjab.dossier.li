@@ -6,7 +6,7 @@ import { MetricCard, DataTable, Badge } from "@/components/ui/MetricCard";
 const bjpGrowthData = [
   { election: "2017 Assembly", voteShare: 6.6, context: "Pre-growth baseline" },
   { election: "2022 Assembly", voteShare: 6.6, seats: 2, context: "Alliance with SAD" },
-  { election: "2024 Lok Sabha", voteShare: 18.56, seats: 5, context: "Going solo, 3x growth" }
+  { election: "2024 Lok Sabha", voteShare: 18.56, seats: 0, context: "Drew blank despite 3x vote share growth" }
 ];
 
 // BJP going solo 2027

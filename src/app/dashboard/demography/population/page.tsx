@@ -178,7 +178,7 @@ export default function DemographyPopulationPage() {
         </div>
         <div className="mt-4 rounded-lg bg-slate-50 p-3 dark:bg-slate-900">
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            <span className="font-semibold">Key:</span> Rural voter turnout traditionally higher (pre-map: 89.58% rural vs 73% urban). Urban voters concentrated in 4 major cities — concentrated campaign reach. <span className="font-semibold text-orange-700 dark:text-orange-400">Doaba: 42% Dalit concentration in some constituencies</span> — highest Dalit density in Punjab, strong AAP foothold.
+            <span className="font-semibold">Key:</span> Voter ID mapping coverage higher in rural (89.58%) vs urban (73%) areas — actual 2022 turnout was ~71.3%. Urban voters concentrated in 4 major cities — concentrated campaign reach. <span className="font-semibold text-orange-700 dark:text-orange-400">Doaba: 42% Dalit concentration in some constituencies</span> — highest Dalit density in Punjab, strong AAP foothold.
           </p>
         </div>
       </div>

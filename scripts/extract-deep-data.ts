@@ -112,14 +112,23 @@ function parseDeepDoc(content: string, acId: string): DeepDoc {
     if (acNumMatch) doc.acNumber = parseInt(acNumMatch[1]);
     const nameMatch = yaml.match(/Name:\s*(.+)/);
     if (nameMatch) doc.name = nameMatch[1].trim();
+    // Extract from Topic: field if name not set (format: "Topic: Gill Assembly Constituency (AC066), Punjab")
+    if (!doc.name) {
+      const topicMatch = yaml.match(/Topic:\s*([^,(]+)/);
+      if (topicMatch) {
+        doc.name = topicMatch[1].replace(/Assembly Constituency/g, '').trim();
+      }
+    }
     const districtMatch = yaml.match(/District:\s*(.+)/);
     if (districtMatch) doc.district = districtMatch[1].trim();
-    const regionMatch = yaml.match(/Region:\s*(.+)/);
+    // Handle both "Region: Majha" and "- **Region:** Malwa" formats
+    const regionMatch = yaml.match(/(?:-\s*)?\*\*Region:\*\*\s*(.+)/) || yaml.match(/^Region:\s*(.+)/m);
     if (regionMatch) doc.region = regionMatch[1].trim();
   }
 
   // Extract from title line format like "# AC011 — Ajnala Assembly Constituency Deep Research"
-  const titleMatch = content.match(/^#\s*AC\d+\s*[—–-]\s*([^"\n#]+)/);
+  // Use multiline flag (m) to match ^ at start of any line
+  const titleMatch = content.match(/^#\s*AC\d+\s*[—–-]\s*([^"\n#]+)/m);
   if (titleMatch && !doc.name) {
     doc.name = titleMatch[1].replace(/Assembly Constituency Deep Research|Dossier/g, '').trim();
   }
@@ -131,6 +140,17 @@ function parseDeepDoc(content: string, acId: string): DeepDoc {
       doc.district = metaMatch[1].trim();
       doc.region = metaMatch[2].trim();
       doc.acNumber = parseInt(metaMatch[3]);
+    }
+  }
+
+  // Fallback: Extract region from body content when not in YAML
+  // Formats: "- Region: Malwa" or "- **Region:** Majha" or "- **Region:** Malwa (Border)"
+  if (!doc.region) {
+    // First clean up bold markers, then extract region
+    const cleanedContent = content.replace(/\*\*/g, '');
+    const bodyRegionMatch = cleanedContent.match(/^\s*-\s*Region:\s+(.+)/m);
+    if (bodyRegionMatch) {
+      doc.region = bodyRegionMatch[1].trim();
     }
   }
 

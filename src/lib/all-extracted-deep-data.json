@@ -969,6 +969,7 @@
   },
   "AC011-Ajnala": {
     "acId": "AC011-Ajnala",
+    "name": "Ajnala  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 11,
@@ -1148,6 +1149,7 @@
   },
   "AC012-RajaSansi": {
     "acId": "AC012-RajaSansi",
+    "name": "Raja Sansi  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 12,
@@ -1319,6 +1321,7 @@
   },
   "AC013-Majitha": {
     "acId": "AC013-Majitha",
+    "name": "Majitha  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 13,
@@ -1477,6 +1480,7 @@
   },
   "AC014-Jandiala": {
     "acId": "AC014-Jandiala",
+    "name": "Jandiala  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 14,
@@ -1657,6 +1661,7 @@
   },
   "AC015-AmritsarNorth": {
     "acId": "AC015-AmritsarNorth",
+    "name": "Amritsar North  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 15,
@@ -1816,6 +1821,7 @@
   },
   "AC016-AmritsarWest": {
     "acId": "AC016-AmritsarWest",
+    "name": "Amritsar West  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 16,
@@ -1984,6 +1990,7 @@
   },
   "AC017-AmritsarCentral": {
     "acId": "AC017-AmritsarCentral",
+    "name": "Amritsar Central  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 17,
@@ -2149,6 +2156,7 @@
   },
   "AC018-AmritsarEast": {
     "acId": "AC018-AmritsarEast",
+    "name": "Amritsar East  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 18,
@@ -2291,6 +2299,7 @@
   },
   "AC019-AmritsarSouth": {
     "acId": "AC019-AmritsarSouth",
+    "name": "Amritsar South  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 19,
@@ -2451,6 +2460,7 @@
   },
   "AC020-Attari": {
     "acId": "AC020-Attari",
+    "name": "Attari  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: Web search",
     "district": "Amritsar",
     "region": "Majha",
     "acNumber": 20,
@@ -2615,6 +2625,8 @@
   },
   "AC021-TarnTaran": {
     "acId": "AC021-TarnTaran",
+    "name": "TarnTaran  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Majha",
     "demographics": {
       "casteComposition": {}
     },
@@ -2738,6 +2750,8 @@
   },
   "AC022-KhemKaran": {
     "acId": "AC022-KhemKaran",
+    "name": "KhemKaran  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Majha",
     "demographics": {
       "casteComposition": {}
     },
@@ -2843,6 +2857,8 @@
   },
   "AC023-Patti": {
     "acId": "AC023-Patti",
+    "name": "Patti  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Majha",
     "demographics": {
       "casteComposition": {}
     },
@@ -2949,6 +2965,8 @@
   },
   "AC024-KhadoorSahib": {
     "acId": "AC024-KhadoorSahib",
+    "name": "KhadoorSahib  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Majha",
     "demographics": {
       "casteComposition": {}
     },
@@ -3056,6 +3074,8 @@
   },
   "AC025-BabaBakala": {
     "acId": "AC025-BabaBakala",
+    "name": "BabaBakala  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Majha",
     "demographics": {
       "casteComposition": {}
     },
@@ -3163,6 +3183,8 @@
   },
   "AC026-Bholath": {
     "acId": "AC026-Bholath",
+    "name": "Bholath  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 17394,
       "casteComposition": {}
@@ -3269,6 +3291,8 @@
   },
   "AC027-Kapurthala": {
     "acId": "AC027-Kapurthala",
+    "name": "Kapurthala  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 62,
       "casteComposition": {}
@@ -3367,6 +3391,8 @@
   },
   "AC028-SultanpurLodhi": {
     "acId": "AC028-SultanpurLodhi",
+    "name": "SultanpurLodhi  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba",
     "demographics": {
       "casteComposition": {}
     },
@@ -3476,6 +3502,8 @@
   },
   "AC029-Phagwara": {
     "acId": "AC029-Phagwara",
+    "name": "Phagwara  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba",
     "demographics": {
       "casteComposition": {}
     },
@@ -3588,6 +3616,8 @@
   },
   "AC030-Phillaur": {
     "acId": "AC030-Phillaur",
+    "name": "Phillaur  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba",
     "demographics": {
       "casteComposition": {}
     },
@@ -3686,6 +3716,8 @@
   },
   "AC031-Nakodar": {
     "acId": "AC031-Nakodar",
+    "name": "Nakodar  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba",
     "demographics": {
       "casteComposition": {}
     },
@@ -3791,6 +3823,8 @@
   },
   "AC032-Shahkot": {
     "acId": "AC032-Shahkot",
+    "name": "Shahkot  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba",
     "demographics": {
       "casteComposition": {}
     },
@@ -3889,6 +3923,8 @@
   },
   "AC033-Kartarpur": {
     "acId": "AC033-Kartarpur",
+    "name": "Kartarpur  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 38,
       "casteComposition": {}
@@ -3991,6 +4027,8 @@
   },
   "AC034-JalandharWest": {
     "acId": "AC034-JalandharWest",
+    "name": "JalandharWest  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba (Urban)",
     "demographics": {
       "casteComposition": {}
     },
@@ -4103,6 +4141,8 @@
   },
   "AC035-JalandharCentral": {
     "acId": "AC035-JalandharCentral",
+    "name": "JalandharCentral  Deep Research\nDate: 20 May 2026\nData Currency: As of 20 May 2026\nSources: Web search",
+    "region": "Doaba (Urban)",
     "demographics": {
       "casteComposition": {}
     },
@@ -4218,6 +4258,8 @@
   },
   "AC036-JalandharNorth": {
     "acId": "AC036-JalandharNorth",
+    "name": "Jalandhar North  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 2193590
     },
@@ -4318,6 +4360,8 @@
   },
   "AC037-JalandharCantt": {
     "acId": "AC037-JalandharCantt",
+    "name": "Jalandhar Cantonment  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 19
     },
@@ -4415,6 +4459,8 @@
   },
   "AC038-Adampur": {
     "acId": "AC038-Adampur",
+    "name": "Adampur  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 31
     },
@@ -4453,6 +4499,8 @@
   },
   "AC039-Mukerian": {
     "acId": "AC039-Mukerian",
+    "name": "Mukerian  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 1586625,
       "sexRatio": "96"
@@ -4482,6 +4530,8 @@
   },
   "AC040-Dasuya": {
     "acId": "AC040-Dasuya",
+    "name": "Dasuya  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 1586625
     },
@@ -4514,6 +4564,8 @@
   },
   "AC041-Urmar": {
     "acId": "AC041-Urmar",
+    "name": "Urmar  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 1586625
     },
@@ -4530,6 +4582,8 @@
   },
   "AC042-ShamChaurasi": {
     "acId": "AC042-ShamChaurasi",
+    "name": "Sham Chaurasi  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 31
     },
@@ -4564,6 +4618,8 @@
   },
   "AC043-Hoshiarpur": {
     "acId": "AC043-Hoshiarpur",
+    "name": "Hoshiarpur  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 1586625,
       "sexRatio": "96"
@@ -4592,6 +4648,8 @@
   },
   "AC044-Chabbewal": {
     "acId": "AC044-Chabbewal",
+    "name": "Chabbewal  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 31
     },
@@ -4601,6 +4659,8 @@
   },
   "AC045-Garhshankar": {
     "acId": "AC045-Garhshankar",
+    "name": "Garhshankar  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 1586625
     },
@@ -4617,6 +4677,8 @@
   },
   "AC046-Banga": {
     "acId": "AC046-Banga",
+    "name": "Banga  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 614362
     },
@@ -4653,6 +4715,8 @@
   },
   "AC047-NawanShahr": {
     "acId": "AC047-NawanShahr",
+    "name": "Nawan Shahr  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 614362
     },
@@ -4668,6 +4732,8 @@
   },
   "AC048-Balachaur": {
     "acId": "AC048-Balachaur",
+    "name": "Balachaur  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Doaba",
     "demographics": {
       "totalPopulation": 614362
     },
@@ -4684,6 +4750,8 @@
   },
   "AC049-AnandpurSahib": {
     "acId": "AC049-AnandpurSahib",
+    "name": "Anandpur Sahib  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa/Doaba border",
     "demographics": {
       "totalPopulation": 684627,
       "sexRatio": "91"
@@ -4718,6 +4786,8 @@
   },
   "AC050-Rupnagar": {
     "acId": "AC050-Rupnagar",
+    "name": "Rupnagar  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "demographics": {
       "totalPopulation": 684627,
       "sexRatio": "91"
@@ -4753,6 +4823,8 @@
   },
   "AC051-ChamkaurSahib": {
     "acId": "AC051-ChamkaurSahib",
+    "name": "Chamkaur Sahib  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "SC Welfare & Empowerment",
@@ -4780,6 +4852,8 @@
   },
   "AC052-Kharar": {
     "acId": "AC052-Kharar",
+    "name": "Kharar  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Urban Infrastructure",
@@ -4807,6 +4881,8 @@
   },
   "AC053-SASNagar": {
     "acId": "AC053-SASNagar",
+    "name": "SAS Nagar",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Urban Infrastructure",
@@ -4834,6 +4910,8 @@
   },
   "AC054-BassiPathana": {
     "acId": "AC054-BassiPathana",
+    "name": "Bassi Pathana  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "SC Welfare & Empowerment",
@@ -4861,6 +4939,8 @@
   },
   "AC055-FatehgarhSahib": {
     "acId": "AC055-FatehgarhSahib",
+    "name": "Fatehgarh Sahib  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Religious Tourism Infrastructure",
@@ -4888,6 +4968,8 @@
   },
   "AC056-Amloh": {
     "acId": "AC056-Amloh",
+    "name": "Amloh  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Agriculture & Farmer Distress",
@@ -4915,6 +4997,8 @@
   },
   "AC057-Khanna": {
     "acId": "AC057-Khanna",
+    "name": "Khanna  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Industrial Growth & MSME",
@@ -4942,6 +5026,8 @@
   },
   "AC058-Samrala": {
     "acId": "AC058-Samrala",
+    "name": "Samrala  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Agriculture & Farmer Distress",
@@ -4969,6 +5055,8 @@
   },
   "AC059-Sahnewal": {
     "acId": "AC059-Sahnewal",
+    "name": "Sahnewal  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Agriculture & Farmer Distress",
@@ -4996,6 +5084,8 @@
   },
   "AC060-LudhianaEast": {
     "acId": "AC060-LudhianaEast",
+    "name": "Ludhiana East  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Urban Infrastructure",
@@ -5023,6 +5113,8 @@
   },
   "AC061-LudhianaSouth": {
     "acId": "AC061-LudhianaSouth",
+    "name": "Ludhiana South  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Urban Development",
@@ -5050,6 +5142,8 @@
   },
   "AC062-AtamNagar": {
     "acId": "AC062-AtamNagar",
+    "name": "Atam Nagar  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Urban Infrastructure",
@@ -5077,6 +5171,8 @@
   },
   "AC063-LudhianaCentral": {
     "acId": "AC063-LudhianaCentral",
+    "name": "Ludhiana Central  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: PARTIALLY VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Old City Development",
@@ -5104,6 +5200,8 @@
   },
   "AC064-LudhianaWest": {
     "acId": "AC064-LudhianaWest",
+    "name": "Ludhiana West  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Peri-urban Challenges",
@@ -5154,6 +5252,8 @@
   },
   "AC065-LudhianaNorth": {
     "acId": "AC065-LudhianaNorth",
+    "name": "Ludhiana North  Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-Research\nSources Consulted: minimax-web-search\nVerification Status: VERIFIED\nData Currency: As of 20 May 2026",
+    "region": "Malwa",
     "keyIssues": [
       {
         "issue": "Urban Infrastructure",
@@ -5181,6 +5281,8 @@
   },
   "AC066-Gill": {
     "acId": "AC066-Gill",
+    "name": "Gill",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - 2024 data from CEO Punjab portal]",
       "[NEEDS VERIFICATION - Search results did not provide specific winner name for Gill]",
@@ -5236,6 +5338,8 @@
   },
   "AC067-Payal": {
     "acId": "AC067-Payal",
+    "name": "Payal",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION - Search results did not provide specific winner name]",
@@ -5293,6 +5397,8 @@
   },
   "AC068-Dakha": {
     "acId": "AC068-Dakha",
+    "name": "Dakha",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION - Specific vote margin not found]",
@@ -5326,6 +5432,8 @@
   },
   "AC069-Raikot": {
     "acId": "AC069-Raikot",
+    "name": "Raikot",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - Not found in search results]",
       "[NEEDS VERIFICATION]",
@@ -5361,6 +5469,8 @@
   },
   "AC070-Jagraon": {
     "acId": "AC070-Jagraon",
+    "name": "Jagraon",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION from constituency data]",
       "[NEEDS VERIFICATION]",
@@ -5390,6 +5500,8 @@
   },
   "AC071-NihalSinghWala": {
     "acId": "AC071-NihalSinghWala",
+    "name": "Nihal Singh Wala",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - OneIndia mentions \"margin of\" but didn't provide number]",
       "[NEEDS VERIFICATION]",
@@ -5421,6 +5533,8 @@
   },
   "AC072-BhaghaPurana": {
     "acId": "AC072-BhaghaPurana",
+    "name": "Bhagha Purana",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION - OneIndia mentions margin but didn't provide number]",
@@ -5446,6 +5560,8 @@
   },
   "AC073-Moga": {
     "acId": "AC073-Moga",
+    "name": "Moga",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -5479,6 +5595,8 @@
   },
   "AC074-Dharamkot": {
     "acId": "AC074-Dharamkot",
+    "name": "Dharamkot",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - Not found in search results]",
       "[NEEDS VERIFICATION]",
@@ -5518,6 +5636,8 @@
   },
   "AC075-Zira": {
     "acId": "AC075-Zira",
+    "name": "Zira",
+    "region": "Malwa (Border area)",
     "requiresVerification": [
       "[NEEDS VERIFICATION - Congress candidate]",
       "[NEEDS VERIFICATION]",
@@ -5551,6 +5671,8 @@
   },
   "AC076-FirozpurCity": {
     "acId": "AC076-FirozpurCity",
+    "name": "Firozpur City",
+    "region": "Malwa (Border)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -5574,6 +5696,8 @@
   },
   "AC077-FirozpurRural": {
     "acId": "AC077-FirozpurRural",
+    "name": "Firozpur Rural",
+    "region": "Malwa (Border)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -5597,6 +5721,8 @@
   },
   "AC078-GuruHarSahai": {
     "acId": "AC078-GuruHarSahai",
+    "name": "Guru Har Sahai",
+    "region": "Malwa (Border)",
     "requiresVerification": [
       "[NEEDS VERIFICATION - Not found in search results]",
       "[NEEDS VERIFICATION]",
@@ -5634,6 +5760,8 @@
   },
   "AC079-Jalalabad": {
     "acId": "AC079-Jalalabad",
+    "name": "Jalalabad",
+    "region": "Malwa (Border)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -5647,6 +5775,8 @@
   },
   "AC080-Fazilka": {
     "acId": "AC080-Fazilka",
+    "name": "Fazilka",
+    "region": "Malwa (Border)",
     "requiresVerification": [
       "[NEEDS VERIFICATION - Not found in search results]",
       "[NEEDS VERIFICATION]",
@@ -5682,6 +5812,8 @@
   },
   "AC081-Abohar": {
     "acId": "AC081-Abohar",
+    "name": "Abohar  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (South-West Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION - specific margin not found]",
       "[NEEDS VERIFICATION]",
@@ -5705,6 +5837,8 @@
   },
   "AC082-Balluana": {
     "acId": "AC082-Balluana",
+    "name": "Balluana  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (South-West Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -5724,6 +5858,8 @@
   },
   "AC083-Lambi": {
     "acId": "AC083-Lambi",
+    "name": "Lambi  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (South-West Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION - significant margin given Parkash Singh Badal lost]",
       "[NEEDS VERIFICATION of exact margin]",
@@ -5743,6 +5879,8 @@
   },
   "AC084-Giddarbaha": {
     "acId": "AC084-Giddarbaha",
+    "name": "Giddarbaha  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (South-West Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION - candidate name and margin]",
       "[NEEDS VERIFICATION - local influential families]",
@@ -5756,6 +5894,8 @@
   },
   "AC085-Malout": {
     "acId": "AC085-Malout",
+    "name": "Malout  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (South-West Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION - AAP or Congress?]",
       "[NEEDS VERIFICATION]",
@@ -5771,6 +5911,8 @@
   },
   "AC086-Muktsar": {
     "acId": "AC086-Muktsar",
+    "name": "Muktsar  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (South-West Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -5788,6 +5930,8 @@
   },
   "AC087-Faridkot": {
     "acId": "AC087-Faridkot",
+    "name": "Faridkot  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (South-West Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION - traditional Congress families]",
       "[NEEDS VERIFICATION]"
@@ -5799,6 +5943,8 @@
   },
   "AC088-Kotkapura": {
     "acId": "AC088-Kotkapura",
+    "name": "Kotkapura  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (South-West Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -5812,6 +5958,8 @@
   },
   "AC089-Jaitu": {
     "acId": "AC089-Jaitu",
+    "name": "Jaitu  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (South-West Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]"
@@ -5823,6 +5971,8 @@
   },
   "AC090-RampuraPhul": {
     "acId": "AC090-RampuraPhul",
+    "name": "Rampura Phul  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (Central Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]"
@@ -5834,6 +5984,8 @@
   },
   "AC091-BhuchoMandi": {
     "acId": "AC091-BhuchoMandi",
+    "name": "Bhucho Mandi  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (Central Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]"
     ],
@@ -5843,6 +5995,8 @@
   },
   "AC092-BathindaUrban": {
     "acId": "AC092-BathindaUrban",
+    "name": "Bathinda Urban  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (Central Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]"
@@ -5854,6 +6008,8 @@
   },
   "AC093-BathindaRural": {
     "acId": "AC093-BathindaRural",
+    "name": "Bathinda Rural  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (Central Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]"
     ],
@@ -5863,6 +6019,8 @@
   },
   "AC094-TalwandiSabo": {
     "acId": "AC094-TalwandiSabo",
+    "name": "Talwandi Sabo  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (Central Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]"
@@ -5874,6 +6032,8 @@
   },
   "AC095-Maur": {
     "acId": "AC095-Maur",
+    "name": "Maur  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Constituency-Research-Agent\nSources Consulted: Web searches on Punjab 2022 election results",
+    "region": "Malwa (Central Punjab)",
     "requiresVerification": [
       "[NEEDS VERIFICATION - significant given high vote count]",
       "[NEEDS VERIFICATION]",
@@ -5887,6 +6047,8 @@
   },
   "AC096-Mansa": {
     "acId": "AC096-Mansa",
+    "name": "Mansa  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: indiavotes.com",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - full candidate list from 2022]",
       "[NEEDS VERIFICATION - previous election results]",
@@ -5914,6 +6076,8 @@
   },
   "AC097-Sardulgarh": {
     "acId": "AC097-Sardulgarh",
+    "name": "Sardulgarh  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: proneta.in",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - runner-up candidate details]",
       "[NEEDS VERIFICATION - full candidate list from 2022]",
@@ -5939,6 +6103,8 @@
   },
   "AC098-Budhlada": {
     "acId": "AC098-Budhlada",
+    "name": "Budhlada  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: wikipedia.org",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - General/SC category]",
       "[NEEDS VERIFICATION - runner-up candidate and party]",
@@ -5964,6 +6130,8 @@
   },
   "AC099-Lehra": {
     "acId": "AC099-Lehra",
+    "name": "Lehra  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: news18.com",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - likely Sangrur or Mansa]",
       "[NEEDS VERIFICATION]",
@@ -5991,6 +6159,8 @@
   },
   "AC100-Dirba": {
     "acId": "AC100-Dirba",
+    "name": "Dirba  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: indiavotes.com",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - likely Sangrur district]",
       "[NEEDS VERIFICATION]",
@@ -6026,6 +6196,8 @@
   },
   "AC101-Sunam": {
     "acId": "AC101-Sunam",
+    "name": "Sunam  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: grokipedia.com",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -6059,6 +6231,8 @@
   },
   "AC102-Bhadaur": {
     "acId": "AC102-Bhadaur",
+    "name": "Bhadaur  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: grokipedia.com",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - winner name and party]",
       "[NEEDS VERIFICATION - note: Charanjit Singh Channi mentioned in news but was from more prominent seat]",
@@ -6088,6 +6262,8 @@
   },
   "AC103-Barnala": {
     "acId": "AC103-Barnala",
+    "name": "Barnala  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: grokipedia.com",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION - winner name and party from 2022]",
@@ -6117,6 +6293,8 @@
   },
   "AC104-MehalKalan": {
     "acId": "AC104-MehalKalan",
+    "name": "Mehal Kalan  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: proneta.in",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - margin in votes/percentage]",
       "[NEEDS VERIFICATION - full candidate list]",
@@ -6138,6 +6316,8 @@
   },
   "AC105-Malerkotla": {
     "acId": "AC105-Malerkotla",
+    "name": "Malerkotla  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: wikipedia.org",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - runner-up candidate]",
       "[NEEDS VERIFICATION - previous election results]",
@@ -6159,6 +6339,8 @@
   },
   "AC106-Amargarh": {
     "acId": "AC106-Amargarh",
+    "name": "Amargarh  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: proneta.in",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - full candidate list]",
       "[NEEDS VERIFICATION - previous election results and winner]",
@@ -6180,6 +6362,8 @@
   },
   "AC107-Dhuri": {
     "acId": "AC107-Dhuri",
+    "name": "Dhuri  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: proneta.in",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION - previous election results and winner]",
@@ -6201,6 +6385,8 @@
   },
   "AC108-Sangrur": {
     "acId": "AC108-Sangrur",
+    "name": "Sangrur  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: proneta.in",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION - margin in votes]",
@@ -6222,6 +6408,8 @@
   },
   "AC109-Nabha": {
     "acId": "AC109-Nabha",
+    "name": "Nabha  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: grokipedia.com",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - winner name and party from 2022]",
       "[NEEDS VERIFICATION]",
@@ -6253,6 +6441,8 @@
   },
   "AC110-PatialaRural": {
     "acId": "AC110-PatialaRural",
+    "name": "Patiala Rural  - Deep Research\nTier: 2\nDate: 20 May 2026\nAgent: Research-Orchestrator\nSources Consulted: oneindia.com",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION - likely General category]",
       "[NEEDS VERIFICATION - runner-up candidate and party]",
@@ -6276,6 +6466,8 @@
   },
   "AC111-Rajpura": {
     "acId": "AC111-Rajpura",
+    "name": "AC111-Rajpura Deep Constituency Dossier\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: IndiaVotes",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -6295,6 +6487,8 @@
   },
   "AC112-DeraBassi": {
     "acId": "AC112-DeraBassi",
+    "name": "AC112-Dera Bassi Deep Constituency Dossier\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: IndiaVotes",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION — likely SAD+BJP or Congress held]",
@@ -6312,6 +6506,8 @@
   },
   "AC113-Ghanaur": {
     "acId": "AC113-Ghanaur",
+    "name": "AC113-Ghanaur Deep Constituency Dossier\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: IndiaVotes",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION — margin 31,765 reported]",
       "[NEEDS VERIFICATION]",
@@ -6331,6 +6527,8 @@
   },
   "AC114-Sanour": {
     "acId": "AC114-Sanour",
+    "name": "AC114-Sanour Deep Constituency Dossier\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: IndiaVotes",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION]",
       "[NEEDS VERIFICATION]",
@@ -6344,6 +6542,8 @@
   },
   "AC115-Patiala": {
     "acId": "AC115-Patiala",
+    "name": "AC115-Patiala Deep Constituency Dossier\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: IndiaVotes",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION — Congress candidate was Col. (Retd.) Mohan Singh or similar]",
       "[NEEDS VERIFICATION]",
@@ -6359,6 +6559,8 @@
   },
   "AC116-Samana": {
     "acId": "AC116-Samana",
+    "name": "AC116-Samana Deep Constituency Dossier\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: IndiaVotes",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION — margin data available]",
       "[NEEDS VERIFICATION]",
@@ -6376,6 +6578,8 @@
   },
   "AC117-Shutrana": {
     "acId": "AC117-Shutrana",
+    "name": "AC117-Shutrana Deep Constituency Dossier\nTier: 2\nDate: 20 May 2026\nAgent: Orchestrator-R1\nSources Consulted: IndiaVotes",
+    "region": "Malwa",
     "requiresVerification": [
       "[NEEDS VERIFICATION — margin 51,554 reported]",
       "[NEEDS VERIFICATION — likely Congress or SAD held]",
