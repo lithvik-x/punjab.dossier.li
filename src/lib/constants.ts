@@ -90,10 +90,10 @@ export const OPERATIONAL_HEADS = [
 ] as const;
 
 export const REGIONS = [
-  { id: "malwa", name: "Malwa", constituencies: 69, border: "Central/South Punjab" },
+  { id: "malwa", name: "Malwa", constituencies: 60, border: "Central/South Punjab" },
   { id: "majha", name: "Majha", constituencies: 25, border: "Pakistan border, Central" },
   { id: "doaba", name: "Doaba", constituencies: 23, border: "Dual river region" },
-  { id: "powadh", name: "Powadh", constituencies: 10, border: "Punjab-Haryana border" },
+  { id: "powadh", name: "Powadh", constituencies: 9, border: "Punjab-Haryana border" },
 ] as const;
 
 export const PARTIES = [
