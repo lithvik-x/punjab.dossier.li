@@ -1,9 +1,9 @@
 import RegionConstituencies from "@/components/dashboard/RegionConstituencies";
-import { batch1Intelligence } from "@/lib/election-intelligence";
+import constituencies from "@/lib/constituencies.json";
 
 export default function PowadhPage() {
-  // Filter Powadh constituencies from batch1
-  const powadhConstituencies = batch1Intelligence.filter(
+  // Filter Powadh constituencies from full dataset
+  const powadhConstituencies = (constituencies as any[]).filter(
     ac => ac.region === "Powadh"
   );
 

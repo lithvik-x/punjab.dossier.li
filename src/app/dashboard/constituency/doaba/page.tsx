@@ -1,9 +1,9 @@
 import RegionConstituencies from "@/components/dashboard/RegionConstituencies";
-import { batch1Intelligence } from "@/lib/election-intelligence";
+import constituencies from "@/lib/constituencies.json";
 
 export default function DoabaPage() {
-  // Filter Doaba constituencies from batch1
-  const doabaConstituencies = batch1Intelligence.filter(
+  // Filter Doaba constituencies from full dataset
+  const doabaConstituencies = (constituencies as any[]).filter(
     ac => ac.region === "Doaba"
   );
 
@@ -13,7 +13,7 @@ export default function DoabaPage() {
         regionName="Doaba"
         regionId="doaba"
         constituencies={doabaConstituencies}
-        regionDescription="Dual river region - 23 seats. Highest SC concentration (37%). Dera Ballan influence critical. NRI remittances. BSP factor in SC-reserved seats."
+        regionDescription="Punjab's central region - 23 seats. Known as 'Land of Warriors' - NRI voter impact. Drug crisis severe. Three-way contests common. Channi's home region."
         totalSeats={23}
       />
     </div>

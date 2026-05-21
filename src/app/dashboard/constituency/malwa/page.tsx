@@ -1,9 +1,9 @@
 import RegionConstituencies from "@/components/dashboard/RegionConstituencies";
-import { batch1Intelligence } from "@/lib/election-intelligence";
+import constituencies from "@/lib/constituencies.json";
 
 export default function MalwaPage() {
-  // Filter Malwa constituencies from batch1
-  const malwaConstituencies = batch1Intelligence.filter(
+  // Filter Malwa constituencies from full dataset
+  const malwaConstituencies = (constituencies as any[]).filter(
     ac => ac.region === "Malwa"
   );
 

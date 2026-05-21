@@ -1,0 +1,7437 @@
+[
+  {
+    "acId": "AC001",
+    "acNumber": 1,
+    "name": "Sujanpur",
+    "district": "Pathankot",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Naresh Puri",
+        "party": "INC",
+        "margin": 4636,
+        "votePercentage": 40.2
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 28
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 22
+      },
+      {
+        "category": "Upper Caste",
+        "percentage": 18
+      },
+      {
+        "category": "OBC",
+        "percentage": 15
+      },
+      {
+        "category": "Minority",
+        "percentage": 5
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Menace",
+        "description": "Rural youth addiction crisis"
+      },
+      {
+        "issue": "Unemployment",
+        "description": "19.3% unemployment rate"
+      },
+      {
+        "issue": "Border Security",
+        "description": "Proximity to Pakistan border"
+      }
+    ],
+    "congressPosition": "HOLD",
+    "recommendedCandidate": {
+      "profile": "Strong rural connect",
+      "caste": "Jat Sikh or Rajput",
+      "keyQualities": [
+        "Border area awareness",
+        "Agricultural background",
+        "Villager accessibility"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Drug Crisis",
+        "message": "Drugs flow despite AAP claims - families suffer",
+        "audience": "All voters"
+      },
+      {
+        "issue": "Broken Promises",
+        "message": "₹1000/month for women - where is the money?",
+        "audience": "Women, urban"
+      },
+      {
+        "issue": "Infrastructure",
+        "message": "Rural roads, power still poor under AAP",
+        "audience": "Rural voters"
+      }
+    ],
+    "margin": 4636,
+    "party": "INC",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "2012 election results gap",
+      "Booth-level vote distribution",
+      "MLA performance assessment",
+      "Youth unemployment exact figures",
+      "Border security incidents data"
+    ],
+    "crossReferences": [
+      "Batch 2: AC010-Dera Baba Nanak shares border security concerns",
+      "Drug menace issue across AC001, AC002, AC004, AC006, AC007, AC009"
+    ],
+    "strategicImplications": [
+      "Margin allows candidate innovation without existential risk",
+      "Youth vote 19.3% unemployment is rallying cry",
+      "Border narrative creates natural Congress-BJP tactical voting against AAP"
+    ],
+    "visualizationRecommendations": [
+      "Line chart for 2012-2022 trend",
+      "Horizontal bar for margin comparison",
+      "Donut chart for caste composition"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "ElectionResultCard",
+        "CasteDonutChart",
+        "IssueHeatMap",
+        "StrategyCard",
+        "CandidateProfileCard",
+        "AttackLineTable"
+      ]
+    }
+  },
+  {
+    "acId": "AC002",
+    "acNumber": 2,
+    "name": "Bhoa (SC)",
+    "district": "Pathankot",
+    "region": "Majha",
+    "type": "SC",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 0,
+        "note": "Flipped from Congress"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 65
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 25
+      },
+      {
+        "category": "Upper Caste",
+        "percentage": 10
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Unemployment",
+        "description": "Joblessness among youth"
+      },
+      {
+        "issue": "Drug Menace",
+        "description": "Rural youth addiction"
+      }
+    ],
+    "congressPosition": "RECOVERY",
+    "recommendedCandidate": {
+      "profile": "Strong SC candidate required",
+      "caste": "SC",
+      "keyQualities": [
+        "Prominent Dalit leader",
+        "Social worker background",
+        "Grassroots connect",
+        "Dedicated to Dalit rights"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Drug Crisis",
+        "message": "AAP failed SC communities",
+        "audience": "SC voters"
+      }
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "2017, 2012 results",
+      "Dalit subgroups breakdown (Ravidassia, Mazhabi)",
+      "Ground-level AAP betrayal meter for SC voters"
+    ],
+    "crossReferences": [
+      "AC005-Dina Nagar: Both SC seats similar voter profile",
+      "AC008-Sri Hargobindpur: All SC seats statewide coordination"
+    ],
+    "strategicImplications": [
+      "Right candidate can reclaim - AAP has not delivered to SC",
+      "Symbolic victory if reclaimed",
+      "Cannot win with weak candidate"
+    ],
+    "visualizationRecommendations": [
+      "Flip alert banner",
+      "SC voter dominance display"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "AlertBanner",
+        "DominantCasteCard",
+        "RequirementChecklist",
+        "IssueCasteMatrix"
+      ]
+    }
+  },
+  {
+    "acId": "AC003",
+    "acNumber": 3,
+    "name": "Pathankot",
+    "district": "Pathankot",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "BJP",
+        "party": "BJP",
+        "margin": null
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Hindu",
+        "percentage": 60
+      },
+      {
+        "category": "Sikh",
+        "percentage": 35
+      },
+      {
+        "category": "SC",
+        "percentage": 29
+      },
+      {
+        "category": "OBC",
+        "percentage": 15
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Urban Services",
+        "description": "Power cuts, water supply, garbage management"
+      },
+      {
+        "issue": "Tourism",
+        "description": "Gateway to Himalayas potential"
+      }
+    ],
+    "congressPosition": "LOW PRIORITY",
+    "recommendedCandidate": null,
+    "attackLines": [],
+    "margin": null,
+    "party": "BJP",
+    "priorityTier": "RECOVERY",
+    "dataGaps": [
+      "Exact vote share between BJP and AAP",
+      "Tourism revenue potential figures",
+      "Power cut frequency data",
+      "Business community sentiment"
+    ],
+    "crossReferences": [
+      "Border region shares security concerns with AC001, AC004, AC009"
+    ],
+    "strategicImplications": [
+      "Not Congress seat - BJP vs AAP contest",
+      "Congress can play kingmaker",
+      "Tourism underperformance is visible failure"
+    ],
+    "visualizationRecommendations": [
+      "Urban governance dashboard",
+      "Hindu-Sikh vote distribution"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "ServiceTrackerCard",
+        "ReligiousVoteChart",
+        "PotentialCard"
+      ]
+    }
+  },
+  {
+    "acId": "AC004",
+    "acNumber": 4,
+    "name": "Gurdaspur",
+    "district": "Gurdaspur",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "INC",
+        "party": "INC",
+        "margin": 7335
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 31
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 24
+      },
+      {
+        "category": "OBC",
+        "percentage": 14
+      },
+      {
+        "category": "Minority",
+        "percentage": 8
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Flood Impact",
+        "description": "321 villages affected 2024-2025"
+      },
+      {
+        "issue": "Border Security",
+        "description": "Drug smuggling routes"
+      },
+      {
+        "issue": "Farmer Distress",
+        "description": "MSP, stubble, groundwater"
+      }
+    ],
+    "congressPosition": "HOLD",
+    "recommendedCandidate": {
+      "profile": "Farmer leader",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "Flood relief focus",
+        "Agricultural background"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Flood Mismanagement",
+        "message": "321 villages affected - relief response slow",
+        "audience": "All voters"
+      }
+    ],
+    "margin": 7335,
+    "party": "INC",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "321 villages flood data verification",
+      "Farmer suicide data",
+      "MSP procurement percentage",
+      "Groundwater depletion figures"
+    ],
+    "crossReferences": [
+      "AC001, AC009: Shared border security",
+      "MP Sunny Deol: BJP MP coordination"
+    ],
+    "strategicImplications": [
+      "Flood relief narrative critical",
+      "Exploit any BJP-AAP friction",
+      "Farmer focus is vote-winner"
+    ],
+    "visualizationRecommendations": [
+      "Flood impact dashboard",
+      "Farmer distress index",
+      "Border security alert"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "FloodImpactCard",
+        "DistressIndexGauge",
+        "ThreatLevelIndicator"
+      ]
+    }
+  },
+  {
+    "acId": "AC005",
+    "acNumber": 5,
+    "name": "Dina Nagar (SC)",
+    "district": "Gurdaspur",
+    "region": "Majha",
+    "type": "SC",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Aruna Chaudhary",
+        "party": "INC",
+        "margin": 1131,
+        "votePercentage": 50.2
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 65
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 26
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Menace",
+        "description": "Rural SC youth affected"
+      },
+      {
+        "issue": "Unemployment",
+        "description": "Limited opportunities"
+      }
+    ],
+    "congressPosition": "HOLD - CRITICAL",
+    "recommendedCandidate": {
+      "profile": "Two-term MLA Aruna Chaudhary - decision pending",
+      "caste": "SC",
+      "keyQualities": [
+        "Incumbent or strong successor required"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Razor Margin",
+        "message": "Anti-incumbency could flip this seat",
+        "audience": "All voters"
+      }
+    ],
+    "margin": 1131,
+    "party": "INC",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [
+      "Original margin verification",
+      "Aruna Chaudhary term performance",
+      "SC voter enthusiasm survey",
+      "Retirement planned or fielding again"
+    ],
+    "crossReferences": [
+      "AC002-Bhoa (SC): SC seat strategy coordination",
+      "AC008-Sri Hargobindpur: All SC seats unified approach"
+    ],
+    "strategicImplications": [
+      "Immediate action required - decision on Aruna Chaudhary first",
+      "Either back strongly or find equally strong SC successor",
+      "No middle ground"
+    ],
+    "visualizationRecommendations": [
+      "Critical margin alert",
+      "Voter swing indicator",
+      "Anti-incumbency meter"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "CriticalAlertBanner",
+        "SwingIndicatorChart",
+        "AntiIncumbencyGauge"
+      ]
+    }
+  },
+  {
+    "acId": "AC006",
+    "acNumber": 6,
+    "name": "Qadian",
+    "district": "Gurdaspur",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Partap Singh Bajwa",
+        "party": "INC",
+        "margin": 7174
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 60
+      },
+      {
+        "category": "Hindu",
+        "percentage": 25
+      },
+      {
+        "category": "Muslim",
+        "percentage": 15
+      },
+      {
+        "category": "SC",
+        "percentage": 31
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Baba Farid Shrine",
+        "description": "Pilgrimage infrastructure"
+      },
+      {
+        "issue": "Minority Outreach",
+        "description": "Muslim voters 10-15%"
+      }
+    ],
+    "congressPosition": "HOLD",
+    "recommendedCandidate": {
+      "profile": "Partap Singh Bajwa",
+      "caste": "Bajwa family",
+      "keyQualities": [
+        "Incumbent advantage",
+        "Family dynasty"
+      ]
+    },
+    "attackLines": [],
+    "margin": 7174,
+    "party": "INC",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Baba Farid shrine visitor statistics",
+      "AAP appeal among Muslim voters",
+      "Partap Singh Bajwa health/continuation"
+    ],
+    "crossReferences": [
+      "AC009-Fatehgarh Churian: Both Bajwa family seats"
+    ],
+    "strategicImplications": [
+      "Incumbent advantage maintained",
+      "Minority outreach via Baba Farid narrative"
+    ],
+    "visualizationRecommendations": [
+      "Pilgrimage dashboard",
+      "Minority vote tracker"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "PilgrimageDashboard",
+        "ReligiousCompositionChart",
+        "PoliticalFamilyCard"
+      ]
+    }
+  },
+  {
+    "acId": "AC007",
+    "acNumber": 7,
+    "name": "Batala",
+    "district": "Gurdaspur",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 28472
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 31
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 24
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Industrial Decline",
+        "description": "Brass industry dropping"
+      },
+      {
+        "issue": "Drug Menace",
+        "description": "Urban youth affected"
+      }
+    ],
+    "congressPosition": "RECOVERY",
+    "recommendedCandidate": null,
+    "attackLines": [],
+    "margin": -28472,
+    "party": "AAP",
+    "priorityTier": "RECOVERY",
+    "dataGaps": [
+      "Brass industry exact employment figures",
+      "Factory closure numbers since 2022",
+      "AAP industrial promises for Batala"
+    ],
+    "crossReferences": [
+      "Industrial seats patterns relevant to Ludhiana"
+    ],
+    "strategicImplications": [
+      "Long-term rebuild - 2027+ target",
+      "Industrial narrative needed"
+    ],
+    "visualizationRecommendations": [
+      "AAP victory analysis",
+      "Industrial health tracker"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "VictoryMarginCard",
+        "IndustrialDeclineCard"
+      ]
+    }
+  },
+  {
+    "acId": "AC008",
+    "acNumber": 8,
+    "name": "Sri Hargobindpur (SC)",
+    "district": "Gurdaspur",
+    "region": "Majha",
+    "type": "SC",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Amarpal Singh (AAP)",
+        "party": "AAP",
+        "margin": null,
+        "note": "DATA CONFLICT - IndiaVotes vs ResultUniversity"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 70
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 26
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Menace",
+        "description": "SC communities severely affected"
+      }
+    ],
+    "congressPosition": "RECOVERY",
+    "recommendedCandidate": {
+      "profile": "Strong SC candidate",
+      "caste": "SC",
+      "keyQualities": [
+        "Dalit rights activist"
+      ]
+    },
+    "attackLines": [],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "ECI official result verification REQUIRED",
+      "Which AAP candidate won (name verification)",
+      "SAD vs INC actual 2022 contestant"
+    ],
+    "crossReferences": [
+      "AC002, AC005: SC voter dominance pattern"
+    ],
+    "strategicImplications": [
+      "Data first - cannot plan without knowing winner",
+      "Assume AAP win until verified"
+    ],
+    "visualizationRecommendations": [
+      "Data conflict warning",
+      "Conflicting source table"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "ConflictAlertBanner",
+        "SourceComparisonTable"
+      ]
+    }
+  },
+  {
+    "acId": "AC009",
+    "acNumber": 9,
+    "name": "Fatehgarh Churian",
+    "district": "Gurdaspur",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Tript Rajender Singh Bajwa",
+        "party": "INC",
+        "margin": 5545
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 31
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 24
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Border Security",
+        "description": "Adjacent to Pakistan"
+      },
+      {
+        "issue": "Drug Trafficking",
+        "description": "Smuggling routes active"
+      }
+    ],
+    "congressPosition": "HOLD",
+    "recommendedCandidate": {
+      "profile": "Tript Rajender Singh Bajwa",
+      "caste": "Bajwa family",
+      "keyQualities": [
+        "Border area awareness",
+        "Family dynasty"
+      ]
+    },
+    "attackLines": [],
+    "margin": 5545,
+    "party": "INC",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "Tript Rajender Singh Bajwa continuation status",
+      "Exact border incident statistics"
+    ],
+    "crossReferences": [
+      "AC006-Qadian: Both Bajwa family seats",
+      "AC001, AC004: Border security shared"
+    ],
+    "strategicImplications": [
+      "Maintain through Bajwa family network",
+      "AAP government failed on drug control"
+    ],
+    "visualizationRecommendations": [
+      "Border security dashboard",
+      "Bajwa dynasty connection"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "BorderSecurityCard",
+        "FamilyNetworkCard"
+      ]
+    }
+  },
+  {
+    "acId": "AC010",
+    "acNumber": 10,
+    "name": "Dera Baba Nanak",
+    "district": "Gurdaspur",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Gurdaspur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Sukhjinder Singh Randhawa",
+        "party": "INC",
+        "margin": 52361
+      },
+      {
+        "year": 2024,
+        "winner": "Gurdeep Singh Randhawa",
+        "party": "AAP",
+        "margin": 59104,
+        "note": "Bye-election flip"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [
+      {
+        "issue": "Border Security",
+        "description": "Dera Baba Nanak - sacred site"
+      },
+      {
+        "issue": "Drug Menace",
+        "description": "Border area vulnerability"
+      }
+    ],
+    "congressPosition": "FLIPPED",
+    "recommendedCandidate": null,
+    "attackLines": [],
+    "margin": -59104,
+    "party": "AAP",
+    "priorityTier": "RECOVERY",
+    "dataGaps": [
+      "2017, 2012 results"
+    ],
+    "crossReferences": [
+      "Batch 1: Border security concerns with AC001, AC004, AC009"
+    ],
+    "strategicImplications": [
+      "AAP flipped in 2024 bye-election - critical warning sign"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC019",
+    "acNumber": 19,
+    "name": "Amritsar South",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Dr. Inderbir Singh Nijjar",
+        "party": "AAP",
+        "margin": null
+      },
+      {
+        "year": 2017,
+        "winner": "Inderbir Singh Bolaria",
+        "party": "Congress",
+        "margin": null
+      }
+    ],
+    "totalElectors": 152000,
+    "voterTurnout": 72,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 32
+      },
+      {
+        "category": "Upper Caste (Hindu)",
+        "percentage": 25
+      },
+      {
+        "category": "SC",
+        "percentage": 20
+      },
+      {
+        "category": "OBC",
+        "percentage": 11
+      },
+      {
+        "category": "Minority",
+        "percentage": 8
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Farmer Distress",
+        "description": "MSP, stubble, irrigation"
+      },
+      {
+        "issue": "Rural Infrastructure",
+        "description": "Peri-urban development"
+      },
+      {
+        "issue": "Drug Addiction",
+        "description": "Rural youth affected"
+      },
+      {
+        "issue": "Youth Unemployment",
+        "description": "Limited opportunities"
+      }
+    ],
+    "congressPosition": "CHALLENGING",
+    "recommendedCandidate": {
+      "profile": "Jat Sikh preferred",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "Urban-rural mix appeal",
+        "Development narrative"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Rural Infrastructure",
+        "message": "Peri-urban development promise unfulfilled",
+        "audience": "Rural voters"
+      }
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "Full 2022 results with all candidates",
+      "Booth-level data"
+    ],
+    "crossReferences": [
+      "Border region security concerns"
+    ],
+    "strategicImplications": [
+      "Reconnect with traditional Congress Jat Sikh vote bank"
+    ],
+    "visualizationRecommendations": [
+      "Choropleth map",
+      "Caste donut chart"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "DataCard",
+        "CasteChart",
+        "MarginIndicator"
+      ]
+    }
+  },
+  {
+    "acId": "AC020",
+    "acNumber": 20,
+    "name": "Attari (SC)",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "SC",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "ADC Jaswinder Singh",
+        "party": "AAP",
+        "margin": 19794
+      }
+    ],
+    "totalElectors": 145000,
+    "voterTurnout": 71,
+    "casteComposition": [
+      {
+        "category": "SC (Dalit)",
+        "percentage": 52.17
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 28
+      },
+      {
+        "category": "Hindu Upper Caste",
+        "percentage": 18
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Border Security",
+        "description": "Drug trafficking, BSF proximity"
+      },
+      {
+        "issue": "SC Landholder Rights",
+        "description": "Rural infrastructure"
+      },
+      {
+        "issue": "Unemployment",
+        "description": "BSF recruitment"
+      }
+    ],
+    "congressPosition": "REBUILD",
+    "recommendedCandidate": {
+      "profile": "MUST be from SC community",
+      "caste": "SC Dalit",
+      "keyQualities": [
+        "Dalit vote consolidation",
+        "BSP split potential"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Border SC Communities",
+        "message": "What did he do for border SC communities?",
+        "audience": "SC voters"
+      }
+    ],
+    "margin": -19794,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [
+      "Dalit subgroups breakdown"
+    ],
+    "crossReferences": [
+      "AC025 Baba Bakala: Similar SC demographics"
+    ],
+    "strategicImplications": [
+      "Dalit vote consolidation critical",
+      "AAP weakness is BSP split potential"
+    ],
+    "visualizationRecommendations": [
+      "Heat map of SC concentration"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "ReservedSeatBadge",
+        "CommunityBreakdown",
+        "BorderProximityIndicator"
+      ]
+    }
+  },
+  {
+    "acId": "AC021",
+    "acNumber": 21,
+    "name": "Tarn Taran",
+    "district": "Tarn Taran",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Tarn Taran",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Kashmir Singh Sohal",
+        "party": "AAP",
+        "margin": 4621
+      },
+      {
+        "year": 2025,
+        "winner": "Harmeet Singh Sandhu",
+        "party": "AAP",
+        "margin": 12000,
+        "note": "By-election after death"
+      },
+      {
+        "year": 2017,
+        "winner": "Dharambir Agnihotri",
+        "party": "Congress",
+        "margin": null
+      },
+      {
+        "year": 2012,
+        "winner": "Harmeet Singh Sandhu",
+        "party": "SAD",
+        "margin": null
+      }
+    ],
+    "totalElectors": 198446,
+    "voterTurnout": 71,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 89
+      },
+      {
+        "category": "Hindu",
+        "percentage": 10
+      },
+      {
+        "category": "SC",
+        "percentage": 23
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Crisis",
+        "description": "Border vulnerability"
+      },
+      {
+        "issue": "Agricultural Distress",
+        "description": "MSP, stubble"
+      },
+      {
+        "issue": "Border Security",
+        "description": "Unemployment, NRI emigration"
+      }
+    ],
+    "congressPosition": "IMPROVABLE",
+    "recommendedCandidate": {
+      "profile": "Jat Sikh preferred",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "Agricultural background",
+        "Youth connect",
+        "Clean image"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Party Hopping",
+        "message": "From BJP to SAD to AAP - serial party hopper",
+        "audience": "All voters"
+      }
+    ],
+    "margin": 4621,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [
+      "2025 bypoll breakdown"
+    ],
+    "crossReferences": [
+      "Congress third place in 2025 - organizational collapse"
+    ],
+    "strategicImplications": [
+      "Congress third-place finish = organizational collapse",
+      "Requires immediate structural intervention"
+    ],
+    "visualizationRecommendations": [
+      "Electoral timeline",
+      "Turnout gauge"
+    ],
+    "uiComponentSpecs": {
+      "components": [
+        "ElectoralTimeline",
+        "TurnoutGauge",
+        "CandidateFlowDiagram"
+      ]
+    }
+  },
+  {
+    "acId": "AC022",
+    "acNumber": 22,
+    "name": "Khem Karan",
+    "district": "Tarn Taran",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Tarn Taran",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Sarwan Singh Dhun",
+        "party": "AAP",
+        "margin": 11882
+      },
+      {
+        "year": 2017,
+        "winner": "Sukhpal Singh Bhullar",
+        "party": "Congress",
+        "margin": null
+      }
+    ],
+    "totalElectors": 218055,
+    "voterTurnout": 69,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 38
+      },
+      {
+        "category": "SC",
+        "percentage": 28
+      },
+      {
+        "category": "OBC",
+        "percentage": 17
+      },
+      {
+        "category": "Hindu",
+        "percentage": 17
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Trafficking",
+        "description": "Border area corridor"
+      },
+      {
+        "issue": "Stubble Burning",
+        "description": "Groundwater depletion"
+      },
+      {
+        "issue": "Youth Unemployment",
+        "description": "Canal irrigation issues"
+      }
+    ],
+    "congressPosition": "CONTESTABLE",
+    "recommendedCandidate": {
+      "profile": "Jat Sikh or Rajput Sikh",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "Farmer leader",
+        "Clean image",
+        "Local connect"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Inaction",
+        "message": "What did he do in 4 years?",
+        "audience": "All voters"
+      }
+    ],
+    "margin": -11882,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "Full 2022 results"
+    ],
+    "crossReferences": [
+      "Drug corridor with AC023, AC024"
+    ],
+    "strategicImplications": [
+      "Address drug crisis credibly",
+      "Avoid dynastic candidate"
+    ],
+    "visualizationRecommendations": [
+      "Geospatial drug trafficking corridor map"
+    ],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC023",
+    "acNumber": 23,
+    "name": "Patti",
+    "district": "Tarn Taran",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Tarn Taran",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Laljit Singh Bhullar",
+        "party": "AAP",
+        "margin": 10999
+      },
+      {
+        "year": 2017,
+        "winner": "Harminder Singh Gill",
+        "party": "Congress",
+        "margin": null
+      },
+      {
+        "year": 2012,
+        "winner": "Adesh Partap Singh Kairon",
+        "party": "SAD",
+        "margin": null
+      }
+    ],
+    "totalElectors": 202155,
+    "voterTurnout": 70,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 40
+      },
+      {
+        "category": "SC",
+        "percentage": 25
+      },
+      {
+        "category": "OBC",
+        "percentage": 17
+      },
+      {
+        "category": "Hindu Upper Caste",
+        "percentage": 14
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Border Security",
+        "description": "Drug trafficking corridor"
+      },
+      {
+        "issue": "Agricultural Crisis",
+        "description": "MSP issues"
+      }
+    ],
+    "congressPosition": "CHALLENGING",
+    "recommendedCandidate": {
+      "profile": "Jat Sikh preferred",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "Agricultural background",
+        "Youth leader",
+        "Clean image"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Party Loyalty",
+        "message": "From Congress to AAP - where is loyalty?",
+        "audience": "All voters"
+      }
+    ],
+    "margin": -10999,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Border corridor with AC022, AC024"
+    ],
+    "strategicImplications": [
+      "Split Jat Sikh and SC votes",
+      "Clear stand on drugs"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC024",
+    "acNumber": 24,
+    "name": "Khadoor Sahib",
+    "district": "Tarn Taran",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Khadoor Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Manjinder Singh Lalpura",
+        "party": "AAP",
+        "margin": null
+      },
+      {
+        "year": 2012,
+        "winner": "Ramanjit Singh Sikki",
+        "party": "Congress",
+        "margin": null
+      }
+    ],
+    "totalElectors": 203539,
+    "voterTurnout": 71.37,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 43
+      },
+      {
+        "category": "SC",
+        "percentage": 23
+      },
+      {
+        "category": "OBC",
+        "percentage": 17
+      },
+      {
+        "category": "Hindu",
+        "percentage": 11
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Crisis",
+        "description": "Gurdwara sacred site"
+      },
+      {
+        "issue": "Agricultural Distress",
+        "description": "Rural employment"
+      }
+    ],
+    "congressPosition": "CHALLENGING",
+    "recommendedCandidate": {
+      "profile": "Jat Sikh",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "Religious connect",
+        "Agricultural background",
+        "Youth appeal",
+        "Clean image"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "No Achievement",
+        "message": "What did he achieve in 4 years?",
+        "audience": "All voters"
+      }
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "Full 2022 results",
+      "2017 winner data"
+    ],
+    "crossReferences": [
+      "Amritpal Singh won LS 2024 with 1.93 lakh margin"
+    ],
+    "strategicImplications": [
+      "Amritpal Singh independent victory creates cross-pressure",
+      "Anti-incumbency amplifier"
+    ],
+    "visualizationRecommendations": [
+      "Dual-axis Assembly vs LS results chart"
+    ],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC025",
+    "acNumber": 25,
+    "name": "Baba Bakala (SC)",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "SC",
+    "lokSabha": "Khadoor Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Dalbir Singh Tong",
+        "party": "AAP",
+        "margin": 19552
+      },
+      {
+        "year": 2017,
+        "winner": "Manjit Singh Mianwind",
+        "party": "SAD",
+        "margin": null
+      },
+      {
+        "year": 2012,
+        "winner": "Manjit Singh Mianwind",
+        "party": "SAD",
+        "margin": null
+      }
+    ],
+    "totalElectors": 199929,
+    "voterTurnout": 69,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 58
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 28
+      },
+      {
+        "category": "OBC",
+        "percentage": 11
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Caste Discrimination",
+        "description": "Social justice"
+      },
+      {
+        "issue": "Drug Addiction",
+        "description": "SC communities severely affected"
+      },
+      {
+        "issue": "Employment",
+        "description": "SC youth opportunities"
+      }
+    ],
+    "congressPosition": "DIFFICULT",
+    "recommendedCandidate": {
+      "profile": "Mazhabi Sikh or Ramdasia Sikh CRITICAL",
+      "caste": "SC",
+      "keyQualities": [
+        "Social worker",
+        "Dalit rights activist",
+        "Youth leader"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "No Delivery",
+        "message": "Promised development, delivered nothing",
+        "audience": "SC voters"
+      }
+    ],
+    "margin": -19552,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [
+      "SC sub-caste breakdown (Mazhabi vs Ramdasia vs Ravidassia)"
+    ],
+    "crossReferences": [
+      "AC020 Attari: Twin Dalit-majority seats"
+    ],
+    "strategicImplications": [
+      "BSP revival scenario - both vulnerable to BSP split"
+    ],
+    "visualizationRecommendations": [
+      "Comparative bar chart AC020 vs AC025"
+    ],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC026",
+    "acNumber": 26,
+    "name": "Bholath",
+    "district": "Kapurthala",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Kapurthala",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Sukhapal Singh Khaira",
+        "party": "Congress",
+        "margin": 9225
+      },
+      {
+        "year": 2017,
+        "winner": "Sukhapal Singh Khaira",
+        "party": "AAP",
+        "margin": null
+      },
+      {
+        "year": 2012,
+        "winner": "Bibi Jagir Kaur",
+        "party": "SAD",
+        "margin": null
+      }
+    ],
+    "totalElectors": 136413,
+    "voterTurnout": 68,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 38
+      },
+      {
+        "category": "SC",
+        "percentage": 33
+      },
+      {
+        "category": "OBC",
+        "percentage": 17
+      },
+      {
+        "category": "Hindu Upper",
+        "percentage": 11
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Bibi Jagir Kaur Influence",
+        "description": "SAD factor"
+      },
+      {
+        "issue": "Drug Crisis",
+        "description": "Doaba vulnerability"
+      }
+    ],
+    "congressPosition": "FAVORABLE",
+    "recommendedCandidate": {
+      "profile": "Sukhapal Singh Khaira",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "3-term MLA",
+        "Khaira dynasty"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Dynasty Politics",
+        "message": "Bibi Jagir Kaur - no vision",
+        "audience": "All voters"
+      }
+    ],
+    "margin": 9225,
+    "party": "INC",
+    "priorityTier": "HOLD",
+    "dataGaps": [],
+    "crossReferences": [
+      "Khaira family political dynasty"
+    ],
+    "strategicImplications": [
+      "Voter loyalty to person over party",
+      "Must retain Khaira"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC027",
+    "acNumber": 27,
+    "name": "Kapurthala",
+    "district": "Kapurthala",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Kapurthala",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Rana Gurjeet Singh",
+        "party": "Congress",
+        "margin": 7304
+      },
+      {
+        "year": 2017,
+        "winner": "Rana Gurjeet Singh",
+        "party": "Congress",
+        "margin": null
+      },
+      {
+        "year": 2012,
+        "winner": "Rana Gurjeet Singh",
+        "party": "Congress",
+        "margin": null
+      }
+    ],
+    "totalElectors": 150111,
+    "voterTurnout": 68.42,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 33
+      },
+      {
+        "category": "Hindu Khatri/Arora",
+        "percentage": 23
+      },
+      {
+        "category": "SC",
+        "percentage": 23
+      },
+      {
+        "category": "OBC",
+        "percentage": 17
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Urban Development",
+        "description": "Industrial growth"
+      },
+      {
+        "issue": "Drug Crisis",
+        "description": "Doaba region"
+      }
+    ],
+    "congressPosition": "STRONG",
+    "recommendedCandidate": {
+      "profile": "Rana Gurjeet Singh",
+      "caste": "Hindu Khatri/Arora",
+      "keyQualities": [
+        "3-term incumbent",
+        "Development credentials"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Broken Promises",
+        "message": "Promises everything, delivers nothing",
+        "audience": "All voters"
+      }
+    ],
+    "margin": 7304,
+    "party": "INC",
+    "priorityTier": "HOLD",
+    "dataGaps": [],
+    "crossReferences": [
+      "Rana family political dynasty"
+    ],
+    "strategicImplications": [
+      "Dynasty continuity provides stability",
+      "Succession risk when Rana exits"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC029",
+    "acNumber": 29,
+    "name": "Phagwara (SC)",
+    "district": "Kapurthala",
+    "region": "Doaba",
+    "type": "SC",
+    "lokSabha": "Kapurthala",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Joginder Singh Mann",
+        "party": "Congress",
+        "margin": 2712
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 58
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 23
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Crisis",
+        "description": "SC bastis affected"
+      },
+      {
+        "issue": "Communal Tensions",
+        "description": "2018 clashes remembered"
+      }
+    ],
+    "congressPosition": "VULNERABLE",
+    "recommendedCandidate": {
+      "profile": "Dalit rights activist",
+      "caste": "SC Mazhabi Sikh",
+      "keyQualities": [
+        "Grassroots connect",
+        "SC welfare focus"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Performance",
+        "message": "Joginder Singh Mann - what did he do as AAP candidate?",
+        "audience": "All voters"
+      }
+    ],
+    "margin": 2712,
+    "party": "INC",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [
+      "Booth-level 2022 analysis",
+      "Mazhabi Sikh candidate pool"
+    ],
+    "crossReferences": [
+      "Razor margin similar to AC005 Dina Nagar"
+    ],
+    "strategicImplications": [
+      "Tightest margin in batch",
+      "BJP held 10 years before 2022"
+    ],
+    "visualizationRecommendations": [
+      "Margin bar chart"
+    ],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC030",
+    "acNumber": 30,
+    "name": "Phillaur",
+    "district": "Jalandhar",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Jalandhar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Baldev Singh Khaira",
+        "party": "Congress",
+        "margin": 12303
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 53
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 30
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Internal Tensions",
+        "description": "MLA-MP conflict (Channi)"
+      },
+      {
+        "issue": "Drug Crisis",
+        "description": "SC youth affected"
+      }
+    ],
+    "congressPosition": "STRONG",
+    "recommendedCandidate": {
+      "profile": "Baldev Singh Khaira",
+      "caste": "SC",
+      "keyQualities": [
+        "3-term MLA",
+        "Internal tensions need resolution"
+      ]
+    },
+    "attackLines": [],
+    "margin": 12303,
+    "party": "INC",
+    "priorityTier": "HOLD",
+    "dataGaps": [
+      "MLA-MP conflict resolution"
+    ],
+    "crossReferences": [
+      "Channi factor: Lost Chamkaur Sahib home seat"
+    ],
+    "strategicImplications": [
+      "12,303 margin worth protecting",
+      "Avoid primary"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC031",
+    "acNumber": 31,
+    "name": "Nakodar",
+    "district": "Jalandhar",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Jalandhar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Inderjit Kaur Mann",
+        "party": "AAP",
+        "margin": 2869
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 38
+      },
+      {
+        "category": "SC",
+        "percentage": 33
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Three-way Race",
+        "description": "Cong/AAP/SAD all competitive"
+      }
+    ],
+    "congressPosition": "CONTESTABLE",
+    "recommendedCandidate": {
+      "profile": "Strong local Jat Sikh",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "Jat + SC voter consolidation",
+        "SAD voters disillusioned"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "No Achievement",
+        "message": "What did she do in 4 years?",
+        "audience": "All voters"
+      }
+    ],
+    "margin": -2869,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "SAD worker strength"
+    ],
+    "crossReferences": [
+      "Congress-SAD alliance could change dynamics"
+    ],
+    "strategicImplications": [
+      "Three-way race favors AAP",
+      "Consolidation needed"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC033",
+    "acNumber": 33,
+    "name": "Kartarpur (SC)",
+    "district": "Jalandhar",
+    "region": "Doaba",
+    "type": "SC",
+    "lokSabha": "Jalandhar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Balkar Singh",
+        "party": "AAP",
+        "margin": 4574
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 58
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 23
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "SC Welfare",
+        "description": "Minister but SC community suffering"
+      }
+    ],
+    "congressPosition": "CHALLENGING",
+    "recommendedCandidate": {
+      "profile": "Mazhabi Sikh",
+      "caste": "SC",
+      "keyQualities": [
+        "SC community roots"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Minister Failure",
+        "message": "Despite being Minister, nothing for SC community?",
+        "audience": "SC voters"
+      }
+    ],
+    "margin": -4574,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Religious tourism potential (Kartarpur Corridor)"
+    ],
+    "strategicImplications": [
+      "Balkar Singh is Minister - high profile target"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC034",
+    "acNumber": 34,
+    "name": "Jalandhar West",
+    "district": "Jalandhar",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Jalandhar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Mohinder Bhagat",
+        "party": "AAP",
+        "margin": 37325
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 53
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 28
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Organizational Collapse",
+        "description": "Congress finished third"
+      }
+    ],
+    "congressPosition": "DIFFICULT",
+    "recommendedCandidate": {
+      "profile": "Complete organizational rebuild",
+      "caste": "SC",
+      "keyQualities": [
+        "Fresh face",
+        "SC community connect"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Short Tenure",
+        "message": "What did he do in 1 year?",
+        "audience": "All voters"
+      }
+    ],
+    "margin": -37325,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [
+      "2024 bypoll detailed results",
+      "Congress 3rd place analysis"
+    ],
+    "crossReferences": [
+      "Complete rebuild needed"
+    ],
+    "strategicImplications": [
+      "Third-place finish indicates organizational collapse"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC037",
+    "acNumber": 37,
+    "name": "Jalandhar Cantt",
+    "district": "Jalandhar",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Jalandhar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Pargat Singh",
+        "party": "Congress",
+        "margin": null
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 38
+      },
+      {
+        "category": "Hindu",
+        "percentage": 28
+      },
+      {
+        "category": "Muslim",
+        "percentage": 6
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Urban Development",
+        "description": "Infrastructure"
+      }
+    ],
+    "congressPosition": "STRONG",
+    "recommendedCandidate": {
+      "profile": "Pargat Singh - 3-term incumbent",
+      "caste": "Sikh",
+      "keyQualities": [
+        "Incumbent preferred"
+      ]
+    },
+    "attackLines": [],
+    "margin": null,
+    "party": "INC",
+    "priorityTier": "HOLD",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Incumbent advantage"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC038",
+    "acNumber": 38,
+    "name": "Adampur (SC)",
+    "district": "Jalandhar",
+    "region": "Doaba",
+    "type": "SC",
+    "lokSabha": "Jalandhar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Sukhwinder Singh Kotli",
+        "party": "Congress",
+        "margin": 4567
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 52
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 28
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "SC Voter Outreach",
+        "description": "Dalit vote consolidation"
+      }
+    ],
+    "congressPosition": "CONTESTABLE",
+    "recommendedCandidate": {
+      "profile": "Mazhabi/Ramdasia Sikh",
+      "caste": "SC",
+      "keyQualities": [
+        "Dalit rights activist",
+        "Grassroots connect"
+      ]
+    },
+    "attackLines": [],
+    "margin": 4567,
+    "party": "INC",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Doaba SC belt"
+    ],
+    "strategicImplications": [
+      "Ensure candidate is Mazhabi/Ramdasia Sikh"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC039",
+    "acNumber": 39,
+    "name": "Mukerian",
+    "district": "Hoshiarpur",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Hoshiarpur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Jangi Lal Mahajan",
+        "party": "BJP",
+        "margin": 2691
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Hindu Rajput/Brahmin",
+        "percentage": 40
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 30
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Illegal Mining",
+        "description": "Corruption/compliance issues"
+      }
+    ],
+    "congressPosition": "CHALLENGING",
+    "recommendedCandidate": {
+      "profile": "Hindu Rajput/Brahmin or Jat Sikh",
+      "caste": "Mixed",
+      "keyQualities": [
+        "Development focused"
+      ]
+    },
+    "attackLines": [],
+    "margin": -2691,
+    "party": "BJP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [
+      "Border security concerns"
+    ],
+    "strategicImplications": [
+      "Hindu voter anti-BJP sentiment opportunity"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC040",
+    "acNumber": 40,
+    "name": "Dasuya",
+    "district": "Hoshiarpur",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Hoshiarpur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Karamveer Singh Ghumman",
+        "party": "AAP",
+        "margin": 8587
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Hindu Rajput/Brahmin",
+        "percentage": 40
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 35
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Farmer Distress",
+        "description": "MSP issues"
+      },
+      {
+        "issue": "Border Security",
+        "description": "Military/ex-serviceman voters"
+      }
+    ],
+    "congressPosition": "CHALLENGING",
+    "recommendedCandidate": {
+      "profile": "Hindu Rajput/Brahmin or Jat Sikh",
+      "caste": "Mixed",
+      "keyQualities": [
+        "Cross-community appeal"
+      ]
+    },
+    "attackLines": [],
+    "margin": -8587,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [
+      "Defense community outreach"
+    ],
+    "strategicImplications": [
+      "Three-way contest"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC041",
+    "acNumber": 41,
+    "name": "Urmar",
+    "district": "Hoshiarpur",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Hoshiarpur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Jasvir Singh Raja Gill",
+        "party": "AAP",
+        "margin": 4190
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 65
+      },
+      {
+        "category": "Hindu",
+        "percentage": 30
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Rural Congress Structure",
+        "description": "Rebuild needed"
+      }
+    ],
+    "congressPosition": "CONTESTABLE",
+    "recommendedCandidate": {
+      "profile": "Sikh (Jat or Rajput)",
+      "caste": "Sikh",
+      "keyQualities": [
+        "Farmer background"
+      ]
+    },
+    "attackLines": [],
+    "margin": -4190,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Rebuild rural Congress structure"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC042",
+    "acNumber": 42,
+    "name": "Sham Chaurasi (SC)",
+    "district": "Hoshiarpur",
+    "region": "Doaba",
+    "type": "SC",
+    "lokSabha": "Hoshiarpur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Dr. Ravajot Singh",
+        "party": "AAP",
+        "margin": 21356
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 55
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "SC Welfare Betrayal",
+        "description": "Employment, education, land rights"
+      }
+    ],
+    "congressPosition": "CHALLENGING",
+    "recommendedCandidate": {
+      "profile": "Mazhabi/Ravidasia Sikh",
+      "caste": "SC",
+      "keyQualities": [
+        "Teacher",
+        "Social worker",
+        "Fresh face"
+      ]
+    },
+    "attackLines": [],
+    "margin": -21356,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "SC voter pattern with AC044 Chabbewal"
+    ],
+    "strategicImplications": [
+      "SC voter alienation significant"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC043",
+    "acNumber": 43,
+    "name": "Hoshiarpur",
+    "district": "Hoshiarpur",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Anandpur Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Pandit Brahma Shankar Jimpa",
+        "party": "AAP",
+        "margin": 13859
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 65
+      },
+      {
+        "category": "Hindu",
+        "percentage": 30
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Urban Development",
+        "description": "Infrastructure gaps"
+      }
+    ],
+    "congressPosition": "CHALLENGING",
+    "recommendedCandidate": {
+      "profile": "Sikh (Jat) or Hindu",
+      "caste": "Mixed",
+      "keyQualities": [
+        "Business/professional"
+      ]
+    },
+    "attackLines": [],
+    "margin": -13859,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Counter AAP development claims"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC044",
+    "acNumber": 44,
+    "name": "Chabbewal (SC)",
+    "district": "Hoshiarpur",
+    "region": "Doaba",
+    "type": "SC",
+    "lokSabha": "Anandpur Sahib",
+    "electionResults": [
+      {
+        "year": 2024,
+        "winner": "Dr. Ishank Kumar",
+        "party": "AAP",
+        "margin": 28690,
+        "note": "By-election"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 55
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Complete Rebuild",
+        "description": "Congress third place"
+      }
+    ],
+    "congressPosition": "VERY CHALLENGING",
+    "recommendedCandidate": {
+      "profile": "Mazhabi/Ravidasia Sikh",
+      "caste": "SC",
+      "keyQualities": [
+        "Young leader preferred"
+      ]
+    },
+    "attackLines": [],
+    "margin": -28690,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [
+      "2024 bypoll breakdown"
+    ],
+    "crossReferences": [
+      "SC seats with AC042"
+    ],
+    "strategicImplications": [
+      "Complete rebuild required"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC045",
+    "acNumber": 45,
+    "name": "Garhshankar",
+    "district": "Hoshiarpur",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Anandpur Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Jaikishan Rodi",
+        "party": "AAP",
+        "margin": 4179
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 70
+      },
+      {
+        "category": "Hindu",
+        "percentage": 25
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Crisis",
+        "description": "Rural youth"
+      }
+    ],
+    "congressPosition": "CONTESTABLE",
+    "recommendedCandidate": {
+      "profile": "Sikh (Jat)",
+      "caste": "Sikh",
+      "keyQualities": [
+        "Farmer leader",
+        "Local businessman"
+      ]
+    },
+    "attackLines": [],
+    "margin": -4179,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Congress traditional base",
+      "Best opportunity for quick win"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC046",
+    "acNumber": 46,
+    "name": "Banga (SC)",
+    "district": "Shaheed Bhagat Singh Nagar",
+    "region": "Doaba",
+    "type": "SC",
+    "lokSabha": "Anandpur Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "SAD",
+        "party": "SAD",
+        "margin": 5069
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 55
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Triangular Contest",
+        "description": "SAD vs Congress vs AAP"
+      }
+    ],
+    "congressPosition": "MEDIUM-HIGH",
+    "recommendedCandidate": {
+      "profile": "SC (Mazhabi/Ravidasia)",
+      "caste": "SC",
+      "keyQualities": [
+        "Social worker",
+        "SC community roots"
+      ]
+    },
+    "attackLines": [],
+    "margin": -5069,
+    "party": "SAD",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [
+      "Triangular - SAD-Congress split helps AAP"
+    ],
+    "strategicImplications": [
+      "If BJP-SAD alliance, consolidate anti-BJP votes"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC047",
+    "acNumber": 47,
+    "name": "Nawan Shahar (SC)",
+    "district": "Shaheed Bhagat Singh Nagar",
+    "region": "Doaba",
+    "type": "SC",
+    "lokSabha": "Anandpur Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "BSP",
+        "party": "BSP",
+        "margin": 5376
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 55
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Dalit Voter Retrieval",
+        "description": "AAP welfare schemes resonated"
+      }
+    ],
+    "congressPosition": "MEDIUM",
+    "recommendedCandidate": {
+      "profile": "SC (Dalit)",
+      "caste": "SC",
+      "keyQualities": [
+        "Teacher",
+        "Social worker",
+        "Dalit welfare focus"
+      ]
+    },
+    "attackLines": [],
+    "margin": -5376,
+    "party": "BSP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "BSP vote split potential"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC048",
+    "acNumber": 48,
+    "name": "Balachaur",
+    "district": "Shaheed Bhagat Singh Nagar",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Anandpur Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 4541
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 45
+      },
+      {
+        "category": "SC",
+        "percentage": 30
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Crisis",
+        "description": "Rural youth"
+      }
+    ],
+    "congressPosition": "HIGH",
+    "recommendedCandidate": {
+      "profile": "Sikh (Jat)",
+      "caste": "Sikh",
+      "keyQualities": [
+        "Farmer leader",
+        "Businessman",
+        "Booth-level network"
+      ]
+    },
+    "attackLines": [],
+    "margin": -4541,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Congress history"
+    ],
+    "strategicImplications": [
+      "Narrow margin",
+      "Congress history"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC051",
+    "acNumber": 51,
+    "name": "Chamkaur Sahib (SC)",
+    "district": "Rupnagar",
+    "region": "Malwa",
+    "type": "SC",
+    "lokSabha": "Anandpur Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 7942
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 55
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Channi Factor",
+        "description": "Lost home seat by 7,942"
+      }
+    ],
+    "congressPosition": "HIGHEST",
+    "recommendedCandidate": {
+      "profile": "Mazhabi Sikh",
+      "caste": "SC",
+      "keyQualities": [
+        "Fresh face",
+        "NOT Channi family",
+        "Social worker"
+      ]
+    },
+    "attackLines": [],
+    "margin": -7942,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [],
+    "crossReferences": [
+      "Smallest margin in all researched batches"
+    ],
+    "strategicImplications": [
+      "Best opportunity nationally",
+      "Former CM Channi lost home seat"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC052",
+    "acNumber": 52,
+    "name": "Kharar",
+    "district": "SAS Nagar",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "SAS Nagar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 37885
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Hindu Khatri/Arora",
+        "percentage": 35
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 30
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Urban Services",
+        "description": "Infrastructure"
+      }
+    ],
+    "congressPosition": "MEDIUM",
+    "recommendedCandidate": {
+      "profile": "Hindu (Khatri/Arora)",
+      "caste": "Hindu",
+      "keyQualities": [
+        "Professional",
+        "Business",
+        "Urban professionals"
+      ]
+    },
+    "attackLines": [],
+    "margin": -37885,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [
+      "Urban axis with AC053 SAS Nagar"
+    ],
+    "strategicImplications": [
+      "Urban professional outreach"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC053",
+    "acNumber": 53,
+    "name": "SAS Nagar",
+    "district": "SAS Nagar",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "SAS Nagar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 34097
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Hindu Khatri/Arora",
+        "percentage": 40
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 25
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "IT Hub",
+        "description": "Professional class"
+      }
+    ],
+    "congressPosition": "MEDIUM-LOW",
+    "recommendedCandidate": {
+      "profile": "Hindu (Khatri/Arora)",
+      "caste": "Hindu",
+      "keyQualities": [
+        "Professional",
+        "Corporate",
+        "Young",
+        "Modern outlook"
+      ]
+    },
+    "attackLines": [],
+    "margin": -34097,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [
+      "IT hub / professional class pattern"
+    ],
+    "strategicImplications": [
+      "Long-term investment needed"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC054",
+    "acNumber": 54,
+    "name": "Bassi Pathana (SC)",
+    "district": "Fatehgarh Sahib",
+    "region": "Malwa",
+    "type": "SC",
+    "lokSabha": "Fatehgarh Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 37841
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 55
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "SC Community Engagement",
+        "description": "Village-level SC network"
+      }
+    ],
+    "congressPosition": "MEDIUM",
+    "recommendedCandidate": {
+      "profile": "SC (Mazhabi/Ramdasia)",
+      "caste": "SC",
+      "keyQualities": [
+        "Social worker",
+        "Grassroots",
+        "Village-level SC network"
+      ]
+    },
+    "attackLines": [],
+    "margin": -37841,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [
+      "Comparable to AC069 Raikot"
+    ],
+    "strategicImplications": [
+      "37,841 margin - long-term rebuild"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC059",
+    "acNumber": 59,
+    "name": "Sahnewal",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 15193
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [],
+    "congressPosition": "TIER 1 HIGH",
+    "recommendedCandidate": null,
+    "attackLines": [],
+    "margin": -15193,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Priority target in Ludhiana cluster"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC062",
+    "acNumber": 62,
+    "name": "Atam Nagar",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 16354
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [],
+    "congressPosition": "TIER 1 HIGH",
+    "recommendedCandidate": null,
+    "attackLines": [],
+    "margin": -16354,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Priority target"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC064",
+    "acNumber": 64,
+    "name": "Ludhiana West",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 10637
+      },
+      {
+        "year": 2025,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": null,
+        "note": "Bye-election sympathy"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 35
+      },
+      {
+        "category": "SC",
+        "percentage": 28
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Sympathy Win Vulnerability",
+        "description": "After bereavement"
+      }
+    ],
+    "congressPosition": "TIER 1",
+    "recommendedCandidate": null,
+    "attackLines": [
+      {
+        "issue": "Sympathy",
+        "message": "Sympathy win vulnerability",
+        "audience": "All voters"
+      }
+    ],
+    "margin": -10637,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Sympathy win pattern"
+    ],
+    "strategicImplications": [
+      "Sympathy win vulnerable"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC065",
+    "acNumber": 65,
+    "name": "Ludhiana North",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 15282
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 35
+      },
+      {
+        "category": "SC",
+        "percentage": 28
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Traditional Base",
+        "description": "Congress base persists"
+      }
+    ],
+    "congressPosition": "TIER 1",
+    "recommendedCandidate": null,
+    "attackLines": [
+      {
+        "issue": "No Achievement",
+        "message": "5 years, only headlines",
+        "audience": "All voters"
+      }
+    ],
+    "margin": -15282,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Traditional base",
+      "Recoverable"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC069",
+    "acNumber": 69,
+    "name": "Raikot (SC)",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "SC",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Hakam Singh Contractor",
+        "party": "AAP",
+        "margin": 27644
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 55
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 30
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "SC Welfare",
+        "description": "Welfare ads vs delivery"
+      }
+    ],
+    "congressPosition": "TIER 2",
+    "recommendedCandidate": {
+      "profile": "Mazhabi Sikh",
+      "caste": "SC",
+      "keyQualities": [
+        "SC community roots"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "SC Rights",
+        "message": "Hakam Singh: What did SC get?",
+        "audience": "SC voters"
+      }
+    ],
+    "margin": -27644,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Challenging but not impossible"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC070",
+    "acNumber": 70,
+    "name": "Jagraon (SC)",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "SC",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Saravjit Kaur Manuke",
+        "party": "AAP",
+        "margin": null,
+        "note": "Incumbent - switched from Congress"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 55
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 30
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Party Hopping",
+        "description": "First Congress, then party"
+      }
+    ],
+    "congressPosition": "TIER 2",
+    "recommendedCandidate": {
+      "profile": "SC",
+      "caste": "SC",
+      "keyQualities": [
+        "Resentment opportunity"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Party Hopping",
+        "message": "First Congress, then party",
+        "audience": "All voters"
+      }
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Party-hopping opportunism"
+    ],
+    "strategicImplications": [
+      "Resentment opportunity"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC073",
+    "acNumber": 73,
+    "name": "Moga",
+    "district": "Moga",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Moga",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "AAP",
+        "party": "AAP",
+        "margin": 20915
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 36.5
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Crisis",
+        "description": "Rural youth severely affected"
+      }
+    ],
+    "congressPosition": "LOST",
+    "recommendedCandidate": null,
+    "attackLines": [],
+    "margin": -20915,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Moga-Ludhiana corridor"
+    ],
+    "strategicImplications": [
+      "Lost by large margin"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC081",
+    "acNumber": 81,
+    "name": "Abohar",
+    "district": "Fazilka",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Fazilka",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Congress",
+        "party": "INC",
+        "margin": null
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [],
+    "congressPosition": "HOLD",
+    "recommendedCandidate": null,
+    "attackLines": [],
+    "margin": null,
+    "party": "INC",
+    "priorityTier": "HOLD",
+    "dataGaps": [],
+    "crossReferences": [
+      "Only Congress win in batch"
+    ],
+    "strategicImplications": [
+      "Critical for Congress presence in border Malwa"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC084",
+    "acNumber": 84,
+    "name": "Giddarbaha",
+    "district": "Muktsar Sahib",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Muktsar Sahib",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Amrinder Singh Raja Warring",
+        "party": "INC",
+        "margin": 1349
+      }
+    ],
+    "totalElectors": 148000,
+    "voterTurnout": 77,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 73
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 33
+      },
+      {
+        "category": "SC",
+        "percentage": 27
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Menace",
+        "description": "Rural youth"
+      }
+    ],
+    "congressPosition": "CRITICAL VULNERABILITY",
+    "recommendedCandidate": {
+      "profile": "Amrinder Singh Warring or similar",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "3-term incumbent",
+        "Family dynasty"
+      ]
+    },
+    "attackLines": [],
+    "margin": 1349,
+    "party": "INC",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [],
+    "crossReferences": [
+      "Only Congress held seat in batch"
+    ],
+    "strategicImplications": [
+      "Margin collapsed from 16,212 to 1,349",
+      "AAP nearly won"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC090",
+    "acNumber": 90,
+    "name": "Rampura Phul",
+    "district": "Bathinda",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Bathinda",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Balkar Singh Siddhu",
+        "party": "AAP",
+        "margin": 10410
+      },
+      {
+        "year": 2017,
+        "winner": "Gurpreet Singh Kangar",
+        "party": "Congress",
+        "margin": 10385
+      }
+    ],
+    "totalElectors": 155000,
+    "voterTurnout": 78,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 68
+      },
+      {
+        "category": "Hindu",
+        "percentage": 32
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Swing Seat",
+        "description": "Alternating win pattern"
+      }
+    ],
+    "congressPosition": "BEST OPPORTUNITY",
+    "recommendedCandidate": {
+      "profile": "Market town/business background",
+      "caste": "Sikh",
+      "keyQualities": [
+        "Market town connect"
+      ]
+    },
+    "attackLines": [
+      {
+        "issue": "Close Election",
+        "message": "Close election shows dissatisfaction",
+        "audience": "All voters"
+      }
+    ],
+    "margin": -10410,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "2012 winner data missing"
+    ],
+    "crossReferences": [
+      "Most competitive seat in batch"
+    ],
+    "strategicImplications": [
+      "Most vulnerable AAP seat",
+      "Thin margin",
+      "Swing seat history"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC091",
+    "acNumber": 91,
+    "name": "Bhucho Mandi (SC)",
+    "district": "Bathinda",
+    "region": "Malwa",
+    "type": "SC",
+    "lokSabha": "Bathinda",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Master Jagseer Singh",
+        "party": "AAP",
+        "margin": 50212
+      },
+      {
+        "year": 2017,
+        "winner": "Pritam Singh Kotbhai",
+        "party": "Congress",
+        "margin": 645
+      }
+    ],
+    "totalElectors": 150000,
+    "voterTurnout": 79,
+    "casteComposition": [
+      {
+        "category": "SC",
+        "percentage": 43
+      },
+      {
+        "category": "Sikh",
+        "percentage": 68
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Drug Addiction",
+        "description": "SC communities"
+      },
+      {
+        "issue": "Unemployment",
+        "description": "SC youth"
+      }
+    ],
+    "congressPosition": "SEVERELY WEAKENED",
+    "recommendedCandidate": {
+      "profile": "SC community elder",
+      "caste": "SC",
+      "keyQualities": [
+        "Dalit rights",
+        "Panchayat leadership",
+        "Social service"
+      ]
+    },
+    "attackLines": [],
+    "margin": -50212,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Sub-caste breakdown needed"
+    ],
+    "crossReferences": [
+      "Dramatic shift: 645 votes (2017) to 50,212 (2022)"
+    ],
+    "strategicImplications": [
+      "AAP wave was decisive",
+      "BSP alliance could help"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC092",
+    "acNumber": 92,
+    "name": "Bathinda Urban",
+    "district": "Bathinda",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Bathinda",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Jagroop Singh Gill",
+        "party": "AAP",
+        "margin": 63581
+      },
+      {
+        "year": 2017,
+        "winner": "Manpreet Singh Badal",
+        "party": "Congress",
+        "margin": 18480
+      }
+    ],
+    "totalElectors": 229525,
+    "voterTurnout": 71,
+    "casteComposition": [
+      {
+        "category": "Hindu",
+        "percentage": 58
+      },
+      {
+        "category": "Sikh",
+        "percentage": 42
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Manpreet Singh Badal Factor",
+        "description": "Former Finance Minister lost"
+      },
+      {
+        "issue": "Urban Infrastructure",
+        "description": "City roads, drainage"
+      }
+    ],
+    "congressPosition": "HUMILIATED",
+    "recommendedCandidate": {
+      "profile": "Urban professional",
+      "caste": "Hindu",
+      "keyQualities": [
+        "Doctor",
+        "Engineer",
+        "Businessman",
+        "Clean image"
+      ]
+    },
+    "attackLines": [],
+    "margin": -63581,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Most humiliating Congress loss",
+      "Moose Wala parallel"
+    ],
+    "strategicImplications": [
+      "Rebuild from scratch",
+      "BJP may contest"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC094",
+    "acNumber": 94,
+    "name": "Talwandi Sabo",
+    "district": "Bathinda",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Bathinda",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Baljinder Kaur",
+        "party": "AAP",
+        "margin": 15252
+      },
+      {
+        "year": 2017,
+        "winner": "Baljinder Kaur",
+        "party": "AAP",
+        "margin": 19293
+      }
+    ],
+    "totalElectors": 131000,
+    "voterTurnout": 77,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 70
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 33
+      },
+      {
+        "category": "SC",
+        "percentage": 29
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Decreasing Margin",
+        "description": "Anti-incumbency building"
+      }
+    ],
+    "congressPosition": "HIGHLY CONTESTABLE",
+    "recommendedCandidate": {
+      "profile": "Sikh woman",
+      "caste": "Sikh",
+      "keyQualities": [
+        "Rural background",
+        "Women voter appeal"
+      ]
+    },
+    "attackLines": [],
+    "margin": -15252,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [],
+    "crossReferences": [
+      "Margin decreased 19K to 15K",
+      "Female MLA"
+    ],
+    "strategicImplications": [
+      "Anti-incumbency opportunity",
+      "Top Congress target"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC096",
+    "acNumber": 96,
+    "name": "Mansa",
+    "district": "Mansa",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Bathinda",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Dr. Vijay Singla",
+        "party": "AAP",
+        "margin": 63323
+      },
+      {
+        "year": 2017,
+        "winner": "Nazar Singh Manshahia",
+        "party": "AAP",
+        "margin": 20469
+      }
+    ],
+    "totalElectors": 173000,
+    "voterTurnout": 79,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 73
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 33
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Moose Wala Factor",
+        "description": "Sidhu Moose Wala lost as Congress candidate"
+      }
+    ],
+    "congressPosition": "SEVERELY DAMAGED",
+    "recommendedCandidate": null,
+    "attackLines": [
+      {
+        "issue": "Moose Wala Murder",
+        "message": "Justice pending",
+        "audience": "All voters"
+      }
+    ],
+    "margin": -63323,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Even Moose Wala couldn't win"
+    ],
+    "strategicImplications": [
+      "Even celebrity candidate lost",
+      "Murder case political"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC099",
+    "acNumber": 99,
+    "name": "Lehra",
+    "district": "Sangrur",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Sangrur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Barinder Kumar Goyal",
+        "party": "AAP",
+        "margin": 26518
+      },
+      {
+        "year": 2017,
+        "winner": "Parminder Singh Dhindsa",
+        "party": "SAD",
+        "margin": 26815
+      }
+    ],
+    "totalElectors": 138000,
+    "voterTurnout": 78,
+    "casteComposition": [
+      {
+        "category": "Sikh",
+        "percentage": 73
+      },
+      {
+        "category": "Jat Sikh",
+        "percentage": 33
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "SAD to AAP Shift",
+        "description": "Similar margin"
+      }
+    ],
+    "congressPosition": "CONTESTABLE",
+    "recommendedCandidate": null,
+    "attackLines": [],
+    "margin": -26518,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Stable margin - neither gaining nor losing"
+    ],
+    "strategicImplications": [
+      "Floating seat",
+      "SAD remnants factor"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC103",
+    "acNumber": 103,
+    "name": "Barnala",
+    "district": "Barnala",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Sangrur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Kuldeep Singh Dhillon",
+        "party": "Congress",
+        "margin": 2157
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": 77,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 34
+      },
+      {
+        "category": "SC",
+        "percentage": 26
+      },
+      {
+        "category": "OBC",
+        "percentage": 20
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Razor Margin",
+        "description": "Only hold - prime AAP target"
+      }
+    ],
+    "congressPosition": "HOLD - CRITICAL",
+    "recommendedCandidate": {
+      "profile": "Kuldeep Singh Dhillon or strong successor",
+      "caste": "Jat Sikh",
+      "keyQualities": [
+        "Farmer background",
+        "Incumbent preferred"
+      ]
+    },
+    "attackLines": [],
+    "margin": 2157,
+    "party": "INC",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [],
+    "crossReferences": [
+      "One of only 18 Congress seats 2022"
+    ],
+    "strategicImplications": [
+      "AAP will target aggressively",
+      "Highest alert"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC105",
+    "acNumber": 105,
+    "name": "Malerkotla",
+    "district": "Malerkotla",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Malerkotla",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Mohd Jamil Ur Rahman",
+        "party": "AAP",
+        "margin": 21686
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Muslim",
+        "percentage": 68.5
+      },
+      {
+        "category": "Sikh",
+        "percentage": 25
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Muslim Vote",
+        "description": "AAP Muslim candidate"
+      }
+    ],
+    "congressPosition": "RECOVERABLE",
+    "recommendedCandidate": {
+      "profile": "Muslim",
+      "caste": "Muslim",
+      "keyQualities": [
+        "Minority rights activist",
+        "Cross-community access"
+      ]
+    },
+    "attackLines": [],
+    "margin": -21686,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [
+      "Muslim majority town",
+      "Congress won with Muslim candidate previously"
+    ],
+    "strategicImplications": [
+      "Muslim voters showing disappointment with AAP"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC106",
+    "acNumber": 106,
+    "name": "Amargarh",
+    "district": "Malerkotla",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Malerkotla",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Jaswant Singh Gajjan Majra",
+        "party": "AAP",
+        "margin": 6043
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": 77.95,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 32
+      },
+      {
+        "category": "OBC",
+        "percentage": 22
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Narrowest AAP Margin",
+        "description": "Congress won 2012, 2017"
+      }
+    ],
+    "congressPosition": "HIGHEST PRIORITY",
+    "recommendedCandidate": {
+      "profile": "Jat Sikh",
+      "caste": "Sikh",
+      "keyQualities": [
+        "Farmer leader",
+        "Rural advocate",
+        "Anti-drug",
+        "Village-level work"
+      ]
+    },
+    "attackLines": [],
+    "margin": -6043,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [],
+    "crossReferences": [
+      "Narrowest AAP margin in cluster"
+    ],
+    "strategicImplications": [
+      "Congress won 2012 and 2017",
+      "Highest priority target"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC107",
+    "acNumber": 107,
+    "name": "Dhuri",
+    "district": "Sangrur",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Sangrur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Bhagwant Mann",
+        "party": "AAP",
+        "margin": 58206,
+        "note": "CM's seat"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 34
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "CM Seat",
+        "description": "Extremely difficult"
+      }
+    ],
+    "congressPosition": "EXTREMELY DIFFICULT",
+    "recommendedCandidate": {
+      "profile": "Jat Sikh",
+      "caste": "Sikh",
+      "keyQualities": [
+        "Bold critic",
+        "Farmer leader",
+        "Anti-drugs crusader"
+      ]
+    },
+    "attackLines": [],
+    "margin": -58206,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [
+      "CM's personal constituency"
+    ],
+    "strategicImplications": [
+      "Winning would be massive symbolic victory"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC108",
+    "acNumber": 108,
+    "name": "Sangrur",
+    "district": "Sangrur",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Sangrur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Narinder Kaur Bharaj",
+        "party": "AAP",
+        "margin": 36430
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "category": "Jat Sikh",
+        "percentage": 30
+      }
+    ],
+    "topIssues": [
+      {
+        "issue": "Urban Development",
+        "description": "District HQ"
+      }
+    ],
+    "congressPosition": "LOST SUBSTANTIALLY",
+    "recommendedCandidate": {
+      "profile": "Jat Sikh or Hindu Upper Caste",
+      "caste": "Mixed",
+      "keyQualities": [
+        "Young urban professional",
+        "Social activist",
+        "Clean image"
+      ]
+    },
+    "attackLines": [],
+    "margin": -36430,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [
+      "Defeat of sitting minister"
+    ],
+    "strategicImplications": [
+      "Wave, not permanent shift"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {
+      "components": []
+    }
+  },
+  {
+    "acId": "AC011",
+    "acNumber": 11,
+    "name": "Ajnala",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Kuldeep Singh Dhaliwal",
+        "party": "AAP",
+        "runnerup": "Amarpal Singh Bonny (SAD)",
+        "margin": "To be verified"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "~36.6%",
+        "keyVotingBloc": "Ravidassia/Ramdasia"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "~40%",
+        "keyVotingBloc": "Dominant rural"
+      },
+      {
+        "caste": "Mazhabi Sikh",
+        "percentage": "~8%",
+        "keyVotingBloc": "SC subgroup"
+      },
+      {
+        "caste": "Minority",
+        "percentage": "~3%",
+        "keyVotingBloc": "Border presence"
+      }
+    ],
+    "topIssues": [
+      "Drug Addiction & Border Security - Border proximity makes area transit route for narcotics; addiction destroying rural families",
+      "Agrarian Distress - Stubble management, MSP guarantee, irrigation water, credit access",
+      "Unemployment & Skills Gap - Rural youth emigration to Canada/UK/Australia; structural joblessness"
+    ],
+    "congressPosition": "AAP won from SAD in 2022. Traditional SAD voter may be available for Congress consolidation. Dalit (Ravidassia) vote is key - historically SAD but AAP made inroads",
+    "recommendedCandidate": {
+      "profile": "Farmer leader with rural specialist background",
+      "caste": "Jat Sikh preferred for rural base",
+      "keyQualities": "Farmer-friendly credentials, anti-AAP narrative, Dalit outreach capability"
+    },
+    "attackLines": [
+      "₹1000/month for women promise broken",
+      "Drug crisis worse than ever despite AAP claims",
+      "Farmer distress unresolved - MSP not guaranteed",
+      "Rural infrastructure neglected"
+    ],
+    "margin": null,
+    "party": null,
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2022 exact margin",
+      "2017 & 2012 results",
+      "Ravidassia vote breakdown",
+      "Youth emigration rate"
+    ],
+    "crossReferences": [
+      {
+        "type": "Border Security",
+        "linkedAC": "AC010",
+        "relevance": "Shared trafficking route"
+      },
+      {
+        "type": "SC Vote Bank",
+        "linkedAC": "AC014",
+        "relevance": "Ravidassia community link"
+      },
+      {
+        "type": "Rural Distress",
+        "linkedAC": "AC013",
+        "relevance": "Shared agrarian issues"
+      },
+      {
+        "type": "SAD Decline",
+        "linkedAC": "AC013",
+        "relevance": "Ajnala 2022 flip from SAD"
+      }
+    ],
+    "strategicImplications": [
+      "Congress can position itself as true alternative to SAD in rural Majha",
+      "Consolidator of anti-AAP protest votes",
+      "Farmer-friendly without dynasty baggage"
+    ],
+    "visualizationRecommendations": [
+      "Three-Way Split chart",
+      "SC Vote Migration analysis",
+      "Emigration Heatmap",
+      "Drug Crisis Index"
+    ],
+    "uiComponentSpecs": {
+      "componentType": "CasteFlowDiagram",
+      "state": "Animated Sankey",
+      "interaction": "Hover for historical shift"
+    }
+  },
+  {
+    "acId": "AC012",
+    "acNumber": 12,
+    "name": "Raja Sansi",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Sukhwinder Singh Sarkaria",
+        "party": "INC",
+        "runnerup": "To be verified",
+        "margin": "5,474 votes"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Jat Sikh",
+        "percentage": "~35%",
+        "keyVotingBloc": "Dominant rural"
+      },
+      {
+        "caste": "SC",
+        "percentage": "~28%",
+        "keyVotingBloc": "Mazhabi, Ravidassia"
+      },
+      {
+        "caste": "Upper Caste",
+        "percentage": "~18%",
+        "keyVotingBloc": "Khatri/Khatri-Sikh"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "~12%",
+        "keyVotingBloc": "Medium"
+      },
+      {
+        "caste": "Minority",
+        "percentage": "~5%",
+        "keyVotingBloc": "Low"
+      }
+    ],
+    "topIssues": [
+      "Urban Development & Land Use - Raja Sansi transitioning from town to urban extension of Amritsar; zoning disputes",
+      "Drug/Youth Addiction - Semi-urban area experiencing drug consumption rise; rehabilitation absent",
+      "Unemployment & Skills Gap - Youth lack industrial skills; migration to cities/overseas"
+    ],
+    "congressPosition": "HOLDING - Won 2022 with narrow 5,474 margin. Must maintain focus; narrow margin leaves room for AAP flip. Strong booth-level Congress organization",
+    "recommendedCandidate": {
+      "profile": "Development-focused with mixed urban-rural appeal",
+      "caste": "Khatri/Arora background suits urban section",
+      "keyQualities": "Professional background, accessibility, business community connect"
+    },
+    "attackLines": [
+      "Narrow 5,474 vote win shows anti-incumbency against old parties",
+      "Infrastructure gaps persist - roads, drainage unresolved",
+      "Educated youth without jobs",
+      "Urban-rural drug nexus unaddressed"
+    ],
+    "margin": "5,474",
+    "party": "INC",
+    "priorityTier": "CRITICAL",
+    "dataGaps": [
+      "2022 runner-up & party",
+      "2017 & 2012 history",
+      "Booth-level data",
+      "Khatri concentration by area"
+    ],
+    "crossReferences": [
+      {
+        "type": "Incumbent Defense",
+        "linkedAC": "AC018",
+        "relevance": "Both Congress margins under 7K"
+      },
+      {
+        "type": "Urban Development",
+        "linkedAC": "AC015",
+        "relevance": "Shared urban issues"
+      },
+      {
+        "type": "Khatri Vote",
+        "linkedAC": "AC017",
+        "relevance": "Khatri community concentration"
+      },
+      {
+        "type": "Booth Strategy",
+        "linkedAC": "AC018",
+        "relevance": "Shared booth-level approach"
+      }
+    ],
+    "strategicImplications": [
+      "CRITICAL HOLD: This is Congress's only Amritsar urban foothold",
+      "Margin too narrow to be comfortable",
+      "Booth-level organization is the moat"
+    ],
+    "visualizationRecommendations": [
+      "Margin Protection Meter",
+      "Urban-Rural Divide chart",
+      "Booth-Level Swing analysis",
+      "Khatri Concentration Map"
+    ],
+    "uiComponentSpecs": {
+      "componentType": "MarginMeter",
+      "state": "Danger zone (yellow)",
+      "interaction": "Alert threshold indicators"
+    }
+  },
+  {
+    "acId": "AC013",
+    "acNumber": 13,
+    "name": "Majitha",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Ganieve Kaur Majithia",
+        "party": "SAD",
+        "runnerup": "To be verified",
+        "margin": "26,062 votes"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "~39-43%",
+        "keyVotingBloc": "Mazhabi, Ravidassia"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "~35-40%",
+        "keyVotingBloc": "Dominant rural"
+      },
+      {
+        "caste": "Hindu Khatri/Arora",
+        "percentage": "~15-20%",
+        "keyVotingBloc": "Urban trading"
+      }
+    ],
+    "topIssues": [
+      "Farmer Distress - MSP procurement gaps, diesel costs, stubble burning restrictions",
+      "Drug Addiction - Rural youth addiction; border-adjacent Amritsar region",
+      "Rural Roads & Irrigation - Farm-to-market roads, canal water for irrigation"
+    ],
+    "congressPosition": "NOT HELD - SAD won with 26,062 margin. Majithia family has deep roots; Congress faces tough challenge. Without Congress-SAD alliance, third-place likely",
+    "recommendedCandidate": {
+      "profile": "Strong local candidate with anti-AAP consolidation potential",
+      "caste": "Jat Sikh, Majha background preferred",
+      "keyQualities": "Can challenge Majithia family influence, rural connect"
+    },
+    "attackLines": [
+      "Majha region badly affected by drug crisis",
+      "Majithia family dominance - dynastic politics",
+      "Development promises unfulfilled",
+      "One of only 3 SAD seats - statewide rejection"
+    ],
+    "margin": "26,062",
+    "party": "SAD",
+    "priorityTier": "LOW",
+    "dataGaps": [
+      "2017 & 2012 results",
+      "Majithia family connections",
+      "SC vote split (Mazhabi/Ravidassia)",
+      "Alliance talks status"
+    ],
+    "crossReferences": [
+      {
+        "type": "SAD Decline",
+        "linkedAC": "AC011",
+        "relevance": "Ajnala flip confirms statewide trend"
+      },
+      {
+        "type": "SC Vote",
+        "linkedAC": "AC014",
+        "relevance": "SC community links"
+      },
+      {
+        "type": "Farmer Issues",
+        "linkedAC": "AC012",
+        "relevance": "Rural distress shared"
+      },
+      {
+        "type": "Alliance Math",
+        "linkedAC": "All batch seats",
+        "relevance": "Statewide 2027 calculation"
+      }
+    ],
+    "strategicImplications": [
+      "ALLIANCE DEPENDENT: Congress cannot win this seat alone",
+      "SAD has structural advantage (family + Jat Sikh + SC sub-group)",
+      "Congress-SAD alliance is existential for both parties"
+    ],
+    "visualizationRecommendations": [
+      "Dynasty Footprint map",
+      "Alliance Probability calculator",
+      "SC Subgroup Breakdown",
+      "Farmer Distress Index"
+    ],
+    "uiComponentSpecs": {
+      "componentType": "DynastyIndicator",
+      "state": "Multi-generational badge",
+      "interaction": "Tap for family tree"
+    }
+  },
+  {
+    "acId": "AC014",
+    "acNumber": 14,
+    "name": "Jandiala",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "SC Reserved",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Harbhajan Singh ETO",
+        "party": "AAP",
+        "runnerup": "Satinderjit Singh (To be verified)",
+        "margin": "To be verified"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "~43%",
+        "keyVotingBloc": "Reserved seat - dominant"
+      },
+      {
+        "caste": "Ravidassia/Ramdasia",
+        "percentage": "~25%",
+        "keyVotingBloc": "Key SC subgroup"
+      },
+      {
+        "caste": "Mazhabi Sikh",
+        "percentage": "~15%",
+        "keyVotingBloc": "Traditional agri labor"
+      },
+      {
+        "caste": "Hindu General",
+        "percentage": "~10%",
+        "keyVotingBloc": "Urban Khatri, Arora, Brahmin"
+      }
+    ],
+    "topIssues": [
+      "SC Community Welfare - Employment, land rights, caste discrimination, economic opportunities",
+      "Urban Development - Jandiala Guru town on GT Road; municipal services",
+      "Agricultural Labor Issues - Small/marginal SC farmers; irrigation, credit access"
+    ],
+    "congressPosition": "NOT HELD - AAP won from Congress in 2022. Must recapture SC seat with dedicated SC candidate. Dalit vote bank needs rebuilding",
+    "recommendedCandidate": {
+      "profile": "SC leader, worker-focused, grassroots",
+      "caste": "MUST be from SC community (Ravidassia preferred)",
+      "keyQualities": "Social justice focus, accessible, dedicated to SC welfare"
+    },
+    "attackLines": [
+      "SC welfare schemes not reaching beneficiaries",
+      "₹1000/month for women unfulfilled",
+      "SC community economic condition unchanged",
+      "SC youth remain unemployed despite AAP promises"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2022 exact margin",
+      "2017 & 2012 results",
+      "Ravidassia vs Mazhabi split",
+      "AAP MLA background"
+    ],
+    "crossReferences": [
+      {
+        "type": "SC Strategy",
+        "linkedAC": "AC016",
+        "relevance": "Both SC reserved seats"
+      },
+      {
+        "type": "Ravidassia Vote",
+        "linkedAC": "AC011",
+        "relevance": "Shared community"
+      },
+      {
+        "type": "BSP Potential",
+        "linkedAC": "All SC seats",
+        "relevance": "2027 BSP alliance math"
+      },
+      {
+        "type": "GT Road Corridor",
+        "linkedAC": "AC015",
+        "relevance": "Shared urban axis"
+      }
+    ],
+    "strategicImplications": [
+      "SC VOTE CONTESTED: AAP's 2022 win shows SC voters abandoned Congress",
+      "AAP's 'freebies' narrative resonated with SC voters",
+      "Congress needs SC-specific welfare delivery proof"
+    ],
+    "visualizationRecommendations": [
+      "SC Vote Bank Recovery chart",
+      "Sub-caste Distribution analysis",
+      "GT Road Corridor map",
+      "Welfare Scheme Delivery tracker"
+    ],
+    "uiComponentSpecs": {
+      "componentType": "VoteRecoveryChart",
+      "state": "Trend line",
+      "interaction": "Hover for annual breakdown"
+    }
+  },
+  {
+    "acId": "AC015",
+    "acNumber": 15,
+    "name": "Amritsar North",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Kunwar Vijay Pratap Singh",
+        "party": "AAP",
+        "runnerup": "Anil Joshi (SAD)",
+        "margin": "28,318 votes"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Upper Caste",
+        "percentage": "~30%",
+        "keyVotingBloc": "Khatri, Arora, Brahmin"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "~25%",
+        "keyVotingBloc": "Urban Jat"
+      },
+      {
+        "caste": "SC",
+        "percentage": "~20%",
+        "keyVotingBloc": "Urban SC"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "~10%",
+        "keyVotingBloc": "Medium"
+      },
+      {
+        "caste": "Minority",
+        "percentage": "~8%",
+        "keyVotingBloc": "Urban minority"
+      }
+    ],
+    "topIssues": [
+      "Urban Infrastructure & Civic Services - Water supply, drainage, road quality, power supply",
+      "Law & Order / Drug Crisis - Urban drug consumption, hooch tragedies (2025)",
+      "Unemployment & Inflation - Youth unemployment, middle-class economic stress"
+    ],
+    "congressPosition": "NOT HELD - AAP won decisively with 28,318 margin. Must build coalition; consolidate SAD, BJP, Congress voters. Need strong urban candidate",
+    "recommendedCandidate": {
+      "profile": "Urban professional with business community connect",
+      "caste": "Khatri/Arora background suits trading community",
+      "keyQualities": "Development agenda, accessibility, professional credentials"
+    },
+    "attackLines": [
+      "₹1000/month for women promise broken",
+      "City infrastructure deteriorating despite 4 years",
+      "Heritage preservation neglected",
+      "Youth unemployment remains high"
+    ],
+    "margin": "28,318",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2017 margin & Congress vote share",
+      "2012 results",
+      "2022 booth-level data",
+      "Infrastructure spending data"
+    ],
+    "crossReferences": [
+      {
+        "type": "Urban Strategy",
+        "linkedAC": "AC017",
+        "relevance": "Shared urban issues"
+      },
+      {
+        "type": "Khatri Vote",
+        "linkedAC": "AC012",
+        "relevance": "Khatri concentration"
+      },
+      {
+        "type": "Law & Order",
+        "linkedAC": "AC016",
+        "relevance": "Hooch tragedy link"
+      },
+      {
+        "type": "Coalition Math",
+        "linkedAC": "AC018",
+        "relevance": "Multi-seat strategy"
+      }
+    ],
+    "strategicImplications": [
+      "COALITION CHALLENGE: AAP's near-majority vote share is daunting",
+      "Congress needs 15% swing from SAD+BJP voters",
+      "Anti-AAP consolidation is the only path"
+    ],
+    "visualizationRecommendations": [
+      "Coalition Builder chart",
+      "Infrastructure Score gauge",
+      "Hooch Tragedy Impact analysis",
+      "Youth Unemployment Trend"
+    ],
+    "uiComponentSpecs": {
+      "componentType": "CoalitionCalculator",
+      "state": "Dynamic pie",
+      "interaction": "Input different swing scenarios"
+    }
+  },
+  {
+    "acId": "AC016",
+    "acNumber": 16,
+    "name": "Amritsar West",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "SC Reserved",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Dr. Jasbir Singh",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "43,913 votes"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "~24-30%",
+        "keyVotingBloc": "Reserved seat"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "~25%",
+        "keyVotingBloc": "Urban Jat"
+      },
+      {
+        "caste": "Hindu Upper Castes",
+        "percentage": "~18%",
+        "keyVotingBloc": "Khatri, Arora, Brahmin"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "~10%",
+        "keyVotingBloc": "Medium"
+      },
+      {
+        "caste": "Minority",
+        "percentage": "~8%",
+        "keyVotingBloc": "Urban minority"
+      }
+    ],
+    "topIssues": [
+      "Unemployment & Skills - Urban SC youth joblessness; skills training absent",
+      "Drug Addiction - Urban youth, including SC communities; rehabilitation infrastructure absent",
+      "Urban Slum Development - Peri-urban colonies lacking civic infrastructure"
+    ],
+    "congressPosition": "NOT HELD - AAP won massively (43,913 margin). SC vote bank collapsed for Congress. Must rebuild with dedicated SC candidate with welfare credentials",
+    "recommendedCandidate": {
+      "profile": "SC leader, welfare-focused, accessible",
+      "caste": "MUST be from SC community",
+      "keyQualities": "Dedicated to SC issues, anti-AAP narrative, professional background"
+    },
+    "attackLines": [
+      "SC welfare schemes not delivered",
+      "Urban SC colonies neglected",
+      "Slum development ignored",
+      "SC youth unemployment remains high"
+    ],
+    "margin": "43,913",
+    "party": "AAP",
+    "priorityTier": "LOW",
+    "dataGaps": [
+      "2017 & 2012 history",
+      "2022 runner-up & party",
+      "SC welfare beneficiary data",
+      "Slum colony locations"
+    ],
+    "crossReferences": [
+      {
+        "type": "SC Strategy",
+        "linkedAC": "AC014",
+        "relevance": "Both SC reserved seats"
+      },
+      {
+        "type": "SC Welfare",
+        "linkedAC": "AC014",
+        "relevance": "Shared delivery issues"
+      },
+      {
+        "type": "Long-term Play",
+        "linkedAC": "AC014",
+        "relevance": "Multi-cycle rebuild"
+      },
+      {
+        "type": "Slum Development",
+        "linkedAC": "AC015",
+        "relevance": "Shared urban slum issues"
+      }
+    ],
+    "strategicImplications": [
+      "LONG-TERM REBUILD: This seat is not competitive until 2032+",
+      "43,913 margin requires 22,000 vote net swing",
+      "Focus on ground organization, not winning"
+    ],
+    "visualizationRecommendations": [
+      "Impossible Fold Map",
+      "SC Welfare Gap analysis",
+      "Slum Distribution map",
+      "Long-term Rebuild timeline"
+    ],
+    "uiComponentSpecs": {
+      "componentType": "ImpossibleFoldBadge",
+      "state": "Red alert",
+      "interaction": "Explanation tooltip"
+    }
+  },
+  {
+    "acId": "AC017",
+    "acNumber": 17,
+    "name": "Amritsar Central",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Ajay Gupta",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "14,026 votes"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Upper Caste",
+        "percentage": "~32%",
+        "keyVotingBloc": "Khatri, Arora, Brahmin dominant"
+      },
+      {
+        "caste": "SC",
+        "percentage": "~20%",
+        "keyVotingBloc": "Urban SC"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "~22%",
+        "keyVotingBloc": "Urban Jat"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "~12%",
+        "keyVotingBloc": "Medium"
+      },
+      {
+        "caste": "Minority",
+        "percentage": "~10%",
+        "keyVotingBloc": "Sikh + Hindu minority"
+      }
+    ],
+    "topIssues": [
+      "Heritage & Golden Temple Management - Pilgrim facilities, cleanliness, parking, SGPC governance",
+      "Urban Infrastructure - Water supply, power, drainage in old city",
+      "Law & Order / Business Environment - Tourist safety, drug peddling near city, GST impact on traders"
+    ],
+    "congressPosition": "NOT HELD - AAP won with 14,026 margin. Narrower margin makes this competitive. Congress can challenge by highlighting governance failures",
+    "recommendedCandidate": {
+      "profile": "Urban professional with heritage focus",
+      "caste": "Khatri/Arora suits commercial community",
+      "keyQualities": "Development credentials, accessibility, business/trader connect"
+    },
+    "attackLines": [
+      "Golden Temple area management questioned",
+      "Urban development promises unfulfilled",
+      "Shopkeeper/trader concerns ignored",
+      "Tourism potential not realized"
+    ],
+    "margin": "14,026",
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "2017 & 2012 history",
+      "2022 runner-up & party",
+      "Golden Temple visitor feedback",
+      "GST impact on traders"
+    ],
+    "crossReferences": [
+      {
+        "type": "Heritage Strategy",
+        "linkedAC": "AC010",
+        "relevance": "Religious tourism corridor"
+      },
+      {
+        "type": "Khatri Vote",
+        "linkedAC": "AC012",
+        "relevance": "Khatri community network"
+      },
+      {
+        "type": "Tourist Economy",
+        "linkedAC": "All Amritsar seats",
+        "relevance": "Shared tourism impact"
+      },
+      {
+        "type": "Narrow Margins",
+        "linkedAC": "AC018",
+        "relevance": "Both competitive seats"
+      }
+    ],
+    "strategicImplications": [
+      "PRIORITY FLIP OPPORTUNITY: One of Congress's best chances in Amritsar",
+      "AAP's narrowest margin outside AC018",
+      "Heritage/golden temple governance is a valid attack line"
+    ],
+    "visualizationRecommendations": [
+      "Heritage Score chart",
+      "Trader Sentiment gauge",
+      "Narrow Margin Alert",
+      "Hindu-Sikh Balance indicator"
+    ],
+    "uiComponentSpecs": {
+      "componentType": "CompetitiveBadge",
+      "state": "Green alert",
+      "interaction": "Shows as in play"
+    }
+  },
+  {
+    "acId": "AC018",
+    "acNumber": 18,
+    "name": "Amritsar East",
+    "district": "Amritsar",
+    "region": "Majha",
+    "type": "General",
+    "lokSabha": "Amritsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Jeevanjot Kaur",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "6,750 votes"
+      },
+      {
+        "year": 2017,
+        "winner": "Navjot Singh Sidhu",
+        "party": "INC",
+        "runnerup": "To be verified",
+        "margin": "To be verified"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Upper Caste",
+        "percentage": "~28%",
+        "keyVotingBloc": "Khatri, Arora"
+      },
+      {
+        "caste": "SC",
+        "percentage": "~23%",
+        "keyVotingBloc": "Urban SC"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "~24%",
+        "keyVotingBloc": "Urban Jat"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "~12%",
+        "keyVotingBloc": "Medium"
+      },
+      {
+        "caste": "Minority",
+        "percentage": "~8%",
+        "keyVotingBloc": "Urban minority"
+      }
+    ],
+    "topIssues": [
+      "Urban Development - City east infrastructure: roads, water, power",
+      "Law & Order - Drug crisis, hooch tragedy",
+      "Peri-urban Agriculture - Village irrigation, farm-to-market roads, MSP for Jat Sikh farmers"
+    ],
+    "congressPosition": "NOT HELD - AAP won with narrow 6,750 margin. Most competitive AAP seat in Amritsar. Congress can win with right candidate; Sidhu's departure creates opportunity",
+    "recommendedCandidate": {
+      "profile": "Urban professional with mixed caste appeal",
+      "caste": "Arora/Khatri or Jat Sikh",
+      "keyQualities": "Development focus, anti-AAP narrative, local connect"
+    },
+    "attackLines": [
+      "Close 6,750 vote win shows anti-incumbency",
+      "City infrastructure deteriorating",
+      "Educated youth still seeking jobs",
+      "AAP promises unfulfilled"
+    ],
+    "margin": "6,750",
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "2012 results",
+      "2022 booth-level data",
+      "Sidhu current political affiliation",
+      "Post-Sidhu AAP voter sentiment"
+    ],
+    "crossReferences": [
+      {
+        "type": "Narrow Margins",
+        "linkedAC": "AC017",
+        "relevance": "Both competitive seats"
+      },
+      {
+        "type": "Sidhu Factor",
+        "linkedAC": "AC012",
+        "relevance": "Sidhu's Congress history"
+      },
+      {
+        "type": "Booth Strategy",
+        "linkedAC": "AC012",
+        "relevance": "Shared booth-level targeting"
+      },
+      {
+        "type": "Law & Order",
+        "linkedAC": "AC015",
+        "relevance": "Hooch tragedy shared"
+      }
+    ],
+    "strategicImplications": [
+      "TOP PRIORITY: This is Congress's BEST opportunity in Batch 2",
+      "Narrowest AAP margin (6,750) = highest flip probability",
+      "Sidhu's 2024 departure creates voter volatility"
+    ],
+    "visualizationRecommendations": [
+      "Sidhu Effect Tracker",
+      "Narrowest Margin Alert",
+      "Swing Booth Identification",
+      "Jat Sikh Farmer Index"
+    ],
+    "uiComponentSpecs": {
+      "componentType": "FlipProbabilityBadge",
+      "state": "65% green",
+      "interaction": "Tap for calculation"
+    }
+  },
+  {
+    "acId": "AC055",
+    "acNumber": 55,
+    "name": "Fatehgarh Sahib",
+    "district": "Fatehgarh Sahib",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Fatehgarh Sahib (SC)",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Lakhbir Singh Rai",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "32,199"
+      }
+    ],
+    "totalElectors": 162215,
+    "voterTurnout": "77.38%",
+    "casteComposition": [
+      {
+        "caste": "Sikh (Jat + Others)",
+        "percentage": "68-72%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "22-26%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "25-30%"
+      },
+      {
+        "caste": "Other",
+        "percentage": "5%"
+      }
+    ],
+    "topIssues": [
+      "Religious Tourism Infrastructure - Gurudwara development, pilgrimage facilities",
+      "Agriculture & Farmer Distress - MSP, stubble management, canal water",
+      "Drug Crisis - Rural youth addiction"
+    ],
+    "congressPosition": "Lost by 32,199 votes. Opportunity: Congress was incumbent, religious constituency. Margin: 16,000 votes achievable with focused effort",
+    "recommendedCandidate": {
+      "profile": "Sikh (Jat preferred), Farmer, local leader, religious connect",
+      "caste": "Sikh (Jat preferred)",
+      "keyQualities": "Clean, respected in community, Deep roots in Fatehgarh Sahib area, Respect for sacred town"
+    },
+    "attackLines": [
+      "Development promises unfulfilled",
+      "Drug crisis: Youth addiction destroying families",
+      "Religious Neglect: Sacred town infrastructure neglected",
+      "Healthcare, education inadequate"
+    ],
+    "margin": "32,199",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Exact 2022 vote shares",
+      "2017 detailed results",
+      "Booth-level data"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Recovery target: 16,000 additional votes",
+      "SAD voters to target: ~8,000"
+    ],
+    "visualizationRecommendations": [
+      "Margin Challenge chart",
+      "Vote Share analysis",
+      "Caste Split visualization"
+    ],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC056",
+    "acNumber": 56,
+    "name": "Amloh",
+    "district": "Fatehgarh Sahib",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Fatehgarh Sahib (SC)",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Gurinder Singh",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "24,663"
+      }
+    ],
+    "totalElectors": 140000,
+    "voterTurnout": "76%",
+    "casteComposition": [
+      {
+        "caste": "Sikh (Jat + Others)",
+        "percentage": "70-75%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "20-25%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "22-26%"
+      },
+      {
+        "caste": "Other",
+        "percentage": "5%"
+      }
+    ],
+    "topIssues": [
+      "Agriculture & Farmer Distress - MSP procurement, stubble management, canal water",
+      "Drug Crisis - Rural youth addiction, de-addiction centers needed",
+      "Rural Infrastructure - Roads, irrigation, electricity"
+    ],
+    "congressPosition": "Lost by 24,663 votes. Traditional Congress area, Jat Sikh majority. Margin: 12,500 achievable with full mobilization",
+    "recommendedCandidate": {
+      "profile": "Sikh (Jat preferred), Farmer leader, cooperative movement",
+      "caste": "Sikh (Jat preferred)",
+      "keyQualities": "Deep roots in Amloh area, Farmer-friendly, clean image"
+    },
+    "attackLines": [
+      "Drug Crisis: Rural youth dying - AAP failed",
+      "Farmer Distress: MSP promises broken, debt mounting",
+      "Broken Promises: Same failures as elsewhere",
+      "Healthcare, education inadequate"
+    ],
+    "margin": "24,663",
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "Exact 2022 vote shares",
+      "2017 detailed results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Votes needed: ~12,500 additional",
+      "SAD voters to target: ~7,000"
+    ],
+    "visualizationRecommendations": [
+      "Margin Challenge chart",
+      "Vote Share analysis"
+    ],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC057",
+    "acNumber": 57,
+    "name": "Khanna",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Tarunpreet Singh Sond",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "Data TBD"
+      }
+    ],
+    "totalElectors": 160000,
+    "voterTurnout": "75%+",
+    "casteComposition": [
+      {
+        "caste": "Sikh (Jat + Others)",
+        "percentage": "55-60%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "35-40%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "18-22%"
+      },
+      {
+        "caste": "Other",
+        "percentage": "5-7%"
+      }
+    ],
+    "topIssues": [
+      "Industrial Growth & MSME - Factory jobs, MSME development",
+      "Commercial Tax Burden - GST impact on small businesses",
+      "Urban Infrastructure - Town roads, drainage, water supply"
+    ],
+    "congressPosition": "Lost (margin needs verification). Business community may be disillusioned. Challenge: Urban voter shift to AAP",
+    "recommendedCandidate": {
+      "profile": "Hindu (Khatri, Arora, Baniya) or Sikh, Business, industry, trader",
+      "caste": "Hindu (Khatri, Arora, Baniya) or Sikh",
+      "keyQualities": "Business-friendly, development focus, Khanna traders, industrialists"
+    },
+    "attackLines": [
+      "Tax Burden: GST crushing small businesses",
+      "Industrial Stagnation: No new factories, jobs",
+      "Town Neglect: Infrastructure deteriorating",
+      "Broken Promises: Employment promises unfulfilled"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2022 exact margin",
+      "2017 detailed results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Commercial/industrial seat, candidate quality critical"
+    ],
+    "visualizationRecommendations": [
+      "Margin Challenge chart",
+      "Vote Share analysis"
+    ],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC058",
+    "acNumber": 58,
+    "name": "Samrala",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Fatehgarh Sahib (SC)",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Jagtar Singh",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "30,890"
+      }
+    ],
+    "totalElectors": 145000,
+    "voterTurnout": "76%",
+    "casteComposition": [
+      {
+        "caste": "Sikh (Jat + Others)",
+        "percentage": "70-75%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "20-25%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "20-25%"
+      },
+      {
+        "caste": "Other",
+        "percentage": "5%"
+      }
+    ],
+    "topIssues": [
+      "Agriculture & Farmer Distress - MSP, stubble management, canal water",
+      "Drug Crisis - Rural youth addiction",
+      "Rural Infrastructure - Roads, irrigation, electrification"
+    ],
+    "congressPosition": "Lost by 30,890 votes. Agricultural seat, Congress traditional base. Challenge: Large margin requires focused effort",
+    "recommendedCandidate": {
+      "profile": "Sikh (Jat preferred), Farmer leader, agriculturalist",
+      "caste": "Sikh (Jat preferred)",
+      "keyQualities": "Deep roots in Samrala area, Farmer-friendly, clean image"
+    },
+    "attackLines": [
+      "Drug Crisis: Rural youth dying - AAP failed",
+      "Farmer Distress: MSP promises broken",
+      "Rural Neglect: Roads, infrastructure still poor",
+      "Broken Promises: Same failures as elsewhere"
+    ],
+    "margin": "30,890",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Exact 2022 vote shares",
+      "2017 detailed results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Votes needed: ~15,500 additional",
+      "SAD voters to target: ~7,000"
+    ],
+    "visualizationRecommendations": [
+      "Margin Challenge chart",
+      "Vote Share analysis"
+    ],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC060",
+    "acNumber": 60,
+    "name": "Ludhiana East",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Daljit Singh Grewal Bhola",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "Data TBD"
+      },
+      {
+        "year": 2017,
+        "winner": "Sanjeev Talwar",
+        "party": "INC",
+        "runnerup": "To be verified",
+        "margin": "Congress hold"
+      }
+    ],
+    "totalElectors": 217795,
+    "voterTurnout": "69%",
+    "casteComposition": [
+      {
+        "caste": "Sikh (Jat + Others)",
+        "percentage": "50-55%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "40-45%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "15-18%"
+      },
+      {
+        "caste": "Other",
+        "percentage": "5%"
+      }
+    ],
+    "topIssues": [
+      "Urban Infrastructure - City roads, drainage, power supply",
+      "Drug Crisis - Urban youth addiction, prescription drug abuse",
+      "Employment - Jobs for educated youth"
+    ],
+    "congressPosition": "Lost (margin needs verification). Won this seat in 2017. Challenge: Urban voter shift to AAP",
+    "recommendedCandidate": {
+      "profile": "Hindu (Khatri, Arora, Brahmin) or Sikh, Professional, business, trader",
+      "caste": "Hindu (Khatri, Arora, Brahmin) or Sikh",
+      "keyQualities": "Urban-focused, development-oriented, City voters, young professionals"
+    },
+    "attackLines": [
+      "Civic Failures: Roads, drainage, power cuts",
+      "Drug Crisis: Urban youth addiction visible",
+      "Urban Neglect: City infrastructure deteriorating",
+      "Broken Promises: Jobs, development promises unfulfilled"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2022 exact margin",
+      "2017 detailed results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Urban constituency, Hindu professional outreach key"
+    ],
+    "visualizationRecommendations": [
+      "Margin Challenge chart",
+      "Vote Share analysis"
+    ],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC061",
+    "acNumber": 61,
+    "name": "Ludhiana South",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Rajinder Pal Kaur",
+        "party": "AAP",
+        "runnerup": "Satinderpal Singh Tajpuri (BJP)",
+        "margin": "Complex 3-way"
+      }
+    ],
+    "totalElectors": "160000-180000",
+    "voterTurnout": "65-70%",
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "25-28%"
+      },
+      {
+        "caste": "Upper Castes",
+        "percentage": "35-40%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "28-31%"
+      },
+      {
+        "caste": "Muslim",
+        "percentage": "1-2%"
+      },
+      {
+        "caste": "Christian",
+        "percentage": "1-2%"
+      }
+    ],
+    "topIssues": [
+      "Urban Development - Infrastructure gaps in southern Ludhiana",
+      "Drug Trafficking - Major corridor route, urban youth addiction",
+      "Industrial Pollution - Factory emissions"
+    ],
+    "congressPosition": "Third position. Challenge: Recovering from third place. Opportunity: BJP vs AAP split possible",
+    "recommendedCandidate": {
+      "profile": "Khatri/Arora or Jat Sikh preferred, Business, professional, young turks",
+      "caste": "Khatri/Arora or Jat Sikh preferred",
+      "keyQualities": "Dynamic, urban connect, Congress family or new leader"
+    },
+    "attackLines": [
+      "Broken Promises: AAP's unfulfilled guarantees",
+      "Drug Crisis: Despite promises, drug problem persists",
+      "Governance: Law and order situation in city",
+      "Employment: No major job creation"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2017 detailed results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Third position, coalition required, long-term organization building"
+    ],
+    "visualizationRecommendations": [
+      "Margin Challenge chart",
+      "Vote Share analysis"
+    ],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC063",
+    "acNumber": 63,
+    "name": "Ludhiana Central",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Ashok 'Pappi' Parashar",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "Data TBD"
+      },
+      {
+        "year": 2017,
+        "winner": "Surinder Kumar Dawar",
+        "party": "INC",
+        "runnerup": "To be verified",
+        "margin": "47,871"
+      }
+    ],
+    "totalElectors": 180000,
+    "voterTurnout": "65-70%",
+    "casteComposition": [
+      {
+        "caste": "Brahmin",
+        "percentage": "Significant - old city concentration"
+      },
+      {
+        "caste": "Khatri/Arora",
+        "percentage": "Significant - business families"
+      },
+      {
+        "caste": "Baniya",
+        "percentage": "Present - trading community"
+      },
+      {
+        "caste": "SC",
+        "percentage": "20-25%"
+      },
+      {
+        "caste": "Muslim",
+        "percentage": "Notable - old city pockets"
+      }
+    ],
+    "topIssues": [
+      "Old City Development - Encroachment, narrow streets, drainage",
+      "Commercial Activity - Wholesale markets, GST impact on traders",
+      "Infrastructure - Aging water/sewerage, traffic congestion"
+    ],
+    "congressPosition": "Lost (margin needs verification). Won in 2017 with 47,871, old city connect. Challenge: Urban shift to AAP",
+    "recommendedCandidate": {
+      "profile": "Khatri/Arora or Brahmin, Old Ludhiana family, market connect",
+      "caste": "Khatri/Arora or Brahmin",
+      "keyQualities": "Old Ludhiana family, market connect, Booth-level workers essential"
+    },
+    "attackLines": [
+      "Urban Decay: Broken roads, waterlogging",
+      "Market Struggles: Traders' concerns ignored",
+      "Law & Order: Crime in city areas",
+      "Misgovernance: Unfulfilled promises"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2022 exact margin"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Urban core, old city dynamics, candidate quality critical"
+    ],
+    "visualizationRecommendations": [
+      "Margin Challenge chart",
+      "Vote Share analysis"
+    ],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC082",
+    "acNumber": 82,
+    "name": "Balluana (SC)",
+    "district": "Fazilka",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Fazilka",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Amandeep Singh Goldy Musafir",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "19,173"
+      }
+    ],
+    "totalElectors": 184434,
+    "voterTurnout": "78.06%",
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "32-35%"
+      },
+      {
+        "caste": "Sikh",
+        "percentage": "55-60%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "35-40%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "~15%"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "20-25%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in rural SC communities",
+      "Unemployment among youth",
+      "Small farmer distress",
+      "Rural water supply",
+      "Healthcare infrastructure gaps"
+    ],
+    "congressPosition": "VULNERABILITY: AAP has deep SC penetration. Congress lost badly in 2022. Need: Strong SC candidate with grassroots connect, Possible BSP alliance for SC vote consolidation",
+    "recommendedCandidate": {
+      "profile": "SC candidate with grassroots connect",
+      "caste": "SC",
+      "keyQualities": "Strong SC candidate with grassroots connect"
+    },
+    "attackLines": [
+      "SC communities still face discrimination",
+      "Employment promise for youth unfulfilled",
+      "Drug addiction destroying SC youth",
+      "Land rights issues unresolved"
+    ],
+    "margin": "19,173",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2017 detailed results needed",
+      "Sub-caste composition verification",
+      "Booth-level analysis required",
+      "Local influential families unknown"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Consider BSP alliance"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC083",
+    "acNumber": 83,
+    "name": "Lambi",
+    "district": "Moga",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Moga",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Gurmeet Singh Khudian",
+        "party": "AAP",
+        "runnerup": "Parkash Singh Badal (SAD)",
+        "margin": "11,396"
+      }
+    ],
+    "totalElectors": 158000,
+    "voterTurnout": "78-80%",
+    "casteComposition": [
+      {
+        "caste": "Sikh",
+        "percentage": "75-80%"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "45-50%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "20-25%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "20-22%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "5-8%"
+      }
+    ],
+    "topIssues": [
+      "Agricultural distress (cotton, wheat MSP, stubble)",
+      "Drug menace",
+      "Groundwater crisis",
+      "Rural infrastructure",
+      "Youth unemployment"
+    ],
+    "congressPosition": "OPPORTUNITY: Congress finished THIRD in 2022. AAP won due to anti-SAD sentiment. If SAD alliance materializes, coordinate campaign. Target voters disillusioned with AAP delivery",
+    "recommendedCandidate": {
+      "profile": "Can invoke Badal legacy if SAD ally",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Focus on rural and farmer issues"
+    },
+    "attackLines": [
+      "Promise of Rs 1000/month for women - where is the money?",
+      "Drug menace continues despite claims",
+      "Farmers still struggling for fair MSP",
+      "No development visible in rural Lambi"
+    ],
+    "margin": "11,396",
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "Exact 2022 vote shares needed",
+      "Booth-wise results unavailable",
+      "Current MLA performance unknown"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "FORMER CM SEAT: Parkash Singh Badal (5-term Chief Minister) lost here in 2022 at age 94+",
+      "SAD BASTION FALLEN: Traditional Badal family stronghold"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC085",
+    "acNumber": 85,
+    "name": "Malout (SC)",
+    "district": "Muktsar",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Muktsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Dr. Baljit Kaur",
+        "party": "AAP",
+        "runnerup": "Ajaib Singh Bhatti (INC)",
+        "margin": "40,261"
+      }
+    ],
+    "totalElectors": 176919,
+    "voterTurnout": "78.7%",
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "37-40%"
+      },
+      {
+        "caste": "Sikh",
+        "percentage": "65-70%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "10-12%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in SC communities",
+      "Limited SC youth opportunities",
+      "Land alienation issues",
+      "Drinking water supply",
+      "Rural healthcare gaps"
+    ],
+    "congressPosition": "SEVERE CHALLENGE: Congress lost badly. Dr. Baljit Kaur is strong incumbent. Need strong SC woman candidate (medical/social work background), Focus on anti-incumbency, Consider BSP alliance",
+    "recommendedCandidate": {
+      "profile": "SC woman candidate with medical/social work background",
+      "caste": "SC",
+      "keyQualities": "Strong anti-incumbency narrative"
+    },
+    "attackLines": [
+      "Despite 56% vote share, what development in Malout?",
+      "Drug addiction destroying SC youth - no action",
+      "Health services still inaccessible to SC communities",
+      "SC reservation promises unfulfilled"
+    ],
+    "margin": "40,261",
+    "party": "AAP",
+    "priorityTier": "LOW",
+    "dataGaps": [
+      "Deep file shows Malout as GEN category; Tier 1 file correctly shows SC",
+      "2022 winner verification needed"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "HIGHEST VOTE SHARE: Dr. Baljit Kaur won with 56% - highest among women winners in Punjab 2022",
+      "MASSIVE MARGIN: 40,261 votes - dominant AAP performance"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC086",
+    "acNumber": 86,
+    "name": "Muktsar",
+    "district": "Muktsar",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Muktsar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Jagdeep Singh Brar (Kaka Brar)",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "34,194"
+      }
+    ],
+    "totalElectors": 165000,
+    "voterTurnout": "77-78%",
+    "casteComposition": [
+      {
+        "caste": "Sikh",
+        "percentage": "70-75%"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "25-30%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "28-30%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "10-12%"
+      }
+    ],
+    "topIssues": [
+      "Drug menace (significant seizures)",
+      "Urban infrastructure",
+      "Agricultural marketing (mandi facilities)",
+      "Healthcare upgrade needed",
+      "Youth unemployment"
+    ],
+    "congressPosition": "OPPORTUNITY: Strong AAP margin but urban voters may be disillusioned. Focus on urban governance failures, Strong candidate with administrative experience",
+    "recommendedCandidate": {
+      "profile": "Strong candidate with administrative experience",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Target urban middle-class, Address civic issues"
+    },
+    "attackLines": [
+      "Town infrastructure neglected",
+      "Drug menace continues unchecked",
+      "Healthcare facilities deteriorated",
+      "Broken promises on financial assistance"
+    ],
+    "margin": "34,194",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "DISTRICT HEADQUARTERS: Muktsar town is district capital",
+      "COMMERCIAL CENTER: Trade and agriculture hub"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC087",
+    "acNumber": 87,
+    "name": "Faridkot",
+    "district": "Faridkot",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Faridkot",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Gurdit Singh Sekhon",
+        "party": "AAP",
+        "runnerup": "Kushaldeep Singh Dhillon (INC)",
+        "margin": "16,797"
+      }
+    ],
+    "totalElectors": 170000,
+    "voterTurnout": "75.46%",
+    "casteComposition": [
+      {
+        "caste": "Sikh",
+        "percentage": "65-70%"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "28-32%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "30-32%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "10-12%"
+      }
+    ],
+    "topIssues": [
+      "Drug menace",
+      "Civil hospital needs upgrade",
+      "Educational facilities",
+      "Urban development",
+      "Agricultural distress (wheat/cotton)"
+    ],
+    "congressPosition": "RECOVERY POSSIBLE: Congress was runner-up in 2017, lost further in 2022. Strong local candidate needed, Anti-incumbency angle viable",
+    "recommendedCandidate": {
+      "profile": "Professional background candidate (doctor, lawyer)",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Focus on health infrastructure"
+    },
+    "attackLines": [
+      "Healthcare in Civil Hospital remains pathetic",
+      "Drug addiction destroying families",
+      "No new industries, no jobs for youth",
+      "Faridkot's historical legacy ignored"
+    ],
+    "margin": "16,797",
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "DISTRICT HEADQUARTERS: Faridkot town is district capital",
+      "HISTORICAL SIGNIFICANCE: Punjabi literary connections"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC088",
+    "acNumber": 88,
+    "name": "Kotkapura",
+    "district": "Faridkot",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Faridkot",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Kultar Singh Sandhwan",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "21,130"
+      },
+      {
+        "year": 2017,
+        "winner": "Kultar Singh Sandhwan",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "10,075"
+      }
+    ],
+    "totalElectors": 155000,
+    "voterTurnout": "77%",
+    "casteComposition": [
+      {
+        "caste": "Sikh",
+        "percentage": "65-70%"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "28-32%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "30-32%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "10-12%"
+      }
+    ],
+    "topIssues": [
+      "Drug menace",
+      "Industrial decline (fireworks industry struggles)",
+      "Agricultural problems",
+      "Urban decay",
+      "Youth unemployment"
+    ],
+    "congressPosition": "DIFFICULT: AAP margin is GROWING, not shrinking. Fresh organization building needed, Anti-incumbency angle difficult",
+    "recommendedCandidate": {
+      "profile": "Strong local candidate essential",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Industrial decline messaging"
+    },
+    "attackLines": [
+      "Kotkapura fireworks industry destroyed",
+      "Drug menace unchecked",
+      "Town infrastructure neglected",
+      "No industries, no jobs for youth"
+    ],
+    "margin": "21,130",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "AAP STRONGHOLD: Kultar Singh Sandhwan won TWICE, margin DOUBLING",
+      "INDUSTRIAL TOWN: Historical fireworks industry"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC089",
+    "acNumber": 89,
+    "name": "Jaitu (SC)",
+    "district": "Faridkot",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Faridkot",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Amolak Singh",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "32,789"
+      }
+    ],
+    "totalElectors": 151794,
+    "voterTurnout": "76.6%",
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "38-42%"
+      },
+      {
+        "caste": "Sikh",
+        "percentage": "65-70%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "8-10%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in SC communities",
+      "Limited SC youth opportunities",
+      "Small farmer problems",
+      "Drinking water supply",
+      "Rural infrastructure gaps"
+    ],
+    "congressPosition": "CHALLENGING: AAP won decisively. Congress needs: Strong SC candidate from Mazhabi/Ramdasia, Dalit rights activist profile",
+    "recommendedCandidate": {
+      "profile": "SC candidate from Mazhabi/Ramdasia",
+      "caste": "SC",
+      "keyQualities": "Dalit rights activist profile, Anti-incumbency focus"
+    },
+    "attackLines": [
+      "Drug addiction destroying SC youth - no action",
+      "SC youth still unemployed despite promises",
+      "Educational opportunities limited for SC children",
+      "Land rights issues unresolved"
+    ],
+    "margin": "32,789",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "SC RESERVED: Significant Dalit voter base",
+      "DOMINANT AAP: 52% vote share, 28% margin"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC093",
+    "acNumber": 93,
+    "name": "Bathinda Rural (SC)",
+    "district": "Bathinda",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Bathinda",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Amit Ratan Kotfatta",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "35,479"
+      }
+    ],
+    "totalElectors": 158866,
+    "voterTurnout": "78.3%",
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "38-42%"
+      },
+      {
+        "caste": "Sikh",
+        "percentage": "65-70%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "10-12%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction - Rural SC youth affected",
+      "Agricultural distress - Wheat/cotton farmers",
+      "Land issues - Small landowner problems",
+      "Rural infrastructure - Roads, water, electricity"
+    ],
+    "congressPosition": "Needs strong rebuilding. AAP won decisively. SC leader with agricultural background, Farmer representative, Dalit rights",
+    "recommendedCandidate": {
+      "profile": "SC leader with agricultural background",
+      "caste": "SC",
+      "keyQualities": "Farmer representative, Dalit rights, Known for rural development work"
+    },
+    "attackLines": [
+      "Rural infrastructure still pathetic",
+      "Drug addiction destroying SC youth",
+      "Agricultural distress ignored",
+      "SC reservation promises unfulfilled"
+    ],
+    "margin": "35,479",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2017 data missing - cannot show trajectory"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "DISCREPANCY NOTE: Deep research file estimates SC at 55-60%. Tier 1 verified data shows 38-42%. Tier 1 is authoritative."
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC095",
+    "acNumber": 95,
+    "name": "Maur",
+    "district": "Bathinda",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Bathinda",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Sukhveer Singh Maiserkhana",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "35,008"
+      }
+    ],
+    "totalElectors": 135000,
+    "voterTurnout": "77-78%",
+    "casteComposition": [
+      {
+        "caste": "Sikh",
+        "percentage": "68-72%"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "28-32%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "28-30%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "10-12%"
+      }
+    ],
+    "topIssues": [
+      "Drug menace - Rural youth affected",
+      "Agricultural distress - Cotton/wheat farmers",
+      "Rural infrastructure - Roads, water, electricity",
+      "Youth unemployment - Limited job opportunities"
+    ],
+    "congressPosition": "Difficult. AAP margin doubled - anti-incumbency didn't materialize.",
+    "recommendedCandidate": {
+      "profile": "Sikh leader with agricultural background",
+      "caste": "Sikh (Jat preferred)",
+      "keyQualities": "Farmer representative, rural development, Known for accessibility"
+    },
+    "attackLines": [
+      "No visible development in Maur",
+      "Drug addiction destroying youth",
+      "Agricultural crisis ignored",
+      "Rural infrastructure pathetic"
+    ],
+    "margin": "35,008",
+    "party": "AAP",
+    "priorityTier": "LOW",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "AAP stronghold: Won both 2017 and 2022",
+      "Increased margin: 2022 margin doubled (14K to 35K)"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC097",
+    "acNumber": 97,
+    "name": "Sardulgarh",
+    "district": "Mansa",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Mansa",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Gurpreet Singh Banawali",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "41,371"
+      }
+    ],
+    "totalElectors": 181679,
+    "voterTurnout": "84.12%",
+    "casteComposition": [
+      {
+        "caste": "Sikh",
+        "percentage": "70-75%"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "25-30%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "28-30%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "10-12%"
+      }
+    ],
+    "topIssues": [
+      "Drug menace - Mansa district significantly affected",
+      "Agricultural distress - Cotton/wheat belt",
+      "Groundwater crisis - Water table decline",
+      "Rural infrastructure - Roads, irrigation",
+      "Youth unemployment - High NRI emigration"
+    ],
+    "congressPosition": "Barely relevant. Finished third in 2022. Need to rebuild party organization from grassroots",
+    "recommendedCandidate": {
+      "profile": "Rebuilding required",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Strong grassroots connect"
+    },
+    "attackLines": [
+      "84% turnout but no development visible",
+      "Drug addiction destroying families",
+      "Cotton farmers still waiting for MSP",
+      "Water table declining - government silent"
+    ],
+    "margin": "41,371",
+    "party": "AAP",
+    "priorityTier": "LOW",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Highest turnout: 84.12% voter turnout - highest in entire Punjab 2022",
+      "SAD to AAP shift: Won by SAD in 2017, AAP in 2022",
+      "Congress third place: Organizational collapse signal"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC098",
+    "acNumber": 98,
+    "name": "Budhlada (SC)",
+    "district": "Mansa",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Mansa",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Budhram Singh",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "51,691"
+      }
+    ],
+    "totalElectors": 150000,
+    "voterTurnout": "77-79%",
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "40-45%"
+      },
+      {
+        "caste": "Sikh",
+        "percentage": "65-70%"
+      },
+      {
+        "caste": "Hindu",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "8-10%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction - Rural SC youth severely affected",
+      "Unemployment - Limited opportunities for SC youth",
+      "Land issues - Small landowner problems",
+      "Drinking water - Rural water supply problems"
+    ],
+    "congressPosition": "Lost badly. Needs strong SC candidate. Mazhabi Sikh candidate preferred, Dalit rights activist, Panchayat experience",
+    "recommendedCandidate": {
+      "profile": "SC leader from Mazhabi/Ramdasia community",
+      "caste": "SC",
+      "keyQualities": "Dalit rights activist, Panchayat experience, Known for social work"
+    },
+    "attackLines": [
+      "SC youth still unemployed",
+      "Drug addiction destroying SC families",
+      "Educational opportunities limited for SC children",
+      "Health services inaccessible to rural SC"
+    ],
+    "margin": "51,691",
+    "party": "AAP",
+    "priorityTier": "LOW",
+    "dataGaps": [
+      "2017 data missing"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "One of AAP's strongest SC seats"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC100",
+    "acNumber": 100,
+    "name": "Dirba (SC)",
+    "district": "Sangrur",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Sangrur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Harpal Singh Cheema",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "50,655"
+      }
+    ],
+    "totalElectors": 182695,
+    "voterTurnout": "79.5%",
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "40-45%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in rural SC communities",
+      "Unemployment among SC youth",
+      "Small farmer distress",
+      "Educational opportunities for SC children"
+    ],
+    "congressPosition": "Extremely weak. Lost badly despite traditional SC support. Need to rebuild from base.",
+    "recommendedCandidate": {
+      "profile": "SC candidate (Mazhabi/Ramdasia) with grassroots connect",
+      "caste": "SC",
+      "keyQualities": "Strong grassroots connect, Anti-drug stand"
+    },
+    "attackLines": [
+      "SC youth unemployment at peak",
+      "Drug addiction destroying SC families",
+      "Educational opportunities limited for SC children"
+    ],
+    "margin": "50,655",
+    "party": "AAP",
+    "priorityTier": "LOW",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "AAP Stronghold",
+      "Largest electorate in cluster"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC101",
+    "acNumber": 101,
+    "name": "Sunam",
+    "district": "Sangrur",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Sangrur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Aman Aurora",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "75,277"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "26-30%"
+      },
+      {
+        "caste": "OBC",
+        "percentage": "18-22%"
+      }
+    ],
+    "topIssues": [
+      "Drug menace - Rural youth affected",
+      "Agricultural distress - Cotton/wheat belt",
+      "Youth unemployment - Limited job opportunities"
+    ],
+    "congressPosition": "Third place / weak opposition. Lost deposit in many reports. Needs complete rebuild.",
+    "recommendedCandidate": {
+      "profile": "Mazhabi/Ravidasia SC candidate preferred",
+      "caste": "SC or OBC",
+      "keyQualities": "Youth leader with clean image, Anti-drug stance as primary campaign theme"
+    },
+    "attackLines": [
+      "75,277 votes cannot buy safety from drugs",
+      "Farmers still waiting for MSP payments",
+      "Where are the 50 lakh jobs promised?"
+    ],
+    "margin": "75,277",
+    "party": "AAP",
+    "priorityTier": "LOW",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Highest margin in cluster",
+      "Historically SAD stronghold before AAP surge",
+      "Caste arithmetic: OBC + SC coalition can win with proper candidate"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC102",
+    "acNumber": 102,
+    "name": "Bhadaur (SC)",
+    "district": "Barnala",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Sangrur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Labh Singh Ugoke",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "Strong AAP victory (specific margin needs verification)"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": "74-77%",
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "46-52%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in rural SC communities",
+      "Limited SC youth opportunities",
+      "Small farmer problems"
+    ],
+    "congressPosition": "Opposition, needs strong SC candidate. Wrong candidate cost victory in 2022.",
+    "recommendedCandidate": {
+      "profile": "Mazhabi Sikh candidate essential for SC-reserved seat",
+      "caste": "SC",
+      "keyQualities": "Community worker with grassroots connect, Clean image with strong anti-drug stand, Avoid factional candidates"
+    },
+    "attackLines": [
+      "Drug lords operate freely - Labh Singh Ugoke failed",
+      "Welfare schemes on paper - where is 1000/month?",
+      "Manual scavenging still exists - shame on promises"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Specific margin needs verification"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "2012 Winner: Congress"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC104",
+    "acNumber": 104,
+    "name": "Mehal Kalan (SC)",
+    "district": "Barnala",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Sangrur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Kulwant Pandori",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "30,347"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "46-52%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in SC communities",
+      "Limited SC youth opportunities",
+      "Land issues for small farmers"
+    ],
+    "congressPosition": "Lost significantly. Requires major swing to recover.",
+    "recommendedCandidate": {
+      "profile": "Mazhabi Sikh candidate preferred",
+      "caste": "SC",
+      "keyQualities": "Active social worker in SC villages, Anti-drug activism as key qualification, Young leader preferred"
+    },
+    "attackLines": [
+      "30,347 votes gap - your welfarism fake",
+      "Drug addiction increased in SC villages",
+      "MGNREGA payments stopped"
+    ],
+    "margin": "30,347",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Won decisively despite Congress history. SC vote consolidation needed."
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC028",
+    "acNumber": 28,
+    "name": "Sultanpur Lodhi",
+    "district": "Kapurthala",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Kapurthala",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "Independent",
+        "party": "Independent",
+        "runnerup": "To be verified",
+        "margin": "N/A"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Jat Sikh",
+        "percentage": "35-40%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in rural communities",
+      "Agricultural distress",
+      "Flood vulnerability (low-lying area)"
+    ],
+    "congressPosition": "WEAK - Independent won. Must rebuild organization.",
+    "recommendedCandidate": {
+      "profile": "Local leader with Jat Sikh background",
+      "caste": "Jat Sikh",
+      "keyQualities": "Strong local connect"
+    },
+    "attackLines": [
+      "Independent MLA lacks development focus",
+      "Drug crisis continues unchecked"
+    ],
+    "margin": null,
+    "party": "Independent",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2022 exact margin and results",
+      "2017 & 2012 results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Flood recurrence risk",
+      "Must rebuild organization"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC032",
+    "acNumber": 32,
+    "name": "Shahkot",
+    "district": "Jalandhar",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Jalandhar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "Congress",
+        "runnerup": "To be verified",
+        "margin": "12,079"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Jat Sikh",
+        "percentage": "40-45%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in rural youth",
+      "Agricultural distress",
+      "Rural infrastructure gaps"
+    ],
+    "congressPosition": "STRONG - Congress won with 12,079 margin. Consolidate position.",
+    "recommendedCandidate": {
+      "profile": "Jat Sikh candidate",
+      "caste": "Jat Sikh",
+      "keyQualities": "Consolidate traditional vote"
+    },
+    "attackLines": [
+      "Drug crisis in rural areas",
+      "Infrastructure needs improvement"
+    ],
+    "margin": "12,079",
+    "party": "Congress",
+    "priorityTier": "HIGH",
+    "dataGaps": [
+      "2022 exact winner and runner-up details"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Congress HOLD - consolidate not attack"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC035",
+    "acNumber": 35,
+    "name": "Jalandhar Central",
+    "district": "Jalandhar",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Jalandhar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "N/A"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Khatri/Arora",
+        "percentage": "30-35%"
+      },
+      {
+        "caste": "Jat Sikh",
+        "percentage": "25-30%"
+      },
+      {
+        "caste": "SC",
+        "percentage": "20-25%"
+      }
+    ],
+    "topIssues": [
+      "Urban infrastructure and development",
+      "Drug crisis in urban areas",
+      "Youth unemployment"
+    ],
+    "congressPosition": "CHALLENGING - AAP won. Urban strategy needed.",
+    "recommendedCandidate": {
+      "profile": "Urban professional with Khatri/Arora background",
+      "caste": "Khatri/Arora",
+      "keyQualities": "Urban development focus"
+    },
+    "attackLines": [
+      "Urban infrastructure deteriorating",
+      "Youth unemployment remains high"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "2022 exact margin and results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Urban constituency - requires different strategy"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC036",
+    "acNumber": 36,
+    "name": "Jalandhar North",
+    "district": "Jalandhar",
+    "region": "Doaba",
+    "type": "General",
+    "lokSabha": "Jalandhar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "Congress",
+        "runnerup": "To be verified",
+        "margin": "9,486"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Khatri/Arora",
+        "percentage": "30-35%"
+      }
+    ],
+    "topIssues": [
+      "Urban development issues",
+      "Drug crisis in urban youth",
+      "Infrastructure maintenance"
+    ],
+    "congressPosition": "STRONG - Congress won with 9,486 margin. Retain position.",
+    "recommendedCandidate": {
+      "profile": "Khatri/Arora or Jat Sikh, urban connect",
+      "caste": "Khatri/Arora or Jat Sikh",
+      "keyQualities": "Incumbent advantage, development credentials"
+    },
+    "attackLines": [
+      "Urban decay and infrastructure neglect"
+    ],
+    "margin": "9,486",
+    "party": "Congress",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Congress HOLD - defend incumbent"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC049",
+    "acNumber": 49,
+    "name": "Anandpur Sahib",
+    "district": "Rupnagar",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Rupnagar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "45,780"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Jat Sikh",
+        "percentage": "Dominant"
+      }
+    ],
+    "topIssues": [
+      "Religious tourism infrastructure",
+      "Drug menace in rural areas",
+      "Agricultural distress"
+    ],
+    "congressPosition": "LOST - AAP won with massive 45,780 margin. Long-term rebuild needed.",
+    "recommendedCandidate": {
+      "profile": "Local leader with religious connect",
+      "caste": "Jat Sikh",
+      "keyQualities": "Development focus, sustained effort"
+    },
+    "attackLines": [
+      "Drug crisis affecting rural youth",
+      "Development promises unfulfilled"
+    ],
+    "margin": "45,780",
+    "party": "AAP",
+    "priorityTier": "LOW",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Religious significance - requires sustained effort"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC050",
+    "acNumber": 50,
+    "name": "Rupnagar",
+    "district": "Rupnagar",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Rupnagar",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "To be verified",
+        "runnerup": "To be verified",
+        "margin": "23,632"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "Jat Sikh",
+        "percentage": "Dominant"
+      }
+    ],
+    "topIssues": [
+      "Industrial/urban mix issues",
+      "Drug menace",
+      "Infrastructure development"
+    ],
+    "congressPosition": "Lost - margin indicates AAP victory. Medium-term target.",
+    "recommendedCandidate": {
+      "profile": "Industrial/urban focused candidate",
+      "caste": "Jat Sikh",
+      "keyQualities": "Development oriented"
+    },
+    "attackLines": [
+      "Industrial stagnation",
+      "Urban infrastructure needs"
+    ],
+    "margin": "23,632",
+    "party": null,
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Industrial/urban mix strategy"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC066",
+    "acNumber": 66,
+    "name": "Gill (SC)",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "TBD"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "High"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in SC communities",
+      "SC youth unemployment",
+      "Rural infrastructure"
+    ],
+    "congressPosition": "Lost - AAP won. SC vote bank needs rebuilding.",
+    "recommendedCandidate": {
+      "profile": "SC candidate with grassroots connect",
+      "caste": "SC",
+      "keyQualities": "Strong anti-drug stand"
+    },
+    "attackLines": [
+      "SC welfare schemes not delivered",
+      "Drug addiction destroying SC youth"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Exact margin and 2017 results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "SC reserved seat - requires dedicated candidate"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC067",
+    "acNumber": 67,
+    "name": "Payal (SC)",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "TBD"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "High"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in SC communities",
+      "Farm distress in rural areas",
+      "SC youth unemployment"
+    ],
+    "congressPosition": "Lost - AAP won. SC vote consolidation needed.",
+    "recommendedCandidate": {
+      "profile": "SC candidate with rural connect",
+      "caste": "SC",
+      "keyQualities": "Farmer-friendly, anti-drug stand"
+    },
+    "attackLines": [
+      "Rural SC communities neglected",
+      "Drug addiction destroying families"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Exact margin and 2017 results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Rural SC constituency"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC068",
+    "acNumber": 68,
+    "name": "Dakha",
+    "district": "Ludhiana",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ludhiana",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "SAD",
+        "runnerup": "To be verified",
+        "margin": "SAD Won"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [
+      "Agricultural distress",
+      "Drug menace",
+      "Rural infrastructure"
+    ],
+    "congressPosition": "SAD won - Congress needs coalition strategy.",
+    "recommendedCandidate": {
+      "profile": "Local candidate with farmer background",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Coalition building"
+    },
+    "attackLines": [
+      "Farm distress continues",
+      "Drug crisis affecting youth"
+    ],
+    "margin": null,
+    "party": "SAD",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Exact margin and 2017 results"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Multi-cornered complexity - SAD factor"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC071",
+    "acNumber": 71,
+    "name": "Nihal Singhwala (SC)",
+    "district": "Moga",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Moga",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "TBD"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "36-37%"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in SC communities",
+      "Agricultural distress",
+      "Rural infrastructure gaps"
+    ],
+    "congressPosition": "Lost - AAP won. SC vote bank rebuilding needed.",
+    "recommendedCandidate": {
+      "profile": "SC candidate from Mazhabi/Ramdasia",
+      "caste": "SC",
+      "keyQualities": "Strong grassroots connect"
+    },
+    "attackLines": [
+      "SC welfare promises broken",
+      "Drug addiction destroying SC families"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Exact margin"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Moga pattern - AAP won"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC072",
+    "acNumber": 72,
+    "name": "Bhagha Purana",
+    "district": "Moga",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Moga",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "TBD"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [
+      "Agricultural distress",
+      "Drug menace",
+      "Rural infrastructure"
+    ],
+    "congressPosition": "Lost - AAP won. Rebuilding needed.",
+    "recommendedCandidate": {
+      "profile": "Local candidate with rural focus",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Farmer-friendly credentials"
+    },
+    "attackLines": [
+      "Farm distress continues",
+      "Rural infrastructure neglected"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Exact margin"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "General seat - Jat Sikh dominant"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC074",
+    "acNumber": 74,
+    "name": "Dharamkot",
+    "district": "Moga",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Moga",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "TBD"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [
+      "Drug menace",
+      "Agricultural distress",
+      "Rural infrastructure"
+    ],
+    "congressPosition": "Lost - margin data needs verification.",
+    "recommendedCandidate": {
+      "profile": "Local candidate with rural connect",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Anti-drug stand"
+    },
+    "attackLines": [
+      "Drug addiction affecting families",
+      "Farm distress continues"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Exact margin - needs verification with ECI data"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Border area dynamics"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC075",
+    "acNumber": 75,
+    "name": "Zira",
+    "district": "Firozpur",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Firozpur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "22,776"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [
+      "Drug menace",
+      "Border security concerns",
+      "Agricultural distress"
+    ],
+    "congressPosition": "Lost - AAP won with 22,776 margin.",
+    "recommendedCandidate": {
+      "profile": "Local candidate with border area connect",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Strong anti-drug stance"
+    },
+    "attackLines": [
+      "Border security concerns",
+      "Drug routes active",
+      "Farm distress"
+    ],
+    "margin": "22,776",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Border constituency - security concerns"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC076",
+    "acNumber": 76,
+    "name": "Firozpur City",
+    "district": "Firozpur",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Firozpur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "19,569"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [
+      "Urban infrastructure",
+      "Drug menace in urban areas",
+      "Border security"
+    ],
+    "congressPosition": "Lost - AAP won with 19,569 margin.",
+    "recommendedCandidate": {
+      "profile": "Urban candidate with business connect",
+      "caste": "Jat Sikh or Hindu",
+      "keyQualities": "Urban development focus"
+    },
+    "attackLines": [
+      "Urban infrastructure deteriorating",
+      "Border security concerns"
+    ],
+    "margin": "19,569",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "District headquarters - urban issues"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC077",
+    "acNumber": 77,
+    "name": "Firozpur Rural (SC)",
+    "district": "Firozpur",
+    "region": "Malwa",
+    "type": "SC Reserved",
+    "lokSabha": "Firozpur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "27,746"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [
+      {
+        "caste": "SC",
+        "percentage": "High"
+      }
+    ],
+    "topIssues": [
+      "Drug addiction in SC communities",
+      "Rural infrastructure",
+      "Agricultural distress"
+    ],
+    "congressPosition": "Lost - AAP won with 27,746 margin. SC seat.",
+    "recommendedCandidate": {
+      "profile": "SC candidate with rural connect",
+      "caste": "SC",
+      "keyQualities": "Strong anti-drug stand"
+    },
+    "attackLines": [
+      "SC welfare unfulfilled",
+      "Drug addiction in SC communities"
+    ],
+    "margin": "27,746",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "SC reserved - requires dedicated candidate"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC078",
+    "acNumber": 78,
+    "name": "Guru Har Sahai",
+    "district": "Firozpur",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Ferozepur",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "10,574"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [
+      "Drug menace",
+      "Agricultural distress",
+      "Rural infrastructure"
+    ],
+    "congressPosition": "Lost - AAP won with narrow 10,574 margin. Contested seat.",
+    "recommendedCandidate": {
+      "profile": "Local candidate with rural focus",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Strong anti-drug stance"
+    },
+    "attackLines": [
+      "Drug addiction affecting families",
+      "Farm distress continues"
+    ],
+    "margin": "10,574",
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Close seat - higher flip potential"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC079",
+    "acNumber": 79,
+    "name": "Jalalabad",
+    "district": "Fazilka",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Fazilka",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "TBD"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [
+      "Drug menace (border area)",
+      "Agricultural distress",
+      "Border security"
+    ],
+    "congressPosition": "Lost - AAP won. Margin data has discrepancy.",
+    "recommendedCandidate": {
+      "profile": "Local candidate with border area connect",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Anti-drug stance, border security focus"
+    },
+    "attackLines": [
+      "Border drug routes active",
+      "Farm distress continues"
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [
+      "Exact margin - needs verification"
+    ],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Border area - drug trafficking concerns"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  },
+  {
+    "acId": "AC080",
+    "acNumber": 80,
+    "name": "Fazilka",
+    "district": "Fazilka",
+    "region": "Malwa",
+    "type": "General",
+    "lokSabha": "Fazilka",
+    "electionResults": [
+      {
+        "year": 2022,
+        "winner": "To be verified",
+        "party": "AAP",
+        "runnerup": "To be verified",
+        "margin": "27,720"
+      }
+    ],
+    "totalElectors": null,
+    "voterTurnout": null,
+    "casteComposition": [],
+    "topIssues": [
+      "Drug menace (border area)",
+      "Agricultural distress",
+      "Border security concerns"
+    ],
+    "congressPosition": "Lost - AAP won with 27,720 margin.",
+    "recommendedCandidate": {
+      "profile": "Local candidate with border area connect",
+      "caste": "Jat Sikh preferred",
+      "keyQualities": "Anti-drug stance, development focus"
+    },
+    "attackLines": [
+      "Border drug routes active",
+      "Farm distress continues",
+      "Border security concerns"
+    ],
+    "margin": "27,720",
+    "party": "AAP",
+    "priorityTier": "MEDIUM",
+    "dataGaps": [],
+    "crossReferences": [],
+    "strategicImplications": [
+      "Border constituency - strategic importance"
+    ],
+    "visualizationRecommendations": [],
+    "uiComponentSpecs": {}
+  }
+]

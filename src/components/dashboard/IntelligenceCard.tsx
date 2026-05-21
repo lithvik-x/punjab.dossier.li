@@ -14,9 +14,11 @@ export function PriorityBadge({ tier, className = "" }: PriorityBadgeProps) {
     HIGH: { variant: "warning" as const, label: "HIGH", bg: "bg-orange-100", text: "text-orange-700" },
     MEDIUM: { variant: "default" as const, label: "MEDIUM", bg: "bg-yellow-100", text: "text-yellow-700" },
     RECOVERY: { variant: "default" as const, label: "RECOVERY", bg: "bg-blue-100", text: "text-blue-700" },
+    HOLD: { variant: "default" as const, label: "HOLD", bg: "bg-blue-100", text: "text-blue-700" },
+    LOW: { variant: "default" as const, label: "LOW", bg: "bg-slate-100", text: "text-slate-700" },
   };
 
-  const { bg, text, label } = config[tier];
+  const { bg, text, label } = config[tier as keyof typeof config] ?? { bg: "bg-slate-100", text: "text-slate-700", label: tier };
 
   return (
     <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold ${bg} ${text} ${className}`}>
@@ -31,14 +33,17 @@ interface PartyBadgeProps {
 }
 
 export function PartyBadge({ party, className = "" }: PartyBadgeProps) {
-  const config: Record<Party, { bg: string; text: string }> = {
+  const config: Record<string, { bg: string; text: string }> = {
     INC: { bg: "bg-blue-500", text: "text-white" },
+    Congress: { bg: "bg-blue-500", text: "text-white" },
     AAP: { bg: "bg-orange-500", text: "text-white" },
     SAD: { bg: "bg-yellow-500", text: "text-black" },
     BJP: { bg: "bg-green-500", text: "text-white" },
+    BSP: { bg: "bg-purple-500", text: "text-white" },
+    Independent: { bg: "bg-slate-500", text: "text-white" },
   };
 
-  const { bg, text } = config[party];
+  const { bg, text } = config[party] ?? { bg: "bg-slate-500", text: "text-white" };
 
   return (
     <span className={`inline-flex items-center px-2 py-1 rounded text-xs font-bold ${bg} ${text} ${className}`}>
@@ -54,6 +59,13 @@ interface MarginIndicatorProps {
 }
 
 export function MarginIndicator({ margin, party, className = "" }: MarginIndicatorProps) {
+  if (margin === null || margin === undefined) {
+    return (
+      <div className={`font-mono ${className}`}>
+        <span className="text-slate-400 text-sm">N/A</span>
+      </div>
+    );
+  }
   const isNegative = margin < 0;
   const absMargin = Math.abs(margin);
   const formatted = absMargin >= 1000 ? `${(absMargin / 1000).toFixed(1)}K` : absMargin.toString();
@@ -177,6 +189,16 @@ interface CandidateProfileCardProps {
 }
 
 export function CandidateProfileCard({ candidate, className = "" }: CandidateProfileCardProps) {
+  if (!candidate) {
+    return (
+      <div className={className}>
+        <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Recommended Candidate</h4>
+        <div className="bg-slate-50 dark:bg-slate-800 rounded-lg p-3">
+          <p className="text-sm text-slate-500 dark:text-slate-400">No candidate data available</p>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className={className}>
       <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Recommended Candidate</h4>
@@ -194,7 +216,7 @@ export function CandidateProfileCard({ candidate, className = "" }: CandidatePro
         <div>
           <span className="text-xs text-slate-500 dark:text-slate-400">Key Qualities:</span>
           <div className="flex flex-wrap gap-1 mt-1">
-            {candidate.keyQualities.map((q, idx) => (
+            {candidate.keyQualities?.map((q, idx) => (
               <span key={idx} className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-1.5 py-0.5 rounded">
                 {q}
               </span>
