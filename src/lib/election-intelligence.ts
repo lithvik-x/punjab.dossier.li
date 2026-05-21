@@ -535,7 +535,7 @@ export function getAAPSeats(): ElectionIntelligence[] {
 export function getCriticalSeats(): ElectionIntelligence[] {
   return batch1Intelligence
     .filter(c => c.priorityTier === "CRITICAL")
-    .sort((a, b) => a.margin - b.margin);
+    .sort((a, b) => (a.margin ?? Infinity) - (b.margin ?? Infinity));
 }
 
 /**
@@ -543,8 +543,8 @@ export function getCriticalSeats(): ElectionIntelligence[] {
  */
 export function getVulnerableCongressSeats(): ElectionIntelligence[] {
   return batch1Intelligence
-    .filter(c => c.party === "INC" && c.margin < 10000)
-    .sort((a, b) => a.margin - b.margin);
+    .filter(c => c.party === "INC" && (c.margin ?? 0) < 10000)
+    .sort((a, b) => (a.margin ?? Infinity) - (b.margin ?? Infinity));
 }
 
 /**
@@ -552,8 +552,8 @@ export function getVulnerableCongressSeats(): ElectionIntelligence[] {
  */
 export function getFlipOpportunities(): ElectionIntelligence[] {
   return batch1Intelligence
-    .filter(c => c.party === "AAP" && c.margin < 15000)
-    .sort((a, b) => a.margin - b.margin);
+    .filter(c => c.party === "AAP" && (c.margin ?? 0) < 15000)
+    .sort((a, b) => (a.margin ?? Infinity) - (b.margin ?? Infinity));
 }
 
 /**
