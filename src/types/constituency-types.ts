@@ -160,3 +160,92 @@ export interface ConstituencySummaryStats {
   ruralCount: number;
   semiUrbanCount: number;
 }
+
+// ==========================================
+// ELECTION INTELLIGENCE TYPES
+// (From enhanced batch analysis)
+// ==========================================
+
+export type Party = "INC" | "AAP" | "SAD" | "BJP";
+export type PriorityTier = "CRITICAL" | "HIGH" | "MEDIUM" | "RECOVERY";
+
+export interface ElectionResult {
+  year: number;
+  winner: string;
+  party: Party;
+  votePercentage?: string;
+  margin: string;
+}
+
+export interface CasteComposition {
+  category: string;
+  percentage: string;
+}
+
+export interface LocalIssue {
+  issue: string;
+  description: string;
+}
+
+export interface CandidateProfile {
+  profile: string;
+  caste?: string;
+  keyQualities: string[];
+}
+
+export interface AttackLine {
+  issue: string;
+  message: string;
+  audience: string;
+}
+
+export interface ElectionIntelligence {
+  acId: string;
+  acNumber: number;
+  name: string;
+  district: string;
+  region: Region;
+  type: "General" | "SC" | "ST";
+  lokSabha: string;
+  electionResults: ElectionResult[];
+  totalElectors?: string;
+  voterTurnout?: string;
+  casteComposition: CasteComposition[];
+  topIssues: LocalIssue[];
+  congressPosition: string;
+  recommendedCandidate: CandidateProfile;
+  attackLines: AttackLine[];
+  margin: number;
+  party: Party;
+  priorityTier: PriorityTier;
+  dataGaps: string[];
+  crossReferences: string[];
+  strategicImplications: string[];
+  visualizationRecommendations?: string[];
+  uiComponentSpecs?: string[];
+}
+
+export interface BatchIntelligence {
+  batchNumber: number;
+  region: string;
+  districts: string;
+  constituencies: ElectionIntelligence[];
+  executiveSummary: string;
+}
+
+export interface PriorityTierSummary {
+  tier: PriorityTier;
+  constituencies: string[];
+  margin: string;
+  actionUrgency: string;
+}
+
+export interface RegionIntelligenceSummary {
+  region: Region;
+  totalSeats: number;
+  congressSeats: number;
+  aapSeats: number;
+  sadSeats: number;
+  bjpSeats: number;
+  criticalSeats: string[];
+}

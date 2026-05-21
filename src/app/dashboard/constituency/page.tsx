@@ -10,6 +10,9 @@ import {
   gapAnalysis,
 } from "@/lib/synthesis-data";
 
+// Import Election Intelligence components
+import ElectionIntelligenceSection from "@/components/dashboard/ElectionIntelligenceSection";
+
 // ==========================================
 // CYCLE 2: ELECTORAL DATA (from research-P3/electoral-data)
 // ==========================================
@@ -2801,6 +2804,9 @@ export default function ConstituencyPage() {
           </div>
         </div>
       </div>
+
+      {/* Election Intelligence Section - From enhanced batch analysis */}
+      <ElectionIntelligenceSection />
     </div>
   );
 }

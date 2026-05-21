@@ -592,7 +592,7 @@ export type ThreatLevel = "Low" | "Medium" | "High" | "Critical";
 
 export type ACClassification = "Safe" | "Leaning" | "Toss-Up" | "Lean Loss" | "Loss";
 
-export type Region = "Malwa" | "Majha" | "Doaba" | "Statewide";
+export type Region = "Malwa" | "Majha" | "Doaba" | "Powadh" | "Statewide";
 
 export type Competitor = "AAP" | "SAD-BJP" | "BSP" | "Independents";
 

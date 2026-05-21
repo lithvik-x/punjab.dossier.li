@@ -194,6 +194,7 @@ export const REGION_SEAT_COUNTS: Record<Region, number> = {
   Malwa: 8,
   Majha: 3,
   Doaba: 2,
+  Powadh: 10,
   Statewide: 13,
 };
 
