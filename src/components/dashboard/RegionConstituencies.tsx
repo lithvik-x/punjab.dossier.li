@@ -30,6 +30,7 @@ function ConstituencyAccordion({ intelligence }: { intelligence: ElectionIntelli
   return (
     <div className="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
       <button
+        type="button"
         onClick={() => setIsOpen(!isOpen)}
         className="w-full px-4 py-3 flex items-center justify-between bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
       >

@@ -112,7 +112,7 @@ export function CongressPositionCard({ position, className = "" }: CongressPosit
 }
 
 interface CasteCompositionBarProps {
-  composition: { category: string; percentage: string }[];
+  composition: { category: string; percentage: string | number }[];
   className?: string;
 }
 
@@ -129,11 +129,16 @@ export function CasteCompositionBar({ composition, className = "" }: CasteCompos
     return colors[index % colors.length];
   };
 
+  const getPercentage = (pct: string | number) => {
+    if (typeof pct === "number") return pct;
+    return parseFloat(pct.replace(/[^0-9.]/g, "")) || 0;
+  };
+
   return (
     <div className={className}>
       <div className="flex h-4 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-700">
         {composition.map((item, idx) => {
-          const pct = parseFloat(item.percentage.replace(/[^0-9.]/g, "")) || 0;
+          const pct = getPercentage(item.percentage);
           return (
             <div
               key={item.category}

@@ -7434,4 +7434,415 @@
     "visualizationRecommendations": [],
     "uiComponentSpecs": {}
   }
+
+,
+  {
+    "acId": "AC109",
+    "acNumber": 109,
+    "name": "Nabha",
+    "district": "Patiala",
+    "region": "Powadh",
+    "type": "General",
+    "lokSabha": "Patiala",
+    "electionResults": [
+      {"year": 2022, "winner": "Gurdev Singh Dev Maan", "party": "AAP", "margin": 52600, "votePercentage": null},
+      {"year": 2017, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null},
+      {"year": 2012, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null}
+    ],
+    "totalElectors": 155000,
+    "voterTurnout": 76.5,
+    "casteComposition": [
+      {"category": "Jat Sikh", "percentage": 32},
+      {"category": "OBC", "percentage": 20},
+      {"category": "SC", "percentage": 22},
+      {"category": "Hindu Upper Caste", "percentage": 16},
+      {"category": "Others", "percentage": 7}
+    ],
+    "topIssues": [
+      {"issue": "Drug addiction", "description": "Rural SC villages severely affected"},
+      {"issue": "Heritage preservation", "description": "Nabha's historical importance"},
+      {"issue": "Agricultural distress", "description": "Farmer suicides reported"},
+      {"issue": "Unemployment", "description": "Youth migration"},
+      {"issue": "Healthcare", "description": "Rural health facilities poor"}
+    ],
+    "congressPosition": "LOST",
+    "recommendedCandidate": {"profile": "Candidate with heritage/royal connect OR strong rural worker", "caste": "Jat Sikh or Hindu Upper Caste", "keyQualities": ["Accessible", "Strong stand on drug issue", "New blood preferred"]},
+    "attackLines": [
+      {"issue": "Large margin", "message": "52,600 votes margin - did Punjab forget?", "audience": "General"},
+      {"issue": "Drug addiction", "message": "Drug addiction increased - families destroyed", "audience": "Rural voters"},
+      {"issue": "Heritage", "message": "Nabha's heritage ignored - no development", "audience": "All voters"},
+      {"issue": "Broken promises", "message": "Promises broken on jobs, MSP, women welfare", "audience": "Youth, Farmers"},
+      {"issue": "Healthcare", "message": "Rural healthcare collapsed - PHCs without doctors", "audience": "Rural voters"}
+    ],
+    "margin": 52600,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": ["Exact vote percentages not available", "2017/2012 margin details not specified"],
+    "crossReferences": [],
+    "strategicImplications": ["Large margin indicates AAP wave but winnable with right candidate", "Royal family may have informal influence", "Historical significance as Nabha State"]
+  },
+  {
+    "acId": "AC110",
+    "acNumber": 110,
+    "name": "Patiala Rural",
+    "district": "Patiala",
+    "region": "Powadh",
+    "type": "General",
+    "lokSabha": "Patiala",
+    "electionResults": [
+      {"year": 2022, "winner": "Doctor Balbir Singh", "party": "AAP", "margin": 53474, "votePercentage": null},
+      {"year": 2017, "winner": "Brahm Mohindra", "party": "INC", "margin": null, "votePercentage": null},
+      {"year": 2012, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null}
+    ],
+    "totalElectors": 170000,
+    "voterTurnout": 77.5,
+    "casteComposition": [
+      {"category": "Jat Sikh", "percentage": 30},
+      {"category": "OBC", "percentage": 20},
+      {"category": "SC", "percentage": 22},
+      {"category": "Hindu Upper Caste", "percentage": 18},
+      {"category": "Others", "percentage": 7}
+    ],
+    "topIssues": [
+      {"issue": "Drug menace", "description": "Rural Patiala affected"},
+      {"issue": "Agricultural crisis", "description": "Paddy/wheat farmers"},
+      {"issue": "Urban sprawl", "description": "Rural-urban tension"},
+      {"issue": "Healthcare", "description": "Rural PHC inadequate"},
+      {"issue": "Education", "description": "Government schools failing"}
+    ],
+    "congressPosition": "LOST",
+    "recommendedCandidate": {"profile": "Rural advocate, agricultural background", "caste": "Jat Sikh or Hindu Upper Caste", "keyQualities": ["Strong personality", "Visible campaigner", "New candidate preferred"]},
+    "attackLines": [
+      {"issue": "Senior leader defeat", "message": "53,474 votes - rejected Brahm Mohindra, got what?", "audience": "All voters"},
+      {"issue": "Drug trade", "message": "Drug trade grown - Doctor Balbir Singh prescriptions or drugs?", "audience": "Rural voters"},
+      {"issue": "Broken promises", "message": "Senior leader defeated, promises also betrayed", "audience": "Congress voters"},
+      {"issue": "Rural neglect", "message": "Rural areas ignored - urban only focus", "audience": "Rural voters"},
+      {"issue": "Farmers", "message": "Farmers still distressed - MSP not guaranteed", "audience": "Farmers"}
+    ],
+    "margin": 53474,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": ["Exact vote percentages not available", "2017/2012 margin details not specified"],
+    "crossReferences": [],
+    "strategicImplications": ["Defeat of senior leader Brahm Mohindra shows anti-Congress wave", "Large margin makes recovery difficult but not impossible"]
+  },
+  {
+    "acId": "AC111",
+    "acNumber": 111,
+    "name": "Rajpura",
+    "district": "Patiala",
+    "region": "Powadh",
+    "type": "General",
+    "lokSabha": "Patiala",
+    "electionResults": [
+      {"year": 2022, "winner": "Neena Mittal", "party": "AAP", "margin": 22493, "votePercentage": null},
+      {"year": 2017, "winner": "BJP Candidate", "party": "BJP", "margin": null, "votePercentage": null},
+      {"year": 2012, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null}
+    ],
+    "totalElectors": 160000,
+    "voterTurnout": 77.5,
+    "casteComposition": [
+      {"category": "Jat Sikh", "percentage": 28},
+      {"category": "OBC", "percentage": 20},
+      {"category": "SC", "percentage": 20},
+      {"category": "Hindu Upper Caste", "percentage": 22},
+      {"category": "Others", "percentage": 7}
+    ],
+    "topIssues": [
+      {"issue": "Border security", "description": "Proximity to Haryana"},
+      {"issue": "Drug trafficking", "description": "Route through Rajpura"},
+      {"issue": "Industrial development", "description": "Lack of jobs"},
+      {"issue": "Agriculture", "description": "Farmer distress"},
+      {"issue": "Urban infrastructure", "description": "Growing town needs attention"}
+    ],
+    "congressPosition": "THIRD",
+    "recommendedCandidate": {"profile": "Urban professional or businessman", "caste": "Hindu Upper Caste or Jat Sikh", "keyQualities": ["Clean image", "Development focus", "New face preferred"]},
+    "attackLines": [
+      {"issue": "Three-way fight", "message": "22,493 votes - choice between BJP and Congress?", "audience": "All voters"},
+      {"issue": "Drug routes", "message": "Drug routes through Rajpura - security failure", "audience": "General voters"},
+      {"issue": "No development", "message": "No industrial development - jobs promise broken", "audience": "Youth, Workers"},
+      {"issue": "Infrastructure", "message": "Urban infrastructure collapsed - roads, drainage", "audience": "Urban voters"},
+      {"issue": "Failed parties", "message": "AAP-BJP both failed - only Congress can deliver", "audience": "All voters"}
+    ],
+    "margin": 22493,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": ["Exact vote percentages not available", "2017/2012 margin details not specified"],
+    "crossReferences": [],
+    "strategicImplications": ["Three-way fight benefits AAP - Congress must avoid vote splitting", "Hindu Upper Caste votes split between BJP and AAP", "Candidate selection critical to avoid vote splitting"]
+  },
+  {
+    "acId": "AC112",
+    "acNumber": 112,
+    "name": "Dera Bassi",
+    "district": "Sahibzada Ajit Singh Nagar",
+    "region": "Powadh",
+    "type": "General",
+    "lokSabha": "Patiala",
+    "electionResults": [
+      {"year": 2022, "winner": "Kuljit Singh Randhawa", "party": "AAP", "margin": 21721, "votePercentage": null},
+      {"year": 2017, "winner": "SAD-BJP", "party": "SAD", "margin": null, "votePercentage": null},
+      {"year": 2012, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null}
+    ],
+    "totalElectors": 170000,
+    "voterTurnout": 75.5,
+    "casteComposition": [
+      {"category": "OBC", "percentage": 26},
+      {"category": "SC", "percentage": 24},
+      {"category": "Hindu Upper Caste", "percentage": 24},
+      {"category": "Jat Sikh", "percentage": 16},
+      {"category": "Migrant/Other", "percentage": 10}
+    ],
+    "topIssues": [
+      {"issue": "Urbanization", "description": "Rapid growth without infrastructure"},
+      {"issue": "Migrant workers", "description": "Large migrant population"},
+      {"issue": "Drug addiction", "description": "Industrial area vulnerability"},
+      {"issue": "Jobs", "description": "Industrial but insufficient"},
+      {"issue": "Traffic/roads", "description": "Connectivity to Chandigarh"}
+    ],
+    "congressPosition": "LOST",
+    "recommendedCandidate": {"profile": "Industrial worker advocate, youth leader", "caste": "OBC", "keyQualities": ["Development focus", "Accessible", "Worker leader or social activist"]},
+    "attackLines": [
+      {"issue": "Peri-urban neglect", "message": "21,721 votes - peri-urban ignored", "audience": "Peri-urban voters"},
+      {"issue": "Migrant workers", "message": "Migrant workers exploited - no protection", "audience": "Migrant workers"},
+      {"issue": "Infrastructure", "message": "Infrastructure collapsed - roads, drainage", "audience": "All voters"},
+      {"issue": "Jobs promise", "message": "Industrial jobs promised, not delivered", "audience": "Youth, Workers"},
+      {"issue": "Pro-Chandigarh", "message": "AAP government pro-Chandigarh, anti-Punjab", "audience": "General voters"}
+    ],
+    "margin": 21721,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": ["Exact vote percentages not available", "2017/2012 margin details not specified", "Migrant voters less politically aware"],
+    "crossReferences": [],
+    "strategicImplications": ["Peri-urban nature different from rural Malwa", "Large migrant population may not vote traditionally", "OBC dominance suggests candidate selection from that community"]
+  },
+  {
+    "acId": "AC113",
+    "acNumber": 113,
+    "name": "Ghanaur",
+    "district": "Patiala",
+    "region": "Powadh",
+    "type": "General",
+    "lokSabha": "Patiala",
+    "electionResults": [
+      {"year": 2022, "winner": "Gurlal Ghaunar", "party": "AAP", "margin": 31765, "votePercentage": null},
+      {"year": 2017, "winner": "SAD", "party": "SAD", "margin": null, "votePercentage": null},
+      {"year": 2012, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null}
+    ],
+    "totalElectors": 150000,
+    "voterTurnout": 76.5,
+    "casteComposition": [
+      {"category": "Jat Sikh", "percentage": 36},
+      {"category": "OBC", "percentage": 20},
+      {"category": "SC", "percentage": 22},
+      {"category": "Hindu Upper Caste", "percentage": 12},
+      {"category": "Others", "percentage": 7}
+    ],
+    "topIssues": [
+      {"issue": "Drug addiction", "description": "Rural villages severely affected"},
+      {"issue": "Agricultural crisis", "description": "Wheat/paddy MSP issues"},
+      {"issue": "Rural infrastructure", "description": "Roads, irrigation"},
+      {"issue": "Unemployment", "description": "Youth migration"},
+      {"issue": "Healthcare", "description": "Rural PHC inadequate"}
+    ],
+    "congressPosition": "LOST",
+    "recommendedCandidate": {"profile": "Farmer leader, agricultural background", "caste": "Jat Sikh", "keyQualities": ["Strong anti-drug stance", "Rural connect", "Local leader with village-level work"]},
+    "attackLines": [
+      {"issue": "Rural neglect", "message": "31,765 votes - rural Punjab ignored", "audience": "Rural voters"},
+      {"issue": "Drug addiction", "message": "Drug addiction destroying villages - no action", "audience": "Rural voters"},
+      {"issue": "Farmers", "message": "Farmers not getting MSP - APMC failure", "audience": "Farmers"},
+      {"issue": "Rural roads", "message": "Rural roads still broken - development only in cities", "audience": "Rural voters"},
+      {"issue": "Youth migration", "message": "Youth leaving Punjab - no jobs created", "audience": "Youth"}
+    ],
+    "margin": 31765,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": ["Exact vote percentages not available", "2017/2012 margin details not specified"],
+    "crossReferences": [],
+    "strategicImplications": ["Jat Sikh dominance makes this Congress-traditional seat", "AAP won with outsider candidate in 2022", "Rural character and agricultural issues key"]
+  },
+  {
+    "acId": "AC114",
+    "acNumber": 114,
+    "name": "Sanour",
+    "district": "Patiala",
+    "region": "Powadh",
+    "type": "General",
+    "lokSabha": "Patiala",
+    "electionResults": [
+      {"year": 2022, "winner": "Harmeet Singh Pathanmajra", "party": "AAP", "margin": 49122, "votePercentage": null},
+      {"year": 2017, "winner": "SAD", "party": "SAD", "margin": null, "votePercentage": null},
+      {"year": 2012, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null}
+    ],
+    "totalElectors": 155000,
+    "voterTurnout": 77.5,
+    "casteComposition": [
+      {"category": "Jat Sikh", "percentage": 32},
+      {"category": "SC", "percentage": 26},
+      {"category": "OBC", "percentage": 20},
+      {"category": "Hindu Upper Caste", "percentage": 14},
+      {"category": "Others", "percentage": 6}
+    ],
+    "topIssues": [
+      {"issue": "Drug menace", "description": "Rural SC and Jat villages affected"},
+      {"issue": "Agricultural distress", "description": "Farmer suicides reported"},
+      {"issue": "Three-way fight", "description": "Congress, SAD, AAP all competitive"},
+      {"issue": "Rural infrastructure", "description": "Roads, drainage"},
+      {"issue": "Healthcare", "description": "PHCs lacking"}
+    ],
+    "congressPosition": "THIRD",
+    "recommendedCandidate": {"profile": "Strong personality, campaigner", "caste": "Jat Sikh", "keyQualities": ["Can attract SAD dissidents", "Local leader", "Avoid dynastic candidate"]},
+    "attackLines": [
+      {"issue": "Large margin", "message": "49,122 votes - betrayal of Punjab", "audience": "All voters"},
+      {"issue": "Three-way fight", "message": "Three-way fight only helped AAP - united opposition needed", "audience": "Opposition voters"},
+      {"issue": "Drug addiction", "message": "Drug addiction peaked - Pathanmajra inactive", "audience": "Rural voters"},
+      {"issue": "SAD/Congress defeat", "message": "SAD and Congress both defeated - only AAP won", "audience": "All voters"},
+      {"issue": "Broken promises", "message": "Promises broken on MSP, jobs, women welfare", "audience": "General voters"}
+    ],
+    "margin": 49122,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": ["Exact vote percentages not available", "2017/2012 margin details not specified"],
+    "crossReferences": [],
+    "strategicImplications": ["Three-way competition - Congress must avoid splitting votes", "SAD was runner-up - can attract those voters", "SC population significant - Mazhabi Sikh votes important"]
+  },
+  {
+    "acId": "AC115",
+    "acNumber": 115,
+    "name": "Patiala",
+    "district": "Patiala",
+    "region": "Powadh",
+    "type": "General",
+    "lokSabha": "Patiala",
+    "electionResults": [
+      {"year": 2022, "winner": "Ajitpal Singh Kohli", "party": "AAP", "margin": 19873, "votePercentage": null},
+      {"year": 2017, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null},
+      {"year": 2012, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null}
+    ],
+    "totalElectors": 165000,
+    "voterTurnout": 73.5,
+    "casteComposition": [
+      {"category": "Hindu Upper Caste", "percentage": 30},
+      {"category": "Jat Sikh", "percentage": 22},
+      {"category": "OBC", "percentage": 20},
+      {"category": "SC", "percentage": 18},
+      {"category": "Muslim", "percentage": 5},
+      {"category": "Others", "percentage": 7}
+    ],
+    "topIssues": [
+      {"issue": "Urban governance", "description": "Roads, drainage, sanitation"},
+      {"issue": "Drug trafficking", "description": "Urban networks active"},
+      {"issue": "Unemployment", "description": "Educated urban youth"},
+      {"issue": "Heritage preservation", "description": "Patiala's historical legacy"},
+      {"issue": "Healthcare", "description": "Civil hospital adequacy"}
+    ],
+    "congressPosition": "NEAR_MISS",
+    "recommendedCandidate": {"profile": "Urban professional, businessman, social activist", "caste": "Hindu Upper Caste or Jat Sikh", "keyQualities": ["Development focus", "Clean image", "Accessible", "New face preferred"]},
+    "attackLines": [
+      {"issue": "Narrow margin", "message": "19,873 votes - narrowest margin, biggest failure", "audience": "All voters"},
+      {"issue": "City crumbling", "message": "Patiala city crumbling - roads, drainage, garbage", "audience": "Urban voters"},
+      {"issue": "Urban voters betrayed", "message": "Urban voters betrayed - jobs, healthcare broken", "audience": "Urban voters"},
+      {"issue": "Drug networks", "message": "Drug networks active in city - police failure", "audience": "General voters"},
+      {"issue": "Heritage city", "message": "Heritage city ignored - no development", "audience": "All voters"}
+    ],
+    "margin": 19873,
+    "party": "AAP",
+    "priorityTier": "RECOVERY",
+    "dataGaps": ["Exact vote percentages not available", "2017/2012 margin details not specified"],
+    "crossReferences": [],
+    "strategicImplications": ["NARROWEST MARGIN in cluster - TOP PRIORITY", "Urban voters showing anti-AAP sentiment", "Hindu Upper Caste dominant - Congress traditional voter"]
+  },
+  {
+    "acId": "AC116",
+    "acNumber": 116,
+    "name": "Samana (SC)",
+    "district": "Patiala",
+    "region": "Powadh",
+    "type": "SC",
+    "lokSabha": "Patiala",
+    "electionResults": [
+      {"year": 2022, "winner": "Chetan Singh Jouramajra", "party": "AAP", "margin": 39713, "votePercentage": null},
+      {"year": 2017, "winner": "SAD", "party": "SAD", "margin": null, "votePercentage": null},
+      {"year": 2012, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null}
+    ],
+    "totalElectors": 145000,
+    "voterTurnout": 76.5,
+    "casteComposition": [
+      {"category": "SC (Mazhabi Sikh)", "percentage": 44},
+      {"category": "SC (Ravidasia)", "percentage": 7},
+      {"category": "Jat Sikh", "percentage": 24},
+      {"category": "OBC", "percentage": 14},
+      {"category": "Hindu Upper Caste", "percentage": 10},
+      {"category": "Others", "percentage": 5}
+    ],
+    "topIssues": [
+      {"issue": "Drug addiction", "description": "SC villages severely affected"},
+      {"issue": "Manual scavenging", "description": "Still practiced"},
+      {"issue": "Land rights", "description": "SC land ownership issues"},
+      {"issue": "MGNREGA", "description": "Payment delays"},
+      {"issue": "Education", "description": "SC school infrastructure poor"}
+    ],
+    "congressPosition": "LOST",
+    "recommendedCandidate": {"profile": "Social activist, rights worker", "caste": "Mazhabi Sikh", "keyQualities": ["Anti-drugs", "Pro-SC rights", "Grassroots worker with community connect"]},
+    "attackLines": [
+      {"issue": "SC trust", "message": "39,713 votes - SC trust betrayed", "audience": "SC voters"},
+      {"issue": "Manual scavenging", "message": "Manual scavenging continues - shame on you", "audience": "SC community"},
+      {"issue": "Drug addiction", "message": "Drug addiction in SC villages increased", "audience": "SC voters"},
+      {"issue": "MGNREGA", "message": "MGNREGA payments stopped - workers suffering", "audience": "SC workers"},
+      {"issue": "SC schools", "message": "SC schools still inadequate - children suffer", "audience": "SC families"}
+    ],
+    "margin": 39713,
+    "party": "AAP",
+    "priorityTier": "CRITICAL",
+    "dataGaps": ["Exact vote percentages not available", "2017/2012 margin details not specified"],
+    "crossReferences": [],
+    "strategicImplications": ["SC-reserved seat - candidate must be from SC", "SAD was runner-up - three-way dynamic possible", "Large SC (Mazhabi Sikh) population"]
+  },
+  {
+    "acId": "AC117",
+    "acNumber": 117,
+    "name": "Shutrana (SC)",
+    "district": "Patiala",
+    "region": "Powadh",
+    "type": "SC",
+    "lokSabha": "Patiala",
+    "electionResults": [
+      {"year": 2022, "winner": "AAP Candidate", "party": "AAP", "margin": null, "votePercentage": null},
+      {"year": 2017, "winner": "SAD-BJP", "party": "SAD", "margin": null, "votePercentage": null},
+      {"year": 2012, "winner": "Congress", "party": "INC", "margin": null, "votePercentage": null}
+    ],
+    "totalElectors": 140000,
+    "voterTurnout": 75.5,
+    "casteComposition": [
+      {"category": "SC (Mazhabi Sikh)", "percentage": 42},
+      {"category": "SC (Ravidasia)", "percentage": 7},
+      {"category": "Jat Sikh", "percentage": 26},
+      {"category": "OBC", "percentage": 16},
+      {"category": "Hindu Upper Caste", "percentage": 10},
+      {"category": "Others", "percentage": 5}
+    ],
+    "topIssues": [
+      {"issue": "Drug addiction", "description": "Rural SC communities"},
+      {"issue": "Manual scavenging", "description": "Continued practice"},
+      {"issue": "Agricultural distress", "description": "Small farmers"},
+      {"issue": "Land rights", "description": "SC land issues"},
+      {"issue": "Healthcare", "description": "Rural health facilities"}
+    ],
+    "congressPosition": "LOST",
+    "recommendedCandidate": {"profile": "Community rights worker", "caste": "Mazhabi Sikh", "keyQualities": ["Anti-drugs stance", "Accessible", "Grassroots worker from SC community"]},
+    "attackLines": [
+      {"issue": "Last seat", "message": "Last seat, broken promises", "audience": "All voters"},
+      {"issue": "SC communities", "message": "SC communities abandoned - drug addiction", "audience": "SC voters"},
+      {"issue": "Manual scavenging", "message": "Manual scavenging shame continues", "audience": "SC community"},
+      {"issue": "Land rights", "message": "Land rights ignored", "audience": "SC voters"},
+      {"issue": "Healthcare", "message": "Healthcare for SC villages absent", "audience": "SC voters"}
+    ],
+    "margin": null,
+    "party": "AAP",
+    "priorityTier": "HIGH",
+    "dataGaps": ["2022 margin not specified in source", "Winner name not specified", "Exact vote percentages not available"],
+    "crossReferences": [],
+    "strategicImplications": ["Final seat in Punjab (AC 117) - symbolic importance", "SC-reserved constituency", "Congress can recover with right candidate and intensive campaign"]
+  }
+
 ]

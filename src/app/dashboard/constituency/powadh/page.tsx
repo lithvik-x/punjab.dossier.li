@@ -1,9 +1,10 @@
 import RegionConstituencies from "@/components/dashboard/RegionConstituencies";
 import constituencies from "@/lib/constituencies.json";
+import type { ElectionIntelligence } from "@/types/constituency-types";
 
 export default function PowadhPage() {
   // Filter Powadh constituencies from full dataset
-  const powadhConstituencies = (constituencies as any[]).filter(
+  const powadhConstituencies = (constituencies as ElectionIntelligence[]).filter(
     ac => ac.region === "Powadh"
   );
 

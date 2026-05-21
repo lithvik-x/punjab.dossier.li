@@ -1,9 +1,10 @@
 import RegionConstituencies from "@/components/dashboard/RegionConstituencies";
 import constituencies from "@/lib/constituencies.json";
+import type { ElectionIntelligence } from "@/types/constituency-types";
 
 export default function MalwaPage() {
   // Filter Malwa constituencies from full dataset
-  const malwaConstituencies = (constituencies as any[]).filter(
+  const malwaConstituencies = (constituencies as ElectionIntelligence[]).filter(
     ac => ac.region === "Malwa"
   );
 
