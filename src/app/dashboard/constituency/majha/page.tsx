@@ -4,7 +4,7 @@ import type { ElectionIntelligence } from "@/types/constituency-types";
 
 export default function MajhaPage() {
   // Filter Majha constituencies from full dataset
-  const majhaConstituencies = (constituencies as ElectionIntelligence[]).filter(
+  const majhaConstituencies = (constituencies as unknown as ElectionIntelligence[]).filter(
     ac => ac.region === "Majha"
   );
 

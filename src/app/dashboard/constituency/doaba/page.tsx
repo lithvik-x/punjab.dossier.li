@@ -4,7 +4,7 @@ import type { ElectionIntelligence } from "@/types/constituency-types";
 
 export default function DoabaPage() {
   // Filter Doaba constituencies from full dataset
-  const doabaConstituencies = (constituencies as ElectionIntelligence[]).filter(
+  const doabaConstituencies = (constituencies as unknown as ElectionIntelligence[]).filter(
     ac => ac.region === "Doaba"
   );
 

@@ -4,7 +4,7 @@ import type { ElectionIntelligence } from "@/types/constituency-types";
 
 export default function PowadhPage() {
   // Filter Powadh constituencies from full dataset
-  const powadhConstituencies = (constituencies as ElectionIntelligence[]).filter(
+  const powadhConstituencies = (constituencies as unknown as ElectionIntelligence[]).filter(
     ac => ac.region === "Powadh"
   );
 
