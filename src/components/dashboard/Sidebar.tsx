@@ -100,13 +100,18 @@ const PARTY_SECTIONS = [
   { id: "campaign-strategy", name: "Campaign Strategy", description: "Narrative & caste coalitions" },
   { id: "campaign-budget", name: "Campaign Budget", description: "Budget & resources" },
   { id: "aap-intelligence", name: "AAP Intelligence", description: "Competitor analysis" },
+  { id: "bjp-status", name: "BJP Status", description: "BJP growth & strategy" },
   { id: "sad-status", name: "SAD Status", description: "Electoral decline & factions" },
+  { id: "bsp-status", name: "BSP Status", description: "BSP vote bank & alliances" },
   { id: "resources-logistics", name: "Resources & Logistics", description: "Rally venues & MCC" },
 ];
 
 const CANDIDATE_SECTIONS = [
   { id: "overview", name: "Overview", description: "Key metrics & summary" },
-  { id: "leadership", name: "Leadership", description: "CM face, leadership matrix" },
+  { id: "leadership", name: "Congress Leadership", description: "CM face, leadership matrix" },
+  { id: "aap-leadership", name: "AAP Leadership", description: "Mann cabinet, turncoats" },
+  { id: "bjp-leadership", name: "BJP Leadership", description: "BJP CM faces, strategy" },
+  { id: "sad-leadership", name: "SAD Leadership", description: "SAD CM prospects, factions" },
   { id: "winnability", name: "Winnability", description: "CQI, ticket authority" },
   { id: "strategy", name: "Strategy", description: "Campaign, digital, perception" },
   { id: "booth-ops", name: "Booth Operations", description: "Infrastructure, SC seats" },
