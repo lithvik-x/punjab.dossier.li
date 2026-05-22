@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { OPERATIONAL_HEADS, REGIONS } from "@/lib/constants";
 
 const iconMap: Record<string, React.ReactNode> = {
@@ -58,9 +59,16 @@ const iconMap: Record<string, React.ReactNode> = {
     </svg>
   ),
   ChevronDown: (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <motion.svg
+      className="w-4 h-4"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      animate={{ rotate: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-    </svg>
+    </motion.svg>
   ),
   Map: (
     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

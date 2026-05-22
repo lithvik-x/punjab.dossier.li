@@ -1,6 +1,402 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   RAJDHANI-EXCLUSIVE TYPOGRAPHY SYSTEM
+   All typography uses Rajdhani exclusively across the entire dashboard
+   ========================================================================== */
+
 @theme inline {
   --font-sans: var(--font-rajdhani), system-ui, sans-serif;
   --font-display: var(--font-rajdhani), system-ui, sans-serif;
+}
+
+/* ==========================================================================
+   CSS CUSTOM PROPERTIES - RAJDHANI PREMIUM DESIGN SYSTEM
+   ========================================================================== */
+
+:root {
+  /* === TYPOGRAPHY (Rajdhani Exclusive) === */
+  --font-rajdhani: 'Rajdhani', system-ui, sans-serif;
+
+  /* Font weights */
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Font sizes - fluid scale */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+
+  /* Line heights */
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+
+  /* === LIGHT MODE COLORS === */
+
+  /* Surfaces */
+  --background: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-elevated: #F1F5F9;
+  --surface-muted: #E2E8F0;
+
+  /* Borders */
+  --border: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --border-focus: #3B82F6;
+
+  /* Text */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+  --text-inverse: #FFFFFF;
+
+  /* Primary - Intelligence Blue */
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --primary-foreground: #FFFFFF;
+  --primary-muted: #DBEAFE;
+
+  /* Accent - Cyan (for highlights, charts) */
+  --accent: #06B6D4;
+  --accent-hover: #0891B2;
+  --accent-muted: #CFFAFE;
+
+  /* Success - Emerald */
+  --success: #10B981;
+  --success-hover: #059669;
+  --success-foreground: #FFFFFF;
+  --success-muted: #D1FAE5;
+
+  /* Warning - Amber */
+  --warning: #F59E0B;
+  --warning-hover: #D97706;
+  --warning-foreground: #FFFFFF;
+  --warning-muted: #FEF3C7;
+
+  /* Danger - Rose */
+  --danger: #EF4444;
+  --danger-hover: #DC2626;
+  --danger-foreground: #FFFFFF;
+  --danger-muted: #FEE2E2;
+
+  /* Purple - Special features */
+  --purple: #8B5CF6;
+  --purple-muted: #EDE9FE;
+
+  /* Orange - Malwa region */
+  --orange: #F97316;
+  --orange-muted: #FFEDD5;
+
+  /* === SPACING === */
+  --space-0: 0;
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+
+  /* === BORDER RADIUS === */
+  --radius-none: 0;
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+
+  /* === SHADOWS === */
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-glow-blue: 0 0 20px rgba(37, 99, 235, 0.3);
+  --shadow-glow-cyan: 0 0 20px rgba(6, 182, 212, 0.3);
+  --shadow-glow-emerald: 0 0 20px rgba(16, 185, 129, 0.3);
+
+  /* === ANIMATION === */
+  --duration-instant: 0ms;
+  --duration-fast: 100ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 400ms;
+
+  --ease-out: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-in: cubic-bezier(0.33, 0, 0.68, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* === Z-INDEX SCALE === */
+  --z-dropdown: 10;
+  --z-sticky: 20;
+  --z-fixed: 30;
+  --z-modal-backdrop: 40;
+  --z-modal: 50;
+  --z-popover: 60;
+  --z-tooltip: 70;
+  --z-toast: 80;
+}
+
+/* ==========================================================================
+   DARK MODE
+   ========================================================================== */
+
+.dark {
+  /* Surfaces */
+  --background: #0A0E14;
+  --surface: #141A23;
+  --surface-elevated: #1C2530;
+  --surface-muted: #263040;
+
+  /* Borders */
+  --border: #2A3544;
+  --border-strong: #3D4F63;
+  --border-focus: #60A5FA;
+
+  /* Text */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --text-inverse: #0F172A;
+
+  /* Primary - Brighter blue for dark mode */
+  --primary: #3B82F6;
+  --primary-hover: #60A5FA;
+  --primary-foreground: #FFFFFF;
+  --primary-muted: #1E3A5F;
+
+  /* Accent - Cyan */
+  --accent: #22D3EE;
+  --accent-hover: #67E8F9;
+  --accent-muted: #164E63;
+
+  /* Success */
+  --success: #34D399;
+  --success-hover: #6EE7B7;
+  --success-foreground: #FFFFFF;
+  --success-muted: #064E3B;
+
+  /* Warning */
+  --warning: #FBBF24;
+  --warning-hover: #FCD34D;
+  --warning-foreground: #0F172A;
+  --warning-muted: #78350F;
+
+  /* Danger */
+  --danger: #F87171;
+  --danger-hover: #FCA5A5;
+  --danger-foreground: #FFFFFF;
+  --danger-muted: #7F1D1D;
+
+  /* Purple */
+  --purple: #A78BFA;
+  --purple-muted: #4C1D95;
+
+  /* Orange */
+  --orange: #FB923C;
+  --orange-muted: #7C2D12;
+
+  /* Shadows - deeper in dark mode */
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+  --shadow-glow-blue: 0 0 30px rgba(59, 130, 246, 0.4);
+  --shadow-glow-cyan: 0 0 30px rgba(34, 211, 238, 0.4);
+  --shadow-glow-emerald: 0 0 30px rgba(52, 211, 153, 0.4);
+}
+
+/* ==========================================================================
+   BASE STYLES - RAJDHANI EXCLUSIVE
+   ========================================================================== */
+
+body {
+  font-family: var(--font-rajdhani), system-ui, sans-serif;
+  font-weight: var(--font-regular);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-rajdhani), system-ui, sans-serif;
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Data/Metrics - Rajdhani tabular nums */
+.font-mono, [data-metric] {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" on;
+}
+
+/* ==========================================================================
+   PREMIUM UTILITY CLASSES
+   ========================================================================== */
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(20, 26, 35, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus ring */
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+/* Premium card hover */
+.card-premium {
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.card-premium:hover {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+  transform: translateY(-2px);
+}
+
+/* Metric value - Large display */
+.metric-value {
+  font-family: var(--font-rajdhani), system-ui, sans-serif;
+  font-size: 2.25rem;
+  font-weight: var(--font-bold);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Badge pulse */
+.badge-pulse {
+  position: relative;
+}
+
+.badge-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-elevated) 25%,
+    var(--surface-muted) 50%,
+    var(--surface-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ==========================================================================
+   CUSTOM SCROLLBAR
+   ========================================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-elevated);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) var(--surface-elevated);
+}
+
+/* ==========================================================================
+   SELECTION
+   ========================================================================== */
+
+::selection {
+  background: var(--primary-muted);
+  color: var(--text-primary);
+}
+
+.dark ::selection {
+  background: var(--primary);
+  color: var(--text-inverse);
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: var(--duration-instant) !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: var(--duration-instant) !important;
+  }
 }
