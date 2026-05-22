@@ -124,12 +124,12 @@ export default function SADLeadershipPage() {
         <div className="flex items-start gap-4">
           <span className="text-3xl">⚡</span>
           <div>
-            <h3 className="text-lg font-bold text-amber-700 dark:text-amber-400">SAD's Existential Crisis</h3>
+            <h3 className="text-lg font-bold text-amber-700 dark:text-amber-400">SAD&apos;s Existential Crisis</h3>
             <p className="text-sm text-amber-600 dark:text-amber-300 mt-1">
               From 56 seats and ruling Punjab in 2012 to 3 seats in 2022 — the steepest decline of any regional party in Indian politics.
               Compounded by the August 2025 split (Giani Harpreet faction), the Akal Takht hukamnama declaring Sukhbir tankhaiya (Dec 2024),
-              Parkash Singh Badal's death (Apr 2023), and the assassination attempt on Sukhbir (Dec 2024).
-              The SAD-BJP alliance is dead (Mar 2026). MLA Manpreet Singh Ayali has left for Amritpal's outfit. SAD is fighting for survival.
+              Parkash Singh Badal&apos;s death (Apr 2023), and the assassination attempt on Sukhbir (Dec 2024).
+              The SAD-BJP alliance is dead (Mar 2026). MLA Manpreet Singh Ayali has left for Amritpal&apos;s outfit. SAD is fighting for survival.
             </p>
           </div>
         </div>
@@ -254,10 +254,10 @@ export default function SADLeadershipPage() {
         <div className="mt-4 rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
           <p className="text-sm text-red-700 dark:text-red-300">
             <strong>Split Background:</strong> The Akal Takht issued a hukamnama on December 2, 2024 declaring Sukhbir Singh Badal and other SAD leaders as
-            "tankhaiya" (guilty of religious misconduct) over the 2015 Guru Granth Sahib sacrilege incidents and the Behbal Kalan police firing.
+            &quot;tankhaiya&quot; (guilty of religious misconduct) over the 2015 Guru Granth Sahib sacrilege incidents and the Behbal Kalan police firing.
             The edict ordered a reorganization of SAD. The Badal camp instead re-elected Sukhbir on April 12, 2025. This triggered the formal split.
             The breakaway faction plans an 11-member presidium including Prem Singh Chandumajra, Bibi Jagir Kaur, Ravi Inder Singh.
-            The faction is seeking ECI recognition and control of the 'scale' election symbol.
+            The faction is seeking ECI recognition and control of the &apos;scale&apos; election symbol.
           </p>
         </div>
       </div>
@@ -284,10 +284,10 @@ export default function SADLeadershipPage() {
 
         <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
           <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Key Battle:</strong> SGPC general elections are due. Control of SGPC determines control of gurdwara funds, the 'scale' election symbol,
-            and the narrative on who represents the "real" Akali Dal. The Badal camp currently controls SGPC through President Harjinder Singh Dhami.
-            The Giani Harpreet faction has announced its intention to challenge this. The SGPC President has condemned the breakaway faction's bid as
-            an "insult to Sikh institutions." The ECI will decide which faction is the real SAD based on organizational and legislative majority tests.
+            <strong>Key Battle:</strong> SGPC general elections are due. Control of SGPC determines control of gurdwara funds, the &apos;scale&apos; election symbol,
+            and the narrative on who represents the &quot;real&quot; Akali Dal. The Badal camp currently controls SGPC through President Harjinder Singh Dhami.
+            The Giani Harpreet faction has announced its intention to challenge this. The SGPC President has condemned the breakaway faction&apos;s bid as
+            an &quot;insult to Sikh institutions.&quot; The ECI will decide which faction is the real SAD based on organizational and legislative majority tests.
           </p>
         </div>
       </div>
@@ -298,7 +298,7 @@ export default function SADLeadershipPage() {
           SAD-BJP Alliance: A 24-Year History That Ended in 2020
         </h3>
         <p className="text-sm text-slate-500 dark:text-slate-400">
-          From coalition partners to bitter rivals — the alliance breakdown sealed SAD's decline
+          From coalition partners to bitter rivals — the alliance breakdown sealed SAD&apos;s decline
         </p>
 
         <div className="mt-4 space-y-2">
@@ -312,10 +312,10 @@ export default function SADLeadershipPage() {
 
         <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
           <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Current Stance (May 2026):</strong> Amit Shah's March 14, 2026 declaration that BJP will go solo kills the last hope of an
-            SAD-BJP reunion. SAD will contest all 117 seats independently. Sukhbir has publicly welcomed BJP's decision, calling it an
-            "opportunity for Punjabis to choose between Delhi-based parties and the Panthic party." Without the BJP's urban Hindu votes,
-            SAD's ceiling is likely 12-18 seats in a best-case scenario — far from power.
+            <strong>Current Stance (May 2026):</strong> Amit Shah&apos;s March 14, 2026 declaration that BJP will go solo kills the last hope of an
+            SAD-BJP reunion. SAD will contest all 117 seats independently. Sukhbir has publicly welcomed BJP&apos;s decision, calling it an
+            &quot;opportunity for Punjabis to choose between Delhi-based parties and the Panthic party.&quot; Without the BJP&apos;s urban Hindu votes,
+            SAD&apos;s ceiling is likely 12-18 seats in a best-case scenario — far from power.
           </p>
         </div>
       </div>
@@ -338,10 +338,10 @@ export default function SADLeadershipPage() {
 
         <div className="mt-4 rounded-lg bg-white/60 p-3 dark:bg-amber-900/30">
           <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Assessment:</strong> SAD's revival depends on three factors: (1) Whether the Giani Harpreet faction formally splits the Panthic vote
+            <strong>Assessment:</strong> SAD&apos;s revival depends on three factors: (1) Whether the Giani Harpreet faction formally splits the Panthic vote
             or merges back before 2027, (2) Whether the Akal Takht hukamnama against Sukhbir is resolved, and (3) Whether SAD can recapture
-            its rural Sikh base that migrated to AAP in 2022. The loss of Amritpal Singh's support (Ayali joining his outfit) is another blow
-            to Panthic consolidation. Without BJP alliance, SAD's urban Hindu vote is gone. The party is reduced to a Malwa-rural Jat Sikh party
+            its rural Sikh base that migrated to AAP in 2022. The loss of Amritpal Singh&apos;s support (Ayali joining his outfit) is another blow
+            to Panthic consolidation. Without BJP alliance, SAD&apos;s urban Hindu vote is gone. The party is reduced to a Malwa-rural Jat Sikh party
             with a ceiling of 12-18 seats. A generational leadership change (beyond the Badal family) seems necessary but unlikely before 2027.
             Most likely outcome: SAD wins 6-10 seats, remains a marginal player, and faces an existential choice after 2027 — either a genuine
             leadership renewal or continued decline toward irrelevance.
