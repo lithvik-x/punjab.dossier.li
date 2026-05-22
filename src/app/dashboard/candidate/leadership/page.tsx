@@ -1,6 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { MetricCard, Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { Users, Target, TrendingUp, AlertTriangle } from "lucide-react";
 
 // ============================================================
 // CONGRESS LEADERSHIP (Verified via minimax-web search May 2026)
@@ -68,12 +71,17 @@ export default function CandidateLeadershipPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500 text-lg font-bold text-white">
-              4
-            </span>
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 text-lg font-bold text-white shadow-lg">
+              <Users className="h-5 w-5" />
+            </div>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Candidate Supremacy
             </h1>
@@ -83,13 +91,14 @@ export default function CandidateLeadershipPage() {
           </p>
         </div>
         <Badge variant="info">117 Candidates</Badge>
-      </div>
+      </motion.div>
 
       {/* Congress Leadership */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Congress Leadership Matrix
-        </h3>
+      <Card hover>
+        <CardHeader>
+          <CardTitle>Congress Leadership Matrix</CardTitle>
+        </CardHeader>
+        <CardContent>
         <p className="text-sm text-slate-500 dark:text-slate-400">
           Collective leadership approach - No CM face declared (May 2026)
         </p>
@@ -122,12 +131,16 @@ export default function CandidateLeadershipPage() {
             Channi Dalit identity most strategically valuable: Punjab SC population ~32% (highest in India), no Punjabi CM from SC community historically. CM face decision expected 60-75 days before election (Nov-Dec 2026).
           </p>
         </div>
-      </div>
+        </CardContent>
+        </Card>
 
       {/* Factional Dynamics */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h4 className="font-semibold text-slate-700 dark:text-slate-300">Selection Method</h4>
+        <Card hover>
+          <CardHeader>
+            <CardTitle as="h4">Selection Method</CardTitle>
+          </CardHeader>
+          <CardContent>
           <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-400">
             <li>- Survey-based winnability (Sunil Kanugolu)</li>
             <li>- 3 independent surveys commissioned</li>
@@ -135,9 +148,13 @@ export default function CandidateLeadershipPage() {
             <li>- No CM candidate declared yet</li>
             <li>- Bhupesh Baghel supervising (AICC)</li>
           </ul>
-        </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h4 className="font-semibold text-slate-700 dark:text-slate-300">Ticket Strategy</h4>
+          </CardContent>
+        </Card>
+        <Card hover>
+          <CardHeader>
+            <CardTitle as="h4">Ticket Strategy</CardTitle>
+          </CardHeader>
+          <CardContent>
           <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-400">
             <li>- 60-70 new faces (confirmed)</li>
             <li>- 50% tickets under-50 years</li>
@@ -145,9 +162,13 @@ export default function CandidateLeadershipPage() {
             <li>- SC seats: 34 reserved, target 18-22</li>
             <li>- OBC: 20-22 candidates planned</li>
           </ul>
-        </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h4 className="font-semibold text-slate-700 dark:text-slate-300">Internal Factions</h4>
+          </CardContent>
+        </Card>
+        <Card hover>
+          <CardHeader>
+            <CardTitle as="h4">Internal Factions</CardTitle>
+          </CardHeader>
+          <CardContent>
           <ul className="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-400">
             <li>- Channi camp: Dalit representation demand</li>
             <li>- Warring camp: Organizational control</li>
@@ -155,14 +176,16 @@ export default function CandidateLeadershipPage() {
             <li>- Sidhu void: Unresolved tension</li>
             <li>- Sunil Jakhar: Left for BJP (2022)</li>
           </ul>
-        </div>
+          </CardContent>
+        </Card>
       </div>
 
       {/* CM Face Candidates */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          CM Face Candidates (A-04-01/02)
-        </h3>
+      <Card hover>
+        <CardHeader>
+          <CardTitle>CM Face Candidates (A-04-01/02)</CardTitle>
+        </CardHeader>
+        <CardContent>
         <p className="text-sm text-slate-500 dark:text-slate-400">
           Congress collective leadership - no CM face declared as of May 2026
         </p>
@@ -199,12 +222,20 @@ export default function CandidateLeadershipPage() {
             <strong>Channi Dalit Identity:</strong> Punjab SC population ~32% (highest in India), no Punjabi CM from SC community historically. CM decision expected 60-75 days before election (Nov-Dec 2026).
           </p>
         </div>
-      </div>
+        </CardContent>
+        </Card>
 
       {/* AAP Leadership - MASS DEFECTION CRISIS */}
-      <div className="rounded-xl border border-red-200 bg-red-50 p-6 shadow-sm dark:border-red-800 dark:bg-red-900/20">
+      <Card hover>
+        <CardHeader>
+          <CardTitle>AAP Leadership</CardTitle>
+          <p className="text-sm text-red-600 dark:text-red-400">CM Mann - Re-election bid | MAJOR SETBACK: 7 RS MPs defected to BJP (April 2026)</p>
+        </CardHeader>
+        <CardContent>
         <div className="flex items-center gap-3">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500 text-lg font-bold text-white">A</span>
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-500 text-lg font-bold text-white">
+            <Target className="h-4 w-4" />
+          </div>
           <div>
             <h3 className="text-lg font-semibold text-red-700 dark:text-red-400">AAP Leadership</h3>
             <p className="text-sm text-red-600 dark:text-red-400">CM Mann - Re-election bid | MAJOR SETBACK: 7 RS MPs defected to BJP (April 2026)</p>
@@ -213,7 +244,9 @@ export default function CandidateLeadershipPage() {
 
         {/* Mass Defection Alert */}
         <div className="mt-4 p-4 rounded-lg bg-red-100 border border-red-300 dark:bg-red-900/40 dark:border-red-700">
-          <h4 className="font-semibold text-red-700 dark:text-red-300 mb-2">⚠️ April 2026 Mass Defection - 7 Rajya Sabha MPs Joined BJP</h4>
+          <h4 className="font-semibold text-red-700 dark:text-red-300 mb-2 flex items-center gap-2">
+            <AlertTriangle className="h-4 w-4" /> April 2026 Mass Defection - 7 Rajya Sabha MPs Joined BJP
+          </h4>
           <div className="grid gap-2 md:grid-cols-2">
             {aapDefections.map((mp) => (
               <div key={mp.name} className="flex items-center justify-between text-sm">
@@ -248,17 +281,23 @@ export default function CandidateLeadershipPage() {
             </div>
           ))}
         </div>
-      </div>
+        </CardContent>
+        </Card>
 
       {/* BJP Leadership - SOLO STRATEGY */}
-      <div className="rounded-xl border border-orange-200 bg-orange-50 p-6 shadow-sm dark:border-orange-800 dark:bg-orange-900/20">
-        <div className="flex items-center gap-3">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500 text-lg font-bold text-white">B</span>
-          <div>
-            <h3 className="text-lg font-semibold text-orange-700 dark:text-orange-400">BJP Leadership</h3>
-            <p className="text-sm text-orange-600 dark:text-orange-400">Going solo 2027 - No SAD alliance | Sunil Jakhar President | Alliance broken March 2026</p>
+      <Card hover>
+        <CardHeader>
+          <div className="flex items-center gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500 text-lg font-bold text-white">
+              <Users className="h-4 w-4" />
+            </div>
+            <div>
+              <CardTitle>BJP Leadership</CardTitle>
+              <p className="text-sm text-orange-600 dark:text-orange-400">Going solo 2027 - No SAD alliance | Sunil Jakhar President | Alliance broken March 2026</p>
+            </div>
           </div>
-        </div>
+        </CardHeader>
+        <CardContent>
 
         <div className="mt-4 p-3 rounded-lg bg-orange-100 dark:bg-orange-900/40">
           <p className="text-sm text-orange-700 dark:text-orange-300">
@@ -301,17 +340,23 @@ export default function CandidateLeadershipPage() {
             <p className="text-xs text-orange-600 dark:text-orange-400 mt-1">2019 LS: 9.63% → 2024 LS: 18.56% (BUT 0 seats won)</p>
           </div>
         </div>
-      </div>
+        </CardContent>
+        </Card>
 
       {/* SAD Leadership - NO NON-BADAL CANDIDATE */}
-      <div className="rounded-xl border border-yellow-200 bg-yellow-50 p-6 shadow-sm dark:border-yellow-800 dark:bg-yellow-900/20">
-        <div className="flex items-center gap-3">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow-500 text-lg font-bold text-white">S</span>
-          <div>
-            <h3 className="text-lg font-semibold text-yellow-700 dark:text-yellow-400">SAD Leadership</h3>
-            <p className="text-sm text-yellow-600 dark:text-yellow-400">Sukhbir Badal - No non-Badal candidate emerges | 2022 worst result: 3 seats</p>
+      <Card hover>
+        <CardHeader>
+          <div className="flex items-center gap-3">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-yellow-500 text-lg font-bold text-white">
+              <Users className="h-4 w-4" />
+            </div>
+            <div>
+              <CardTitle>SAD Leadership</CardTitle>
+              <p className="text-sm text-yellow-600 dark:text-yellow-400">Sukhbir Badal - No non-Badal candidate emerges | 2022 worst result: 3 seats</p>
+            </div>
           </div>
-        </div>
+        </CardHeader>
+        <CardContent>
 
         <div className="mt-4 grid gap-4 md:grid-cols-3">
           {sadLeaders.map((leader) => (
@@ -343,23 +388,29 @@ export default function CandidateLeadershipPage() {
             <strong>Key Issue:</strong> Parkash Singh Badal died April 2023. Sukhbir faces internal family challenges. December 2024 assassination attempt on Sukhbir. No clear successor within party.
           </p>
         </div>
-      </div>
+        </CardContent>
+        </Card>
 
       {/* Monte Carlo Simulation Summary */}
-      <div className="rounded-xl border-2 border-purple-500 bg-purple-50 p-6 dark:border-purple-700 dark:bg-purple-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500 text-lg font-bold text-white">M</span>
-          <div>
-            <h3 className="text-lg font-semibold text-purple-700 dark:text-purple-400">Monte Carlo Seat Simulation</h3>
-            <p className="text-sm text-purple-600 dark:text-purple-400">1,000 simulation runs | Congress 50-58 seats base case</p>
+      <Card hover>
+        <CardHeader>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500 text-lg font-bold text-white">
+              <TrendingUp className="h-5 w-5" />
+            </div>
+            <div>
+              <CardTitle>Monte Carlo Seat Simulation</CardTitle>
+              <p className="text-sm text-purple-600 dark:text-purple-400">1,000 simulation runs | Congress 50-58 seats base case</p>
+            </div>
           </div>
-        </div>
+        </CardHeader>
+        <CardContent>
 
         <div className="grid gap-4 md:grid-cols-4">
-          <MetricCard title="Base Case (50%)" value="50-58" subtitle="Congress seats" color="bg-purple-500" />
-          <MetricCard title="Best Case (25%)" value="65-75" subtitle="Congress seats" color="bg-green-500" />
-          <MetricCard title="Worst Case (25%)" value="18-30" subtitle="Congress seats" color="bg-red-500" />
-          <MetricCard title="Hung Assembly" value="65%" subtitle="Probability" color="bg-blue-500" />
+          <MetricCard title="Base Case (50%)" value="50-58" subtitle="Congress seats" color="purple" />
+          <MetricCard title="Best Case (25%)" value="65-75" subtitle="Congress seats" color="green" />
+          <MetricCard title="Worst Case (25%)" value="18-30" subtitle="Congress seats" color="rose" />
+          <MetricCard title="Hung Assembly" value="65%" subtitle="Probability" color="blue" />
         </div>
 
         <div className="mt-4 rounded-lg bg-purple-100 p-3 dark:bg-purple-900/40">
@@ -367,7 +418,8 @@ export default function CandidateLeadershipPage() {
             <strong>Key Insight:</strong> Three-way split favors neither major party. Congress needs CM face announcement by Oct 2026 to capitalize on LS 2024 momentum. Anti-incumbency alone insufficient without positive narrative.
           </p>
         </div>
-      </div>
+        </CardContent>
+        </Card>
     </div>
   );
 }

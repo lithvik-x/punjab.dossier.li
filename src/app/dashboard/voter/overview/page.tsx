@@ -1,6 +1,9 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import { AlertTriangle, TrendingUp, Users, Vote, Target } from "lucide-react";
 import { CAMPAIGN_CHANNELS, KEY_ISSUES_VERIFIED, POLITICAL_ANATOMY } from "@/lib/constants";
 
 const outreachMetrics = [
@@ -44,7 +47,7 @@ export default function VoterOverviewPage() {
           subtitle="Digital outreach"
           change={34}
           trend="up"
-          color="bg-pink-500"
+          color="rose"
         />
         <MetricCard
           title="Read Rate"
@@ -52,7 +55,7 @@ export default function VoterOverviewPage() {
           subtitle="Message engagement"
           change={8}
           trend="up"
-          color="bg-blue-500"
+          color="blue"
         />
         <MetricCard
           title="Door-to-Door"
@@ -60,7 +63,7 @@ export default function VoterOverviewPage() {
           subtitle="Household coverage"
           change={12}
           trend="up"
-          color="bg-green-500"
+          color="emerald"
         />
         <MetricCard
           title="Event Attendance"
@@ -68,7 +71,7 @@ export default function VoterOverviewPage() {
           subtitle="Rally participation"
           change={23}
           trend="up"
-          color="bg-purple-500"
+          color="purple"
         />
       </div>
 
@@ -115,17 +118,17 @@ export default function VoterOverviewPage() {
                 <span className="text-sm text-slate-600 dark:text-slate-400">Malwa</span>
                 <span className="font-medium text-orange-600 dark:text-orange-400">69 seats (59%)</span>
               </div>
-              <ProgressBar label="" value={59} color="bg-orange-500" showPercentage={false} />
+              <ProgressBar label="" value={59} color="orange" showPercentage={false} />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-600 dark:text-slate-400">Majha</span>
                 <span className="font-medium text-blue-600 dark:text-blue-400">25 seats (21%)</span>
               </div>
-              <ProgressBar label="" value={21} color="bg-blue-500" showPercentage={false} />
+              <ProgressBar label="" value={21} color="blue" showPercentage={false} />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-600 dark:text-slate-400">Doaba</span>
                 <span className="font-medium text-green-600 dark:text-green-400">23 seats (20%)</span>
               </div>
-              <ProgressBar label="" value={20} color="bg-green-500" showPercentage={false} />
+              <ProgressBar label="" value={20} color="emerald" showPercentage={false} />
             </div>
           </div>
           <div>
@@ -172,7 +175,7 @@ export default function VoterOverviewPage() {
                 <ProgressBar
                   label=""
                   value={100 - (i * 10)}
-                  color={issue.id === "drugs" ? "bg-red-500" : "bg-blue-500"}
+                  color={issue.id === "drugs" ? "red" : "blue"}
                   showPercentage={false}
                 />
               </div>
@@ -195,7 +198,7 @@ export default function VoterOverviewPage() {
                   <ProgressBar
                     label=""
                     value={channel.engagement * 100}
-                    color="bg-pink-500"
+                    color="rose"
                     showPercentage={false}
                   />
                 </div>
@@ -310,25 +313,25 @@ export default function VoterOverviewPage() {
           <h4 className="font-semibold text-slate-700 dark:text-slate-300">Voter ID Collection</h4>
           <p className="mt-2 text-2xl font-bold text-pink-500">67%</p>
           <p className="text-sm text-slate-500">Target: 95%</p>
-          <ProgressBar label="" value={67} color="bg-pink-500" showPercentage={false} />
+          <ProgressBar label="" value={67} color="rose" showPercentage={false} />
         </div>
         <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
           <h4 className="font-semibold text-slate-700 dark:text-slate-300">EPIC Linked Mobile</h4>
           <p className="mt-2 text-2xl font-bold text-blue-500">43%</p>
           <p className="text-sm text-slate-500">Critical for SMS alerts</p>
-          <ProgressBar label="" value={43} color="bg-blue-500" showPercentage={false} />
+          <ProgressBar label="" value={43} color="blue" showPercentage={false} />
         </div>
         <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
           <h4 className="font-semibold text-slate-700 dark:text-slate-300">Booth Volunteers</h4>
           <p className="mt-2 text-2xl font-bold text-green-500">4.2</p>
           <p className="text-sm text-slate-500">Avg per booth (target: 8)</p>
-          <ProgressBar label="" value={52} color="bg-green-500" showPercentage={false} />
+          <ProgressBar label="" value={52} color="emerald" showPercentage={false} />
         </div>
         <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
           <h4 className="font-semibold text-slate-700 dark:text-slate-300">Issue Awareness</h4>
           <p className="mt-2 text-2xl font-bold text-purple-500">58%</p>
           <p className="text-sm text-slate-500">Voters recall Congress msg</p>
-          <ProgressBar label="" value={58} color="bg-purple-500" showPercentage={false} />
+          <ProgressBar label="" value={58} color="purple" showPercentage={false} />
         </div>
       </div>
 

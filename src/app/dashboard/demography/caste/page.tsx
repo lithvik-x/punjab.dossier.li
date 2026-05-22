@@ -1,8 +1,9 @@
 "use client";
 
-import { Badge } from "@/components/ui/MetricCard";
-import { ProgressBar } from "@/components/ui/MetricCard";
-import { DataTable } from "@/components/ui/MetricCard";
+import { Badge, ProgressBar, DataTable } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import { Users, AlertTriangle, Target, TrendingUp, UsersRound, Building2, Heart, Star } from "lucide-react";
 import {
   casteDynamicsData,
   casteDynamicsMetrics,
@@ -23,11 +24,16 @@ export default function DemographyCastePage() {
   return (
     <div className="space-y-8">
       {/* Section Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500 text-lg font-bold text-white">
-              C
+              <Users className="h-5 w-5" />
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Caste Composition
@@ -38,36 +44,38 @@ export default function DemographyCastePage() {
           </p>
         </div>
         <Badge variant="info">Demographics</Badge>
-      </div>
+      </motion.div>
 
       {/* Key Metrics Cards */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        <Card padding="md" className="border-l-4 border-l-orange-500">
           <p className="text-sm font-medium text-slate-500 dark:text-slate-400">SC Population</p>
           <p className="mt-2 text-3xl font-bold text-orange-600">{casteDynamicsMetrics.scPopulation}</p>
           <p className="text-sm text-slate-500 dark:text-slate-400">Highest in India</p>
-        </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        </Card>
+        <Card padding="md" className="border-l-4 border-l-green-500">
           <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Jat Sikh Population</p>
           <p className="mt-2 text-3xl font-bold text-green-600">{casteDynamicsMetrics.jatSikhPopulation}</p>
           <p className="text-sm text-slate-500 dark:text-slate-400">Malwa heartland</p>
-        </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        </Card>
+        <Card padding="md" className="border-l-4 border-l-blue-500">
           <p className="text-sm font-medium text-slate-500 dark:text-slate-400">OBC Population</p>
           <p className="mt-2 text-3xl font-bold text-blue-600">{casteDynamicsMetrics.obcPopulation}</p>
           <p className="text-sm text-slate-500 dark:text-slate-400">No dominant OBC party</p>
-        </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+        </Card>
+        <Card padding="md" className="border-l-4 border-l-purple-500">
           <p className="text-sm font-medium text-slate-500 dark:text-slate-400">Reserved Seats</p>
           <p className="mt-2 text-3xl font-bold text-purple-600">{casteDynamicsMetrics.scReservedSeats}</p>
           <p className="text-sm text-slate-500 dark:text-slate-400">29% of Assembly</p>
-        </div>
+        </Card>
       </div>
 
       {/* Key Insight Banner */}
-      <div className="rounded-xl border-2 border-orange-500 bg-orange-50 p-4 dark:border-orange-700 dark:bg-orange-900/20">
+      <Card padding="md" className="border-2 border-orange-500 bg-orange-50 dark:bg-orange-900/20">
         <div className="flex items-start gap-3">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500 text-sm font-bold text-white">!</span>
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500 text-sm font-bold text-white">
+            <AlertTriangle className="h-4 w-4" />
+          </span>
           <div>
             <h3 className="text-lg font-semibold text-orange-700 dark:text-orange-400">Key Insight</h3>
             <p className="mt-1 text-sm text-orange-600 dark:text-orange-400">
@@ -75,10 +83,10 @@ export default function DemographyCastePage() {
             </p>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Caste Population Composition */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Caste Population Composition</h2>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Punjab caste demographics breakdown</p>
         <div className="mt-6 space-y-4">
@@ -88,26 +96,26 @@ export default function DemographyCastePage() {
               label={item.caste}
               value={item.percent}
               maxValue={100}
-              color={`bg-[${item.color}]`}
+              color={item.color}
             />
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* Regional Caste Dominance */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-white">Regional Caste Dominance</h2>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Key caste configurations by region (117 total seats)</p>
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
           {regionalCasteData.map((region) => (
-            <div key={region.region} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
+            <Card key={region.region} padding="md">
               <div className="flex items-center justify-between">
                 <h3 className="font-semibold text-slate-900 dark:text-white">{region.region}</h3>
                 <Badge variant="info">{region.seats} seats</Badge>
               </div>
               <p className="mt-2 text-sm font-medium text-slate-700 dark:text-slate-300">{region.dominantCaste}</p>
               <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{region.scConcentration}</p>
-            </div>
+            </Card>
           ))}
         </div>
 
@@ -128,13 +136,13 @@ export default function DemographyCastePage() {
             {dominantCasteByRegion.reservedSeats.distribution}. Congress won only {dominantCasteByRegion.reservedSeats.congress2022Result}.
           </p>
         </div>
-      </div>
+      </Card>
 
       {/* Jat Sikh Analysis */}
-      <div className="rounded-xl border border-green-200 bg-green-50 p-6 dark:border-green-800 dark:bg-green-900/20">
+      <Card padding="lg" className="border-2 border-green-500 bg-green-50 dark:bg-green-900/20">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500 text-lg font-bold text-white">
-            J
+            <UsersRound className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-green-700 dark:text-green-400">Jat Sikh Analysis</h3>
@@ -166,13 +174,13 @@ export default function DemographyCastePage() {
             <p className="mt-1">{casteOrganization.jatSikh.concentration}</p>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Dalit/SC Demographics */}
-      <div className="rounded-xl border border-purple-200 bg-purple-50 p-6 dark:border-purple-800 dark:bg-purple-900/20">
+      <Card padding="lg" className="border-2 border-purple-500 bg-purple-50 dark:bg-purple-900/20">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500 text-lg font-bold text-white">
-            D
+            <UsersRound className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-purple-700 dark:text-purple-400">Dalit/SC Demographics & Political Behavior</h3>
@@ -215,13 +223,13 @@ export default function DemographyCastePage() {
             <p className="mt-1 text-xs text-slate-500">Seats: {casteOrganization.dalitSC.bspPunjab.seatsWon}</p>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* OBC Overview */}
-      <div className="rounded-xl border border-blue-200 bg-blue-50 p-6 dark:border-blue-800 dark:bg-blue-900/20">
+      <Card padding="lg" className="border-2 border-blue-500 bg-blue-50 dark:bg-blue-900/20">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500 text-lg font-bold text-white">
-            O
+            <TrendingUp className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-400">OBC Overview</h3>
@@ -254,13 +262,13 @@ export default function DemographyCastePage() {
             <p className="mt-1">{casteOrganization.obc.ramgarhiaSabha}</p>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Hindu Upper Caste */}
-      <div className="rounded-xl border border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-900/20">
+      <Card padding="lg" className="border-2 border-red-500 bg-red-50 dark:bg-red-900/20">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-lg font-bold text-white">
-            H
+            <Building2 className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-red-700 dark:text-red-400">Hindu Upper Caste Networks</h3>
@@ -274,29 +282,29 @@ export default function DemographyCastePage() {
           <p><span className="font-medium">Political Alignment:</span> {casteOrganization.hinduUpperCaste.politicalAlignment}</p>
           <p><span className="font-medium">Concentration:</span> {casteOrganization.hinduUpperCaste.concentration}</p>
         </div>
-      </div>
+      </Card>
 
       {/* Deras as Political Institutions */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Deras as Political Institutions</h3>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">{casteOrganization.derasAsPoliticalInstitutions.insight}</p>
 
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
           {casteOrganization.derasAsPoliticalInstitutions.majorDeras.map((dera) => (
-            <div key={dera.name} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
+            <Card key={dera.name} padding="md">
               <div className="flex items-center justify-between">
                 <h4 className="font-semibold text-slate-900 dark:text-white">{dera.name}</h4>
                 <Badge variant="info">{dera.location}</Badge>
               </div>
               <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{dera.community}</p>
               <p className="mt-2 text-sm font-medium text-slate-700 dark:text-slate-300">{dera.politicalSignificance}</p>
-            </div>
+            </Card>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* Electoral Implications - Winning Coalition */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Electoral Implications - Winning Coalition</h3>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Population arithmetic and historical formulas</p>
 
@@ -333,17 +341,17 @@ export default function DemographyCastePage() {
           <p className="font-medium text-orange-700 dark:text-orange-400">Key Lesson</p>
           <p className="mt-1 text-sm text-orange-600 dark:text-orange-400">{winningCoalition.keyLesson}</p>
         </div>
-      </div>
+      </Card>
 
       {/* Caste Tensions */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Caste Tensions & Conflicts</h3>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Major tension points and inter-caste dynamics</p>
 
         <div className="mt-6 space-y-4">
           <h4 className="font-semibold text-slate-900 dark:text-white">Major Tension Points</h4>
           {casteTensions.majorTensionPoints.map((tension, idx) => (
-            <div key={idx} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
+            <Card key={idx} padding="md">
               <div className="flex items-center justify-between">
                 <h5 className="font-medium text-slate-900 dark:text-white">{tension.incident}</h5>
                 <Badge variant="warning">{tension.date}</Badge>
@@ -352,7 +360,7 @@ export default function DemographyCastePage() {
               {tension.rootCause && (
                 <p className="mt-1 text-sm font-medium text-slate-700 dark:text-slate-300">Root Cause: {tension.rootCause}</p>
               )}
-            </div>
+            </Card>
           ))}
         </div>
 
@@ -392,13 +400,13 @@ export default function DemographyCastePage() {
           <h4 className="font-semibold text-slate-900 dark:text-white">Migrant Labor Impact</h4>
           <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">{casteTensions.migrantLaborImpact}</p>
         </div>
-      </div>
+      </Card>
 
       {/* Strategic Recommendations for Congress */}
-      <div className="rounded-xl border border-orange-200 bg-orange-50 p-6 dark:border-orange-800 dark:bg-orange-900/20">
+      <Card padding="lg" className="border-2 border-orange-500 bg-orange-50 dark:bg-orange-900/20">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500 text-lg font-bold text-white">
-            S
+            <Target className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-orange-700 dark:text-orange-400">Strategic Recommendations for Congress 2027</h3>
@@ -415,7 +423,7 @@ export default function DemographyCastePage() {
         {/* Priority Strategies */}
         <div className="space-y-4">
           {congressStrategy.priorities.map((priority) => (
-            <div key={priority.priority} className="rounded-lg border border-orange-200 bg-white p-4 dark:border-orange-700 dark:bg-slate-800">
+            <Card key={priority.priority} padding="md" className="border border-orange-200">
               <div className="flex items-center gap-3">
                 <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-500 text-sm font-bold text-white">
                   {priority.priority}
@@ -434,19 +442,19 @@ export default function DemographyCastePage() {
                   </span>
                 ))}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* Anti-Coalition Intelligence */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Opposition Party Strategies</h3>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">BJP, AAP, and SAD caste strategies</p>
 
         <div className="mt-6 space-y-4">
           {congressStrategy.antiCoalitionIntelligence.map((party) => (
-            <div key={party.party} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
+            <Card key={party.party} padding="md">
               <div className="flex items-center justify-between">
                 <h4 className="font-semibold text-slate-900 dark:text-white">{party.party}</h4>
                 {party.voteShareChange && (
@@ -461,17 +469,17 @@ export default function DemographyCastePage() {
                   </span>
                 ))}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* BJP Growth Data */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">BJP Growth Trajectory</h3>
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
           {bjpGrowthData.map((data) => (
-            <div key={data.election} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
+            <Card key={data.election} padding="md">
               <h4 className="font-medium text-slate-900 dark:text-white">{data.election}</h4>
               <div className="mt-2 grid grid-cols-2 gap-4">
                 <div>
@@ -483,20 +491,20 @@ export default function DemographyCastePage() {
                   <p className="text-sm text-slate-500 dark:text-slate-400">Seats</p>
                 </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
         <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
           <p className="text-sm font-medium text-red-700 dark:text-red-400">BJP Threat: Vote share doubled from 6.6% to 18.56% in 2 years</p>
         </div>
-      </div>
+      </Card>
 
       {/* Congress Performance */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Congress Performance Decline</h3>
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
           {congressPerformanceData.map((data) => (
-            <div key={data.year} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
+            <Card key={data.year} padding="md">
               <h4 className="font-medium text-slate-900 dark:text-white">{data.year}</h4>
               <div className="mt-2 grid grid-cols-2 gap-4">
                 <div>
@@ -508,22 +516,22 @@ export default function DemographyCastePage() {
                   <p className="text-sm text-slate-500 dark:text-slate-400">SC Reserved</p>
                 </div>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
         <div className="mt-4 rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-900/20">
           <p className="text-sm font-medium text-blue-700 dark:text-blue-400">Congress lost 59 seats (77 → 18) in 5 years</p>
         </div>
-      </div>
+      </Card>
 
       {/* Cross-Caste Leadership */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Cross-Caste Political Leadership</h3>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Leaders with cross-caste acceptability</p>
 
         <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
           {casteDynamicsData.crossCasteLeadership.leaders.map((leader) => (
-            <div key={leader.name} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
+            <Card key={leader.name} padding="md">
               <div className="flex items-center justify-between">
                 <h4 className="font-semibold text-slate-900 dark:text-white">{leader.name}</h4>
                 <Badge variant="info">{leader.party}</Badge>
@@ -533,13 +541,13 @@ export default function DemographyCastePage() {
               {leader.currentStatus && (
                 <p className="mt-2 text-xs font-medium text-slate-500 dark:text-slate-400">Status: {leader.currentStatus}</p>
               )}
-            </div>
+            </Card>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* Key Data Points */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">Key Data Points</h3>
         <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Critical metrics for Punjab caste analysis</p>
 
@@ -555,7 +563,7 @@ export default function DemographyCastePage() {
         <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
           Sources: {casteDynamicsData.dataQuality.sourcesConsulted} sources consulted. Most recent: {casteDynamicsData.dataQuality.mostRecentSource}. Confidence: {casteDynamicsData.dataQuality.overallConfidence}.
         </p>
-      </div>
+      </Card>
     </div>
   );
 }

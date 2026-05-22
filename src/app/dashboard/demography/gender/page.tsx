@@ -1,6 +1,19 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import {
+  ageStructureData,
+  ageStructureMetrics,
+  ageCohortDistributionData,
+  politicalCohortData,
+  temporalChangeData,
+  birthRegistrationData,
+  regionalAgeProfileData,
+  ageStructureStrategicImplications,
+} from "@/lib/age-structure-data";
+import { Users, User, Heart, AlertTriangle, Baby, GraduationCap, Briefcase, Home, Plane, Globe } from "lucide-react";
 
 /**
  * Demography - Gender Section
@@ -187,10 +200,15 @@ export default function DemographyGenderPage() {
   return (
     <div className="space-y-8">
       {/* Section Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-500 text-lg font-bold text-white">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">
               G
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
@@ -202,17 +220,17 @@ export default function DemographyGenderPage() {
           </p>
         </div>
         <Badge variant="info">Demographics</Badge>
-      </div>
+      </motion.div>
 
       {/* GENDER INDICATORS SECTION */}
-      <div className="rounded-xl border-2 border-pink-500 bg-pink-50 p-6 dark:border-pink-700 dark:bg-pink-900/20">
+      <Card padding="lg" className="border-2 border-rose-500 dark:border-rose-700">
         <div className="flex items-center gap-3 mb-4">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-500 text-lg font-bold text-white">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">
             G
           </span>
           <div>
-            <h3 className="text-lg font-semibold text-pink-700 dark:text-pink-400">Gender Demographics & Women Indicators — Punjab</h3>
-            <p className="text-sm text-pink-600 dark:text-pink-400">Sources: Census 2011, NFHS-5 (2019-21), CEO Punjab, ECI, MoSPI, NSSO/PLFS, Mission Shakti</p>
+            <h3 className="text-lg font-semibold text-rose-700 dark:text-rose-400">Gender Demographics & Women Indicators — Punjab</h3>
+            <p className="text-sm text-rose-600 dark:text-rose-400">Sources: Census 2011, NFHS-5 (2019-21), CEO Punjab, ECI, MoSPI, NSSO/PLFS, Mission Shakti</p>
           </div>
         </div>
 
@@ -221,29 +239,44 @@ export default function DemographyGenderPage() {
           <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Population by Gender</h4>
           <div className="grid gap-4 md:grid-cols-4">
             <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">3.23 Cr</div>
+              <div className="flex items-center gap-2">
+                <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">3.23 Cr</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-blue-700 dark:text-blue-300">Total Population (2026 proj.)</div>
               <div className="text-xs text-blue-600 dark:text-blue-300">Census projections</div>
             </div>
             <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400">1.64 Cr</div>
+              <div className="flex items-center gap-2">
+                <User className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <div className="text-2xl font-bold text-green-600 dark:text-green-400">1.64 Cr</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-green-700 dark:text-green-300">Male Population</div>
               <div className="text-xs text-green-600 dark:text-green-300">StatisticsTimes 2026</div>
             </div>
-            <div className="rounded-lg bg-pink-50 p-4 dark:bg-pink-900/20">
-              <div className="text-2xl font-bold text-pink-600 dark:text-pink-400">~1.49 Cr</div>
-              <div className="mt-1 text-sm font-semibold text-pink-700 dark:text-pink-300">Female Population</div>
-              <div className="text-xs text-pink-600 dark:text-pink-300">Derived from sex ratio</div>
+            <div className="rounded-lg bg-rose-50 p-4 dark:bg-rose-900/20">
+              <div className="flex items-center gap-2">
+                <User className="h-5 w-5 text-rose-600 dark:text-rose-400" />
+                <div className="text-2xl font-bold text-rose-600 dark:text-rose-400">~1.49 Cr</div>
+              </div>
+              <div className="mt-1 text-sm font-semibold text-rose-700 dark:text-rose-300">Female Population</div>
+              <div className="text-xs text-rose-600 dark:text-rose-300">Derived from sex ratio</div>
             </div>
             <div className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
-              <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">895</div>
+              <div className="flex items-center gap-2">
+                <Heart className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">895</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-purple-700 dark:text-purple-300">Sex Ratio (Census 2011)</div>
               <div className="text-xs text-purple-600 dark:text-purple-300">Females per 1000 males</div>
             </div>
           </div>
           <div className="mt-4 grid gap-4 md:grid-cols-3">
             <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
-              <div className="text-xl font-bold text-red-600 dark:text-red-400">846</div>
+              <div className="flex items-center gap-2">
+                <Baby className="h-5 w-5 text-red-600 dark:text-red-400" />
+                <div className="text-xl font-bold text-red-600 dark:text-red-400">846</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-red-700 dark:text-red-300">Child Sex Ratio (0-6)</div>
               <div className="text-xs text-red-600 dark:text-red-300">Census 2011 — alarmingly low</div>
             </div>
@@ -304,7 +337,7 @@ export default function DemographyGenderPage() {
               <div key={d.district} className="flex items-center justify-between rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{d.district}</span>
                 <div className="text-right">
-                  <span className="text-sm font-bold text-pink-600">{d.female}%</span>
+                  <span className="text-sm font-bold text-rose-600">{d.female}%</span>
                   <span className="ml-2 text-xs text-slate-500">Gap: {d.gap}pp</span>
                 </div>
               </div>
@@ -317,14 +350,20 @@ export default function DemographyGenderPage() {
           <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Electorate & Voter Turnout by Gender (2022 Assembly Election)</h4>
           <div className="grid gap-4 md:grid-cols-4">
             <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
-              <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">68.7%</div>
+              <div className="flex items-center gap-2">
+                <User className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">68.7%</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-blue-700 dark:text-blue-300">Male Turnout</div>
               <div className="text-xs text-blue-600 dark:text-blue-300">~77.6 lakh voters</div>
             </div>
-            <div className="rounded-lg bg-pink-50 p-4 dark:bg-pink-900/20">
-              <div className="text-2xl font-bold text-pink-600 dark:text-pink-400">68.4%</div>
-              <div className="mt-1 text-sm font-semibold text-pink-700 dark:text-pink-300">Female Turnout</div>
-              <div className="text-xs text-pink-600 dark:text-pink-300">~69.8 lakh voters</div>
+            <div className="rounded-lg bg-rose-50 p-4 dark:bg-rose-900/20">
+              <div className="flex items-center gap-2">
+                <User className="h-5 w-5 text-rose-600 dark:text-rose-400" />
+                <div className="text-2xl font-bold text-rose-600 dark:text-rose-400">68.4%</div>
+              </div>
+              <div className="mt-1 text-sm font-semibold text-rose-700 dark:text-rose-300">Female Turnout</div>
+              <div className="text-xs text-rose-600 dark:text-rose-300">~69.8 lakh voters</div>
             </div>
             <div className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
               <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">0.3pp</div>
@@ -349,12 +388,18 @@ export default function DemographyGenderPage() {
           <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Female Workforce Participation Rate</h4>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
-              <div className="text-3xl font-bold text-red-600 dark:text-red-400">~24-28%</div>
+              <div className="flex items-center gap-2">
+                <Briefcase className="h-5 w-5 text-red-600 dark:text-red-400" />
+                <div className="text-3xl font-bold text-red-600 dark:text-red-400">~24-28%</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-red-700 dark:text-red-300">Punjab Female LFPR (PLFS 2022-23)</div>
               <div className="text-xs text-red-600 dark:text-red-300">Estimated — significantly below national</div>
             </div>
             <div className="rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
-              <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">37.0%</div>
+              <div className="flex items-center gap-2">
+                <Briefcase className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">37.0%</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-orange-700 dark:text-orange-300">India Female LFPR (PLFS 2022-23)</div>
               <div className="text-xs text-orange-600 dark:text-orange-300">National average</div>
             </div>
@@ -374,7 +419,7 @@ export default function DemographyGenderPage() {
               <div key={h.indicator} className="rounded-lg bg-white p-3 shadow-sm dark:bg-slate-800">
                 <div className="text-sm font-semibold text-slate-700 dark:text-slate-300">{h.indicator}</div>
                 <div className="mt-1 flex items-baseline gap-2">
-                  <span className="text-lg font-bold text-pink-600">{h.punjab}</span>
+                  <span className="text-lg font-bold text-rose-600">{h.punjab}</span>
                   <span className="text-xs text-slate-500">vs India {h.india}</span>
                 </div>
                 <div className="mt-1 text-xs text-slate-500">{h.notes}</div>
@@ -442,7 +487,7 @@ export default function DemographyGenderPage() {
               <div className="space-y-2">
                 {genderStrategicImplications.map((g) => (
                   <div key={g.number} className="flex items-start gap-2 rounded-lg bg-white p-2 shadow-sm dark:bg-slate-800">
-                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-xs font-bold text-white">
+                    <span className="flex h-5 w-5 items-center justify-center rounded-full bg-rose-500 text-xs font-bold text-white">
                       {g.number}
                     </span>
                     <div>
@@ -482,7 +527,7 @@ export default function DemographyGenderPage() {
             ))}
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

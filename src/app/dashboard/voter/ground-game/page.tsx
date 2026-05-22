@@ -1,6 +1,9 @@
 "use client";
 
 import { MetricCard, DataTable, Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import { Users, Vote, Target, AlertTriangle, TrendingUp, DollarSign, Calendar, Phone, UserCheck } from "lucide-react";
 
 const groundGameResources = {
   totalBooths: "23,000+",
@@ -143,323 +146,419 @@ export default function GroundGamePage() {
       </div>
 
       {/* Ground Game Resources */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Ground Game — Booth-Level Resources
-        </h3>
-        <p className="text-sm text-slate-500">From b14-microtargeting-turnout-contact-framework, b42-ground-game-booth-operations</p>
-        <div className="mt-6 grid gap-4 md:grid-cols-4">
-          <div className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
-            <span className="text-sm text-slate-500">Total Booths</span>
-            <p className="text-2xl font-bold text-slate-900 dark:text-white">{groundGameResources.totalBooths}</p>
-          </div>
-          <div className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
-            <span className="text-sm text-slate-500">Voters per Booth</span>
-            <p className="text-2xl font-bold text-slate-900 dark:text-white">{groundGameResources.votersPerBooth}</p>
-          </div>
-          <div className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
-            <span className="text-sm text-slate-500">Booth Sevaks Target</span>
-            <p className="text-2xl font-bold text-green-500">{groundGameResources.boothSevaksTarget}</p>
-          </div>
-          <div className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
-            <span className="text-sm text-slate-500">Total Workers Target</span>
-            <p className="text-2xl font-bold text-green-500">{groundGameResources.totalBoothWorkersTarget}</p>
-          </div>
-        </div>
-        <div className="mt-4 rounded bg-green-50 p-4 dark:bg-green-900/20">
-          <p className="text-sm font-bold text-green-700 dark:text-green-400">Panna Pramukh Model:</p>
-          <p className="mt-1 text-xs text-green-600 dark:text-green-300">One worker per 10 voters. Current avg: {groundGameResources.currentBoothVolunteers} per booth. Target: {groundGameResources.targetBoothVolunteers} per booth.</p>
-        </div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Ground Game — Booth-Level Resources</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 mb-6">From b14-microtargeting-turnout-contact-framework, b42-ground-game-booth-operations</p>
+            <div className="grid gap-4 md:grid-cols-4">
+              <div className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
+                <span className="text-sm text-slate-500">Total Booths</span>
+                <p className="text-2xl font-bold text-slate-900 dark:text-white">{groundGameResources.totalBooths}</p>
+              </div>
+              <div className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
+                <span className="text-sm text-slate-500">Voters per Booth</span>
+                <p className="text-2xl font-bold text-slate-900 dark:text-white">{groundGameResources.votersPerBooth}</p>
+              </div>
+              <div className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
+                <span className="text-sm text-slate-500">Booth Sevaks Target</span>
+                <p className="text-2xl font-bold text-green-500">{groundGameResources.boothSevaksTarget}</p>
+              </div>
+              <div className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
+                <span className="text-sm text-slate-500">Total Workers Target</span>
+                <p className="text-2xl font-bold text-green-500">{groundGameResources.totalBoothWorkersTarget}</p>
+              </div>
+            </div>
+            <div className="mt-4 rounded bg-green-50 p-4 dark:bg-green-900/20">
+              <p className="text-sm font-bold text-green-700 dark:text-green-400">Panna Pramukh Model:</p>
+              <p className="mt-1 text-xs text-green-600 dark:text-green-300">One worker per 10 voters. Current avg: {groundGameResources.currentBoothVolunteers} per booth. Target: {groundGameResources.targetBoothVolunteers} per booth.</p>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* 3-Contact Sequence */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          3-Contact Sequence
-        </h3>
-        <p className="text-sm text-slate-500">From MP6 ground game research</p>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {threeContactSequence.map((contact) => (
-            <div key={contact.stage} className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
-              <span className="inline-block rounded bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
-                {contact.stage}
-              </span>
-              <p className="mt-2 text-xs text-slate-500">{contact.timing}</p>
-              <p className="mt-1 text-sm font-medium text-slate-700 dark:text-slate-300">{contact.objective}</p>
-              <div className="mt-2 flex flex-wrap gap-1">
-                {contact.channels.map((ch) => (
-                  <span key={ch} className="rounded bg-slate-100 px-1 text-xs dark:bg-slate-700">{ch}</span>
-                ))}
-              </div>
-              <p className="mt-2 text-xs text-slate-400">{contact.contactRate}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>3-Contact Sequence</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 mb-6">From MP6 ground game research</p>
+            <div className="grid gap-4 md:grid-cols-3">
+              {threeContactSequence.map((contact) => (
+                <div key={contact.stage} className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
+                  <span className="inline-block rounded bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
+                    {contact.stage}
+                  </span>
+                  <p className="mt-2 text-xs text-slate-500">{contact.timing}</p>
+                  <p className="mt-1 text-sm font-medium text-slate-700 dark:text-slate-300">{contact.objective}</p>
+                  <div className="mt-2 flex flex-wrap gap-1">
+                    {contact.channels.map((ch) => (
+                      <span key={ch} className="rounded bg-slate-100 px-1 text-xs dark:bg-slate-700">{ch}</span>
+                    ))}
+                  </div>
+                  <p className="mt-2 text-xs text-slate-400">{contact.contactRate}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Booth Contact Strategy */}
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Booth Contact Strategy
-          </h3>
-          <p className="text-sm text-slate-500">Contact ratios based on margin classification</p>
-          <div className="mt-4 space-y-3">
-            {boothContactStrategy.map((bcs) => (
-              <div key={bcs.category} className="rounded-lg border border-slate-100 p-3 dark:border-slate-700">
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{bcs.category}</span>
-                  <Badge variant={bcs.priority === "CRITICAL" ? "danger" : bcs.priority === "HIGH" ? "warning" : "info"}>
-                    {bcs.priority}
-                  </Badge>
-                </div>
-                <div className="mt-1 grid grid-cols-2 gap-2 text-xs">
-                  <span>Margin: <strong>{bcs.margin}</strong></span>
-                  <span>Ratio: <strong>{bcs.contactRatio}</strong></span>
-                </div>
-                <p className="mt-1 text-xs text-slate-500">{bcs.notes}</p>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Booth Contact Strategy</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-500 mb-4">Contact ratios based on margin classification</p>
+              <div className="space-y-3">
+                {boothContactStrategy.map((bcs) => (
+                  <div key={bcs.category} className="rounded-lg border border-slate-100 p-3 dark:border-slate-700">
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{bcs.category}</span>
+                      <Badge variant={bcs.priority === "CRITICAL" ? "danger" : bcs.priority === "HIGH" ? "warning" : "info"}>
+                        {bcs.priority}
+                      </Badge>
+                    </div>
+                    <div className="mt-1 grid grid-cols-2 gap-2 text-xs">
+                      <span>Margin: <strong>{bcs.margin}</strong></span>
+                      <span>Ratio: <strong>{bcs.contactRatio}</strong></span>
+                    </div>
+                    <p className="mt-1 text-xs text-slate-500">{bcs.notes}</p>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </CardContent>
+          </Card>
+        </motion.div>
 
         {/* Ceiling Effect */}
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Contact Ceiling Effect
-          </h3>
-          <p className="text-sm text-slate-500">Too many contacts become counterproductive</p>
-          <div className="mt-4 space-y-3">
-            <div className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
-              <p className="text-sm font-bold text-red-700 dark:text-red-400">{ceilingEffect.finding}</p>
-              <p className="mt-1 text-xs text-slate-600">{ceilingEffect.data}</p>
-            </div>
-            <div className="rounded-lg border border-slate-100 p-3 dark:border-slate-700">
-              <span className="text-xs text-slate-500">Threshold:</span>
-              <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{ceilingEffect.threshold}</p>
-            </div>
-            <div className="rounded-lg border border-green-200 bg-green-50 p-3 dark:border-green-800 dark:bg-green-900/20">
-              <span className="text-xs font-bold text-green-700 dark:text-green-400">Recommendation:</span>
-              <p className="text-sm text-green-600 dark:text-green-300">{ceilingEffect.recommendation}</p>
-            </div>
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Contact Ceiling Effect</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-500 mb-4">Too many contacts become counterproductive</p>
+              <div className="space-y-3">
+                <div className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
+                  <p className="text-sm font-bold text-red-700 dark:text-red-400">{ceilingEffect.finding}</p>
+                  <p className="mt-1 text-xs text-slate-600">{ceilingEffect.data}</p>
+                </div>
+                <div className="rounded-lg border border-slate-100 p-3 dark:border-slate-700">
+                  <span className="text-xs text-slate-500">Threshold:</span>
+                  <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{ceilingEffect.threshold}</p>
+                </div>
+                <div className="rounded-lg border border-green-200 bg-green-50 p-3 dark:border-green-800 dark:bg-green-900/20">
+                  <span className="text-xs font-bold text-green-700 dark:text-green-400">Recommendation:</span>
+                  <p className="text-sm text-green-600 dark:text-green-300">{ceilingEffect.recommendation}</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
 
       {/* Volunteer Gaps */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Volunteer Resource Gaps
-        </h3>
-        <p className="text-sm text-slate-500">Critical shortfalls in current ground game capacity</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
-            <p className="text-sm font-bold text-red-700 dark:text-red-400">Booth Sevak Gap</p>
-            <div className="mt-2 text-xs space-y-1">
-              <div>Required: <strong>{volunteerGaps.boothSevakGap.required.toLocaleString()}</strong></div>
-              <div>Deployed: <strong>{volunteerGaps.boothSevakGap.deployed.toLocaleString()}</strong></div>
-              <div className="text-red-600">Shortfall: {volunteerGaps.boothSevakGap.shortfall}</div>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.4 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Volunteer Resource Gaps</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 mb-4">Critical shortfalls in current ground game capacity</p>
+            <div className="grid gap-4 md:grid-cols-2">
+              <div className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
+                <p className="text-sm font-bold text-red-700 dark:text-red-400">Booth Sevak Gap</p>
+                <div className="mt-2 text-xs space-y-1">
+                  <div>Required: <strong>{volunteerGaps.boothSevakGap.required.toLocaleString()}</strong></div>
+                  <div>Deployed: <strong>{volunteerGaps.boothSevakGap.deployed.toLocaleString()}</strong></div>
+                  <div className="text-red-600">Shortfall: {volunteerGaps.boothSevakGap.shortfall}</div>
+                </div>
+              </div>
+              <div className="rounded-lg border border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-900/20">
+                <p className="text-sm font-bold text-orange-700 dark:text-orange-400">WhatsApp Volunteers</p>
+                <div className="mt-2 text-xs space-y-1">
+                  <div>Required: <strong>{volunteerGaps.whatsappVolunteers.required.toLocaleString()}</strong></div>
+                  <div>Deployed: <strong>{volunteerGaps.whatsappVolunteers.deployed.toLocaleString()}</strong></div>
+                  <div className="text-orange-600">Shortfall: {volunteerGaps.whatsappVolunteers.shortfall}</div>
+                </div>
+              </div>
+              <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-900/20">
+                <p className="text-sm font-bold text-yellow-700 dark:text-yellow-400">Phone Banking</p>
+                <div className="mt-2 text-xs">
+                  <div>Documented: <strong>{volunteerGaps.phoneBanking.documented}</strong></div>
+                  <div className="text-yellow-600">{volunteerGaps.phoneBanking.note}</div>
+                </div>
+              </div>
+              <div className="rounded-lg border border-pink-200 bg-pink-50 p-4 dark:border-pink-800 dark:bg-pink-900/20">
+                <p className="text-sm font-bold text-pink-700 dark:text-pink-400">Female Booth Sevaks</p>
+                <div className="mt-2 text-xs space-y-1">
+                  <div>Target: <strong>{volunteerGaps.femaleTarget.target}</strong></div>
+                  <div>Current: <strong>{volunteerGaps.femaleTarget.current}</strong></div>
+                  <div className="text-pink-600">{volunteerGaps.femaleTarget.gap}</div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="rounded-lg border border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-900/20">
-            <p className="text-sm font-bold text-orange-700 dark:text-orange-400">WhatsApp Volunteers</p>
-            <div className="mt-2 text-xs space-y-1">
-              <div>Required: <strong>{volunteerGaps.whatsappVolunteers.required.toLocaleString()}</strong></div>
-              <div>Deployed: <strong>{volunteerGaps.whatsappVolunteers.deployed.toLocaleString()}</strong></div>
-              <div className="text-orange-600">Shortfall: {volunteerGaps.whatsappVolunteers.shortfall}</div>
-            </div>
-          </div>
-          <div className="rounded-lg border border-yellow-200 bg-yellow-50 p-4 dark:border-yellow-800 dark:bg-yellow-900/20">
-            <p className="text-sm font-bold text-yellow-700 dark:text-yellow-400">Phone Banking</p>
-            <div className="mt-2 text-xs">
-              <div>Documented: <strong>{volunteerGaps.phoneBanking.documented}</strong></div>
-              <div className="text-yellow-600">{volunteerGaps.phoneBanking.note}</div>
-            </div>
-          </div>
-          <div className="rounded-lg border border-pink-200 bg-pink-50 p-4 dark:border-pink-800 dark:bg-pink-900/20">
-            <p className="text-sm font-bold text-pink-700 dark:text-pink-400">Female Booth Sevaks</p>
-            <div className="mt-2 text-xs space-y-1">
-              <div>Target: <strong>{volunteerGaps.femaleTarget.target}</strong></div>
-              <div>Current: <strong>{volunteerGaps.femaleTarget.current}</strong></div>
-              <div className="text-pink-600">{volunteerGaps.femaleTarget.gap}</div>
-            </div>
-          </div>
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* GOTV Operations Budget */}
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            GOTV Operations Budget
-          </h3>
-          <p className="text-sm text-slate-500">Cost breakdown for election day operations</p>
-          <div className="mt-4 space-y-3">
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-slate-600 dark:text-slate-400">Total Range</span>
-              <span className="text-xl font-bold text-green-500">{gotvOperationsBudget.range}</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-sm text-slate-600 dark:text-slate-400">Per Booth</span>
-              <Badge variant="success">{gotvOperationsBudget.perBooth}</Badge>
-            </div>
-            <div className="mt-3 rounded bg-slate-50 p-3 dark:bg-slate-800">
-              <p className="text-xs font-bold text-slate-600">Breakdown:</p>
-              <div className="mt-2 space-y-1 text-xs">
-                <div className="flex justify-between"><span>Transport:</span><strong>{gotvOperationsBudget.breakdown.transport}</strong></div>
-                <div className="flex justify-between"><span>Booth Agent Payments:</span><strong>{gotvOperationsBudget.breakdown.boothAgentPayments}</strong></div>
-                <div className="flex justify-between"><span>Communication:</span><strong>{gotvOperationsBudget.breakdown.communicationCosts}</strong></div>
-                <div className="flex justify-between"><span>Food & Logistics:</span><strong>{gotvOperationsBudget.breakdown.foodAndLogistics}</strong></div>
-                <div className="flex justify-between"><span>Emergency Reserve:</span><strong>{gotvOperationsBudget.breakdown.emergencyReserve}</strong></div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>GOTV Operations Budget</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-500 mb-4">Cost breakdown for election day operations</p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-slate-600 dark:text-slate-400">Total Range</span>
+                  <span className="text-xl font-bold text-green-500">{gotvOperationsBudget.range}</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-slate-600 dark:text-slate-400">Per Booth</span>
+                  <Badge variant="success">{gotvOperationsBudget.perBooth}</Badge>
+                </div>
+                <div className="mt-3 rounded bg-slate-50 p-3 dark:bg-slate-800">
+                  <p className="text-xs font-bold text-slate-600">Breakdown:</p>
+                  <div className="mt-2 space-y-1 text-xs">
+                    <div className="flex justify-between"><span>Transport:</span><strong>{gotvOperationsBudget.breakdown.transport}</strong></div>
+                    <div className="flex justify-between"><span>Booth Agent Payments:</span><strong>{gotvOperationsBudget.breakdown.boothAgentPayments}</strong></div>
+                    <div className="flex justify-between"><span>Communication:</span><strong>{gotvOperationsBudget.breakdown.communicationCosts}</strong></div>
+                    <div className="flex justify-between"><span>Food & Logistics:</span><strong>{gotvOperationsBudget.breakdown.foodAndLogistics}</strong></div>
+                    <div className="flex justify-between"><span>Emergency Reserve:</span><strong>{gotvOperationsBudget.breakdown.emergencyReserve}</strong></div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
+            </CardContent>
+          </Card>
+        </motion.div>
 
         {/* Election Constraints */}
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Election Calendar Constraints
-          </h3>
-          <p className="text-sm text-slate-500">Timing factors affecting ground game</p>
-          <div className="mt-4 space-y-3">
-            <div className="rounded-lg border border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-900/20">
-              <p className="text-sm font-bold text-orange-700 dark:text-orange-400">Harvest Blackout Periods</p>
-              <div className="mt-2 text-xs space-y-1">
-                <div>Periods: {electionConstraints.harvestBlackout.periods.join(", ")}</div>
-                <div className="text-orange-600">{electionConstraints.harvestBlackout.impact}</div>
-                <div className="text-slate-500">Mitigation: {electionConstraints.harvestBlackout.mitigation}</div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.6 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Election Calendar Constraints</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-500 mb-4">Timing factors affecting ground game</p>
+              <div className="space-y-3">
+                <div className="rounded-lg border border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-900/20">
+                  <p className="text-sm font-bold text-orange-700 dark:text-orange-400">Harvest Blackout Periods</p>
+                  <div className="mt-2 text-xs space-y-1">
+                    <div>Periods: {electionConstraints.harvestBlackout.periods.join(", ")}</div>
+                    <div className="text-orange-600">{electionConstraints.harvestBlackout.impact}</div>
+                    <div className="text-slate-500">Mitigation: {electionConstraints.harvestBlackout.mitigation}</div>
+                  </div>
+                </div>
+                <div className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
+                  <p className="text-sm font-bold text-red-700 dark:text-red-400">72-Hour Countdown Protocol</p>
+                  <div className="mt-2 text-xs space-y-1">
+                    <div>{electionConstraints.countdown72Hour.protocol}</div>
+                    {electionConstraints.countdown72Hour.components.map((c) => (
+                      <div key={c} className="text-slate-600">- {c}</div>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="rounded-lg border border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
-              <p className="text-sm font-bold text-red-700 dark:text-red-400">72-Hour Countdown Protocol</p>
-              <div className="mt-2 text-xs space-y-1">
-                <div>{electionConstraints.countdown72Hour.protocol}</div>
-                {electionConstraints.countdown72Hour.components.map((c) => (
-                  <div key={c} className="text-slate-600">- {c}</div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
 
       {/* GOTV Metrics */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          GOTV Channel Effectiveness
-        </h3>
-        <p className="text-sm text-slate-500">Mobilization lift by contact channel</p>
-        <div className="mt-4 overflow-x-auto">
-          <DataTable
-            headers={["Channel", "Contact to Vote", "Persuasion Rate", "Mobilization Lift"]}
-            rows={gotvMetrics.impactByChannel.map((c) => [c.channel, c.contactToVote, c.persuasionRate, c.mobilizationLift])}
-          />
-        </div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.7 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>GOTV Channel Effectiveness</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 mb-4">Mobilization lift by contact channel</p>
+            <div className="overflow-x-auto">
+              <DataTable
+                headers={["Channel", "Contact to Vote", "Persuasion Rate", "Mobilization Lift"]}
+                rows={gotvMetrics.impactByChannel.map((c) => [c.channel, c.contactToVote, c.persuasionRate, c.mobilizationLift])}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Hourly Turnout Targets */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Election Day Hourly Turnout Targets
-        </h3>
-        <div className="mt-4 space-y-2">
-          {gotvMetrics.hourlyTurnoutTargets.map((target) => (
-            <div key={target.time} className="flex items-center gap-3">
-              <span className="flex h-8 w-16 items-center justify-center rounded bg-slate-100 text-xs font-bold dark:bg-slate-700">
-                {target.time}
-              </span>
-              <span className="flex h-8 w-12 items-center justify-center rounded bg-green-100 text-xs font-bold text-green-700 dark:bg-green-900/30 dark:text-green-400">
-                {target.target}
-              </span>
-              <span className="text-sm text-slate-600 dark:text-slate-400">{target.action}</span>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.8 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Election Day Hourly Turnout Targets</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-2">
+              {gotvMetrics.hourlyTurnoutTargets.map((target) => (
+                <div key={target.time} className="flex items-center gap-3">
+                  <span className="flex h-8 w-16 items-center justify-center rounded bg-slate-100 text-xs font-bold dark:bg-slate-700">
+                    {target.time}
+                  </span>
+                  <span className="flex h-8 w-12 items-center justify-center rounded bg-green-100 text-xs font-bold text-green-700 dark:bg-green-900/30 dark:text-green-400">
+                    {target.target}
+                  </span>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">{target.action}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Party Booth Distribution */}
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Party Stronghold Booth Distribution
-          </h3>
-          <p className="text-sm text-slate-500">Estimated booth count by party</p>
-          <div className="mt-4 space-y-3">
-            <div className="rounded-lg border border-green-200 bg-green-50 p-3 dark:border-green-800 dark:bg-green-900/20">
-              <div className="flex justify-between">
-                <span className="text-sm font-bold text-green-700">Congress</span>
-                <span className="text-lg font-bold text-green-600">{boothData.partyStrongholdBooths.congress.estimatedBooths}</span>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.9 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Party Stronghold Booth Distribution</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-500 mb-4">Estimated booth count by party</p>
+              <div className="space-y-3">
+                <div className="rounded-lg border border-green-200 bg-green-50 p-3 dark:border-green-800 dark:bg-green-900/20">
+                  <div className="flex justify-between">
+                    <span className="text-sm font-bold text-green-700">Congress</span>
+                    <span className="text-lg font-bold text-green-600">{boothData.partyStrongholdBooths.congress.estimatedBooths}</span>
+                  </div>
+                  <p className="mt-1 text-xs text-slate-600">{boothData.partyStrongholdBooths.congress.characteristics}</p>
+                </div>
+                <div className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-800 dark:bg-red-900/20">
+                  <div className="flex justify-between">
+                    <span className="text-sm font-bold text-red-700">AAP</span>
+                    <span className="text-lg font-bold text-red-600">{boothData.partyStrongholdBooths.aap.estimatedBooths}</span>
+                  </div>
+                  <p className="mt-1 text-xs text-slate-600">{boothData.partyStrongholdBooths.aap.characteristics}</p>
+                </div>
+                <div className="rounded-lg border border-orange-200 bg-orange-50 p-3 dark:border-orange-800 dark:bg-orange-900/20">
+                  <div className="flex justify-between">
+                    <span className="text-sm font-bold text-orange-700">SAD/BJP</span>
+                    <span className="text-lg font-bold text-orange-600">{boothData.partyStrongholdBooths.sadBjp.estimatedBooths}</span>
+                  </div>
+                  <p className="mt-1 text-xs text-slate-600">{boothData.partyStrongholdBooths.sadBjp.characteristics}</p>
+                </div>
+                <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800">
+                  <div className="flex justify-between">
+                    <span className="text-sm font-bold text-slate-700">Swing</span>
+                    <span className="text-lg font-bold text-slate-600">{boothData.partyStrongholdBooths.swing.estimatedBooths}</span>
+                  </div>
+                  <p className="mt-1 text-xs text-slate-600">{boothData.partyStrongholdBooths.swing.characteristics}</p>
+                </div>
               </div>
-              <p className="mt-1 text-xs text-slate-600">{boothData.partyStrongholdBooths.congress.characteristics}</p>
-            </div>
-            <div className="rounded-lg border border-red-200 bg-red-50 p-3 dark:border-red-800 dark:bg-red-900/20">
-              <div className="flex justify-between">
-                <span className="text-sm font-bold text-red-700">AAP</span>
-                <span className="text-lg font-bold text-red-600">{boothData.partyStrongholdBooths.aap.estimatedBooths}</span>
-              </div>
-              <p className="mt-1 text-xs text-slate-600">{boothData.partyStrongholdBooths.aap.characteristics}</p>
-            </div>
-            <div className="rounded-lg border border-orange-200 bg-orange-50 p-3 dark:border-orange-800 dark:bg-orange-900/20">
-              <div className="flex justify-between">
-                <span className="text-sm font-bold text-orange-700">SAD/BJP</span>
-                <span className="text-lg font-bold text-orange-600">{boothData.partyStrongholdBooths.sadBjp.estimatedBooths}</span>
-              </div>
-              <p className="mt-1 text-xs text-slate-600">{boothData.partyStrongholdBooths.sadBjp.characteristics}</p>
-            </div>
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800">
-              <div className="flex justify-between">
-                <span className="text-sm font-bold text-slate-700">Swing</span>
-                <span className="text-lg font-bold text-slate-600">{boothData.partyStrongholdBooths.swing.estimatedBooths}</span>
-              </div>
-              <p className="mt-1 text-xs text-slate-600">{boothData.partyStrongholdBooths.swing.characteristics}</p>
-            </div>
-          </div>
-        </div>
+            </CardContent>
+          </Card>
+        </motion.div>
 
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Worker Model Comparison
-          </h3>
-          <div className="mt-4 space-y-4">
-            <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-900/20">
-              <p className="text-sm font-bold text-blue-700 dark:text-blue-400">AAP Model</p>
-              <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
-                <div>Workers/1000: <strong>{aapModel.workersPerThousand}</strong></div>
-                <div>Ratio: <strong>{aapModel.ratio}</strong></div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 1.0 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Worker Model Comparison</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-900/20">
+                  <p className="text-sm font-bold text-blue-700 dark:text-blue-400">AAP Model</p>
+                  <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
+                    <div>Workers/1000: <strong>{aapModel.workersPerThousand}</strong></div>
+                    <div>Ratio: <strong>{aapModel.ratio}</strong></div>
+                  </div>
+                  <p className="mt-2 text-xs text-slate-600">Approach: {aapModel.approach}</p>
+                  <p className="text-xs text-slate-500">Training: {aapModel.training}</p>
+                </div>
+                <div className="rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-900/20">
+                  <p className="text-sm font-bold text-green-700 dark:text-green-400">Congress Target</p>
+                  <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
+                    <div>Workers/1000: <strong>{congressTarget.workersPerThousand}</strong></div>
+                    <div>Ratio: <strong>{congressTarget.ratio}</strong></div>
+                  </div>
+                  <p className="mt-2 text-xs text-slate-600">Profile: {congressTarget.profile}</p>
+                  <p className="text-xs text-slate-500">Technology: {congressTarget.technology}</p>
+                </div>
               </div>
-              <p className="mt-2 text-xs text-slate-600">Approach: {aapModel.approach}</p>
-              <p className="text-xs text-slate-500">Training: {aapModel.training}</p>
-            </div>
-            <div className="rounded-lg border border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-900/20">
-              <p className="text-sm font-bold text-green-700 dark:text-green-400">Congress Target</p>
-              <div className="mt-2 grid grid-cols-2 gap-2 text-xs">
-                <div>Workers/1000: <strong>{congressTarget.workersPerThousand}</strong></div>
-                <div>Ratio: <strong>{congressTarget.ratio}</strong></div>
-              </div>
-              <p className="mt-2 text-xs text-slate-600">Profile: {congressTarget.profile}</p>
-              <p className="text-xs text-slate-500">Technology: {congressTarget.technology}</p>
-            </div>
-          </div>
-        </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
 
       {/* VRM System */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Voter Relationship Management (VRM) System
-        </h3>
-        <p className="text-sm text-slate-500">Data points for voter tracking and microtargeting</p>
-        <div className="mt-4 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {vrmSystem.voterDataPoints.map((dp) => (
-            <div key={dp.category} className="rounded-lg border border-slate-100 p-3 dark:border-slate-700">
-              <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{dp.category}</span>
-              <p className="mt-1 text-xs text-slate-500">{dp.fields}</p>
-              <p className="mt-1 text-xs text-slate-400">Source: {dp.source}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 1.1 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Voter Relationship Management (VRM) System</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 mb-4">Data points for voter tracking and microtargeting</p>
+            <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
+              {vrmSystem.voterDataPoints.map((dp) => (
+                <div key={dp.category} className="rounded-lg border border-slate-100 p-3 dark:border-slate-700">
+                  <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{dp.category}</span>
+                  <p className="mt-1 text-xs text-slate-500">{dp.fields}</p>
+                  <p className="mt-1 text-xs text-slate-400">Source: {dp.source}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
     </div>
   );
 }

@@ -1,6 +1,9 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
+import { Card } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import { DollarSign, TrendingUp, Users, AlertTriangle, Home } from "lucide-react";
 
 /**
  * Demography - Income Section
@@ -321,13 +324,16 @@ export default function DemographyIncomePage() {
   return (
     <div className="space-y-8">
       {/* Section Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+              <DollarSign className="h-5 w-5" />
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Income & Economic Stratification
@@ -338,15 +344,13 @@ export default function DemographyIncomePage() {
           </p>
         </div>
         <Badge variant="warning">Economic</Badge>
-      </div>
+      </motion.div>
 
       {/* INCOME STRATIFICATION SECTION */}
-      <div className="rounded-xl border-2 border-amber-500 bg-amber-50 p-6 dark:border-amber-700 dark:bg-amber-900/20">
+      <Card padding="lg" className="border-2 border-amber-500 bg-amber-50 dark:bg-amber-900/20">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <DollarSign className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-400">Income Stratification & Economic Fragility</h3>
@@ -377,7 +381,7 @@ export default function DemographyIncomePage() {
               <div key={band.band} className="flex items-center gap-3">
                 <div className="w-36 text-xs font-medium text-slate-600 dark:text-slate-400">{band.band}</div>
                 <div className="flex-1">
-                  <ProgressBar label="" value={band.percentageNum} max={30} color="bg-amber-500" showPercentage />
+                  <ProgressBar label="" value={band.percentageNum} max={30} color="amber" showPercentage />
                 </div>
                 <div className="w-24 text-xs text-slate-500">{band.typicalProfile.split(',')[0]}</div>
               </div>
@@ -387,10 +391,10 @@ export default function DemographyIncomePage() {
 
         {/* Key Stats Grid */}
         <div className="mb-6 grid gap-4 md:grid-cols-4">
-          <MetricCard title="NFSA Beneficiaries" value="1.53 Cr" subtitle="Sep 2025" color="bg-amber-500" />
-          <MetricCard title="Poverty Rate (Rural)" value="~5%" subtitle="Below national avg" color="bg-green-500" />
-          <MetricCard title="Farm Debt/Victim" value="Rs 8.3L" subtitle="PAU/ISADP Study" color="bg-red-500" />
-          <MetricCard title="Gini Coefficient" value="0.48" subtitle="High inequality" color="bg-purple-500" />
+          <MetricCard title="NFSA Beneficiaries" value="1.53 Cr" subtitle="Sep 2025" color="amber" />
+          <MetricCard title="Poverty Rate (Rural)" value="~5%" subtitle="Below national avg" color="green" />
+          <MetricCard title="Farm Debt/Victim" value="Rs 8.3L" subtitle="PAU/ISADP Study" color="red" />
+          <MetricCard title="Gini Coefficient" value="0.48" subtitle="High inequality" color="purple" />
         </div>
 
         {/* Per Capita Consumption */}
@@ -448,7 +452,7 @@ export default function DemographyIncomePage() {
                 <div key={data.district} className="flex items-center justify-between">
                   <span className="text-sm text-slate-600 dark:text-slate-400">{data.district}</span>
                   <div className="flex items-center gap-2">
-                    <ProgressBar label="" value={data.count} max={2506} color="bg-red-500" showPercentage={false} />
+                    <ProgressBar label="" value={data.count} max={2506} color="rose" showPercentage={false} />
                     <span className="w-12 text-right text-sm font-medium text-red-600">{data.count.toLocaleString()}</span>
                   </div>
                 </div>
@@ -589,7 +593,7 @@ export default function DemographyIncomePage() {
             ))}
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Vulnerable Occupations & Unemployment Section */}
       <div className="rounded-xl border border-red-200 bg-red-50/50 p-6 shadow-sm dark:border-red-800 dark:bg-red-900/10">
@@ -609,25 +613,25 @@ export default function DemographyIncomePage() {
             title="Youth Unemployment (15-29)"
             value={`${overallUnemploymentData.youth.rate}%`}
             subtitle="Punjab vs National: 9.9%"
-            color="bg-red-500"
+            color="rose"
           />
           <MetricCard
             title="Rural Unemployment"
             value={`${overallUnemploymentData.rural.rate}%`}
             subtitle="Exceeds urban (5.8%)"
-            color="bg-orange-500"
+            color="orange"
           />
           <MetricCard
             title="Female Youth Unemployment"
             value={`${youthUnemploymentByGenderData.find(g => g.area === "Overall")?.female}%`}
             subtitle="More than double male rate"
-            color="bg-pink-500"
+            color="rose"
           />
           <MetricCard
             title="State Unemployment Bureau"
             value="1.23 Lakh"
             subtitle={`${unemploymentBureauData.registeredApplicants.toLocaleString()} applicants (Sep 2025)`}
-            color="bg-purple-500"
+            color="purple"
           />
         </div>
 

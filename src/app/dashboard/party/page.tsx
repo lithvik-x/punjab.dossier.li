@@ -2,16 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { BarChart3, Building2, Users, ClipboardList, Wallet, Search, AlertTriangle, Truck } from "lucide-react";
 
 const PARTY_SECTIONS = [
-  { id: "overview", name: "Overview", description: "Key metrics, political anatomy, 2024 results", icon: "📊" },
-  { id: "congress-status", name: "Congress Status", description: "Party factions, CM prospects, crisis matrix", icon: "🏛️" },
-  { id: "congress-workers", name: "Congress Workers", description: "Worker hierarchy, digital deficit, zone-wise distribution", icon: "👥" },
-  { id: "campaign-strategy", name: "Campaign Strategy", description: "Narrative, caste coalitions, booth structure", icon: "📋" },
-  { id: "campaign-budget", name: "Campaign Budget", description: "Budget estimate, MP9 resources, transportation", icon: "💰" },
-  { id: "aap-intelligence", name: "AAP Intelligence", description: "Party structure, financial resources, 2027 strategy", icon: "🔍" },
-  { id: "sad-status", name: "SAD Status", description: "Electoral decline, factions, panthic issues", icon: "⚠️" },
-  { id: "resources-logistics", name: "Resources & Logistics", description: "Rally venues, device procurement, MCC protocols", icon: "🚚" },
+  { id: "overview", name: "Overview", description: "Key metrics, political anatomy, 2024 results", icon: BarChart3 },
+  { id: "congress-status", name: "Congress Status", description: "Party factions, CM prospects, crisis matrix", icon: Building2 },
+  { id: "congress-workers", name: "Congress Workers", description: "Worker hierarchy, digital deficit, zone-wise distribution", icon: Users },
+  { id: "campaign-strategy", name: "Campaign Strategy", description: "Narrative, caste coalitions, booth structure", icon: ClipboardList },
+  { id: "campaign-budget", name: "Campaign Budget", description: "Budget estimate, MP9 resources, transportation", icon: Wallet },
+  { id: "aap-intelligence", name: "AAP Intelligence", description: "Party structure, financial resources, 2027 strategy", icon: Search },
+  { id: "sad-status", name: "SAD Status", description: "Electoral decline, factions, panthic issues", icon: AlertTriangle },
+  { id: "resources-logistics", name: "Resources & Logistics", description: "Rally venues, device procurement, MCC protocols", icon: Truck },
 ];
 
 export default function PartyPage() {
@@ -19,7 +20,7 @@ export default function PartyPage() {
 
   return (
     <div className="space-y-8">
-      <div className="rounded-xl border border-cyan-200 bg-cyan-50 p-6 dark:border-cyan-800 dark:bg-cyan-900/20">
+      <div className="rounded-xl border border-cyan-200 bg-cyan-50 p-6 dark:border-cyan-800 dark:bg-cyan-900/20" style={{ animation: 'fadeIn 0.3s ease-out' }}>
         <h2 className="text-2xl font-bold text-cyan-700 dark:text-cyan-400">
           Party Propulsion
         </h2>
@@ -43,8 +44,8 @@ export default function PartyPage() {
               }`}
             >
               <div className="flex items-start gap-4">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500 text-2xl text-white">
-                  {section.icon}
+                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500 text-white">
+                  <section.icon className="h-6 w-6" />
                 </span>
                 <div className="flex-1">
                   <h3 className="font-semibold text-slate-700 dark:text-slate-200">

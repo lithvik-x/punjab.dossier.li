@@ -1,6 +1,8 @@
 "use client";
 
 import { MetricCard, DataTable, Badge, MiniChart, ProgressBar } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
 import {
   economicMacroKPI,
   gsdpTrajectoryData,
@@ -73,28 +75,28 @@ export default function EconomicMacroPage() {
             title="Outstanding Debt (2025-26)"
             value={`Rs ${(debtTrajectoryData[6]?.outstandingDebtRsCrore / 100000).toFixed(2)} Lakh Cr`}
             subtitle={`${debtToGSDP}% of GSDP`}
-            color="bg-red-500"
+            color="rose"
             icon={<AlertOctagon className="h-6 w-6" />}
           />
           <MetricCard
             title="Revenue Deficit (2025-26 BE)"
             value={`${revenueDeficit}%`}
             subtitle="Borrowing to fund day-to-day expenditure"
-            color="bg-red-600"
+            color="rose"
             icon={<TrendingDown className="h-6 w-6" />}
           />
           <MetricCard
             title="Fiscal Deficit (2025-26 BE)"
             value={`${fiscalDeficit}%`}
             subtitle="Above FRBM target of 3%"
-            color="bg-orange-500"
+            color="orange"
             icon={<Scale className="h-6 w-6" />}
           />
           <MetricCard
             title="Unemployment Rate"
             value={`${employmentData.unemployment.rate.plfs2023_24}%`}
             subtitle={`${unemployment.multiple} of national ${employmentData.unemployment.nationalAverage}%`}
-            color="bg-purple-500"
+            color="purple"
             icon={<Briefcase className="h-6 w-6" />}
           />
         </div>
@@ -141,7 +143,7 @@ export default function EconomicMacroPage() {
             <h4 className="font-medium text-slate-600 dark:text-slate-400 mb-2">GSDP Growth Visualization</h4>
             <MiniChart
               data={gsdpTrajectoryData.filter(d => d.gsdpGrowthConstantPrices).map(d => d.gsdpGrowthConstantPrices!)}
-              color="bg-green-500"
+              color="emerald"
               height={100}
             />
             <div className="mt-4 p-3 rounded-lg bg-amber-50 dark:bg-amber-900/20">
@@ -234,7 +236,7 @@ export default function EconomicMacroPage() {
             <h4 className="font-medium text-slate-600 dark:text-slate-400 mb-2">Debt Growth Visualization</h4>
             <MiniChart
               data={debtTrajectoryData.filter(d => d.outstandingDebtRsCrore).map(d => d.outstandingDebtRsCrore)}
-              color="bg-red-500"
+              color="rose"
               height={100}
             />
           </div>
@@ -246,28 +248,28 @@ export default function EconomicMacroPage() {
             title="Annual Debt Increase"
             value="Rs 33,721 Cr"
             subtitle="Average under AAP (2022-25)"
-            color="bg-red-500"
+            color="rose"
             icon={<TrendingUp className="h-5 w-5" />}
           />
           <MetricCard
             title="Interest Payments"
             value="Rs 23,900 Cr"
             subtitle="23% of revenue receipts"
-            color="bg-orange-500"
+            color="orange"
             icon={<DollarSign className="h-5 w-5" />}
           />
           <MetricCard
             title="Debt Servicing"
             value="41%"
             subtitle="of total revenue (2022-23)"
-            color="bg-red-600"
+            color="rose"
             icon={<Banknote className="h-5 w-5" />}
           />
           <MetricCard
             title="Off-Budget Borrowings"
             value="Rs 4,093 Cr"
             subtitle="Via PSUs (CAG flagged)"
-            color="bg-yellow-500"
+            color="amber"
             icon={<FileWarning className="h-5 w-5" />}
           />
         </div>
@@ -308,21 +310,21 @@ export default function EconomicMacroPage() {
             title="Own Tax Revenue"
             value={`Rs ${revenueCollectionsData.ownTaxRevenue.amountRsCrore.toLocaleString()} Cr`}
             subtitle={`+${revenueCollectionsData.ownTaxRevenue.growth}% growth (2024-25)`}
-            color="bg-green-500"
+            color="emerald"
             icon={<DollarSign className="h-5 w-5" />}
           />
           <MetricCard
             title="Revenue Receipts"
             value={`Rs ${revenueCollectionsData.revenueReceipts.amountRsCrore.toLocaleString()} Cr`}
             subtitle="CAGR 9.71% from 2019-20"
-            color="bg-blue-500"
+            color="blue"
             icon={<Banknote className="h-5 w-5" />}
           />
           <MetricCard
             title="GST Growth (Net)"
             value={`${revenueCollectionsData.ownTaxRevenue.gstGrowth.net}%`}
             subtitle="Above national avg of 10%"
-            color="bg-green-500"
+            color="emerald"
             icon={<TrendingUp className="h-5 w-5" />}
           />
         </div>
@@ -366,21 +368,21 @@ export default function EconomicMacroPage() {
                   <span className="text-slate-600 dark:text-slate-300">Agriculture (incl. allied)</span>
                   <span className="font-semibold text-slate-700 dark:text-slate-200">{sectoralCompositionData.gsvaShare.agriculture}%</span>
                 </div>
-                <ProgressBar value={sectoralCompositionData.gsvaShare.agriculture} max={100} color="bg-green-500" label="Agriculture" />
+                <ProgressBar value={sectoralCompositionData.gsvaShare.agriculture} max={100} color="emerald" label="Agriculture" />
               </div>
               <div>
                 <div className="flex justify-between text-sm mb-1">
                   <span className="text-slate-600 dark:text-slate-300">Industry</span>
                   <span className="font-semibold text-slate-700 dark:text-slate-200">{sectoralCompositionData.gsvaShare.industry}%</span>
                 </div>
-                <ProgressBar value={sectoralCompositionData.gsvaShare.industry} max={100} color="bg-blue-500" label="Industry" />
+                <ProgressBar value={sectoralCompositionData.gsvaShare.industry} max={100} color="blue" label="Industry" />
               </div>
               <div>
                 <div className="flex justify-between text-sm mb-1">
                   <span className="text-slate-600 dark:text-slate-300">Services</span>
                   <span className="font-semibold text-slate-700 dark:text-slate-200">{sectoralCompositionData.gsvaShare.services}%</span>
                 </div>
-                <ProgressBar value={sectoralCompositionData.gsvaShare.services} max={100} color="bg-purple-500" label="Services" />
+                <ProgressBar value={sectoralCompositionData.gsvaShare.services} max={100} color="purple" label="Services" />
               </div>
             </div>
           </div>
@@ -442,28 +444,28 @@ export default function EconomicMacroPage() {
             title="Credit-Deposit Ratio"
             value={`${bankingCreditData.creditDepositRatio.value}%`}
             subtitle={`vs national ${bankingCreditData.creditDepositRatio.nationalAverage}%`}
-            color="bg-red-500"
+            color="rose"
             icon={<AlertTriangle className="h-5 w-5" />}
           />
           <MetricCard
             title="FDI Inflow"
             value={`Rs ${bankingCreditData.fdiInflow.amountRsCrore.toLocaleString()} Cr`}
             subtitle={bankingCreditData.fdiInflow.period}
-            color="bg-blue-500"
+            color="blue"
             icon={<Building2 className="h-5 w-5" />}
           />
           <MetricCard
             title="Investment FY26"
             value={`Rs ${bankingCreditData.investmentFY26.amountRsCrore.toLocaleString()} Cr`}
             subtitle={`Projected ${bankingCreditData.investmentFY26.projectedJobs.toLocaleString()} jobs`}
-            color="bg-green-500"
+            color="emerald"
             icon={<TrendingUp className="h-5 w-5" />}
           />
           <MetricCard
             title="Exports FY25"
             value={`Rs ${bankingCreditData.exportsFY25.amountRsCrore.toLocaleString()} Cr`}
             subtitle="Engineering, rice, pharma, textiles"
-            color="bg-purple-500"
+            color="purple"
             icon={<Building2 className="h-5 w-5" />}
           />
         </div>

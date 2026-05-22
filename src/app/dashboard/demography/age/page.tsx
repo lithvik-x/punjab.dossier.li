@@ -1,6 +1,8 @@
 "use client";
 
 import { DataTable, Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
 import {
   ageStructureData,
   ageStructureMetrics,
@@ -11,6 +13,7 @@ import {
   regionalAgeProfileData,
   ageStructureStrategicImplications,
 } from "@/lib/age-structure-data";
+import { Users, User, Baby, Briefcase, Home, Plane, AlertTriangle, GraduationCap, Globe } from "lucide-react";
 
 /**
  * Demography - Age Structure Section
@@ -24,10 +27,15 @@ export default function DemographyAgePage() {
   return (
     <div className="space-y-8">
       {/* Section Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500 text-lg font-bold text-white">
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-lg font-bold text-white">
               A
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
@@ -39,17 +47,17 @@ export default function DemographyAgePage() {
           </p>
         </div>
         <Badge variant="info">Demographics</Badge>
-      </div>
+      </motion.div>
 
       {/* KEY METRICS SECTION */}
-      <div className="rounded-xl border-2 border-green-500 bg-green-50 p-6 dark:border-green-700 dark:bg-green-900/20">
+      <Card padding="lg" className="border-2 border-emerald-500 dark:border-emerald-700">
         <div className="flex items-center gap-3 mb-4">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500 text-lg font-bold text-white">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-lg font-bold text-white">
             A
           </span>
           <div>
-            <h3 className="text-lg font-semibold text-green-700 dark:text-green-400">Age Structure & Political Cohorts — Punjab 2027</h3>
-            <p className="text-sm text-green-600 dark:text-green-400">Sources: Census 2011, NFHS-5, UDISE+ 2023-24, ECI, StatisticsTimes</p>
+            <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400">Age Structure & Political Cohorts — Punjab 2027</h3>
+            <p className="text-sm text-emerald-600 dark:text-emerald-400">Sources: Census 2011, NFHS-5, UDISE+ 2023-24, ECI, StatisticsTimes</p>
           </div>
         </div>
 
@@ -58,19 +66,28 @@ export default function DemographyAgePage() {
           <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Population Overview (Projected 2026)</h4>
           <div className="grid gap-4 md:grid-cols-4">
             <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-900/20">
-              <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">3.14 Cr</div>
+              <div className="flex items-center gap-2">
+                <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">3.14 Cr</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-blue-700 dark:text-blue-300">Total Population</div>
               <div className="text-xs text-blue-600 dark:text-blue-300">31.37 million (July 2026)</div>
             </div>
             <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400">1.65 Cr</div>
+              <div className="flex items-center gap-2">
+                <User className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <div className="text-3xl font-bold text-green-600 dark:text-green-400">1.65 Cr</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-green-700 dark:text-green-300">Male Population</div>
               <div className="text-xs text-green-600 dark:text-green-300">16.45 million</div>
             </div>
-            <div className="rounded-lg bg-pink-50 p-4 dark:bg-pink-900/20">
-              <div className="text-3xl font-bold text-pink-600 dark:text-pink-400">1.49 Cr</div>
-              <div className="mt-1 text-sm font-semibold text-pink-700 dark:text-pink-300">Female Population</div>
-              <div className="text-xs text-pink-600 dark:text-pink-300">14.92 million</div>
+            <div className="rounded-lg bg-rose-50 p-4 dark:bg-rose-900/20">
+              <div className="flex items-center gap-2">
+                <User className="h-5 w-5 text-rose-600 dark:text-rose-400" />
+                <div className="text-3xl font-bold text-rose-600 dark:text-rose-400">1.49 Cr</div>
+              </div>
+              <div className="mt-1 text-sm font-semibold text-rose-700 dark:text-rose-300">Female Population</div>
+              <div className="text-xs text-rose-600 dark:text-rose-300">14.92 million</div>
             </div>
             <div className="rounded-lg bg-purple-50 p-4 dark:bg-purple-900/20">
               <div className="text-3xl font-bold text-purple-600 dark:text-purple-400">110.2</div>
@@ -95,7 +112,10 @@ export default function DemographyAgePage() {
               <div className="text-xs text-yellow-600 dark:text-yellow-300">Ranked by state</div>
             </div>
             <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
-              <div className="text-2xl font-bold text-red-600 dark:text-red-400">30-31</div>
+              <div className="flex items-center gap-2">
+                <AlertTriangle className="h-5 w-5 text-red-600 dark:text-red-400" />
+                <div className="text-2xl font-bold text-red-600 dark:text-red-400">30-31</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-red-700 dark:text-red-300">Median Age (Est.)</div>
               <div className="text-xs text-red-600 dark:text-red-300">Aging faster than national avg</div>
             </div>
@@ -107,17 +127,26 @@ export default function DemographyAgePage() {
           <h4 className="text-md font-semibold text-slate-700 dark:text-slate-300 mb-3">Age Group Shares (2026 Projected)</h4>
           <div className="grid gap-4 md:grid-cols-3">
             <div className="rounded-lg bg-indigo-50 p-4 dark:bg-indigo-900/20">
-              <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">22%</div>
+              <div className="flex items-center gap-2">
+                <Baby className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+                <div className="text-3xl font-bold text-indigo-600 dark:text-indigo-400">22%</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-indigo-700 dark:text-indigo-300">Youth (0-14)</div>
               <div className="text-xs text-indigo-600 dark:text-indigo-300">Declining share (was 25.5% in 2011)</div>
             </div>
             <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
-              <div className="text-3xl font-bold text-green-600 dark:text-green-400">64%</div>
+              <div className="flex items-center gap-2">
+                <Briefcase className="h-5 w-5 text-green-600 dark:text-green-400" />
+                <div className="text-3xl font-bold text-green-600 dark:text-green-400">64%</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-green-700 dark:text-green-300">Working Age (15-59)</div>
               <div className="text-xs text-green-600 dark:text-green-300">Plateaued since 2011</div>
             </div>
             <div className="rounded-lg bg-orange-50 p-4 dark:bg-orange-900/20">
-              <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">12-13%</div>
+              <div className="flex items-center gap-2">
+                <Home className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+                <div className="text-3xl font-bold text-orange-600 dark:text-orange-400">12-13%</div>
+              </div>
               <div className="mt-1 text-sm font-semibold text-orange-700 dark:text-orange-300">Elderly (60+)</div>
               <div className="text-xs text-orange-600 dark:text-orange-300">Growing (was 10.3% in 2011)</div>
             </div>
@@ -168,10 +197,10 @@ export default function DemographyAgePage() {
             ))}
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* AGE COHORT TABLE */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Five-Year Age Cohorts — Census 2011
         </h3>
@@ -200,15 +229,15 @@ export default function DemographyAgePage() {
             <div className="text-lg font-bold text-green-600 dark:text-green-400">Male: {ageCohorts.totalMale.toLocaleString()}</div>
             <div className="text-xs text-green-600 dark:text-green-300">{ageCohorts.totalSexRatio} sex ratio</div>
           </div>
-          <div className="rounded-lg bg-pink-50 p-3 dark:bg-pink-900/20">
-            <div className="text-lg font-bold text-pink-600 dark:text-pink-400">Female: {ageCohorts.totalFemale.toLocaleString()}</div>
-            <div className="text-xs text-pink-600 dark:text-pink-300">Census 2011</div>
+          <div className="rounded-lg bg-rose-50 p-3 dark:bg-rose-900/20">
+            <div className="text-lg font-bold text-rose-600 dark:text-rose-400">Female: {ageCohorts.totalFemale.toLocaleString()}</div>
+            <div className="text-xs text-rose-600 dark:text-rose-300">Census 2011</div>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* POLITICAL AGE COHORTS */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Political Age Cohorts — 2027 Electorate
         </h3>
@@ -232,10 +261,10 @@ export default function DemographyAgePage() {
             </div>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* FIRST-TIME VOTERS 2027 */}
-      <div className="rounded-xl border-2 border-indigo-500 bg-indigo-50 p-6 dark:border-indigo-700 dark:bg-indigo-900/20">
+      <Card padding="lg" className="border-2 border-indigo-500 dark:border-indigo-700">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-lg font-bold text-white">
             18
@@ -293,10 +322,10 @@ export default function DemographyAgePage() {
             </div>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* LIFE STAGES CROSS-TABULATION */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Age x Life Stage Cross-Tabulation
         </h3>
@@ -322,10 +351,10 @@ export default function DemographyAgePage() {
             </div>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* TEMPORAL CHANGES */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Temporal Change: 2001-2011-2026
         </h3>
@@ -351,10 +380,10 @@ export default function DemographyAgePage() {
             Median Age: Punjab ({temporalChanges.medianAgeComparison.punjab}) vs India ({temporalChanges.medianAgeComparison.india}) — {temporalChanges.medianAgeComparison.comparableTo}
           </p>
         </div>
-      </div>
+      </Card>
 
       {/* EMIGRATION IMPACT */}
-      <div className="rounded-xl border-2 border-red-500 bg-red-50 p-6 dark:border-red-700 dark:bg-red-900/20">
+      <Card padding="lg" className="border-2 border-red-500 dark:border-red-700">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-lg font-bold text-white">
             !
@@ -367,12 +396,18 @@ export default function DemographyAgePage() {
 
         <div className="mb-4 grid gap-4 md:grid-cols-2">
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
-            <div className="text-2xl font-bold text-red-600 dark:text-red-400">50,000-80,000</div>
+            <div className="flex items-center gap-2">
+              <Plane className="h-5 w-5 text-red-600 dark:text-red-400" />
+              <div className="text-2xl font-bold text-red-600 dark:text-red-400">50,000-80,000</div>
+            </div>
             <div className="mt-1 text-sm font-semibold text-slate-700 dark:text-slate-300">Annual Youth Emigration</div>
             <div className="text-xs text-slate-500">Primarily 18-30 age group</div>
           </div>
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
-            <div className="text-2xl font-bold text-red-600 dark:text-red-400">15-20%</div>
+            <div className="flex items-center gap-2">
+              <AlertTriangle className="h-5 w-5 text-red-600 dark:text-red-400" />
+              <div className="text-2xl font-bold text-red-600 dark:text-red-400">15-20%</div>
+            </div>
             <div className="mt-1 text-sm font-semibold text-slate-700 dark:text-slate-300">Present Youth Deficit</div>
             <div className="text-xs text-slate-500">Smaller than census-projected</div>
           </div>
@@ -405,10 +440,10 @@ export default function DemographyAgePage() {
             ))}
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* REGIONAL AGE VARIATIONS */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Regional Age Profile Variations
         </h3>
@@ -439,10 +474,10 @@ export default function DemographyAgePage() {
             <span className="font-semibold">Doaba Note:</span> {regionalAge.doabaNote}
           </p>
         </div>
-      </div>
+      </Card>
 
       {/* STRATEGIC IMPLICATIONS FOR CONGRESS */}
-      <div className="rounded-xl border-2 border-blue-500 bg-blue-50 p-6 dark:border-blue-700 dark:bg-blue-900/20">
+      <Card padding="lg" className="border-2 border-blue-500 dark:border-blue-700">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500 text-lg font-bold text-white">
             S
@@ -473,10 +508,10 @@ export default function DemographyAgePage() {
             </div>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* DATA QUALITY & GAPS */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Data Quality & Gaps
         </h3>
@@ -504,7 +539,7 @@ export default function DemographyAgePage() {
             ))}
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

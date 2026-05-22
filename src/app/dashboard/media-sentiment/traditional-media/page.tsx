@@ -1,6 +1,9 @@
 "use client";
 
 import { MetricCard, ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import { Tv, Radio, Newspaper, TrendingUp } from "lucide-react";
 import type {
   TVChannel,
   TVAdRate,
@@ -107,11 +110,16 @@ export default function MediaTraditionalPage() {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-lg font-bold text-white">
-              8
+              <Tv className="h-5 w-5" />
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Traditional Media
@@ -122,214 +130,299 @@ export default function MediaTraditionalPage() {
           </p>
         </div>
         <Badge variant="success">+0.48 Media Sentiment</Badge>
-      </div>
+      </motion.div>
 
       {/* Punjabi Media Landscape */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Punjabi Media Landscape (Verified)
-        </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">Top media outlets ranked by circulation/reach — Ajit #1 newspaper (Media Ant May 2025)</p>
-        <div className="mt-6 space-y-4">
-          {mediaSources.map((source) => (
-            <div key={source.name}>
-              <div className="flex items-center justify-between mb-1">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{source.name}</span>
-                  <Badge variant="default">{source.type}</Badge>
-                  {source.verified && <Badge variant="success">Verified</Badge>}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Badge variant={source.sentiment > 0.5 ? "success" : source.sentiment > 0.3 ? "warning" : "danger"}>
-                    {source.sentiment > 0 ? "+" : ""}{source.sentiment}
-                  </Badge>
-                  <span className="text-xs text-slate-500">{source.reach}</span>
-                </div>
-              </div>
-              <p className="text-xs text-slate-500 mb-1">{source.lean}</p>
-              <ProgressBar
-                label=""
-                value={source.sentiment * 100}
-                color="bg-indigo-500"
-                showPercentage={false}
-              />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Punjabi Media Landscape (Verified)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 dark:text-slate-400">Top media outlets ranked by circulation/reach — Ajit #1 newspaper (Media Ant May 2025)</p>
+            <div className="mt-6 space-y-4">
+              {mediaSources.map((source) => (
+                <motion.div
+                  key={source.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{source.name}</span>
+                      <Badge variant="default">{source.type}</Badge>
+                      {source.verified && <Badge variant="success">Verified</Badge>}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Badge variant={source.sentiment > 0.5 ? "success" : source.sentiment > 0.3 ? "warning" : "danger"}>
+                        {source.sentiment > 0 ? "+" : ""}{source.sentiment}
+                      </Badge>
+                      <span className="text-xs text-slate-500">{source.reach}</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-500 mb-1">{source.lean}</p>
+                  <ProgressBar
+                    label=""
+                    value={source.sentiment * 100}
+                    color="purple"
+                    showPercentage={false}
+                  />
+                </motion.div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* TV Channel Reach */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            TV Channel Reach & Market Position (G26 Research)
-          </h3>
-          <Badge variant="warning">BARC Suspended Mar 2026</Badge>
-        </div>
-        <p className="mt-1 text-sm text-slate-500">{barcNote}</p>
-        <div className="mt-6 space-y-4">
-          {tvChannels.map((channel) => (
-            <div key={channel.name} className="flex items-center gap-4">
-              <div className="w-32">
-                <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{channel.name}</span>
-                <p className="text-xs text-slate-500">{channel.type}</p>
-              </div>
-              <div className="flex-1">
-                <div className="flex justify-between mb-1">
-                  <span className="text-xs text-slate-500">{channel.subscribers}</span>
-                  <span className="text-xs text-slate-400">{channel.barchart}%</span>
-                </div>
-                <ProgressBar label="" value={channel.barchart} color="bg-indigo-500" showPercentage={false} />
-              </div>
-              <Badge variant={channel.name.includes("PTC") || channel.name.includes("Zee") ? "danger" : "default"}>
-                {channel.ownership.includes("SAD") || channel.ownership.includes("BJP") ? "Hostile" :
-                 channel.ownership.includes("ABP") || channel.ownership.includes("Network") ? "Neutral" : "Public"}
-              </Badge>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <Card>
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle>TV Channel Reach & Market Position (G26 Research)</CardTitle>
+              <Badge variant="warning">BARC Suspended Mar 2026</Badge>
             </div>
-          ))}
-        </div>
-      </div>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500">{barcNote}</p>
+            <div className="mt-6 space-y-4">
+              {tvChannels.map((channel) => (
+                <div key={channel.name} className="flex items-center gap-4">
+                  <div className="w-32">
+                    <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{channel.name}</span>
+                    <p className="text-xs text-slate-500">{channel.type}</p>
+                  </div>
+                  <div className="flex-1">
+                    <div className="flex justify-between mb-1">
+                      <span className="text-xs text-slate-500">{channel.subscribers}</span>
+                      <span className="text-xs text-slate-400">{channel.barchart}%</span>
+                    </div>
+                    <ProgressBar label="" value={channel.barchart} color="purple" showPercentage={false} />
+                  </div>
+                  <Badge variant={channel.name.includes("PTC") || channel.name.includes("Zee") ? "danger" : "default"}>
+                    {channel.ownership.includes("SAD") || channel.ownership.includes("BJP") ? "Hostile" :
+                     channel.ownership.includes("ABP") || channel.ownership.includes("Network") ? "Neutral" : "Public"}
+                  </Badge>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* TV Advertising Rates */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            TV Advertising Rates (G26 Research)
-          </h3>
-          <Badge variant="info">30-sec Spot Rates</Badge>
-        </div>
-        <p className="mt-1 text-sm text-slate-500">Regional Punjabi channels — BARC suspension means actual viewership-based pricing is fluid</p>
-        <div className="mt-4 overflow-x-auto">
-          <DataTable
-            headers={["Channel", "Standard Time", "Prime Time (8-11 PM)", "Notes"]}
-            rows={tvAdRates.map(r => [r.channel, r.standard, r.primeTime, r.note])}
-          />
-        </div>
-        <p className="mt-3 text-xs text-slate-500">
-          National channels for comparison: Aaj Tak prime time INR 50,000-2,00,000+ | IPL TV INR 18 lakh per 30 sec
-        </p>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <Card>
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle>TV Advertising Rates (G26 Research)</CardTitle>
+              <Badge variant="info">30-sec Spot Rates</Badge>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500">Regional Punjabi channels — BARC suspension means actual viewership-based pricing is fluid</p>
+            <div className="mt-4 overflow-x-auto">
+              <DataTable
+                headers={["Channel", "Standard Time", "Prime Time (8-11 PM)", "Notes"]}
+                rows={tvAdRates.map(r => [r.channel, r.standard, r.primeTime, r.note])}
+              />
+            </div>
+            <p className="mt-3 text-xs text-slate-500">
+              National channels for comparison: Aaj Tak prime time INR 50,000-2,00,000+ | IPL TV INR 18 lakh per 30 sec
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Radio Landscape */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Radio Landscape with Listenership (G26 Research)
-        </h3>
-        <p className="mt-1 text-sm text-slate-500">FM radio significantly underutilized for political messaging in Punjab</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div>
-            <h4 className="text-sm font-medium text-slate-700 mb-2">Domestic FM Stations</h4>
-            <div className="space-y-3">
-              {radioStationsFull.map((radio) => (
-                <div key={radio.name} className="flex items-center gap-3 rounded-lg border border-slate-100 p-3">
-                  <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
-                    <span className="text-xs font-bold text-blue-700">FM</span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium text-slate-700 dark:text-slate-300">{radio.name}</span>
-                      <Badge variant="info">{radio.frequency}</Badge>
-                    </div>
-                    <p className="text-xs text-slate-500">{radio.listeners} • {radio.demographic}</p>
-                  </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Radio Landscape with Listenership (G26 Research)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500">FM radio significantly underutilized for political messaging in Punjab</p>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <div>
+                <h4 className="text-sm font-medium text-slate-700 mb-2">Domestic FM Stations</h4>
+                <div className="space-y-3">
+                  {radioStationsFull.map((radio) => (
+                    <motion.div
+                      key={radio.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex items-center gap-3 rounded-lg border border-slate-100 p-3"
+                    >
+                      <div className="h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center">
+                        <Radio className="h-4 w-4 text-blue-700" />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="font-medium text-slate-700 dark:text-slate-300">{radio.name}</span>
+                          <Badge variant="info">{radio.frequency}</Badge>
+                        </div>
+                        <p className="text-xs text-slate-500">{radio.listeners} • {radio.demographic}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h4 className="text-sm font-medium text-slate-700 mb-2">NRI/Diaspora Radio Networks</h4>
-            <div className="space-y-3">
-              {diasporaRadio.map((radio) => (
-                <div key={radio.name} className="flex items-center gap-3 rounded-lg border border-slate-100 p-3">
-                  <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center">
-                    <span className="text-xs font-bold text-purple-700">NRI</span>
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium text-slate-700 dark:text-slate-300">{radio.name}</span>
-                      <Badge variant="warning">{radio.market}</Badge>
-                    </div>
-                    <p className="text-xs text-slate-500">{radio.reach} | {radio.utility}</p>
-                  </div>
+              </div>
+              <div>
+                <h4 className="text-sm font-medium text-slate-700 mb-2">NRI/Diaspora Radio Networks</h4>
+                <div className="space-y-3">
+                  {diasporaRadio.map((radio) => (
+                    <motion.div
+                      key={radio.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex items-center gap-3 rounded-lg border border-slate-100 p-3"
+                    >
+                      <div className="h-8 w-8 rounded-full bg-purple-100 flex items-center justify-center">
+                        <span className="text-xs font-bold text-purple-700">NRI</span>
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <span className="font-medium text-slate-700 dark:text-slate-300">{radio.name}</span>
+                          <Badge variant="warning">{radio.market}</Badge>
+                        </div>
+                        <p className="text-xs text-slate-500">{radio.reach} | {radio.utility}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* MSO/Cable Infrastructure */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Cable/MSO Infrastructure (G26 Research)
-        </h3>
-        <p className="mt-1 text-sm text-slate-500">SITI, DEN, Hathway, GTPL — Reliance-Disney merged entity (Nov 2024) controls significant distribution</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {msoNetworks.map((mso) => (
-            <div key={mso.name} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
-              <div className="flex items-center justify-between">
-                <h4 className="font-semibold text-slate-700 dark:text-slate-300">{mso.name}</h4>
-                <Badge variant="default">{mso.owner ? "Reliance" : "Independent"}</Badge>
-              </div>
-              <p className="mt-2 text-sm text-slate-600">{mso.coverage}</p>
-              {mso.fiber && <p className="mt-1 text-xs text-slate-500">{mso.fiber}</p>}
-              {mso.headend && <p className="mt-1 text-xs text-slate-500">{mso.headend}</p>}
-              <p className="mt-2 text-xs text-amber-600">{mso.note}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Cable/MSO Infrastructure (G26 Research)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500">SITI, DEN, Hathway, GTPL — Reliance-Disney merged entity (Nov 2024) controls significant distribution</p>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              {msoNetworks.map((mso) => (
+                <motion.div
+                  key={mso.name}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="rounded-lg border border-slate-200 p-4 dark:border-slate-700"
+                >
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-semibold text-slate-700 dark:text-slate-300">{mso.name}</h4>
+                    <Badge variant="default">{mso.owner ? "Reliance" : "Independent"}</Badge>
+                  </div>
+                  <p className="mt-2 text-sm text-slate-600">{mso.coverage}</p>
+                  {mso.fiber && <p className="mt-1 text-xs text-slate-500">{mso.fiber}</p>}
+                  {mso.headend && <p className="mt-1 text-xs text-slate-500">{mso.headend}</p>}
+                  <p className="mt-2 text-xs text-amber-600">{mso.note}</p>
+                </motion.div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Campaign Budget Estimates */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Campaign Budget Estimates (G26 Research)
-        </h3>
-        <p className="mt-1 text-sm text-slate-500">Recommended TV/Radio broadcast budgets for Punjab election 2027</p>
-        <div className="mt-4 overflow-x-auto">
-          <DataTable
-            headers={["Campaign Scale", "TV Budget", "Radio Budget", "Combined Total"]}
-            rows={campaignBudget.map(b => [b.scale, b.tvBudget, b.radioBudget, b.total])}
-          />
-        </div>
-        <p className="mt-3 text-xs text-slate-500">
-          Minimum viable: Rs 21-39 lakh (4 weeks) | Recommended: Rs 68 lakh-1.1 crore (8 weeks)
-        </p>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Campaign Budget Estimates (G26 Research)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500">Recommended TV/Radio broadcast budgets for Punjab election 2027</p>
+            <div className="mt-4 overflow-x-auto">
+              <DataTable
+                headers={["Campaign Scale", "TV Budget", "Radio Budget", "Combined Total"]}
+                rows={campaignBudget.map(b => [b.scale, b.tvBudget, b.radioBudget, b.total])}
+              />
+            </div>
+            <p className="mt-3 text-xs text-slate-500">
+              Minimum viable: Rs 21-39 lakh (4 weeks) | Recommended: Rs 68 lakh-1.1 crore (8 weeks)
+            </p>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Regional Media Strategy */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Regional Media Strategy (G26/G3 Research)
-        </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          Tailored approach for Malwa (69 seats), Majha (27 seats), Doaba (23 seats) — Government ad rate revision: +26% (Nov 2025)
-        </p>
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {regionalStrategy.map((r) => (
-            <div key={r.region} className={`rounded-lg p-4 ${
-              r.region === "Malwa" ? "bg-red-50 dark:bg-red-900/20" :
-              r.region === "Majha" ? "bg-blue-50 dark:bg-blue-900/20" :
-              "bg-purple-50 dark:bg-purple-900/20"
-            }`}>
-              <div className="flex items-center justify-between">
-                <h4 className={`font-semibold ${
-                  r.region === "Malwa" ? "text-red-700 dark:text-red-300" :
-                  r.region === "Majha" ? "text-blue-700 dark:text-blue-300" :
-                  "text-purple-700 dark:text-purple-300"
-                }`}>{r.region}</h4>
-                <Badge variant={r.priority === "HIGHEST" ? "danger" : r.priority === "SECONDARY" ? "info" : "default"}>
-                  {r.seats} seats
-                </Badge>
-              </div>
-              <p className="mt-2 text-xs font-medium text-slate-600">Budget: {r.budgetAllocation}</p>
-              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">TV: {r.primaryChannels}</p>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Print: {r.printPriority}</p>
-              <p className="mt-2 text-xs italic text-slate-500">{r.strategy}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Regional Media Strategy (G26/G3 Research)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Tailored approach for Malwa (69 seats), Majha (27 seats), Doaba (23 seats) — Government ad rate revision: +26% (Nov 2025)
+            </p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {regionalStrategy.map((r) => (
+                <motion.div
+                  key={r.region}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.3, delay: 0.7 }}
+                  className={`rounded-lg p-4 ${
+                    r.region === "Malwa" ? "bg-red-50 dark:bg-red-900/20" :
+                    r.region === "Majha" ? "bg-blue-50 dark:bg-blue-900/20" :
+                    "bg-purple-50 dark:bg-purple-900/20"
+                  }`}
+                >
+                  <div className="flex items-center justify-between">
+                    <h4 className={`font-semibold ${
+                      r.region === "Malwa" ? "text-red-700 dark:text-red-300" :
+                      r.region === "Majha" ? "text-blue-700 dark:text-blue-300" :
+                      "text-purple-700 dark:text-purple-300"
+                    }`}>{r.region}</h4>
+                    <Badge variant={r.priority === "HIGHEST" ? "danger" : r.priority === "SECONDARY" ? "info" : "default"}>
+                      {r.seats} seats
+                    </Badge>
+                  </div>
+                  <p className="mt-2 text-xs font-medium text-slate-600">Budget: {r.budgetAllocation}</p>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">TV: {r.primaryChannels}</p>
+                  <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Print: {r.printPriority}</p>
+                  <p className="mt-2 text-xs italic text-slate-500">{r.strategy}</p>
+                </motion.div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
     </div>
   );
 }

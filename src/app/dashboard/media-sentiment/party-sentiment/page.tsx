@@ -1,6 +1,8 @@
 "use client";
 
 import { Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
 import type {
   CongressMention,
 } from "@/types/media-narrative";

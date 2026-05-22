@@ -1,6 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { MetricCard, Badge } from "@/components/ui/MetricCard";
+import { Zap, Users, AlertTriangle, Building, ArrowRight } from "lucide-react";
 
 // ============================================================
 // SAD LEADERSHIP (Verified via minimax-web search May 2026)
@@ -23,7 +26,7 @@ const badalFamilyLeaders = [
     caste: "Jat Sikh",
     age: 51,
     strength: "3-time MLA from Majitha (2007-2017), Majha strongman (aka 'Majhe Da Jarnail'), Sukhbir's brother-in-law, held Revenue/Environment/Information portfolios 2007-2017, family political dynasty",
-    weakness: "Lost Amritsar East 2022 (3rd place), booked under NDPS Act (Dec 2021), disproportionate assets case (Rs 700Cr), Governor sanctioned prosecution 2023, legal liabilities drag on campaign",
+    weakness: "Lost Amritran East 2022 (3rd place), booked under NDPS Act (Dec 2021), disproportionate assets case (Rs 700Cr), Governor sanctioned prosecution 2023, legal liabilities drag on campaign",
     region: "Majha",
     winnability: 50,
   },
@@ -102,7 +105,12 @@ export default function SADLeadershipPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">
@@ -117,237 +125,300 @@ export default function SADLeadershipPage() {
           </p>
         </div>
         <Badge variant="danger">3 MLAs</Badge>
-      </div>
+      </motion.div>
 
       {/* Crisis Banner */}
-      <div className="rounded-xl border-2 border-amber-400 bg-amber-50 p-5 dark:border-amber-700 dark:bg-amber-900/20">
-        <div className="flex items-start gap-4">
-          <span className="text-3xl">⚡</span>
-          <div>
-            <h3 className="text-lg font-bold text-amber-700 dark:text-amber-400">SAD&apos;s Existential Crisis</h3>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
+        <Card className="border-2 border-amber-400 bg-amber-50 dark:border-amber-700 dark:bg-amber-900/20">
+          <CardHeader>
+            <CardTitle className="text-amber-700 dark:text-amber-400 flex items-center gap-2">
+              <Zap className="h-5 w-5" />
+              SAD&apos;s Existential Crisis
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
             <p className="text-sm text-amber-600 dark:text-amber-300 mt-1">
               From 56 seats and ruling Punjab in 2012 to 3 seats in 2022 — the steepest decline of any regional party in Indian politics.
               Compounded by the August 2025 split (Giani Harpreet faction), the Akal Takht hukamnama declaring Sukhbir tankhaiya (Dec 2024),
               Parkash Singh Badal&apos;s death (Apr 2023), and the assassination attempt on Sukhbir (Dec 2024).
               The SAD-BJP alliance is dead (Mar 2026). MLA Manpreet Singh Ayali has left for Amritpal&apos;s outfit. SAD is fighting for survival.
             </p>
-          </div>
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Election Trajectory */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Decline Trajectory: 2012 → 2024
-        </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          From ruling party (56 seats, 34.7% vote) to near-extinction (1 LS seat, 13.4% vote)
-        </p>
-
-        <div className="mt-4 space-y-3">
-          {sadElectionTrajectory.map((e) => (
-            <div key={e.election} className="flex items-center justify-between rounded-lg border border-slate-200 p-3 dark:border-slate-700">
-              <div>
-                <span className="font-medium text-slate-700 dark:text-slate-300">{e.election}</span>
-                <p className="text-xs text-slate-500">{e.note}</p>
-              </div>
-              <div className="text-right">
-                <span className="text-lg font-bold text-amber-600">{e.seats}</span>
-                <p className="text-xs text-slate-500">{e.voteShare}</p>
-              </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-slate-900 dark:text-white">
+              Decline Trajectory: 2012 → 2024
+            </CardTitle>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              From ruling party (56 seats, 34.7% vote) to near-extinction (1 LS seat, 13.4% vote)
+            </p>
+          </CardHeader>
+          <CardContent>
+            <div className="mt-4 space-y-3">
+              {sadElectionTrajectory.map((e) => (
+                <div key={e.election} className="flex items-center justify-between rounded-lg border border-slate-200 p-3 dark:border-slate-700">
+                  <div>
+                    <span className="font-medium text-slate-700 dark:text-slate-300">{e.election}</span>
+                    <p className="text-xs text-slate-500">{e.note}</p>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-lg font-bold text-amber-600">{e.seats}</span>
+                    <p className="text-xs text-slate-500">{e.voteShare}</p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Current MLAs */}
-      <div className="rounded-xl border border-amber-200 bg-white p-6 shadow-sm dark:border-amber-800 dark:bg-slate-800">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500 text-sm font-bold text-white">M</span>
-          <div>
-            <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-400">Current MLAs (3 of 117)</h3>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <Card className="border-amber-200 dark:border-amber-800">
+          <CardHeader>
+            <CardTitle className="text-amber-700 dark:text-amber-400 flex items-center gap-2">
+              <Users className="h-5 w-5" />
+              Current MLAs (3 of 117)
+            </CardTitle>
             <p className="text-sm text-slate-500 dark:text-slate-400">All three are facing uncertain futures — one has already split</p>
-          </div>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-3">
-          {currentMLAs.map((m) => (
-            <div key={m.name} className="rounded-lg border border-amber-200 p-4 dark:border-amber-700">
-              <h4 className="font-semibold text-slate-700 dark:text-slate-300">{m.name}</h4>
-              <Badge variant="warning">{m.constituency}</Badge>
-              <p className="text-xs text-slate-500 mt-2">{m.note}</p>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4 md:grid-cols-3">
+              {currentMLAs.map((m) => (
+                <div key={m.name} className="rounded-lg border border-amber-200 p-4 dark:border-amber-700">
+                  <h4 className="font-semibold text-slate-700 dark:text-slate-300">{m.name}</h4>
+                  <Badge variant="warning">{m.constituency}</Badge>
+                  <p className="text-xs text-slate-500 mt-2">{m.note}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Badal Family Leadership */}
-      <div className="rounded-xl border border-amber-200 bg-white p-6 shadow-sm dark:border-amber-800 dark:bg-slate-800">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-500 text-sm font-bold text-white">B</span>
-          <div>
-            <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-400">Badal Family Leadership Matrix</h3>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <Card className="border-amber-200 dark:border-amber-800">
+          <CardHeader>
+            <CardTitle className="text-amber-700 dark:text-amber-400 flex items-center gap-2">
+              <Users className="h-5 w-5" />
+              Badal Family Leadership Matrix
+            </CardTitle>
             <p className="text-sm text-slate-500 dark:text-slate-400">SAD remains a family-controlled party — no non-Badal face has emerged</p>
-          </div>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-3">
-          {badalFamilyLeaders.map((leader) => (
-            <div key={leader.name} className="rounded-lg border border-amber-200 p-4 dark:border-amber-700">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-slate-300">{leader.name}</h4>
-                  <p className="text-sm text-slate-500">{leader.role}</p>
-                  <p className="text-xs text-amber-600 mt-1">{leader.caste} | Age {leader.age}</p>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4 md:grid-cols-3">
+              {badalFamilyLeaders.map((leader) => (
+                <div key={leader.name} className="rounded-lg border border-amber-200 p-4 dark:border-amber-700">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h4 className="font-semibold text-slate-700 dark:text-slate-300">{leader.name}</h4>
+                      <p className="text-sm text-slate-500">{leader.role}</p>
+                      <p className="text-xs text-amber-600 mt-1">{leader.caste} | Age {leader.age}</p>
+                    </div>
+                    <Badge variant={leader.winnability > 50 ? "success" : "warning"}>{leader.region}</Badge>
+                  </div>
+                  <div className="mt-3 space-y-2">
+                    <div className="flex items-start gap-2">
+                      <span className="text-xs font-medium text-green-600">Strength:</span>
+                      <span className="text-xs text-slate-600 dark:text-slate-400">{leader.strength}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-xs font-medium text-red-600">Weakness:</span>
+                      <span className="text-xs text-slate-600 dark:text-slate-400">{leader.weakness}</span>
+                    </div>
+                  </div>
                 </div>
-                <Badge variant={leader.winnability > 50 ? "success" : "warning"}>{leader.region}</Badge>
-              </div>
-              <div className="mt-3 space-y-2">
-                <div className="flex items-start gap-2">
-                  <span className="text-xs font-medium text-green-600">Strength:</span>
-                  <span className="text-xs text-slate-600 dark:text-slate-400">{leader.strength}</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-xs font-medium text-red-600">Weakness:</span>
-                  <span className="text-xs text-slate-600 dark:text-slate-400">{leader.weakness}</span>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* August 2025 Split */}
-      <div className="rounded-xl border border-red-200 bg-white p-6 shadow-sm dark:border-red-800 dark:bg-slate-800">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-red-500 text-sm font-bold text-white">!</span>
-          <div>
-            <h3 className="text-lg font-semibold text-red-700 dark:text-red-400">SAD Split: Punar Surjit Faction (August 11, 2025)</h3>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <Card className="border-red-200 dark:border-red-800">
+          <CardHeader>
+            <CardTitle className="text-red-700 dark:text-red-400 flex items-center gap-2">
+              <AlertTriangle className="h-5 w-5" />
+              SAD Split: Punar Surjit Faction (August 11, 2025)
+            </CardTitle>
             <p className="text-sm text-slate-500 dark:text-slate-400">Giani Harpreet Singh elected president of breakaway faction — first Dalit to head an Akali Dal</p>
-          </div>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-2">
-          {punarSurjitFaction.map((leader) => (
-            <div key={leader.name} className="rounded-lg border border-red-200 p-4 dark:border-red-700">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h4 className="font-semibold text-slate-700 dark:text-slate-300">{leader.name}</h4>
-                  <p className="text-sm text-slate-500">{leader.role}</p>
-                  <p className="text-xs text-red-600 mt-1">{leader.caste} | Age {leader.age}</p>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4 md:grid-cols-2">
+              {punarSurjitFaction.map((leader) => (
+                <div key={leader.name} className="rounded-lg border border-red-200 p-4 dark:border-red-700">
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h4 className="font-semibold text-slate-700 dark:text-slate-300">{leader.name}</h4>
+                      <p className="text-sm text-slate-500">{leader.role}</p>
+                      <p className="text-xs text-red-600 mt-1">{leader.caste} | Age {leader.age}</p>
+                    </div>
+                  </div>
+                  <div className="mt-3 space-y-2">
+                    <div className="flex items-start gap-2">
+                      <span className="text-xs font-medium text-green-600">Strength:</span>
+                      <span className="text-xs text-slate-600 dark:text-slate-400">{leader.strength}</span>
+                    </div>
+                    <div className="flex items-start gap-2">
+                      <span className="text-xs font-medium text-red-600">Weakness:</span>
+                      <span className="text-xs text-slate-600 dark:text-slate-400">{leader.weakness}</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="mt-3 space-y-2">
-                <div className="flex items-start gap-2">
-                  <span className="text-xs font-medium text-green-600">Strength:</span>
-                  <span className="text-xs text-slate-600 dark:text-slate-400">{leader.strength}</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-xs font-medium text-red-600">Weakness:</span>
-                  <span className="text-xs text-slate-600 dark:text-slate-400">{leader.weakness}</span>
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className="mt-4 rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
-          <p className="text-sm text-red-700 dark:text-red-300">
-            <strong>Split Background:</strong> The Akal Takht issued a hukamnama on December 2, 2024 declaring Sukhbir Singh Badal and other SAD leaders as
-            &quot;tankhaiya&quot; (guilty of religious misconduct) over the 2015 Guru Granth Sahib sacrilege incidents and the Behbal Kalan police firing.
-            The edict ordered a reorganization of SAD. The Badal camp instead re-elected Sukhbir on April 12, 2025. This triggered the formal split.
-            The breakaway faction plans an 11-member presidium including Prem Singh Chandumajra, Bibi Jagir Kaur, Ravi Inder Singh.
-            The faction is seeking ECI recognition and control of the &apos;scale&apos; election symbol.
-          </p>
-        </div>
-      </div>
+            <div className="mt-4 rounded-lg bg-red-50 p-3 dark:bg-red-900/20">
+              <p className="text-sm text-red-700 dark:text-red-300">
+                <strong>Split Background:</strong> The Akal Takht issued a hukamnama on December 2, 2024 declaring Sukhbir Singh Badal and other SAD leaders as
+                &quot;tankhaiya&quot; (guilty of religious misconduct) over the 2015 Guru Granth Sahib sacrilege incidents and the Behbal Kalan police firing.
+                The edict ordered a reorganization of SAD. The Badal camp instead re-elected Sukhbir on April 12, 2025. This triggered the formal split.
+                The breakaway faction plans an 11-member presidium including Prem Singh Chandumajra, Bibi Jagir Kaur, Ravi Inder Singh.
+                The faction is seeking ECI recognition and control of the &apos;scale&apos; election symbol.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* SGPC Connection */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          SGPC Control — The Institutional Battleground
-        </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          The Shiromani Gurdwara Parbandhak Committee is the institutional backbone of Sikh political influence — both factions claim control
-        </p>
-
-        <div className="mt-4 grid gap-3 md:grid-cols-3">
-          {sgpcKeyFigures.map((s) => (
-            <div key={s.name} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
-              <h4 className="font-semibold text-amber-700 dark:text-amber-400">{s.name}</h4>
-              <p className="text-xs text-slate-500"><strong>Role:</strong> {s.role}</p>
-              <Badge variant={s.alignment.includes("Sukhbir") ? "warning" : "info"} className="mt-1">{s.alignment}</Badge>
-              <p className="text-xs text-slate-600 dark:text-slate-400 mt-2">{s.note}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-slate-900 dark:text-white flex items-center gap-2">
+              <Building className="h-5 w-5" />
+              SGPC Control — The Institutional Battleground
+            </CardTitle>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              The Shiromani Gurdwara Parbandhak Committee is the institutional backbone of Sikh political influence — both factions claim control
+            </p>
+          </CardHeader>
+          <CardContent>
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              {sgpcKeyFigures.map((s) => (
+                <div key={s.name} className="rounded-lg border border-slate-200 p-4 dark:border-slate-700">
+                  <h4 className="font-semibold text-amber-700 dark:text-amber-400">{s.name}</h4>
+                  <p className="text-xs text-slate-500"><strong>Role:</strong> {s.role}</p>
+                  <Badge variant={s.alignment.includes("Sukhbir") ? "warning" : "info"} className="mt-1">{s.alignment}</Badge>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 mt-2">{s.note}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
-          <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Key Battle:</strong> SGPC general elections are due. Control of SGPC determines control of gurdwara funds, the &apos;scale&apos; election symbol,
-            and the narrative on who represents the &quot;real&quot; Akali Dal. The Badal camp currently controls SGPC through President Harjinder Singh Dhami.
-            The Giani Harpreet faction has announced its intention to challenge this. The SGPC President has condemned the breakaway faction&apos;s bid as
-            an &quot;insult to Sikh institutions.&quot; The ECI will decide which faction is the real SAD based on organizational and legislative majority tests.
-          </p>
-        </div>
-      </div>
+            <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
+              <p className="text-sm text-amber-700 dark:text-amber-300">
+                <strong>Key Battle:</strong> SGPC general elections are due. Control of SGPC determines control of gurdwara funds, the &apos;scale&apos; election symbol,
+                and the narrative on who represents the &quot;real&quot; Akali Dal. The Badal camp currently controls SGPC through President Harjinder Singh Dhami.
+                The Giani Harpreet faction has announced its intention to challenge this. The SGPC President has condemned the breakaway faction&apos;s bid as
+                an &quot;insult to Sikh institutions.&quot; The ECI will decide which faction is the real SAD based on organizational and legislative majority tests.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* SAD-BJP Alliance Timeline */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          SAD-BJP Alliance: A 24-Year History That Ended in 2020
-        </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
-          From coalition partners to bitter rivals — the alliance breakdown sealed SAD&apos;s decline
-        </p>
-
-        <div className="mt-4 space-y-2">
-          {allianceTimeline.map((t) => (
-            <div key={t.year} className="flex items-center gap-4 rounded-lg border border-slate-100 p-3 dark:border-slate-700">
-              <span className="w-20 text-sm font-bold text-amber-600">{t.year}</span>
-              <span className="text-sm text-slate-700 dark:text-slate-300">{t.event}</span>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-slate-900 dark:text-white">
+              SAD-BJP Alliance: A 24-Year History That Ended in 2020
+            </CardTitle>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              From coalition partners to bitter rivals — the alliance breakdown sealed SAD&apos;s decline
+            </p>
+          </CardHeader>
+          <CardContent>
+            <div className="mt-4 space-y-2">
+              {allianceTimeline.map((t) => (
+                <div key={t.year} className="flex items-center gap-4 rounded-lg border border-slate-100 p-3 dark:border-slate-700">
+                  <span className="w-20 text-sm font-bold text-amber-600">{t.year}</span>
+                  <span className="text-sm text-slate-700 dark:text-slate-300">{t.event}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
-          <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Current Stance (May 2026):</strong> Amit Shah&apos;s March 14, 2026 declaration that BJP will go solo kills the last hope of an
-            SAD-BJP reunion. SAD will contest all 117 seats independently. Sukhbir has publicly welcomed BJP&apos;s decision, calling it an
-            &quot;opportunity for Punjabis to choose between Delhi-based parties and the Panthic party.&quot; Without the BJP&apos;s urban Hindu votes,
-            SAD&apos;s ceiling is likely 12-18 seats in a best-case scenario — far from power.
-          </p>
-        </div>
-      </div>
+            <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
+              <p className="text-sm text-amber-700 dark:text-amber-300">
+                <strong>Current Stance (May 2026):</strong> Amit Shah&apos;s March 14, 2026 declaration that BJP will go solo kills the last hope of an
+                SAD-BJP reunion. SAD will contest all 117 seats independently. Sukhbir has publicly welcomed BJP&apos;s decision, calling it an
+                &quot;opportunity for Punjabis to choose between Delhi-based parties and the Panthic party.&quot; Without the BJP&apos;s urban Hindu votes,
+                SAD&apos;s ceiling is likely 12-18 seats in a best-case scenario — far from power.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* 2027 Outlook */}
-      <div className="rounded-xl border-2 border-amber-500 bg-amber-50 p-6 dark:border-amber-700 dark:bg-amber-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">27</span>
-          <div>
-            <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-400">2027 Punjab Election Outlook</h3>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      >
+        <Card className="border-2 border-amber-500 bg-amber-50 dark:border-amber-700 dark:bg-amber-900/20">
+          <CardHeader>
+            <CardTitle className="text-amber-700 dark:text-amber-400">
+              2027 Punjab Election Outlook
+            </CardTitle>
             <p className="text-sm text-amber-600 dark:text-amber-400">SAD revival prospects — Can the Akali Dal recover from 3 seats?</p>
-          </div>
-        </div>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4 md:grid-cols-3">
+              <MetricCard title="Best Case Seats" value="15-22" subtitle="Panthic vote consolidation + anti-AAP wave" color="green" />
+              <MetricCard title="Base Case Seats" value="6-10" subtitle="Malwa rural seats + limited Majha recovery" color="amber" />
+              <MetricCard title="Worst Case Seats" value="2-4" subtitle="Split vote with Punar Surjit faction" color="rose" />
+            </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
-          <MetricCard title="Best Case Seats" value="15-22" subtitle="Panthic vote consolidation + anti-AAP wave" color="bg-green-500" />
-          <MetricCard title="Base Case Seats" value="6-10" subtitle="Malwa rural seats + limited Majha recovery" color="bg-amber-500" />
-          <MetricCard title="Worst Case Seats" value="2-4" subtitle="Split vote with Punar Surjit faction" color="bg-red-500" />
-        </div>
-
-        <div className="mt-4 rounded-lg bg-white/60 p-3 dark:bg-amber-900/30">
-          <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Assessment:</strong> SAD&apos;s revival depends on three factors: (1) Whether the Giani Harpreet faction formally splits the Panthic vote
-            or merges back before 2027, (2) Whether the Akal Takht hukamnama against Sukhbir is resolved, and (3) Whether SAD can recapture
-            its rural Sikh base that migrated to AAP in 2022. The loss of Amritpal Singh&apos;s support (Ayali joining his outfit) is another blow
-            to Panthic consolidation. Without BJP alliance, SAD&apos;s urban Hindu vote is gone. The party is reduced to a Malwa-rural Jat Sikh party
-            with a ceiling of 12-18 seats. A generational leadership change (beyond the Badal family) seems necessary but unlikely before 2027.
-            Most likely outcome: SAD wins 6-10 seats, remains a marginal player, and faces an existential choice after 2027 — either a genuine
-            leadership renewal or continued decline toward irrelevance.
-          </p>
-        </div>
-      </div>
+            <div className="mt-4 rounded-lg bg-white/60 p-3 dark:bg-amber-900/30">
+              <p className="text-sm text-amber-700 dark:text-amber-300">
+                <strong>Assessment:</strong> SAD&apos;s revival depends on three factors: (1) Whether the Giani Harpreet faction formally splits the Panthic vote
+                or merges back before 2027, (2) Whether the Akal Takht hukamnama against Sukhbir is resolved, and (3) Whether SAD can recapture
+                its rural Sikh base that migrated to AAP in 2022. The loss of Amritpal Singh&apos;s support (Ayali joining his outfit) is another blow
+                to Panthic consolidation. Without BJP alliance, SAD&apos;s urban Hindu vote is gone. The party is reduced to a Malwa-rural Jat Sikh party
+                with a ceiling of 12-18 seats. A generational leadership change (beyond the Badal family) seems necessary but unlikely before 2027.
+                Most likely outcome: SAD wins 6-10 seats, remains a marginal player, and faces an existential choice after 2027 — either a genuine
+                leadership renewal or continued decline toward irrelevance.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
     </div>
   );
 }

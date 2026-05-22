@@ -1,6 +1,9 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { DataTable, Badge } from "@/components/ui/MetricCard";
+import { Heart, AlertTriangle, Activity, Users, AlertCircle } from "lucide-react";
 
 export default function EmotionAnalysisPage() {
   const mp7BuzzTracking = {
@@ -17,11 +20,11 @@ export default function EmotionAnalysisPage() {
       { rank: 5, keyword: "Law & Order/Security", priority: "MEDIUM", weight: 1.5, multiplier: "1.5x volume", reason: "Gangland killings, drug-related violence" },
     ],
     velocityMetrics: [
-      { level: "Level 1 (Baseline)", mentions: "<100/hour", color: "bg-green-500", action: "Routine monitoring" },
-      { level: "Level 2 (Elevated)", mentions: "100-500/hour", color: "bg-yellow-500", action: "Enhanced tracking" },
-      { level: "Level 3 (High)", mentions: "500-2,000/hour", color: "bg-orange-500", action: "Active response team" },
-      { level: "Level 4 (Critical)", mentions: ">2,000/hour", color: "bg-red-500", action: "War room escalation" },
-      { level: "Crisis (Black Swan)", mentions: "Viral velocity", color: "bg-purple-500", action: "Leadership briefing" }
+      { level: "Level 1 (Baseline)", mentions: "<100/hour", color: "emerald", action: "Routine monitoring" },
+      { level: "Level 2 (Elevated)", mentions: "100-500/hour", color: "amber", action: "Enhanced tracking" },
+      { level: "Level 3 (High)", mentions: "500-2,000/hour", color: "orange", action: "Active response team" },
+      { level: "Level 4 (Critical)", mentions: ">2,000/hour", color: "rose", action: "War room escalation" },
+      { level: "Crisis (Black Swan)", mentions: "Viral velocity", color: "purple", action: "Leadership briefing" }
     ],
   };
 
@@ -82,227 +85,265 @@ export default function EmotionAnalysisPage() {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center gap-3">
-        <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">
-          <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-          </svg>
-        </span>
-        <div>
-          <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
-            Emotion & Rumor Analysis
-          </h1>
-          <p className="mt-2 text-slate-500 dark:text-slate-400">
-            MP7-003 Buzz Tracking, MP7-004 Emotion Analysis & Rumor Management
-          </p>
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="flex items-center gap-3">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">
+            <Heart className="h-6 w-6" />
+          </span>
+          <div>
+            <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
+              Emotion & Rumor Analysis
+            </h1>
+            <p className="mt-2 text-slate-500 dark:text-slate-400">
+              MP7-003 Buzz Tracking, MP7-004 Emotion Analysis & Rumor Management
+            </p>
+          </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* MP7-003: Buzz Tracking & Velocity Analysis */}
-      <div className="rounded-xl border-2 border-teal-200 bg-teal-50 p-6 dark:border-teal-800 dark:bg-teal-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500 text-lg font-bold text-white">
-            7.3
-          </div>
-          <div>
-            <p className="font-semibold text-teal-700 dark:text-teal-400">MP7-003: Buzz Tracking & Velocity Analysis</p>
-            <p className="text-sm text-teal-600 dark:text-teal-300">Real-time monitoring with 3,450+ keyword taxonomy</p>
-          </div>
-        </div>
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+      >
+        <Card accentColor="cyan" className="bg-cyan-50 dark:bg-cyan-900/20 border-cyan-200 dark:border-cyan-800">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Activity className="h-5 w-5 text-cyan-500" />
+              <span>MP7-003: Buzz Tracking & Velocity Analysis</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-cyan-600 dark:text-cyan-300 mb-4">Real-time monitoring with 3,450+ keyword taxonomy</p>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {/* Keyword Taxonomy */}
-          <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50">
-            <h4 className="font-semibold text-teal-800 dark:text-teal-100">Keyword Taxonomy</h4>
-            <div className="mt-3 space-y-2">
-              <div className="flex justify-between">
-                <span className="text-sm text-slate-600 dark:text-slate-400">Total Keywords:</span>
-                <span className="font-bold text-teal-600">{mp7BuzzTracking.keywordTaxonomy.total}</span>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {/* Keyword Taxonomy */}
+              <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50">
+                <h4 className="font-semibold text-cyan-800 dark:text-cyan-100">Keyword Taxonomy</h4>
+                <div className="mt-3 space-y-2">
+                  <div className="flex justify-between">
+                    <span className="text-sm text-slate-600 dark:text-slate-400">Total Keywords:</span>
+                    <span className="font-bold text-cyan-600">{mp7BuzzTracking.keywordTaxonomy.total}</span>
+                  </div>
+                  <div className="mt-3 space-y-1">
+                    {mp7BuzzTracking.keywordTaxonomy.categories.map((cat, i) => (
+                      <p key={i} className="text-xs text-slate-500">- {cat}</p>
+                    ))}
+                  </div>
+                  <div className="mt-2 flex gap-2 flex-wrap">
+                    {mp7BuzzTracking.keywordTaxonomy.languages.map((lang, i) => (
+                      <Badge key={i} variant="info">{lang}</Badge>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div className="mt-3 space-y-1">
-                {mp7BuzzTracking.keywordTaxonomy.categories.map((cat, i) => (
-                  <p key={i} className="text-xs text-slate-500">- {cat}</p>
-                ))}
-              </div>
-              <div className="mt-2 flex gap-2 flex-wrap">
-                {mp7BuzzTracking.keywordTaxonomy.languages.map((lang, i) => (
-                  <Badge key={i} variant="info">{lang}</Badge>
-                ))}
+
+              {/* Top Keywords */}
+              <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50">
+                <h4 className="font-semibold text-cyan-800 dark:text-cyan-100">Top 5 Monitoring Keywords</h4>
+                <div className="mt-3 space-y-2">
+                  {mp7BuzzTracking.topKeywords.map((kw) => (
+                    <div key={kw.rank} className="flex items-center gap-2">
+                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-cyan-500 text-xs font-bold text-white">{kw.rank}</span>
+                      <span className="flex-1 text-sm text-slate-600 dark:text-slate-400">{kw.keyword}</span>
+                      <Badge variant={kw.priority === "CRITICAL" ? "danger" : kw.priority === "HIGH" ? "warning" : "info"}>{kw.priority}</Badge>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Top Keywords */}
-          <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50">
-            <h4 className="font-semibold text-teal-800 dark:text-teal-100">Top 5 Monitoring Keywords</h4>
+            {/* Velocity Levels */}
+            <h4 className="mt-6 font-semibold text-cyan-800 dark:text-cyan-100">Velocity Alert Levels</h4>
             <div className="mt-3 space-y-2">
-              {mp7BuzzTracking.topKeywords.map((kw) => (
-                <div key={kw.rank} className="flex items-center gap-2">
-                  <span className="flex h-6 w-6 items-center justify-center rounded-full bg-teal-500 text-xs font-bold text-white">{kw.rank}</span>
-                  <span className="flex-1 text-sm text-slate-600 dark:text-slate-400">{kw.keyword}</span>
-                  <Badge variant={kw.priority === "CRITICAL" ? "danger" : kw.priority === "HIGH" ? "warning" : "info"}>{kw.priority}</Badge>
+              {mp7BuzzTracking.velocityMetrics.map((level, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className={`w-3 h-3 rounded-full bg-${level.color}-500`}></div>
+                  <span className="flex-1 text-sm text-slate-600 dark:text-slate-400">{level.level}</span>
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{level.mentions}</span>
+                  <span className="text-xs text-slate-500">{level.action}</span>
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Velocity Levels */}
-        <h4 className="mt-6 font-semibold text-teal-800 dark:text-teal-100">Velocity Alert Levels</h4>
-        <div className="mt-3 space-y-2">
-          {mp7BuzzTracking.velocityMetrics.map((level, i) => (
-            <div key={i} className="flex items-center gap-3">
-              <div className={`w-3 h-3 rounded-full ${level.color}`}></div>
-              <span className="flex-1 text-sm text-slate-600 dark:text-slate-400">{level.level}</span>
-              <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{level.mentions}</span>
-              <span className="text-xs text-slate-500">{level.action}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* MP7-004: Emotion Analysis */}
-      <div className="rounded-xl border-2 border-rose-200 bg-rose-50 p-6 dark:border-rose-800 dark:bg-rose-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">
-            7.4
-          </div>
-          <div>
-            <p className="font-semibold text-rose-700 dark:text-rose-400">MP7-004: Emotion Analysis & Segment-Wise Tracking</p>
-            <p className="text-sm text-rose-600 dark:text-rose-300">Affective dimension analysis - emotions driving voter behavior</p>
-          </div>
-        </div>
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+      >
+        <Card accentColor="rose" className="bg-rose-50 dark:bg-rose-900/20 border-rose-200 dark:border-rose-800">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Heart className="h-5 w-5 text-rose-500" />
+              <span>MP7-004: Emotion Analysis & Segment-Wise Tracking</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-rose-600 dark:text-rose-300 mb-4">Affective dimension analysis - emotions driving voter behavior</p>
 
-        {/* Primary Emotions */}
-        <h4 className="font-semibold text-rose-800 dark:text-rose-100">Primary Emotion Drivers</h4>
-        <div className="mt-3 grid gap-3 md:grid-cols-3">
-          {mp7EmotionAnalysis.primaryEmotions.map((emo, i) => (
-            <div key={i} className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50">
-              <div className="flex justify-between items-start">
-                <p className="font-semibold text-rose-700 dark:text-rose-200">{emo.emotion}</p>
-                <Badge variant={emo.intensity.includes("Very") ? "danger" : emo.intensity.includes("High") ? "warning" : "info"}>
-                  {emo.intensity}
-                </Badge>
-              </div>
-              <p className="text-xs text-slate-500 mt-2">Triggers: {emo.triggers.join(", ")}</p>
-              <p className="text-xs text-teal-600 mt-1">Actionable: {emo.actionable}</p>
+            {/* Primary Emotions */}
+            <h4 className="font-semibold text-rose-800 dark:text-rose-100">Primary Emotion Drivers</h4>
+            <div className="mt-3 grid gap-3 md:grid-cols-3">
+              {mp7EmotionAnalysis.primaryEmotions.map((emo, i) => (
+                <div key={i} className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50">
+                  <div className="flex justify-between items-start">
+                    <p className="font-semibold text-rose-700 dark:text-rose-200">{emo.emotion}</p>
+                    <Badge variant={emo.intensity.includes("Very") ? "danger" : emo.intensity.includes("High") ? "warning" : "info"}>
+                      {emo.intensity}
+                    </Badge>
+                  </div>
+                  <p className="text-xs text-slate-500 mt-2">Triggers: {emo.triggers.join(", ")}</p>
+                  <p className="text-xs text-teal-600 mt-1">Actionable: {emo.actionable}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Segment-Wise Emotions */}
-        <h4 className="mt-6 font-semibold text-rose-800 dark:text-rose-100">Segment-Wise Emotion Analysis</h4>
-        <div className="mt-3">
-          <DataTable
-            headers={["Voter Segment", "Primary Emotion", "Intensity", "Shift Direction"]}
-            rows={mp7EmotionAnalysis.segmentWiseEmotions.map(seg => [
-              seg.segment,
-              seg.primary,
-              seg.intensity,
-              seg.shift
-            ])}
-          />
-        </div>
-      </div>
+            {/* Segment-Wise Emotions */}
+            <h4 className="mt-6 font-semibold text-rose-800 dark:text-rose-100">Segment-Wise Emotion Analysis</h4>
+            <div className="mt-3">
+              <DataTable
+                headers={["Voter Segment", "Primary Emotion", "Intensity", "Shift Direction"]}
+                rows={mp7EmotionAnalysis.segmentWiseEmotions.map(seg => [
+                  seg.segment,
+                  seg.primary,
+                  seg.intensity,
+                  seg.shift
+                ])}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* MP7-004: Rumor Management Framework */}
-      <div className="rounded-xl border-2 border-amber-200 bg-amber-50 p-6 dark:border-amber-800 dark:bg-amber-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">
-            7.4
-          </div>
-          <div>
-            <p className="font-semibold text-amber-700 dark:text-amber-400">MP7-004: Rumor Management Framework</p>
-            <p className="text-sm text-amber-600 dark:text-amber-300">Detection - Verification - Response - Containment</p>
-          </div>
-        </div>
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.3 }}
+      >
+        <Card accentColor="amber" className="bg-amber-50 dark:bg-amber-900/20 border-amber-200 dark:border-amber-800">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <AlertCircle className="h-5 w-5 text-amber-500" />
+              <span>MP7-004: Rumor Management Framework</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-amber-600 dark:text-amber-300 mb-4">Detection - Verification - Response - Containment</p>
 
-        {/* Response Time Metrics */}
-        <h4 className="font-semibold text-amber-800 dark:text-amber-100">Response Time Targets</h4>
-        <div className="mt-3 grid gap-4 md:grid-cols-4">
-          <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50 text-center">
-            <p className="text-2xl font-bold text-amber-600">{"<45 min"}</p>
-            <p className="text-xs text-slate-500">Detection - Alert</p>
-          </div>
-          <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50 text-center">
-            <p className="text-2xl font-bold text-amber-600">{"<2 hrs"}</p>
-            <p className="text-xs text-slate-500">Alert - Verification</p>
-          </div>
-          <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50 text-center">
-            <p className="text-2xl font-bold text-amber-600">{"<4 hrs"}</p>
-            <p className="text-xs text-slate-500">Verification - Response</p>
-          </div>
-          <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50 text-center">
-            <p className="text-2xl font-bold text-teal-600">{">85%"}</p>
-            <p className="text-xs text-slate-500">Containment Target (Tier 2)</p>
-          </div>
-        </div>
-
-        {/* Response Playbook */}
-        <h4 className="mt-6 font-semibold text-amber-800 dark:text-amber-100">Response Playbook</h4>
-        <div className="mt-3 grid gap-3 md:grid-cols-5">
-          {mp7RumorManagement.responsePlaybook.map((step, i) => (
-            <div key={i} className="rounded-lg bg-white/50 p-3 dark:bg-slate-800/50">
-              <div className="flex items-center gap-2">
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 text-xs font-bold text-white">{i + 1}</span>
-                <p className="font-medium text-amber-700 dark:text-amber-200">{step.step}</p>
+            {/* Response Time Metrics */}
+            <h4 className="font-semibold text-amber-800 dark:text-amber-100">Response Time Targets</h4>
+            <div className="mt-3 grid gap-4 md:grid-cols-4">
+              <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50 text-center">
+                <p className="text-2xl font-bold text-amber-600">{"<45 min"}</p>
+                <p className="text-xs text-slate-500">Detection - Alert</p>
               </div>
-              <p className="text-xs text-slate-500 mt-2">{step.tool}</p>
-              <p className="text-xs text-teal-600 mt-1">SLA: {step.sla}</p>
+              <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50 text-center">
+                <p className="text-2xl font-bold text-amber-600">{"<2 hrs"}</p>
+                <p className="text-xs text-slate-500">Alert - Verification</p>
+              </div>
+              <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50 text-center">
+                <p className="text-2xl font-bold text-amber-600">{"<4 hrs"}</p>
+                <p className="text-xs text-slate-500">Verification - Response</p>
+              </div>
+              <div className="rounded-lg bg-white/50 p-4 dark:bg-slate-800/50 text-center">
+                <p className="text-2xl font-bold text-teal-600">{">85%"}</p>
+                <p className="text-xs text-slate-500">Containment Target (Tier 2)</p>
+              </div>
             </div>
-          ))}
-        </div>
 
-        {/* Known Rumor Scenarios */}
-        <h4 className="mt-6 font-semibold text-amber-800 dark:text-amber-100">Known Rumor Scenarios (Priority Pre-Bunk)</h4>
-        <div className="mt-3">
-          <DataTable
-            headers={["Rumor", "Risk", "Probability", "Mitigation"]}
-            rows={mp7RumorManagement.knownRumorScenarios.map(r => [
-              r.rumor,
-              r.risk,
-              r.probability,
-              r.mitigation
-            ])}
-          />
-        </div>
+            {/* Response Playbook */}
+            <h4 className="mt-6 font-semibold text-amber-800 dark:text-amber-100">Response Playbook</h4>
+            <div className="mt-3 grid gap-3 md:grid-cols-5">
+              {mp7RumorManagement.responsePlaybook.map((step, i) => (
+                <div key={i} className="rounded-lg bg-white/50 p-3 dark:bg-slate-800/50">
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 text-xs font-bold text-white">{i + 1}</span>
+                    <p className="font-medium text-amber-700 dark:text-amber-200">{step.step}</p>
+                  </div>
+                  <p className="text-xs text-slate-500 mt-2">{step.tool}</p>
+                  <p className="text-xs text-teal-600 mt-1">SLA: {step.sla}</p>
+                </div>
+              ))}
+            </div>
 
-        <div className="mt-4 p-3 rounded-lg bg-red-100 dark:bg-red-900/40 border border-red-300">
-          <p className="text-sm text-red-700 dark:text-red-300">
-            <strong>CRITICAL:</strong> &quot;Congress is Anti-Sikh&quot; narrative requires immediate pre-bunking. Probability 85%, Impact Severe. Historical record + 1984 context + comparative framing required before narrative gains traction.
-          </p>
-        </div>
-      </div>
+            {/* Known Rumor Scenarios */}
+            <h4 className="mt-6 font-semibold text-amber-800 dark:text-amber-100">Known Rumor Scenarios (Priority Pre-Bunk)</h4>
+            <div className="mt-3">
+              <DataTable
+                headers={["Rumor", "Risk", "Probability", "Mitigation"]}
+                rows={mp7RumorManagement.knownRumorScenarios.map(r => [
+                  r.rumor,
+                  r.risk,
+                  r.probability,
+                  r.mitigation
+                ])}
+              />
+            </div>
+
+            <div className="mt-4 p-3 rounded-lg bg-red-100 dark:bg-red-900/40 border border-red-300">
+              <p className="text-sm text-red-700 dark:text-red-300">
+                <strong>CRITICAL:</strong> &quot;Congress is Anti-Sikh&quot; narrative requires immediate pre-bunking. Probability 85%, Impact Severe. Historical record + 1984 context + comparative framing required before narrative gains traction.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Sentiment Velocity Thresholds */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Sentiment Velocity Thresholds (B18 Methodology)
-        </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">Monitoring benchmarks for social media virality</p>
-        <div className="mt-4">
-          <DataTable
-            headers={["Velocity Level", "Threshold", "Alert Status"]}
-            rows={velocityThresholds.map(item => [item.level, item.threshold, item.status])}
-          />
-        </div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.4 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Sentiment Velocity Thresholds (B18 Methodology)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 dark:text-slate-400">Monitoring benchmarks for social media virality</p>
+            <div className="mt-4">
+              <DataTable
+                headers={["Velocity Level", "Threshold", "Alert Status"]}
+                rows={velocityThresholds.map(item => [item.level, item.threshold, item.status])}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Pre-Bunking Categories */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Pre-Bunking Categories (G32 Framework)
-        </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">Pre-bunking is cheaper than reactive response - build resistance before rumor circulates</p>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {preBunkCategories.map((item, i) => (
-            <div key={i} className="rounded-lg bg-slate-50 p-4 dark:bg-slate-700">
-              <p className="font-semibold text-slate-700 dark:text-slate-200">{item.category}</p>
-              <p className="text-sm text-slate-500 mt-1">{item.examples}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.5 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Pre-Bunking Categories (G32 Framework)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 dark:text-slate-400">Pre-bunking is cheaper than reactive response - build resistance before rumor circulates</p>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              {preBunkCategories.map((item, i) => (
+                <div key={i} className="rounded-lg bg-slate-50 p-4 dark:bg-slate-700">
+                  <p className="font-semibold text-slate-700 dark:text-slate-200">{item.category}</p>
+                  <p className="text-sm text-slate-500 mt-1">{item.examples}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
     </div>
   );
 }

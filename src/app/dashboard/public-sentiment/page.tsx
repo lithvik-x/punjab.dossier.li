@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { MetricCard, ProgressBar, DataTable, Badge, MiniChart } from "@/components/ui/MetricCard";
 import { KEY_ISSUES_VERIFIED, POLITICAL_ANATOMY } from "@/lib/constants";
 import {
@@ -8,6 +10,7 @@ import {
   qualityValidation,
   gapAnalysis,
 } from "@/lib/synthesis-data";
+import { Activity, Users, TrendingUp, AlertTriangle, TrendingDown, DollarSign, Heart, Target, Shield, BarChart3, Monitor, MapPin, Users as UsersIcon, AlertCircle } from "lucide-react";
 
 // ============================================================
 // CYCLE 2: OPPOSITION INTELLIGENCE - PUBLIC SENTIMENT
@@ -1051,7 +1054,7 @@ const communicationStrategyData: CommunicationStrategy = {
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500 text-lg font-bold text-white">
-              7
+              <Target className="h-6 w-6" />
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Public Sentiment
@@ -1071,7 +1074,7 @@ const communicationStrategyData: CommunicationStrategy = {
           subtitle="Congress favorability"
           change={10.5}
           trend="up"
-          color="bg-purple-500"
+          color="purple"
         />
         <MetricCard
           title="Data Points"
@@ -1079,7 +1082,7 @@ const communicationStrategyData: CommunicationStrategy = {
           subtitle="This week"
           change={23}
           trend="up"
-          color="bg-blue-500"
+          color="blue"
         />
         <MetricCard
           title="Positive Share"
@@ -1087,18 +1090,23 @@ const communicationStrategyData: CommunicationStrategy = {
           subtitle="Favorable mentions"
           change={8}
           trend="up"
-          color="bg-green-500"
+          color="emerald"
         />
         <MetricCard
           title="Trending Issues"
           value="10"
           subtitle="Active topics"
-          color="bg-orange-500"
+          color="orange"
         />
       </div>
 
       {/* Political Anatomy - Electoral Context for Sentiment */}
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-6 shadow-sm dark:border-emerald-800 dark:bg-emerald-900/10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+        className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-6 shadow-sm dark:border-emerald-800 dark:bg-emerald-900/10"
+      >
         <div className="mb-4 flex items-center gap-2">
           <h3 className="text-lg font-semibold text-emerald-800 dark:text-emerald-300">
             Political Anatomy — Electoral Context
@@ -1161,17 +1169,17 @@ const communicationStrategyData: CommunicationStrategy = {
                 <span className="text-sm text-slate-600 dark:text-slate-400">Malwa</span>
                 <span className="font-medium text-orange-600 dark:text-orange-400">69 seats (59%)</span>
               </div>
-              <ProgressBar label="" value={59} color="bg-orange-500" showPercentage={false} />
+              <ProgressBar label="" value={59} color="orange" showPercentage={false} />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-600 dark:text-slate-400">Majha</span>
                 <span className="font-medium text-blue-600 dark:text-blue-400">25 seats (21%)</span>
               </div>
-              <ProgressBar label="" value={21} color="bg-blue-500" showPercentage={false} />
+              <ProgressBar label="" value={21} color="blue" showPercentage={false} />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-600 dark:text-slate-400">Doaba</span>
                 <span className="font-medium text-green-600 dark:text-green-400">23 seats (20%)</span>
               </div>
-              <ProgressBar label="" value={20} color="bg-green-500" showPercentage={false} />
+              <ProgressBar label="" value={20} color="emerald" showPercentage={false} />
             </div>
           </div>
           <div>
@@ -1184,15 +1192,18 @@ const communicationStrategyData: CommunicationStrategy = {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* CYCLE 2: SOCIO-ECONOMIC SENTIMENT DRIVERS (from research-P2/10_socio_economic) */}
-      <div className="rounded-xl border-2 border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-900/20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+        className="rounded-xl border-2 border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-900/20"
+      >
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500 text-lg font-bold text-white">
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
+            <TrendingDown className="h-6 w-6" />
           </div>
           <div>
             <p className="font-semibold text-red-700 dark:text-red-400">Socio-Economic Sentiment Drivers (research-P2/10_socio_economic)</p>
@@ -1206,25 +1217,25 @@ const communicationStrategyData: CommunicationStrategy = {
             title="Youth Unemployment"
             value="19.3%"
             subtitle="Top anger driver"
-            color="bg-red-500"
+            color="rose"
           />
           <MetricCard
             title="State Debt"
             value="₹4.17L Cr"
             subtitle="LAST in NITI FHI"
-            color="bg-red-500"
+            color="rose"
           />
           <MetricCard
             title="Drug Users"
             value="6.6 Million"
             subtitle="18% of population"
-            color="bg-red-500"
+            color="rose"
           />
           <MetricCard
             title="Farm Debt"
             value="₹1.04L / 3L Cr"
             subtitle="Short-term / Total agricultural debt"
-            color="bg-orange-500"
+            color="orange"
           />
         </div>
 
@@ -1235,7 +1246,7 @@ const communicationStrategyData: CommunicationStrategy = {
               <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Youth Unemployment (15-29 yrs)</span>
               <span className="text-sm font-bold text-red-600">19.3%</span>
             </div>
-            <ProgressBar label="" value={19.3} color="bg-red-500" showPercentage={false} />
+            <ProgressBar label="" value={19.3} color="rose" showPercentage={false} />
             <p className="text-xs text-slate-500 mt-1">National Average: 14.3% — Punjab is 5pp higher</p>
           </div>
           <div>
@@ -1243,7 +1254,7 @@ const communicationStrategyData: CommunicationStrategy = {
               <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Debt-to-GSDP Ratio</span>
               <span className="text-sm font-bold text-red-600">44.47%</span>
             </div>
-            <ProgressBar label="" value={44.47} color="bg-red-500" showPercentage={false} />
+            <ProgressBar label="" value={44.47} color="rose" showPercentage={false} />
             <p className="text-xs text-slate-500 mt-1">Threshold: 25% — 1.78x over fiscal limit</p>
           </div>
           <div>
@@ -1251,7 +1262,7 @@ const communicationStrategyData: CommunicationStrategy = {
               <span className="text-sm font-medium text-slate-700 dark:text-slate-300">Groundwater Extraction</span>
               <span className="text-sm font-bold text-red-600">156.36%</span>
             </div>
-            <ProgressBar label="" value={100} color="bg-red-500" showPercentage={false} />
+            <ProgressBar label="" value={100} color="rose" showPercentage={false} />
             <p className="text-xs text-slate-500 mt-1">115 of 153 blocks over-exploited</p>
           </div>
         </div>
@@ -1289,16 +1300,18 @@ const communicationStrategyData: CommunicationStrategy = {
             <strong>Sentiment Impact:</strong> Economic distress (19.3% youth unemployment, ₹4.17L Cr debt) is driving Anger + Resignation emotions. 6.6M drug users and agrarian debt create powerful anti-incumbent narrative for Congress to exploit.
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* LOCAL ISSUES: MAJHA & DOABA - From MP1-foundational/governance/local-issues-majha-doaba.md */}
-      <div className="rounded-xl border-2 border-indigo-200 bg-indigo-50 p-6 dark:border-indigo-800 dark:bg-indigo-900/20">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.3 }}
+        className="rounded-xl border-2 border-indigo-200 bg-indigo-50 p-6 dark:border-indigo-800 dark:bg-indigo-900/20"
+      >
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-lg font-bold text-white">
-            <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
+            <MapPin className="h-6 w-6" />
           </div>
           <div>
             <p className="font-semibold text-indigo-700 dark:text-indigo-400">
@@ -1316,28 +1329,28 @@ const communicationStrategyData: CommunicationStrategy = {
             title="Majha AAP 2022"
             value="17/25"
             subtitle="seats won"
-            color="bg-cyan-500"
+            color="cyan"
           />
           <MetricCard
             title="Majha Congress 2022"
             value="3/25"
             subtitle="seats won"
-            color="bg-orange-500"
+            color="orange"
           />
           <MetricCard
             title="Doaba AAP 2022"
             value="13/23"
             subtitle="seats won"
-            color="bg-cyan-500"
+            color="cyan"
           />
           <MetricCard
             title="Doaba Congress 2022"
             value="7/23"
             subtitle="seats won"
-            color="bg-orange-500"
+            color="orange"
           />
         </div>
-      </div>
+      </motion.div>
 
       {/* MAJHA ISSUES */}
       <div className="rounded-xl border border-red-200 bg-red-50/50 p-6 dark:border-red-800 dark:bg-red-900/10">
@@ -1886,7 +1899,7 @@ const communicationStrategyData: CommunicationStrategy = {
             Weekly Sentiment Trend
           </h3>
           <div className="mt-4">
-            <MiniChart data={sentimentTrend.map(v => v * 100)} color="bg-purple-500" height={100} />
+            <MiniChart data={sentimentTrend.map(v => v * 100)} color="purple" height={100} />
           </div>
           <div className="mt-4 flex justify-between text-center">
             <div>
@@ -1915,7 +1928,7 @@ const communicationStrategyData: CommunicationStrategy = {
                     <span className="text-xs text-slate-500">({item.source})</span>
                   </div>
                 </div>
-                <ProgressBar label="" value={item.value} color={item.party === "BJP" ? "bg-orange-400" : "bg-blue-500"} showPercentage={false} />
+                <ProgressBar label="" value={item.value} color={item.party === "BJP" ? "orange" : "blue"} showPercentage={false} />
               </div>
             ))}
           </div>
@@ -1931,9 +1944,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-green-200 bg-green-50 p-4 dark:border-green-800 dark:bg-green-900/20">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <Shield className="h-5 w-5" />
           </div>
           <div>
             <p className="font-semibold text-green-700 dark:text-green-400">AAP Governance: Claims vs Reality</p>
@@ -1953,19 +1964,19 @@ const communicationStrategyData: CommunicationStrategy = {
             title="Mohalla Clinics"
             value="881"
             subtitle="Free primary healthcare centers"
-            color="bg-green-500"
+            color="emerald"
           />
           <MetricCard
             title="OPD Visits"
             value="5 Crore+"
             subtitle="Over 5 crore patient visits"
-            color="bg-blue-500"
+            color="blue"
           />
           <MetricCard
             title="MMSY Coverage"
             value="Rs 10 Lakh"
             subtitle="Per family insurance coverage"
-            color="bg-purple-500"
+            color="purple"
           />
         </div>
         <div className="mt-4 p-3 rounded-lg bg-green-50 dark:bg-green-900/20">
@@ -1986,19 +1997,19 @@ const communicationStrategyData: CommunicationStrategy = {
             title="NAS Ranking"
             value="#1"
             subtitle="National Achievement Survey rank"
-            color="bg-green-500"
+            color="emerald"
           />
           <MetricCard
             title="Schools of Eminence"
             value="118"
             subtitle="Upgraded secondary schools"
-            color="bg-blue-500"
+            color="blue"
           />
           <MetricCard
             title="Teachers Recruited"
             value="14,525"
             subtitle="New teacher appointments"
-            color="bg-purple-500"
+            color="purple"
           />
         </div>
         <div className="mt-4 p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20">
@@ -2012,9 +2023,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-pink-200 bg-pink-50 p-4 dark:border-pink-800 dark:bg-pink-900/20">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <Heart className="h-5 w-5" />
           </div>
           <div>
             <p className="font-semibold text-pink-700 dark:text-pink-400">Women Stipend: Rs 1,000/Month — 4 Years Delayed</p>
@@ -2046,25 +2055,25 @@ const communicationStrategyData: CommunicationStrategy = {
             title="NDPS Cases"
             value="63,053"
             subtitle="Total cases registered"
-            color="bg-red-500"
+            color="rose"
           />
           <MetricCard
             title="Arrested"
             value="85,418"
             subtitle="Individuals arrested"
-            color="bg-orange-500"
+            color="orange"
           />
           <MetricCard
             title="Heroin Seized"
             value="5,119 kg"
             subtitle="Drug seizures under AAP"
-            color="bg-purple-500"
+            color="purple"
           />
           <MetricCard
             title="Users Affected"
             value="6.6 Million"
             subtitle="Drug users in Punjab"
-            color="bg-red-500"
+            color="rose"
           />
         </div>
         <div className="mt-4 p-3 rounded-lg bg-red-50 dark:bg-red-900/20">
@@ -2096,9 +2105,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-pink-200 bg-pink-50 p-4 dark:border-pink-800 dark:bg-pink-900/20">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-            </svg>
+            <UsersIcon className="h-5 w-5" />
           </div>
           <div>
             <p className="font-semibold text-pink-700 dark:text-pink-400">Women Voter Crisis: Rs 1,000/Month — 4 Years Delayed, 1.3+ Crore Women Affected — MP2-018, MP3-004</p>
@@ -2192,7 +2199,7 @@ const communicationStrategyData: CommunicationStrategy = {
                   <span className="text-slate-500">seats</span>
                   <span className="ml-auto text-sm text-green-600">avg: {item.avg}</span>
                 </div>
-                <ProgressBar label="" value={(item.low + item.high) / 2} color="bg-purple-500" />
+                <ProgressBar label="" value={(item.low + item.high) / 2} color="purple" />
               </div>
             </div>
           ))}
@@ -2217,25 +2224,25 @@ const communicationStrategyData: CommunicationStrategy = {
             title="Hidden Observers"
             value={formalSeatProjection.observers}
             subtitle={formalSeatProjection.observerDeployment}
-            color="bg-blue-500"
+            color="blue"
           />
           <MetricCard
             title="AICC Surveys"
             value={formalSeatProjection.surveys}
             subtitle="Bhupesh Baghel + Rahul Gandhi teams"
-            color="bg-cyan-500"
+            color="cyan"
           />
           <MetricCard
             title="Confidence Interval"
             value={formalSeatProjection.confidenceInterval}
             subtitle="State-level projection"
-            color="bg-purple-500"
+            color="purple"
           />
           <MetricCard
             title="Methodology"
             value="MRP"
             subtitle="Multilevel Regression + Post-Stratifcation"
-            color="bg-indigo-500"
+            color="purple"
           />
         </div>
 
@@ -2442,9 +2449,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+            <AlertTriangle className="h-5 w-5" />
           </div>
           <div className="flex-1">
             <p className="font-semibold text-red-700 dark:text-red-400">CRITICAL: Youth Unemployment Crisis (PLFS Oct-Dec 2025)</p>
@@ -2470,9 +2475,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-900/20">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
+            <AlertTriangle className="h-5 w-5" />
           </div>
           <div>
             <p className="font-semibold text-orange-700 dark:text-orange-400">CRITICAL: Farmer Debt — Most Potent Rural Economic Issue</p>
@@ -2489,9 +2492,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-cyan-200 bg-cyan-50 p-4 dark:border-cyan-800 dark:bg-cyan-900/20">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
-            </svg>
+            <Activity className="h-5 w-5" />
           </div>
           <div>
             <p className="font-semibold text-cyan-700 dark:text-cyan-400">CRITICAL: Water &amp; Environmental Crisis — Top-10 Voter Issue</p>
@@ -2505,9 +2506,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-orange-200 bg-orange-50 p-4 dark:border-orange-800 dark:bg-orange-900/20">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
+            <AlertTriangle className="h-5 w-5" />
           </div>
           <div>
             <p className="font-semibold text-orange-700 dark:text-orange-400">AAP&apos;s Broken Promise: 25 Lakh Jobs</p>
@@ -2685,9 +2684,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-red-200 bg-red-50 p-4 dark:border-red-800 dark:bg-red-900/20">
         <div className="flex items-center gap-3">
           <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
+            <Monitor className="h-5 w-5" />
           </div>
           <div>
             <p className="font-semibold text-red-700 dark:text-red-400">CRITICAL: Congress &apos;Missing&apos; from Digital Narrative</p>
@@ -2945,8 +2942,8 @@ const communicationStrategyData: CommunicationStrategy = {
       {/* MP7-003: Buzz Tracking & Velocity Analysis */}
       <div className="rounded-xl border-2 border-teal-200 bg-teal-50 p-6 dark:border-teal-800 dark:bg-teal-900/20">
         <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500 text-lg font-bold text-white">
-            7.3
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500 text-lg font-bold text-white">
+            <BarChart3 className="h-6 w-6" />
           </div>
           <div>
             <p className="font-semibold text-teal-700 dark:text-teal-400">MP7-003: Buzz Tracking & Velocity Analysis</p>
@@ -3022,7 +3019,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-rose-200 bg-rose-50 p-6 dark:border-rose-800 dark:bg-rose-900/20">
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">
-            7.4
+            <Heart className="h-6 w-6" />
           </div>
           <div>
             <p className="font-semibold text-rose-700 dark:text-rose-400">MP7-004: Emotion Analysis & Segment-Wise Tracking</p>
@@ -3081,7 +3078,7 @@ const communicationStrategyData: CommunicationStrategy = {
       <div className="rounded-xl border-2 border-amber-200 bg-amber-50 p-6 dark:border-amber-800 dark:bg-amber-900/20">
         <div className="flex items-center gap-3 mb-4">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">
-            7.4
+            <AlertCircle className="h-6 w-6" />
           </div>
           <div>
             <p className="font-semibold text-amber-700 dark:text-amber-400">MP7-004: Rumor Management Framework</p>
@@ -3149,7 +3146,9 @@ const communicationStrategyData: CommunicationStrategy = {
       {/* CYCLE 1 ENHANCEMENT: Formal Seat Projections */}
       <div className="rounded-xl border-2 border-indigo-500 bg-indigo-50 p-6 dark:border-indigo-700 dark:bg-indigo-900/20">
         <div className="flex items-center gap-3 mb-4">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-lg font-bold text-white">S</span>
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500 text-lg font-bold text-white">
+              <BarChart3 className="h-6 w-6" />
+            </span>
           <div>
             <h3 className="text-lg font-semibold text-indigo-700 dark:text-indigo-400">Formal Seat Projections — Cycle 1 (MP10)</h3>
             <p className="text-sm text-indigo-600 dark:text-indigo-400">Congress Internal MRP Model | 45 Observers | ±15-25 seats</p>
@@ -3157,10 +3156,10 @@ const communicationStrategyData: CommunicationStrategy = {
         </div>
 
         <div className="grid gap-4 md:grid-cols-4">
-          <MetricCard title="Congress Range" value="45-58" subtitle="Low to High" color="bg-indigo-500" />
-          <MetricCard title="AAP Range" value="28-37" subtitle="Low to High" color="bg-orange-500" />
-          <MetricCard title="SAD Range" value="14-17" subtitle="Low to High" color="bg-yellow-500" />
-          <MetricCard title="BJP Range" value="9-12" subtitle="Low to High" color="bg-green-500" />
+          <MetricCard title="Congress Range" value="45-58" subtitle="Low to High" color="purple" />
+          <MetricCard title="AAP Range" value="28-37" subtitle="Low to High" color="orange" />
+          <MetricCard title="SAD Range" value="14-17" subtitle="Low to High" color="amber" />
+          <MetricCard title="BJP Range" value="9-12" subtitle="Low to High" color="emerald" />
         </div>
 
         <div className="mt-4 grid gap-4 md:grid-cols-2">
@@ -3196,7 +3195,9 @@ const communicationStrategyData: CommunicationStrategy = {
       {/* CYCLE 1: Governance Satisfaction Barometer (MP1/governance/satisfaction-barometer.md) */}
       <div className="rounded-xl border-2 border-rose-500 bg-rose-50 p-6 dark:border-rose-700 dark:bg-rose-900/20">
         <div className="flex items-center gap-3 mb-4">
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">G</span>
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">
+              <Shield className="h-6 w-6" />
+            </span>
           <div>
             <h3 className="text-lg font-semibold text-rose-700 dark:text-rose-400">Governance Satisfaction Barometer — AAP Government (2022-2026)</h3>
             <p className="text-sm text-rose-600 dark:text-rose-400">MP1-Foundational Scan | Research Date: 19 May 2026 | Classification: Strategic Intelligence</p>

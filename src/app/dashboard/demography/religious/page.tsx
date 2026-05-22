@@ -1,6 +1,9 @@
 "use client";
 
 import { Badge } from "@/components/ui/MetricCard";
+import { Card } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import { Users, Cross, Star, Building2, Heart, AlertTriangle, TrendingUp } from "lucide-react";
 import {
   sikhPopulationData,
   observanceTiers,
@@ -34,11 +37,16 @@ export default function DemographyReligiousPage() {
   return (
     <div className="space-y-8">
       {/* Section Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500 text-lg font-bold text-white">
-              R
+              <Star className="h-5 w-5" />
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Religious Demographics
@@ -49,13 +57,13 @@ export default function DemographyReligiousPage() {
           </p>
         </div>
         <Badge variant="info">Demographics</Badge>
-      </div>
+      </motion.div>
 
       {/* Sikh Demographics */}
-      <div className="rounded-xl border-2 border-blue-500 bg-blue-50 p-6 dark:border-blue-700 dark:bg-blue-900/20">
+      <Card padding="lg" className="border-2 border-blue-500 bg-blue-50 dark:bg-blue-900/20">
         <div className="mb-4 flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500 text-lg font-bold text-white">
-            S
+            <Users className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-400">Sikh Demographics</h3>
@@ -100,13 +108,13 @@ export default function DemographyReligiousPage() {
             </div>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Hindu Demographics */}
-      <div className="rounded-xl border-2 border-orange-500 bg-orange-50 p-6 dark:border-orange-700 dark:bg-orange-900/20">
+      <Card padding="lg" className="border-2 border-orange-500 bg-orange-50 dark:bg-orange-900/20">
         <div className="mb-4 flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500 text-lg font-bold text-white">
-            H
+            <Cross className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-orange-700 dark:text-orange-400">Hindu Demographics</h3>
@@ -191,13 +199,13 @@ export default function DemographyReligiousPage() {
             </div>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Dera/Sect Influence */}
-      <div className="rounded-xl border-2 border-green-500 bg-green-50 p-6 dark:border-green-700 dark:bg-green-900/20">
+      <Card padding="lg" className="border-2 border-green-500 bg-green-50 dark:bg-green-900/20">
         <div className="mb-4 flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-green-500 text-lg font-bold text-white">
-            D
+            <Heart className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-green-700 dark:text-green-400">Dera/Sect Influence</h3>
@@ -207,7 +215,7 @@ export default function DemographyReligiousPage() {
 
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
           {/* Damdami Taksal */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-slate-800 dark:text-slate-200">Damdami Taksal</span>
               <Badge variant="warning">High Political</Badge>
@@ -216,10 +224,10 @@ export default function DemographyReligiousPage() {
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">Head: {damdamiTaksalData.currentHead}</p>
             <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Influence: {damdamiTaksalData.influence.regions.join(", ")}</p>
             <p className="mt-2 text-xs text-red-600 dark:text-red-400">Risk: Aligned with BJP; could mobilise Panthic voters against Congress</p>
-          </div>
+          </Card>
 
           {/* Radha Soami */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-slate-800 dark:text-slate-200">Radha Soami (RSSB)</span>
               <Badge variant="success">Vote Bank</Badge>
@@ -227,10 +235,10 @@ export default function DemographyReligiousPage() {
             <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">HQ: Beas, Amritsar district</p>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">Disciplined bloc voting per dera guidance</p>
             <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Influence: {radhaSoamiData.constituencyInfluence.slice(0, 3).join(", ")}</p>
-          </div>
+          </Card>
 
           {/* Namdhari */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-slate-800 dark:text-slate-200">Namdhari</span>
               <Badge variant="info">Disciplined</Badge>
@@ -238,20 +246,20 @@ export default function DemographyReligiousPage() {
             <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">HQ: Bhaini Sahib, Ludhiana</p>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">Population: ~200,000-300,000</p>
             <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Bloc voting per dera guidance</p>
-          </div>
+          </Card>
 
           {/* Nirankari */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-slate-800 dark:text-slate-200">Nirankari</span>
               <Badge variant="danger">Sensitive</Badge>
             </div>
             <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">HQ: Delhi (Punjab presence in Doaba)</p>
             <p className="mt-2 text-xs text-red-600 dark:text-red-400">Risk: Perceived closeness triggers backlash from mainstream Sikhs</p>
-          </div>
+          </Card>
 
           {/* Nihang */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-slate-800 dark:text-slate-200">Nihang Sikhs</span>
               <Badge variant="info">Respected</Badge>
@@ -259,25 +267,25 @@ export default function DemographyReligiousPage() {
             <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Majha region, around Anandpur Sahib</p>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">Factions: Budha Dal, Taruna Dal</p>
             <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">Generally apolitical but assertive on maryada issues</p>
-          </div>
+          </Card>
 
           {/* AKJ */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <div className="flex items-center justify-between">
               <span className="font-semibold text-slate-800 dark:text-slate-200">Akhand Kirtani Jatha</span>
               <Badge variant="info">Influential</Badge>
             </div>
             <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Strict Amritdhari group; scattered across Punjab</p>
             <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">Influence: Malwa region ({akjData.influence.regions.join(", ")})</p>
-          </div>
+          </Card>
         </div>
-      </div>
+      </Card>
 
       {/* Religious-Political Alignment */}
-      <div className="rounded-xl border-2 border-purple-500 bg-purple-50 p-6 dark:border-purple-700 dark:bg-purple-900/20">
+      <Card padding="lg" className="border-2 border-purple-500 bg-purple-50 dark:bg-purple-900/20">
         <div className="mb-4 flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500 text-lg font-bold text-white">
-            P
+            <Building2 className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-purple-700 dark:text-purple-400">Religious-Political Alignment</h3>
@@ -287,7 +295,7 @@ export default function DemographyReligiousPage() {
 
         <div className="space-y-4">
           {/* SGPC */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <div className="flex items-center justify-between">
               <h4 className="font-semibold text-slate-800 dark:text-slate-200">SGPC (Shiromani Gurdwara Parbandhak Committee)</h4>
               <Badge variant="warning">Overdue Elections</Badge>
@@ -310,10 +318,10 @@ export default function DemographyReligiousPage() {
                 <p className="text-sm font-medium text-slate-700 dark:text-slate-300">SAD (Badal) via expired mandate</p>
               </div>
             </div>
-          </div>
+          </Card>
 
           {/* Akal Takht */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <div className="flex items-center justify-between">
               <h4 className="font-semibold text-slate-800 dark:text-slate-200">Akal Takht</h4>
               <Badge variant="success">Supreme Authority</Badge>
@@ -324,10 +332,10 @@ export default function DemographyReligiousPage() {
             <div className="mt-3 rounded bg-red-50 p-2 dark:bg-red-900/20">
               <p className="text-xs font-medium text-red-700 dark:text-red-400">Dec 2024 Action: Tankhah (religious punishment) on Sukhbir Singh Badal</p>
             </div>
-          </div>
+          </Card>
 
           {/* RSS Victory Plan */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <h4 className="font-semibold text-slate-800 dark:text-slate-200">RSS Punjab Victory Plan 2026</h4>
             <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">Five-point strategy targeting Dalit-Ram connect</p>
             <div className="mt-3 space-y-2">
@@ -343,10 +351,10 @@ export default function DemographyReligiousPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Card>
 
           {/* Hindu Mobilization Issues */}
-          <div className="rounded-lg border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-800">
+          <Card padding="md">
             <h4 className="font-semibold text-slate-800 dark:text-slate-300">Hindu Mobilization Issues</h4>
             <div className="mt-3 space-y-2">
               {hinduMobilizationIssues.map((issue) => (
@@ -358,12 +366,12 @@ export default function DemographyReligiousPage() {
                 </div>
               ))}
             </div>
-          </div>
+          </Card>
         </div>
-      </div>
+      </Card>
 
       {/* Strategic Implications */}
-      <div className="rounded-xl border-2 border-amber-500 bg-amber-50 p-6 dark:border-amber-700 dark:bg-amber-900/20">
+      <Card padding="lg" className="border-2 border-amber-500">
         <div className="mb-4 flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">
             !
@@ -432,10 +440,10 @@ export default function DemographyReligiousPage() {
             ))}
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Shared Festivals */}
-      <div className="rounded-xl border-2 border-slate-500 bg-slate-50 p-6 dark:border-slate-700 dark:bg-slate-900/20">
+      <Card padding="lg" className="border-2 border-slate-500">
         <div className="mb-4 flex items-center gap-3">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-500 text-lg font-bold text-white">
             F
@@ -454,7 +462,7 @@ export default function DemographyReligiousPage() {
             </div>
           ))}
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

@@ -1,12 +1,15 @@
 "use client";
 
 import { Badge, ProgressBar, DataTable } from "@/components/ui/MetricCard";
+import { Card } from "@/components/ui/Card";
+import { motion } from "framer-motion";
 import {
   urbanizationData,
   municipalCorpPopulationData,
   districtUrbanizationChartData,
   slumConcentrationData,
 } from "@/lib/urbanization-data";
+import { Building2, Users, TrendingUp, AlertTriangle, Home } from "lucide-react";
 
 /**
  * Demography - Urbanization Section
@@ -22,11 +25,16 @@ export default function DemographyUrbanizationPage() {
   return (
     <div className="space-y-8">
       {/* Section Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-lg font-bold text-white">
-              U
+              <Building2 className="h-5 w-5" />
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Urbanization
@@ -37,13 +45,13 @@ export default function DemographyUrbanizationPage() {
           </p>
         </div>
         <Badge variant="info">Demographics</Badge>
-      </div>
+      </motion.div>
 
       {/* Urban-Rural Distribution Overview */}
-      <div className="rounded-xl border-2 border-indigo-500 bg-indigo-50 p-6 dark:border-indigo-700 dark:bg-indigo-900/20">
+      <Card padding="lg" className="border-2 border-indigo-500">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-lg font-bold text-white">
-            U
+            <Building2 className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-indigo-700 dark:text-indigo-400">
@@ -63,7 +71,7 @@ export default function DemographyUrbanizationPage() {
               1.04 Cr — concentrated in 4 major cities
             </div>
             <div className="mt-2">
-              <ProgressBar label="" value={37.5} color="bg-teal-500" showPercentage={false} />
+              <ProgressBar label="" value={37.5} color="cyan" showPercentage={false} />
             </div>
           </div>
           <div className="rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
@@ -73,7 +81,7 @@ export default function DemographyUrbanizationPage() {
               1.73 Cr — 12,278 villages across Punjab
             </div>
             <div className="mt-2">
-              <ProgressBar label="" value={62.5} color="bg-blue-500" showPercentage={false} />
+              <ProgressBar label="" value={62.5} color="blue" showPercentage={false} />
             </div>
           </div>
         </div>
@@ -104,10 +112,10 @@ export default function DemographyUrbanizationPage() {
             campaign dynamics. Rural voter ID coverage (89.58%) is higher than urban (73%).
           </p>
         </div>
-      </div>
+      </Card>
 
       {/* Major Cities */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Major Urban Centres
         </h3>
@@ -156,10 +164,10 @@ export default function DemographyUrbanizationPage() {
             <div className="text-xs text-green-600 dark:text-green-300">Fastest growing UA 2001-2011</div>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* District Urbanization Levels */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           District Urbanization Levels
         </h3>
@@ -178,7 +186,7 @@ export default function DemographyUrbanizationPage() {
                 label=""
                 value={d.percent}
                 maxValue={70}
-                color={d.percent >= 50 ? "bg-teal-500" : d.percent >= 30 ? "bg-blue-500" : "bg-orange-500"}
+                color={d.percent >= 50 ? "cyan" : d.percent >= 30 ? "blue" : "orange"}
                 showPercentage={false}
               />
             </div>
@@ -199,10 +207,10 @@ export default function DemographyUrbanizationPage() {
             <div className="text-xs text-orange-600 dark:text-orange-300 mt-1">Mansa, Muktsar, Ferozepur, Tarn Taran</div>
           </div>
         </div>
-      </div>
+      </Card>
 
       {/* Urban Voter Demographics */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Urban Voter Demographics
         </h3>
@@ -230,10 +238,10 @@ export default function DemographyUrbanizationPage() {
             <span className="font-semibold text-purple-600 dark:text-purple-400 ml-2">NRI Influence:</span> High in Mohali, Jalandhar, Ludhiana, Phagwara.
           </p>
         </div>
-      </div>
+      </Card>
 
       {/* Slum Population */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Slum Population
         </h3>
@@ -278,10 +286,10 @@ export default function DemographyUrbanizationPage() {
             Congress must offer credible housing and sanitation alternatives to break AAP's urban poor base.
           </p>
         </div>
-      </div>
+      </Card>
 
       {/* Urban-Rural Voting Patterns */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Urban-Rural Voting Patterns
         </h3>
@@ -301,10 +309,10 @@ export default function DemographyUrbanizationPage() {
             ]}
           />
         </div>
-      </div>
+      </Card>
 
       {/* Seat Classification */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Assembly Seat Classification by Urbanization
         </h3>
@@ -345,10 +353,10 @@ export default function DemographyUrbanizationPage() {
             Congress must combine rural agrarian appeal with urban development promises in these belts.
           </p>
         </div>
-      </div>
+      </Card>
 
       {/* Strategic Implications */}
-      <div className="rounded-xl border-2 border-indigo-500 bg-indigo-50 p-6 dark:border-indigo-700 dark:bg-indigo-900/20">
+      <Card padding="lg" className="border-2 border-indigo-500">
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-lg font-bold text-white">
             S
@@ -382,10 +390,10 @@ export default function DemographyUrbanizationPage() {
             </div>
           ))}
         </div>
-      </div>
+      </Card>
 
       {/* Data Quality Notes */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
+      <Card padding="lg">
         <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
           Data Quality & Gaps
         </h3>
@@ -412,7 +420,7 @@ export default function DemographyUrbanizationPage() {
             Most data is from 2011 baseline with projections. Slum population and peri-urban boundaries need verification.
           </p>
         </div>
-      </div>
+      </Card>
     </div>
   );
 }

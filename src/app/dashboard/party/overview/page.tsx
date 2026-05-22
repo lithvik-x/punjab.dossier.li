@@ -1,6 +1,7 @@
 "use client";
 
 import { MetricCard, ProgressBar, Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 
 export default function PartyOverviewPage() {
   return (
@@ -29,7 +30,7 @@ export default function PartyOverviewPage() {
           subtitle="Booth-level appointees"
           change={100}
           trend="up"
-          color="bg-cyan-500"
+          color="cyan"
         />
         <MetricCard
           title="Booth Coverage"
@@ -37,13 +38,13 @@ export default function PartyOverviewPage() {
           subtitle="Target: 100% by Aug"
           change={12}
           trend="up"
-          color="bg-green-500"
+          color="emerald"
         />
         <MetricCard
           title="Coordination Heads"
           value="117"
           subtitle="One per AC (appointed June 2025)"
-          color="bg-blue-500"
+          color="blue"
         />
         <MetricCard
           title="Digital Deficit"
@@ -51,7 +52,7 @@ export default function PartyOverviewPage() {
           subtitle="Congress lags AAP on social"
           change={-60}
           trend="down"
-          color="bg-red-500"
+          color="rose"
         />
       </div>
 
@@ -60,7 +61,7 @@ export default function PartyOverviewPage() {
           title="DCC Presidents"
           value="29"
           subtitle="29 of 29 districts (Nov 2025)"
-          color="bg-cyan-500"
+          color="cyan"
         />
         <MetricCard
           title="Sangathan Abhiyan"
@@ -68,26 +69,26 @@ export default function PartyOverviewPage() {
           subtitle="Lakh workers under campaign"
           change={100}
           trend="up"
-          color="bg-teal-500"
+          color="emerald"
         />
         <MetricCard
           title="Party Fiscal Debt"
           value="₹4L Cr"
           subtitle="Total Congress liabilities"
           trend="down"
-          color="bg-red-500"
+          color="rose"
         />
         <MetricCard
           title="Youth Unemp."
           value="14.9%"
           subtitle="Punjab unemployment rate"
           trend="down"
-          color="bg-orange-500"
+          color="orange"
         />
       </div>
 
       {/* Political Anatomy - 2022 Election Context */}
-      <div className="rounded-xl border border-emerald-200 bg-emerald-50/50 p-6 shadow-sm dark:border-emerald-800 dark:bg-emerald-900/10">
+      <Card className="border-emerald-200 bg-emerald-50/50 dark:border-emerald-800 dark:bg-emerald-900/10">
         <div className="mb-4 flex items-center gap-2">
           <h3 className="text-lg font-semibold text-emerald-800 dark:text-emerald-300">
             Political Anatomy — 2022 Assembly Election Baseline
@@ -125,17 +126,17 @@ export default function PartyOverviewPage() {
                 <span className="text-sm text-slate-600 dark:text-slate-400">Malwa (59%)</span>
                 <span className="font-medium text-orange-600 dark:text-orange-400">69 seats</span>
               </div>
-              <ProgressBar label="" value={59} color="bg-orange-500" showPercentage={false} />
+              <ProgressBar label="" value={59} color="orange" showPercentage={false} />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-600 dark:text-slate-400">Majha (21%)</span>
                 <span className="font-medium text-blue-600 dark:text-blue-400">25 seats</span>
               </div>
-              <ProgressBar label="" value={21} color="bg-blue-500" showPercentage={false} />
+              <ProgressBar label="" value={21} color="blue" showPercentage={false} />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-600 dark:text-slate-400">Doaba (20%)</span>
-                <span className="font-medium text-green-600 dark:text-green-400">23 seats</span>
+                <span className="font-medium text-emerald-600 dark:text-emerald-400">23 seats</span>
               </div>
-              <ProgressBar label="" value={20} color="bg-green-500" showPercentage={false} />
+              <ProgressBar label="" value={20} color="emerald" showPercentage={false} />
             </div>
           </div>
           <div>
@@ -158,12 +159,12 @@ export default function PartyOverviewPage() {
             </div>
           </div>
         </div>
-      </div>
+        </CardContent>
+      </Card>
 
-      <div className="rounded-xl border border-red-200 bg-red-50 p-6 dark:border-red-800 dark:bg-red-900/20">
-        <h3 className="text-lg font-semibold text-red-700 dark:text-red-400">
-          Raghav Chadha Defection Impact
-        </h3>
+      <Card className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-900/20">
+        <CardHeader>
+          <CardTitle>Raghav Chadha Defection Impact</CardTitle>
         <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
           Former Punjab Congress digital lead defected to BJP (April 2026)
         </p>
@@ -183,13 +184,14 @@ export default function PartyOverviewPage() {
         </div>
       </div>
 
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          2024 Lok Sabha Results
-        </h3>
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+      <Card className="border-slate-200 dark:border-slate-700">
+        <CardHeader>
+          <CardTitle>2024 Lok Sabha Results</CardTitle>
+          <p className="text-sm text-slate-500 dark:text-slate-400">
           Congress performance vs 2019
-        </p>
+          </p>
+        </CardHeader>
+        <CardContent>
         <div className="mt-6 grid gap-4 md:grid-cols-4">
           <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
             <p className="text-3xl font-bold text-green-600">7/13</p>
@@ -235,12 +237,14 @@ export default function PartyOverviewPage() {
             </div>
           </div>
         </div>
-      </div>
+        </CardContent>
+      </Card>
 
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Booth Agent Deployment
-        </h3>
+      <Card className="border-slate-200 dark:border-slate-700">
+        <CardHeader>
+          <CardTitle>Booth Agent Deployment</CardTitle>
+        </CardHeader>
+        <CardContent>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="rounded-lg bg-green-50 p-4 dark:bg-green-900/20">
             <p className="text-3xl font-bold text-green-600">18,582</p>
@@ -258,7 +262,8 @@ export default function PartyOverviewPage() {
             <p className="mt-1 text-xs text-red-600">Critical priority</p>
           </div>
         </div>
-      </div>
+        </CardContent>
+      </Card>
     </div>
   );
 }

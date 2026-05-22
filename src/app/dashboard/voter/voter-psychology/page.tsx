@@ -1,6 +1,9 @@
 "use client";
 
 import { ProgressBar, DataTable, Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import { Brain, TrendingUp, Users, MessageSquare, AlertTriangle, Target, Phone, Home, Church } from "lucide-react";
 
 const voterPsychologyHierarchy = [
   { level: "Physiological", issues: ["Unemployment (intensity 5)", "Debt (intensity 5)", "Agricultural distress (intensity 5)"], color: "bg-red-500" },
@@ -67,135 +70,183 @@ export default function VoterPsychologyPage() {
       </div>
 
       {/* Voter Psychology Maslow Hierarchy */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Voter Psychology - Maslow Hierarchy Applied to Political Behavior
-        </h3>
-        <p className="text-sm text-slate-500">From b13-voter-psychology-influence-methodology</p>
-        <div className="mt-6 grid gap-4 md:grid-cols-5">
-          {voterPsychologyHierarchy.map((level) => (
-            <div key={level.level} className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
-              <div className={`inline-block rounded px-2 py-1 text-xs font-bold text-white ${level.color}`}>
-                {level.level}
-              </div>
-              <ul className="mt-2 space-y-1">
-                {level.issues.map((issue) => (
-                  <li key={issue} className="text-xs text-slate-600 dark:text-slate-400">- {issue}</li>
-                ))}
-              </ul>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Voter Psychology - Maslow Hierarchy Applied to Political Behavior</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 mb-6">From b13-voter-psychology-influence-methodology</p>
+            <div className="grid gap-4 md:grid-cols-5">
+              {voterPsychologyHierarchy.map((level) => (
+                <div key={level.level} className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
+                  <div className={`inline-block rounded px-2 py-1 text-xs font-bold text-white ${level.color}`}>
+                    {level.level}
+                  </div>
+                  <ul className="mt-2 space-y-1">
+                    {level.issues.map((issue) => (
+                      <li key={issue} className="text-xs text-slate-600 dark:text-slate-400">- {issue}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Pain Points Intensity */}
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Pain Points - Intensity Matrix
-          </h3>
-          <p className="text-sm text-slate-500">From b13-voter-psychology-influence-methodology</p>
-          <div className="mt-6 space-y-4">
-            {painPointsIntensity.map((point) => (
-              <div key={point.issue}>
-                <div className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{point.issue}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-red-500">Intensity {point.intensity}/5</span>
-                    <Badge variant="danger">Very High</Badge>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Pain Points - Intensity Matrix</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-500 mb-6">From b13-voter-psychology-influence-methodology</p>
+              <div className="space-y-4">
+                {painPointsIntensity.map((point) => (
+                  <div key={point.issue}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{point.issue}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-bold text-red-500">Intensity {point.intensity}/5</span>
+                        <Badge variant="danger">Very High</Badge>
+                      </div>
+                    </div>
+                    <ProgressBar label="" value={point.intensity * 20} color="rose" showPercentage={false} />
+                    <p className="mt-1 text-xs text-slate-400">{point.politicalSalience}</p>
                   </div>
-                </div>
-                <ProgressBar label="" value={point.intensity * 20} color="bg-red-500" showPercentage={false} />
-                <p className="mt-1 text-xs text-slate-400">{point.politicalSalience}</p>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+            </CardContent>
+          </Card>
+        </motion.div>
 
         {/* Influence Channel Matrix */}
-        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-          <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-            Influence Channel Effectiveness Matrix
-          </h3>
-          <p className="text-sm text-slate-500">From b13-voter-psychology-influence-methodology</p>
-          <div className="mt-6 overflow-x-auto">
-            <DataTable
-              headers={["Channel", "Reach", "Efficacy", "Punjab Relevance"]}
-              rows={influenceChannelMatrix.map((c) => [
-                c.channel, c.reach, c.efficacy, c.PunjabRelevance
-              ])}
-            />
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+        >
+          <Card>
+            <CardHeader>
+              <CardTitle>Influence Channel Effectiveness Matrix</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-slate-500 mb-6">From b13-voter-psychology-influence-methodology</p>
+              <div className="overflow-x-auto">
+                <DataTable
+                  headers={["Channel", "Reach", "Efficacy", "Punjab Relevance"]}
+                  rows={influenceChannelMatrix.map((c) => [
+                    c.channel, c.reach, c.efficacy, c.PunjabRelevance
+                  ])}
+                />
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
 
       {/* Messenger Credibility */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Messenger Credibility Framework
-        </h3>
-        <p className="text-sm text-slate-500">From b13-voter-psychology-influence-methodology</p>
-        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {messengerCredibility.map((m) => (
-            <div key={m.type} className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
-              <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{m.type}</span>
-              <div className="mt-2 flex items-center gap-2">
-                <Badge variant="success">Effectiveness: {m.effectiveness}</Badge>
-              </div>
-              <p className="mt-1 text-xs text-slate-400">{m.note}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.3 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Messenger Credibility Framework</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 mb-6">From b13-voter-psychology-influence-methodology</p>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {messengerCredibility.map((m) => (
+                <div key={m.type} className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
+                  <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{m.type}</span>
+                  <div className="mt-2 flex items-center gap-2">
+                    <Badge variant="success">Effectiveness: {m.effectiveness}</Badge>
+                  </div>
+                  <p className="mt-1 text-xs text-slate-400">{m.note}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Voting Behavior Theories */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Voting Behavior Theories - Punjab Application
-        </h3>
-        <p className="text-sm text-slate-500">From b32-voting-behavior-theories-models</p>
-        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          {votingBehaviorTheory.map((theory) => (
-            <div key={theory.theory} className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
-              <span className="inline-block rounded bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
-                {theory.theory}
-              </span>
-              <p className="mt-2 text-xs text-slate-500">{theory.core}</p>
-              <p className="mt-2 text-xs italic text-slate-400">Application: {theory.application}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.4 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Voting Behavior Theories - Punjab Application</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 mb-6">From b32-voting-behavior-theories-models</p>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {votingBehaviorTheory.map((theory) => (
+                <div key={theory.theory} className="rounded-lg border border-slate-100 p-4 dark:border-slate-700">
+                  <span className="inline-block rounded bg-blue-100 px-2 py-1 text-xs font-bold text-blue-700 dark:bg-blue-900/30 dark:text-blue-400">
+                    {theory.theory}
+                  </span>
+                  <p className="mt-2 text-xs text-slate-500">{theory.core}</p>
+                  <p className="mt-2 text-xs italic text-slate-400">Application: {theory.application}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Voter Turnout Barriers */}
-      <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
-        <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
-          Voter Turnout Barriers
-        </h3>
-        <p className="text-sm text-slate-500">From b14-microtargeting-turnout-contact-framework</p>
-        <div className="mt-6 space-y-3">
-          {[
-            { barrier: "Apathy", severity: "High", description: "All politicians same, learned helplessness" },
-            { barrier: "Accessibility", severity: "Moderate", description: "Transport, elderly, disabled access to booths" },
-            { barrier: "Procedural", severity: "Moderate", description: "Name not on list, wrong booth assignment" },
-            { barrier: "Economic", severity: "High", description: "Paid voting, opportunity cost of a day's wages" },
-            { barrier: "Social", severity: "Moderate", description: "Family opposition, caste panchayat directives" },
-            { barrier: "Weather", severity: "Low", description: "Rain, summer heat, festival conflicts" },
-            { barrier: "Confusion", severity: "Low", description: "Multiple elections, date confusion" },
-            { barrier: "Intimidation", severity: "Moderate", description: "Booth capturing threats, cash-for-vote" },
-          ].map((barrier) => (
-            <div key={barrier.barrier} className="flex items-center justify-between">
-              <div>
-                <span className="text-sm font-medium text-slate-600 dark:text-slate-400">{barrier.barrier}</span>
-                <p className="text-xs text-slate-400">{barrier.description}</p>
-              </div>
-              <Badge variant={barrier.severity === "High" ? "danger" : barrier.severity === "Moderate" ? "warning" : "info"}>
-                {barrier.severity}
-              </Badge>
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.5 }}
+      >
+        <Card>
+          <CardHeader>
+            <CardTitle>Voter Turnout Barriers</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm text-slate-500 mb-6">From b14-microtargeting-turnout-contact-framework</p>
+            <div className="space-y-3">
+              {[
+                { barrier: "Apathy", severity: "High", description: "All politicians same, learned helplessness" },
+                { barrier: "Accessibility", severity: "Moderate", description: "Transport, elderly, disabled access to booths" },
+                { barrier: "Procedural", severity: "Moderate", description: "Name not on list, wrong booth assignment" },
+                { barrier: "Economic", severity: "High", description: "Paid voting, opportunity cost of a day's wages" },
+                { barrier: "Social", severity: "Moderate", description: "Family opposition, caste panchayat directives" },
+                { barrier: "Weather", severity: "Low", description: "Rain, summer heat, festival conflicts" },
+                { barrier: "Confusion", severity: "Low", description: "Multiple elections, date confusion" },
+                { barrier: "Intimidation", severity: "Moderate", description: "Booth capturing threats, cash-for-vote" },
+              ].map((barrier) => (
+                <div key={barrier.barrier} className="flex items-center justify-between">
+                  <div>
+                    <span className="text-sm font-medium text-slate-600 dark:text-slate-400">{barrier.barrier}</span>
+                    <p className="text-xs text-slate-400">{barrier.description}</p>
+                  </div>
+                  <Badge variant={barrier.severity === "High" ? "danger" : barrier.severity === "Moderate" ? "warning" : "info"}>
+                    {barrier.severity}
+                  </Badge>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </div>
+          </CardContent>
+        </Card>
+      </motion.div>
     </div>
   );
 }

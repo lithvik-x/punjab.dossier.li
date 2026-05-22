@@ -1,6 +1,18 @@
 "use client";
 
 import { MetricCard, DataTable, Badge, ProgressBar } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import {
+  TrendingUp,
+  Users,
+  BarChart2,
+  AlertTriangle,
+  CheckCircle,
+  Target,
+  Calendar,
+  Vote,
+} from "lucide-react";
 
 // MP10 Predictive Analytics Data
 const seatProjectionModel = {
@@ -206,423 +218,473 @@ export default function PredictiveAnalyticsPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-lg font-bold text-white">
-              9
+              <BarChart2 className="h-5 w-5" />
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Predictive Analytics
             </h1>
           </div>
           <p className="mt-2 text-slate-500 dark:text-slate-400">
-            Seat Projections • Swing Models • CM Face Analysis • Risk Assessment
+            Seat Projections, Swing Models, CM Face Analysis, Risk Assessment
           </p>
         </div>
         <Badge variant="success">● Active Models</Badge>
-      </div>
+      </motion.div>
 
       {/* MP10 Predictive Analytics Section */}
-      <div className="rounded-xl border-2 border-emerald-200 bg-emerald-50 p-4 dark:border-emerald-800 dark:bg-emerald-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-          </div>
-          <div>
-            <p className="font-semibold text-emerald-700 dark:text-emerald-400">MP10 Predictive Analytics — Punjab 2027</p>
-            <p className="text-sm text-emerald-600 dark:text-emerald-300">Advanced scenario modeling, CM face impact, seat projection methodology</p>
-          </div>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Seat Projection Model (MP10-001)</h4>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
-                <p className="text-xs text-slate-500">Field Observers</p>
-                <p className="text-xl font-bold text-emerald-600">{seatProjectionModel.observers}</p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.1, duration: 0.3 }}
+      >
+        <Card>
+          <CardContent>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-white">
+                <TrendingUp className="h-5 w-5" />
               </div>
-              <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
-                <p className="text-xs text-slate-500">Surveys Conducted</p>
-                <p className="text-xl font-bold text-emerald-600">{seatProjectionModel.surveys}</p>
-              </div>
-              <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
-                <p className="text-xs text-slate-500">Confidence Interval</p>
-                <p className="text-xl font-bold text-emerald-600">{seatProjectionModel.confidenceInterval}</p>
-              </div>
-              <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
-                <p className="text-xs text-slate-500">AICC Oversight</p>
-                <p className="text-xl font-bold text-emerald-600">{seatProjectionModel.aiccOversight ? "Yes" : "No"}</p>
+              <div>
+                <p className="font-semibold text-emerald-700 dark:text-emerald-400">MP10 Predictive Analytics — Punjab 2027</p>
+                <p className="text-sm text-emerald-600 dark:text-emerald-300">Advanced scenario modeling, CM face impact, seat projection methodology</p>
               </div>
             </div>
-            <p className="mt-2 text-xs text-slate-500">Methodology: MRP (Multiple Recursive Prediction) with observer network validation</p>
-          </div>
 
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Vote Share Forecasts (MP10-002)</h4>
-            <div className="space-y-2">
-              {voteShareForecasts.map(v => (
-                <div key={v.party} className="flex items-center justify-between rounded-lg bg-white p-2 dark:bg-slate-800">
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{v.party}</span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-emerald-600">{v.low}-{v.high}%</span>
-                    <ProgressBar label="" value={v.avg} color="bg-emerald-500" showPercentage={false} />
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Seat Projection Model (MP10-001)</h4>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
+                    <p className="text-xs text-slate-500">Field Observers</p>
+                    <p className="text-xl font-bold text-emerald-600">{seatProjectionModel.observers}</p>
+                  </div>
+                  <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
+                    <p className="text-xs text-slate-500">Surveys Conducted</p>
+                    <p className="text-xl font-bold text-emerald-600">{seatProjectionModel.surveys}</p>
+                  </div>
+                  <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
+                    <p className="text-xs text-slate-500">Confidence Interval</p>
+                    <p className="text-xl font-bold text-emerald-600">{seatProjectionModel.confidenceInterval}</p>
+                  </div>
+                  <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
+                    <p className="text-xs text-slate-500">AICC Oversight</p>
+                    <p className="text-xl font-bold text-emerald-600">{seatProjectionModel.aiccOversight ? "Yes" : "No"}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
+                <p className="mt-2 text-xs text-slate-500">Methodology: MRP (Multiple Recursive Prediction) with observer network validation</p>
+              </div>
 
-        <div className="grid gap-6 lg:grid-cols-2 mt-4">
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Constituency Margin Thresholds (MP10-003)</h4>
-            <DataTable
-              headers={["Category", "Margin", "Description"]}
-              rows={constituencyMargins.map(c => [c.category, c.threshold, c.description])}
-            />
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Swing Voter Analysis (MP10-004)</h4>
-            <div className="space-y-2">
-              {swingVoterData.map(s => (
-                <div key={s.party || s.description} className="flex items-center justify-between rounded-lg bg-white p-2 dark:bg-slate-800">
-                  <span className="text-sm text-slate-600 dark:text-slate-400">{s.description || s.party}</span>
-                  <span className="text-sm font-bold text-emerald-600">{s.swing2017to2022 || s.value}</span>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Vote Share Forecasts (MP10-002)</h4>
+                <div className="space-y-2">
+                  {voteShareForecasts.map(v => (
+                    <div key={v.party} className="flex items-center justify-between rounded-lg bg-white p-2 dark:bg-slate-800">
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{v.party}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-bold text-emerald-600">{v.low}-{v.high}%</span>
+                        <ProgressBar label="" value={v.avg} color="emerald" showPercentage={false} />
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-2 mt-4">
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Candidate Viability Scoring (MP10-005)</h4>
-            <div className="grid grid-cols-2 gap-2">
-              {candidateViability.map(c => (
-                <div key={c.metric} className="rounded-lg bg-white p-2 dark:bg-slate-800">
-                  <p className="text-xs text-slate-500">{c.metric}</p>
-                  <p className="text-lg font-bold text-emerald-600">{c.value}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Regional Caste Blocs (MP10-006)</h4>
-            <DataTable
-              headers={["Region", "Seats", "Dera Influence"]}
-              rows={regionalCasteBlocs.map(r => [r.region, r.seats, r.deraInfluence])}
-            />
-          </div>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-2 mt-4">
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Turnout Modeling (MP10-007)</h4>
-            <div className="space-y-2">
-              {turnoutModeling.map(t => (
-                <div key={t.election} className="flex items-center justify-between rounded-lg bg-white p-2 dark:bg-slate-800">
-                  <span className="text-sm text-slate-600 dark:text-slate-400">{t.election}</span>
-                  <span className="text-sm font-bold text-emerald-600">{t.turnout}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">EVM Counting Methodology (MP10-008)</h4>
-            <div className="space-y-2">
-              {evmCounting.map(e => (
-                <div key={e.metric} className="flex items-center justify-between rounded-lg bg-white p-2 dark:bg-slate-800">
-                  <span className="text-sm text-slate-600 dark:text-slate-400">{e.metric}</span>
-                  <span className="text-sm font-bold text-emerald-600">{e.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-4">
-          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Enhanced Scenario Planning (MP10-009)</h4>
-          <DataTable
-            headers={["Scenario", "Probability", "Congress Seats", "AAP Seats", "Key Conditions"]}
-            rows={mp10Scenarios.map(s => [s.scenario, s.probability, s.congressSeats, s.aapSeats, s.conditions])}
-          />
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-2 mt-4">
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">CM Face Impact Analysis (MP10-010)</h4>
-            <DataTable
-              headers={["Candidate", "Base", "Strength", "Weakness"]}
-              rows={cmFaceAnalysis.map(c => [c.candidate, c.base, c.strength, c.weakness])}
-            />
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">CM Announcement Timing (MP10-010)</h4>
-            <DataTable
-              headers={["Timing", "Days", "Description"]}
-              rows={cmAnnouncementTiming.map(t => [t.timing || "N/A", t.days || t.cost || "N/A", t.description || "N/A"])}
-            />
-            <div className="mt-3 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
-              <p className="text-xs font-medium text-amber-700 dark:text-amber-400">Breakeven Analysis</p>
-              <div className="mt-2 space-y-1">
-                {breakevenAnalysis.map(b => (
-                  <div key={b.variable} className="flex justify-between text-xs">
-                    <span className="text-slate-600 dark:text-slate-400">{b.variable}</span>
-                    <span className="font-medium text-amber-600">{b.seatImpact}</span>
-                  </div>
-                ))}
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+
+            <div className="grid gap-6 lg:grid-cols-2 mt-4">
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Constituency Margin Thresholds (MP10-003)</h4>
+                <DataTable
+                  headers={["Category", "Margin", "Description"]}
+                  rows={constituencyMargins.map(c => [c.category, c.threshold, c.description])}
+                />
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Swing Voter Analysis (MP10-004)</h4>
+                <div className="space-y-2">
+                  {swingVoterData.map(s => (
+                    <div key={s.party || s.description} className="flex items-center justify-between rounded-lg bg-white p-2 dark:bg-slate-800">
+                      <span className="text-sm text-slate-600 dark:text-slate-400">{s.description || s.party}</span>
+                      <span className="text-sm font-bold text-emerald-600">{s.swing2017to2022 || s.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2 mt-4">
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Candidate Viability Scoring (MP10-005)</h4>
+                <div className="grid grid-cols-2 gap-2">
+                  {candidateViability.map(c => (
+                    <div key={c.metric} className="rounded-lg bg-white p-2 dark:bg-slate-800">
+                      <p className="text-xs text-slate-500">{c.metric}</p>
+                      <p className="text-lg font-bold text-emerald-600">{c.value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Regional Caste Blocs (MP10-006)</h4>
+                <DataTable
+                  headers={["Region", "Seats", "Dera Influence"]}
+                  rows={regionalCasteBlocs.map(r => [r.region, r.seats, r.deraInfluence])}
+                />
+              </div>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2 mt-4">
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Turnout Modeling (MP10-007)</h4>
+                <div className="space-y-2">
+                  {turnoutModeling.map(t => (
+                    <div key={t.election} className="flex items-center justify-between rounded-lg bg-white p-2 dark:bg-slate-800">
+                      <span className="text-sm text-slate-600 dark:text-slate-400">{t.election}</span>
+                      <span className="text-sm font-bold text-emerald-600">{t.turnout}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">EVM Counting Methodology (MP10-008)</h4>
+                <div className="space-y-2">
+                  {evmCounting.map(e => (
+                    <div key={e.metric} className="flex items-center justify-between rounded-lg bg-white p-2 dark:bg-slate-800">
+                      <span className="text-sm text-slate-600 dark:text-slate-400">{e.metric}</span>
+                      <span className="text-sm font-bold text-emerald-600">{e.value}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4">
+              <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Enhanced Scenario Planning (MP10-009)</h4>
+              <DataTable
+                headers={["Scenario", "Probability", "Congress Seats", "AAP Seats", "Key Conditions"]}
+                rows={mp10Scenarios.map(s => [s.scenario, s.probability, s.congressSeats, s.aapSeats, s.conditions])}
+              />
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-2 mt-4">
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">CM Face Impact Analysis (MP10-010)</h4>
+                <DataTable
+                  headers={["Candidate", "Base", "Strength", "Weakness"]}
+                  rows={cmFaceAnalysis.map(c => [c.candidate, c.base, c.strength, c.weakness])}
+                />
+              </div>
+
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">CM Announcement Timing (MP10-010)</h4>
+                <DataTable
+                  headers={["Timing", "Days", "Description"]}
+                  rows={cmAnnouncementTiming.map(t => [t.timing || "N/A", t.days || t.cost || "N/A", t.description || "N/A"])}
+                />
+                <div className="mt-3 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
+                  <p className="text-xs font-medium text-amber-700 dark:text-amber-400">Breakeven Analysis</p>
+                  <div className="mt-2 space-y-1">
+                    {breakevenAnalysis.map(b => (
+                      <div key={b.variable} className="flex justify-between text-xs">
+                        <span className="text-slate-600 dark:text-slate-400">{b.variable}</span>
+                        <span className="font-medium text-amber-600">{b.seatImpact}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Swing Voter Movement Model */}
-      <div className="rounded-xl border-2 border-teal-200 bg-teal-50 p-4 dark:border-teal-800 dark:bg-teal-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-            </svg>
-          </div>
-          <div>
-            <p className="font-semibold text-teal-700 dark:text-teal-400">MP10-004: Swing Voter Movement Model</p>
-            <p className="text-sm text-teal-600 dark:text-teal-300">Vote transfer matrix, swing decay formula, AAP→Congress reversal tracking</p>
-          </div>
-        </div>
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
-            <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-3">Vote Transfer Matrix (2017→2022)</p>
-            <DataTable
-              headers={["From", "To AAP", "To Congress", "Retained", "Note"]}
-              rows={voteTransferMatrix.map(v => [v.from || "N/A", v.toAAP || "N/A", v.toCongress || v.toSAD || "-", v.retained || "N/A", v.note || "N/A"])}
-            />
-          </div>
-          <div className="space-y-4">
-            <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
-              <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-2">Swing Decay Formula</p>
-              <code className="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded block mb-2">{swingDecayFormula.formula}</code>
-              <p className="text-xs text-slate-600 dark:text-slate-400">λ = {swingDecayFormula.lambda}. {swingDecayFormula.interpretation}</p>
-            </div>
-            <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
-              <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-2">NOTA as Protest Signal</p>
-              <div className="grid grid-cols-2 gap-2">
-                <div className="text-center p-2 bg-slate-50 dark:bg-slate-700 rounded">
-                  <p className="text-xl font-bold text-teal-600">{notAProtestSignal.value}</p>
-                  <p className="text-xs text-slate-500">Punjab 2022 NOTA</p>
-                </div>
-                <div className="text-center p-2 bg-slate-50 dark:bg-slate-700 rounded">
-                  <p className="text-xl font-bold text-orange-600">{notAProtestSignal.threshold}</p>
-                  <p className="text-xs text-slate-500">High protest signal</p>
-                </div>
-                <div className="text-center p-2 bg-slate-50 dark:bg-slate-700 rounded">
-                  <p className="text-xl font-bold text-red-600">{notAProtestSignal.protestImpact}</p>
-                  <p className="text-xs text-slate-500">Hidden swing potential</p>
-                </div>
-                <div className="text-center p-2 bg-slate-50 dark:bg-slate-700 rounded">
-                  <p className="text-xl font-bold text-purple-600">{notAProtestSignal.seatsExceededByNOTA}</p>
-                  <p className="text-xs text-slate-500">Seats exceeded by NOTA</p>
-                </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.3 }}
+      >
+        <Card>
+          <CardContent>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-teal-500 text-white">
+                <TrendingUp className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-semibold text-teal-700 dark:text-teal-400">MP10-004: Swing Voter Movement Model</p>
+                <p className="text-sm text-teal-600 dark:text-teal-300">Vote transfer matrix, swing decay formula, AAP→Congress reversal tracking</p>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
-            <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-3">Swing Voter Timing Breakdown</p>
-            <DataTable
-              headers={["Phase", "Share of Swing", "Description"]}
-              rows={swingVoterTimingBreakdown.map(s => [s.phase, s.share, s.description])}
-            />
-          </div>
-          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
-            <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-3">AAP→Congress Swing Reversal (2027)</p>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-700 rounded">
-                <span className="text-sm text-slate-600 dark:text-slate-400">Magnitude</span>
-                <span className="font-bold text-teal-600">{aapToCongressSwing.magnitude}</span>
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+                <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-3 flex items-center gap-2">
+                  <Users className="h-4 w-4" />
+                  Vote Transfer Matrix (2017→2022)
+                </p>
+                <DataTable
+                  headers={["From", "To AAP", "To Congress", "Retained", "Note"]}
+                  rows={voteTransferMatrix.map(v => [v.from || "N/A", v.toAAP || "N/A", v.toCongress || v.toSAD || "-", v.retained || "N/A", v.note || "N/A"])}
+                />
               </div>
-              <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-700 rounded">
-                <span className="text-sm text-slate-600 dark:text-slate-400">Conversion Rate</span>
-                <span className="font-bold text-blue-600">{aapToCongressSwing.conversionRate}</span>
-              </div>
-              <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-700 rounded">
-                <span className="text-sm text-slate-600 dark:text-slate-400">Key Regions</span>
-                <span className="font-bold text-purple-600">{aapToCongressSwing.regions.join(", ")}</span>
-              </div>
-              <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-700 rounded">
-                <span className="text-sm text-slate-600 dark:text-slate-400">Key Seats</span>
-                <span className="font-bold text-orange-600">{aapToCongressSwing.keySeats}</span>
-              </div>
-            </div>
-            <p className="text-xs text-slate-500 mt-2">{aapToCongressSwing.note}</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Ticket Authority & Winnability */}
-      <div className="rounded-xl border-2 border-violet-200 bg-violet-50 p-4 dark:border-violet-800 dark:bg-violet-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-          </div>
-          <div>
-            <p className="font-semibold text-violet-700 dark:text-violet-400">MP10-001/005: Ticket Authority & Winnability</p>
-            <p className="text-sm text-violet-600 dark:text-violet-300">AICC High Command authority, survey-based candidate selection, renomination data</p>
-          </div>
-        </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-lg bg-white p-3 dark:bg-slate-800 text-center">
-            <p className="text-xs text-slate-500">Decision Maker</p>
-            <p className="text-sm font-bold text-violet-600">{ticketAuthority.decisionMaker}</p>
-            <p className="text-xs text-slate-400">NOT PPCC</p>
-          </div>
-          <div className="rounded-lg bg-white p-3 dark:bg-slate-800 text-center">
-            <p className="text-xs text-slate-500">Punjab In-Charge</p>
-            <p className="text-sm font-bold text-violet-600">{ticketAuthority.inCharge}</p>
-          </div>
-          <div className="rounded-lg bg-white p-3 dark:bg-slate-800 text-center">
-            <p className="text-xs text-slate-500">Ticket Criterion</p>
-            <p className="text-sm font-bold text-red-600">{ticketAuthority.directive}</p>
-          </div>
-          <div className="rounded-lg bg-white p-3 dark:bg-slate-800 text-center">
-            <p className="text-xs text-slate-500">Surveys Commissioned</p>
-            <p className="text-sm font-bold text-blue-600">{ticketAuthority.surveyCount} surveys</p>
-          </div>
-        </div>
-        <div className="mt-4 grid gap-4 md:grid-cols-3">
-          <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
-            <p className="text-xs font-semibold text-slate-500 mb-2">Renomination Rate (Elected MPs 2014)</p>
-            <p className="text-2xl font-bold text-green-600">{renominationData.electedMPRenomination}</p>
-            <p className="text-xs text-slate-500">vs 19% for lost candidates</p>
-          </div>
-          <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
-            <p className="text-xs font-semibold text-slate-500 mb-2">Viability Multipliers</p>
-            <div className="space-y-1 text-xs">
-              <p>PG: <span className="text-green-600 font-bold">+{renominationData.postgraduateBonus}</span></p>
-              <p>Criminal: <span className="text-amber-600 font-bold">+{renominationData.criminalCasesBonus}</span></p>
-              <p>Crorepati: <span className="text-blue-600 font-bold">+{renominationData.crorepatiBonus}</span></p>
-            </div>
-          </div>
-          <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
-            <p className="text-xs font-semibold text-slate-500 mb-2">Field Work Requirement</p>
-            <p className="text-xl font-bold text-violet-600">{renominationData.fieldWorkRequirement}</p>
-            <p className="text-xs text-slate-500">Minimum before elections</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Risk-Adjusted Confidence Levels */}
-      <div className="rounded-xl border-2 border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-          </div>
-          <div>
-            <p className="font-semibold text-amber-700 dark:text-amber-400">MP10-015: Risk-Adjusted Confidence Levels</p>
-            <p className="text-sm text-amber-600 dark:text-amber-300">P10/P50/P90 projection framework, margin seat analysis</p>
-          </div>
-        </div>
-        <div className="grid gap-4 lg:grid-cols-2">
-          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
-            <p className="text-sm font-semibold text-amber-700 dark:text-amber-400 mb-3">Seat Count Confidence Intervals</p>
-            <DataTable
-              headers={["Percentile", "Seats", "Probability"]}
-              rows={modelConfidenceLevels.map(m => [m.percentile, m.seats, m.probability])}
-            />
-          </div>
-          <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
-            <p className="text-sm font-semibold text-amber-700 dark:text-amber-400 mb-3">Marginal Seat Alert Thresholds</p>
-            <div className="space-y-3">
-              {marginSeatData.map((item) => (
-                <div key={item.threshold} className="flex items-center gap-3">
-                  <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 text-sm font-bold text-amber-700 dark:bg-amber-900/50 dark:text-amber-400">
-                    {item.seats}
-                  </span>
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{item.threshold}</p>
-                    <p className="text-xs text-slate-500">{item.description}</p>
+              <div className="space-y-4">
+                <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+                  <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-2 flex items-center gap-2">
+                    <BarChart2 className="h-4 w-4" />
+                    Swing Decay Formula
+                  </p>
+                  <code className="text-xs bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded block mb-2">{swingDecayFormula.formula}</code>
+                  <p className="text-xs text-slate-600 dark:text-slate-400">λ = {swingDecayFormula.lambda}. {swingDecayFormula.interpretation}</p>
+                </div>
+                <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+                  <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-2 flex items-center gap-2">
+                    <AlertTriangle className="h-4 w-4" />
+                    NOTA as Protest Signal
+                  </p>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div className="text-center p-2 bg-slate-50 dark:bg-slate-700 rounded">
+                      <p className="text-xl font-bold text-teal-600">{notAProtestSignal.value}</p>
+                      <p className="text-xs text-slate-500">Punjab 2022 NOTA</p>
+                    </div>
+                    <div className="text-center p-2 bg-slate-50 dark:bg-slate-700 rounded">
+                      <p className="text-xl font-bold text-orange-600">{notAProtestSignal.threshold}</p>
+                      <p className="text-xs text-slate-500">High protest signal</p>
+                    </div>
+                    <div className="text-center p-2 bg-slate-50 dark:bg-slate-700 rounded">
+                      <p className="text-xl font-bold text-red-600">{notAProtestSignal.protestImpact}</p>
+                      <p className="text-xs text-slate-500">Hidden swing potential</p>
+                    </div>
+                    <div className="text-center p-2 bg-slate-50 dark:bg-slate-700 rounded">
+                      <p className="text-xl font-bold text-purple-600">{notAProtestSignal.seatsExceededByNOTA}</p>
+                      <p className="text-xs text-slate-500">Seats exceeded by NOTA</p>
+                    </div>
                   </div>
                 </div>
-              ))}
+              </div>
             </div>
-          </div>
-        </div>
-        <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/30">
-          <p className="text-sm text-amber-700 dark:text-amber-300">
-            <strong>Key:</strong> Congress P50 (median) = 60-66 seats | CE (certainty equivalent) = 54-56 seats | MGS (minimum guaranteed) = 38-44 seats
-          </p>
-        </div>
-      </div>
+            <div className="mt-4 grid gap-4 md:grid-cols-2">
+              <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+                <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-3 flex items-center gap-2">
+                  <Target className="h-4 w-4" />
+                  Swing Voter Timing Breakdown
+                </p>
+                <DataTable
+                  headers={["Phase", "Share of Swing", "Description"]}
+                  rows={swingVoterTimingBreakdown.map(s => [s.phase, s.share, s.description])}
+                />
+              </div>
+              <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+                <p className="text-sm font-semibold text-teal-700 dark:text-teal-400 mb-3 flex items-center gap-2">
+                  <TrendingUp className="h-4 w-4" />
+                  AAP→Congress Swing Reversal (2027)
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-700 rounded">
+                    <span className="text-sm text-slate-600 dark:text-slate-400">Magnitude</span>
+                    <span className="font-bold text-teal-600">{aapToCongressSwing.magnitude}</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-700 rounded">
+                    <span className="text-sm text-slate-600 dark:text-slate-400">Conversion Rate</span>
+                    <span className="font-bold text-blue-600">{aapToCongressSwing.conversionRate}</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-700 rounded">
+                    <span className="text-sm text-slate-600 dark:text-slate-400">Key Regions</span>
+                    <span className="font-bold text-purple-600">{aapToCongressSwing.regions.join(", ")}</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 bg-slate-50 dark:bg-slate-700 rounded">
+                    <span className="text-sm text-slate-600 dark:text-slate-400">Key Seats</span>
+                    <span className="font-bold text-orange-600">{aapToCongressSwing.keySeats}</span>
+                  </div>
+                </div>
+                <p className="text-xs text-slate-500 mt-2">{aapToCongressSwing.note}</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      {/* Ticket Authority & Winnability */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3, duration: 0.3 }}
+      >
+        <Card>
+          <CardContent>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-500 text-white">
+                <Vote className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-semibold text-violet-700 dark:text-violet-400">MP10-001/005: Ticket Authority & Winnability</p>
+                <p className="text-sm text-violet-600 dark:text-violet-300">AICC High Command authority, survey-based candidate selection, renomination data</p>
+              </div>
+            </div>
+            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              <div className="rounded-lg bg-white p-3 dark:bg-slate-800 text-center">
+                <p className="text-xs text-slate-500">Decision Maker</p>
+                <p className="text-sm font-bold text-violet-600">{ticketAuthority.decisionMaker}</p>
+                <p className="text-xs text-slate-400">NOT PPCC</p>
+              </div>
+              <div className="rounded-lg bg-white p-3 dark:bg-slate-800 text-center">
+                <p className="text-xs text-slate-500">Punjab In-Charge</p>
+                <p className="text-sm font-bold text-violet-600">{ticketAuthority.inCharge}</p>
+              </div>
+              <div className="rounded-lg bg-white p-3 dark:bg-slate-800 text-center">
+                <p className="text-xs text-slate-500">Ticket Criterion</p>
+                <p className="text-sm font-bold text-red-600">{ticketAuthority.directive}</p>
+              </div>
+              <div className="rounded-lg bg-white p-3 dark:bg-slate-800 text-center">
+                <p className="text-xs text-slate-500">Surveys Commissioned</p>
+                <p className="text-sm font-bold text-blue-600">{ticketAuthority.surveyCount} surveys</p>
+              </div>
+            </div>
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
+                <p className="text-xs font-semibold text-slate-500 mb-2">Renomination Rate (Elected MPs 2014)</p>
+                <p className="text-2xl font-bold text-green-600">{renominationData.electedMPRenomination}</p>
+                <p className="text-xs text-slate-500">vs 19% for lost candidates</p>
+              </div>
+              <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
+                <p className="text-xs font-semibold text-slate-500 mb-2">Viability Multipliers</p>
+                <div className="space-y-1 text-xs">
+                  <p>PG: <span className="text-green-600 font-bold">+{renominationData.postgraduateBonus}</span></p>
+                  <p>Criminal: <span className="text-amber-600 font-bold">+{renominationData.criminalCasesBonus}</span></p>
+                  <p>Crorepati: <span className="text-blue-600 font-bold">+{renominationData.crorepatiBonus}</span></p>
+                </div>
+              </div>
+              <div className="rounded-lg bg-white p-3 dark:bg-slate-800">
+                <p className="text-xs font-semibold text-slate-500 mb-2">Field Work Requirement</p>
+                <p className="text-xl font-bold text-violet-600">{renominationData.fieldWorkRequirement}</p>
+                <p className="text-xs text-slate-500">Minimum before elections</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      {/* Risk-Adjusted Confidence Levels */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.3 }}
+      >
+        <Card>
+          <CardContent>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-500 text-white">
+                <BarChart2 className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-semibold text-amber-700 dark:text-amber-400">MP10-015: Risk-Adjusted Confidence Levels</p>
+                <p className="text-sm text-amber-600 dark:text-amber-300">P10/P50/P90 projection framework, margin seat analysis</p>
+              </div>
+            </div>
+            <div className="grid gap-4 lg:grid-cols-2">
+              <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+                <p className="text-sm font-semibold text-amber-700 dark:text-amber-400 mb-3">Seat Count Confidence Intervals</p>
+                <DataTable
+                  headers={["Percentile", "Seats", "Probability"]}
+                  rows={modelConfidenceLevels.map(m => [m.percentile, m.seats, m.probability])}
+                />
+              </div>
+              <div className="rounded-lg bg-white p-4 dark:bg-slate-800">
+                <p className="text-sm font-semibold text-amber-700 dark:text-amber-400 mb-3">Marginal Seat Alert Thresholds</p>
+                <div className="space-y-3">
+                  {marginSeatData.map((item) => (
+                    <div key={item.threshold} className="flex items-center gap-3">
+                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-100 text-sm font-bold text-amber-700 dark:bg-amber-900/50 dark:text-amber-400">
+                        {item.seats}
+                      </span>
+                      <div className="flex-1">
+                        <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{item.threshold}</p>
+                        <p className="text-xs text-slate-500">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/30">
+              <p className="text-sm text-amber-700 dark:text-amber-300">
+                <strong>Key:</strong> Congress P50 (median) = 60-66 seats | CE (certainty equivalent) = 54-56 seats | MGS (minimum guaranteed) = 38-44 seats
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
 
       {/* Election Forecasting & Scenario Planning */}
-      <div className="rounded-xl border-2 border-violet-200 bg-violet-50 p-4 dark:border-violet-800 dark:bg-violet-900/20">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-500 text-white">
-            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-            </svg>
-          </div>
-          <div>
-            <p className="font-semibold text-violet-700 dark:text-violet-400">Election Forecasting & Scenario Planning</p>
-            <p className="text-sm text-violet-600 dark:text-violet-300">Multi-scenario modeling for strategic flexibility</p>
-          </div>
-        </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.3 }}
+      >
+        <Card>
+          <CardContent>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-500 text-white">
+                <BarChart2 className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="font-semibold text-violet-700 dark:text-violet-400">Election Forecasting & Scenario Planning</p>
+                <p className="text-sm text-violet-600 dark:text-violet-300">Multi-scenario modeling for strategic flexibility</p>
+              </div>
+            </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Election Scenarios (2027)</h4>
-            <DataTable
-              headers={["Scenario", "Probability", "Seats", "Coalition"]}
-              rows={electionScenarios.map(s => [s.scenario, s.probability, s.seats, s.coalition])}
-            />
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Seat Projection Confidence</h4>
-            <DataTable
-              headers={["Confidence", "Range", "Interpretation"]}
-              rows={seatProjections.map(s => [s.confidence, s.range, s.interpretation])}
-            />
-          </div>
-        </div>
+            <div className="grid gap-6 lg:grid-cols-2">
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Election Scenarios (2027)</h4>
+                <DataTable
+                  headers={["Scenario", "Probability", "Seats", "Coalition"]}
+                  rows={electionScenarios.map(s => [s.scenario, s.probability, s.seats, s.coalition])}
+                />
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Seat Projection Confidence</h4>
+                <DataTable
+                  headers={["Confidence", "Range", "Interpretation"]}
+                  rows={seatProjections.map(s => [s.confidence, s.range, s.interpretation])}
+                />
+              </div>
+            </div>
 
-        <div className="grid gap-6 lg:grid-cols-2 mt-4">
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Vote Share Thresholds</h4>
-            <DataTable
-              headers={["Vote Share", "Projected Seats", "Scenario"]}
-              rows={voteShareThresholds.map(v => [v.threshold, v.projectedSeats, v.scenario])}
-            />
-          </div>
-          <div>
-            <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Regional Swing Targets</h4>
-            <DataTable
-              headers={["Region", "Current", "Target", "Swing"]}
-              rows={regionalSwingTargets.map(r => [r.region, r.current, r.target, r.swing])}
-            />
-          </div>
-        </div>
+            <div className="grid gap-6 lg:grid-cols-2 mt-4">
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Vote Share Thresholds</h4>
+                <DataTable
+                  headers={["Vote Share", "Projected Seats", "Scenario"]}
+                  rows={voteShareThresholds.map(v => [v.threshold, v.projectedSeats, v.scenario])}
+                />
+              </div>
+              <div>
+                <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Regional Swing Targets</h4>
+                <DataTable
+                  headers={["Region", "Current", "Target", "Swing"]}
+                  rows={regionalSwingTargets.map(r => [r.region, r.current, r.target, r.swing])}
+                />
+              </div>
+            </div>
 
-        <div className="mt-4">
-          <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Risk Taxonomy</h4>
-          <DataTable
-            headers={["Category", "Risk", "Probability", "Impact", "Mitigation"]}
-            rows={riskTaxonomy.map(r => [r.category, r.risk, r.probability, r.impact, r.mitigation])}
-          />
-        </div>
-      </div>
+            <div className="mt-4">
+              <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3">Risk Taxonomy</h4>
+              <DataTable
+                headers={["Category", "Risk", "Probability", "Impact", "Mitigation"]}
+                rows={riskTaxonomy.map(r => [r.category, r.risk, r.probability, r.impact, r.mitigation])}
+              />
+            </div>
+          </CardContent>
+        </Card>
+      </motion.div>
     </div>
   );
 }

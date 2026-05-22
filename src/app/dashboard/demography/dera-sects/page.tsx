@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/MetricCard";
 import {
   radhaSoamiData,
@@ -9,6 +11,7 @@ import {
 } from "@/lib/sikhism-internal-data";
 import { RELIGION_SOCIAL_STRUCTURE_DATA } from "@/lib/religion-social-structure-data";
 import { SOCIAL_COALITION_DATA } from "@/lib/social-coalition-data";
+import { Star, Users, Church, AlertTriangle, TrendingUp, Heart } from "lucide-react";
 
 /**
  * Demography - Dera & Sects Section
@@ -31,11 +34,16 @@ export default function DemographyDeraSectsPage() {
   return (
     <div className="space-y-8">
       {/* Section Header */}
-      <div className="flex items-center justify-between">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="flex items-center justify-between"
+      >
         <div>
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500 text-lg font-bold text-white">
-              D
+            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-lg font-bold text-white">
+              <Star className="h-5 w-5" />
             </span>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Dera & Sects
@@ -46,13 +54,18 @@ export default function DemographyDeraSectsPage() {
           </p>
         </div>
         <Badge variant="info">Demographics</Badge>
-      </div>
+      </motion.div>
 
       {/* Dera Sachkhand Ballan (Ravidassia) */}
-      <div className="rounded-xl border-2 border-purple-500 bg-purple-50 p-6 dark:border-purple-700 dark:bg-purple-900/20">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+        className="rounded-xl border-2 border-purple-500 bg-purple-50 p-6 dark:border-purple-700 dark:bg-purple-900/20"
+      >
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-500 text-lg font-bold text-white">
-            R
+            <Star className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-purple-700 dark:text-purple-400">
@@ -111,13 +124,18 @@ export default function DemographyDeraSectsPage() {
             Ballan leadership on community-specific issues.
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Radha Soami and Other Deras */}
-      <div className="rounded-xl border-2 border-blue-500 bg-blue-50 p-6 dark:border-blue-700 dark:bg-blue-900/20">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
+        className="rounded-xl border-2 border-blue-500 bg-blue-50 p-6 dark:border-blue-700 dark:bg-blue-900/20"
+      >
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500 text-lg font-bold text-white">
-            R
+            <Star className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-400">
@@ -131,114 +149,127 @@ export default function DemographyDeraSectsPage() {
 
         <div className="grid gap-6 md:grid-cols-2">
           {/* Radha Soami */}
-          <div className="rounded-lg bg-blue-100/50 p-4 dark:bg-blue-900/30">
-            <h4 className="mb-2 font-semibold text-blue-700 dark:text-blue-400">
-              Radha Soami Satsang Beas (RSSB)
-            </h4>
-            <div className="space-y-2 text-sm">
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">HQ:</span> Beas, Amritsar district
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">Followers:</span> Estimated millions in Punjab;
-                distributed across Majha and Malwa
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">Nature:</span> Spiritual movement with followers
-                across religions; not exclusively Sikh
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">Political:</span> Officially apolitical; vote as
-                disciplined bloc per dera guidance
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">Influence:</span> Amritsar rural, Gurdaspur,
-                Kapurthala, Hoshiarpur, parts of Malwa
-              </p>
-            </div>
-            <div className="mt-3 rounded bg-blue-200/50 p-2 dark:bg-blue-800/50">
-              <p className="text-xs font-medium text-blue-700 dark:text-blue-300">
-                Congress Opportunity
-              </p>
-              <p className="mt-1 text-xs text-blue-600 dark:text-blue-400">
-                Mass vote-bank; courting RSSB through respectful engagement with current head
-                (Gurinder Singh Dhillon) is electorally decisive
-              </p>
-            </div>
-          </div>
+          <Card>
+            <CardContent>
+              <h4 className="mb-2 font-semibold text-blue-700 dark:text-blue-400">
+                Radha Soami Satsang Beas (RSSB)
+              </h4>
+              <div className="space-y-2 text-sm">
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">HQ:</span> Beas, Amritsar district
+                </p>
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">Followers:</span> Estimated millions in Punjab;
+                  distributed across Majha and Malwa
+                </p>
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">Nature:</span> Spiritual movement with followers
+                  across religions; not exclusively Sikh
+                </p>
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">Political:</span> Officially apolitical; vote as
+                  disciplined bloc per dera guidance
+                </p>
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">Influence:</span> Amritsar rural, Gurdaspur,
+                  Kapurthala, Hoshiarpur, parts of Malwa
+                </p>
+              </div>
+              <div className="mt-3 rounded bg-blue-200/50 p-2 dark:bg-blue-800/50">
+                <p className="text-xs font-medium text-blue-700 dark:text-blue-300">
+                  Congress Opportunity
+                </p>
+                <p className="mt-1 text-xs text-blue-600 dark:text-blue-400">
+                  Mass vote-bank; courting RSSB through respectful engagement with current head
+                  (Gurinder Singh Dhillon) is electorally decisive
+                </p>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Dera Sacha Sauda */}
-          <div className="rounded-lg bg-red-100/50 p-4 dark:bg-red-900/30">
-            <h4 className="mb-2 font-semibold text-red-700 dark:text-red-400">
-              Dera Sacha Sauda (Sirsa)
-            </h4>
-            <div className="space-y-2 text-sm">
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">HQ:</span> Sirsa, Haryana (~100km from Punjab border)
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">Followers:</span> 10-15% of Sikh voters in Malwa region
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">Current Head:</span> Gurmeet Ram Rahim Singh (incarcerated)
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">Influence:</span> Bathinda, Mansa, Muktsar, Faridkot, Ferozepur
-              </p>
-              <p className="text-slate-600 dark:text-slate-400">
-                <span className="font-medium">Political:</span> Pro-AAP in 2022; currently operates under management committee
-              </p>
-            </div>
-            <div className="mt-3 rounded bg-red-200/50 p-2 dark:bg-red-800/50">
-              <p className="text-xs font-medium text-red-700 dark:text-red-300">
-                Congress Risk
-              </p>
-              <p className="mt-1 text-xs text-red-600 dark:text-red-400">
-                Do not seek endorsement; focus on neutralization through community leaders.
-                Influence diminished but remains significant in Malwa.
-              </p>
-            </div>
-          </div>
+          <Card>
+            <CardContent>
+              <h4 className="mb-2 font-semibold text-rose-700 dark:text-rose-400">
+                Dera Sacha Sauda (Sirsa)
+              </h4>
+              <div className="space-y-2 text-sm">
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">HQ:</span> Sirsa, Haryana (~100km from Punjab border)
+                </p>
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">Followers:</span> 10-15% of Sikh voters in Malwa region
+                </p>
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">Current Head:</span> Gurmeet Ram Rahim Singh (incarcerated)
+                </p>
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">Influence:</span> Bathinda, Mansa, Muktsar, Faridkot, Ferozepur
+                </p>
+                <p className="text-slate-600 dark:text-slate-400">
+                  <span className="font-medium">Political:</span> Pro-AAP in 2022; currently operates under management committee
+                </p>
+              </div>
+              <div className="mt-3 rounded bg-rose-200/50 p-2 dark:bg-rose-800/50">
+                <p className="text-xs font-medium text-rose-700 dark:text-rose-300">
+                  Congress Risk
+                </p>
+                <p className="mt-1 text-xs text-rose-600 dark:text-rose-400">
+                  Do not seek endorsement; focus on neutralization through community leaders.
+                  Influence diminished but remains significant in Malwa.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         {/* Additional Deras */}
         <div className="mt-4 grid gap-4 md:grid-cols-2">
-          <div className="rounded-lg bg-slate-100/50 p-4 dark:bg-slate-800/50">
-            <h4 className="mb-2 font-semibold text-slate-700 dark:text-slate-400">
-              Dera Dukh Bhanjani (Sultan Lodhi)
-            </h4>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              <span className="font-medium">HQ:</span> Sultan Lodhi, Kapurthala district
-            </p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              Primarily Sikh, with connections to Mazhabi Sikh community
-            </p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              Significant but smaller dera with strong local following in Doaba region
-            </p>
-          </div>
-          <div className="rounded-lg bg-slate-100/50 p-4 dark:bg-slate-800/50">
-            <h4 className="mb-2 font-semibold text-slate-700 dark:text-slate-400">
-              Nirankari
-            </h4>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              <span className="font-medium">HQ:</span> Chandigarh
-            </p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              Sikh reformist movement; emphasizes monotheism, rejects caste distinctions
-            </p>
-            <p className="text-sm text-slate-600 dark:text-slate-400">
-              Urban concentration; traditionally Congress-leaning
-            </p>
-          </div>
+          <Card>
+            <CardContent>
+              <h4 className="mb-2 font-semibold text-slate-700 dark:text-slate-400">
+                Dera Dukh Bhanjani (Sultan Lodhi)
+              </h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                <span className="font-medium">HQ:</span> Sultan Lodhi, Kapurthala district
+              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Primarily Sikh, with connections to Mazhabi Sikh community
+              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Significant but smaller dera with strong local following in Doaba region
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent>
+              <h4 className="mb-2 font-semibold text-slate-700 dark:text-slate-400">
+                Nirankari
+              </h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                <span className="font-medium">HQ:</span> Chandigarh
+              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Sikh reformist movement; emphasizes monotheism, rejects caste distinctions
+              </p>
+              <p className="text-sm text-slate-600 dark:text-slate-400">
+                Urban concentration; traditionally Congress-leaning
+              </p>
+            </CardContent>
+          </Card>
         </div>
-      </div>
+      </motion.div>
 
       {/* SGPC & Akal Takht Influence */}
-      <div className="rounded-xl border-2 border-amber-500 bg-amber-50 p-6 dark:border-amber-700 dark:bg-amber-900/20">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.3 }}
+        className="rounded-xl border-2 border-amber-500 bg-amber-50 p-6 dark:border-amber-700 dark:bg-amber-900/20"
+      >
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500 text-lg font-bold text-white">
-            S
+            <Church className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-amber-700 dark:text-amber-400">
@@ -270,7 +301,7 @@ export default function DemographyDeraSectsPage() {
             <p className="text-sm text-slate-600 dark:text-slate-400">
               Last Election: {sgpcData.electionStatus.lastElection}
             </p>
-            <p className="text-sm font-medium text-red-600 dark:text-red-400">
+            <p className="text-sm font-medium text-rose-600 dark:text-rose-400">
               {sgpcData.electionStatus.yearsOverdue} years overdue
             </p>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
@@ -311,21 +342,26 @@ export default function DemographyDeraSectsPage() {
           )}
         </div>
 
-        <div className="mt-4 rounded bg-green-100 p-3 dark:bg-green-900/40">
-          <p className="text-sm font-medium text-green-700 dark:text-green-300">
+        <div className="mt-4 rounded bg-emerald-100 p-3 dark:bg-emerald-900/40">
+          <p className="text-sm font-medium text-emerald-700 dark:text-emerald-300">
             Congress Opportunity
           </p>
-          <p className="mt-1 text-sm text-green-600 dark:text-green-400">
+          <p className="mt-1 text-sm text-emerald-600 dark:text-emerald-400">
             {sgpcData.congressImplication}
           </p>
         </div>
-      </div>
+      </motion.div>
 
       {/* Damdami Taksal & RSS */}
-      <div className="rounded-xl border-2 border-emerald-500 bg-emerald-50 p-6 dark:border-emerald-700 dark:bg-emerald-900/20">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.4 }}
+        className="rounded-xl border-2 border-emerald-500 bg-emerald-50 p-6 dark:border-emerald-700 dark:bg-emerald-900/20"
+      >
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500 text-lg font-bold text-white">
-            D
+            <Star className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-400">
@@ -373,11 +409,11 @@ export default function DemographyDeraSectsPage() {
           </div>
         </div>
 
-        <div className="mt-4 rounded-lg bg-red-100 p-3 dark:bg-red-900/40">
-          <p className="text-sm font-medium text-red-700 dark:text-red-300">
+        <div className="mt-4 rounded-lg bg-rose-100 p-3 dark:bg-rose-900/40">
+          <p className="text-sm font-medium text-rose-700 dark:text-rose-300">
             Congress Risk
           </p>
-          <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+          <p className="mt-1 text-sm text-rose-600 dark:text-rose-400">
             {damdamiTaksalData.congressRisk}
           </p>
         </div>
@@ -393,13 +429,18 @@ export default function DemographyDeraSectsPage() {
             <li>• Congress must not be seen as anti-panthic</li>
           </ul>
         </div>
-      </div>
+      </motion.div>
 
       {/* Political Alignment Patterns */}
-      <div className="rounded-xl border-2 border-indigo-500 bg-indigo-50 p-6 dark:border-indigo-700 dark:bg-indigo-900/20">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.5 }}
+        className="rounded-xl border-2 border-indigo-500 bg-indigo-50 p-6 dark:border-indigo-700 dark:bg-indigo-900/20"
+      >
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-lg font-bold text-white">
-            P
+            <TrendingUp className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-indigo-700 dark:text-indigo-400">
@@ -413,39 +454,45 @@ export default function DemographyDeraSectsPage() {
 
         <div className="space-y-4">
           <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-lg bg-indigo-100/50 p-3 dark:bg-indigo-900/30">
-              <h4 className="font-semibold text-indigo-700 dark:text-indigo-400">
-                Doaba (23 seats)
-              </h4>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                Highest SC concentration; Nirankari, Radha Soami, Namdhari influence
-              </p>
-              <p className="mt-2 text-xs font-medium text-indigo-600 dark:text-indigo-400">
-                Dera-influenced swing region
-              </p>
-            </div>
-            <div className="rounded-lg bg-indigo-100/50 p-3 dark:bg-indigo-900/30">
-              <h4 className="font-semibold text-indigo-700 dark:text-indigo-400">
-                Malwa (69 seats)
-              </h4>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                Dera Sacha Sauda dominant; Radha Soami; highest AAP performance
-              </p>
-              <p className="mt-2 text-xs font-medium text-indigo-600 dark:text-indigo-400">
-                AAP stronghold; SAD fractured
-              </p>
-            </div>
-            <div className="rounded-lg bg-indigo-100/50 p-3 dark:bg-indigo-900/30">
-              <h4 className="font-semibold text-indigo-700 dark:text-indigo-400">
-                Majha (27 seats)
-              </h4>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-                Damdami Taksal, Nihang; historically Congress base
-              </p>
-              <p className="mt-2 text-xs font-medium text-indigo-600 dark:text-indigo-400">
-                Panthic-aligned; more stable
-              </p>
-            </div>
+            <Card>
+              <CardContent>
+                <h4 className="font-semibold text-indigo-700 dark:text-indigo-400">
+                  Doaba (23 seats)
+                </h4>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                  Highest SC concentration; Nirankari, Radha Soami, Namdhari influence
+                </p>
+                <p className="mt-2 text-xs font-medium text-indigo-600 dark:text-indigo-400">
+                  Dera-influenced swing region
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent>
+                <h4 className="font-semibold text-indigo-700 dark:text-indigo-400">
+                  Malwa (69 seats)
+                </h4>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                  Dera Sacha Sauda dominant; Radha Soami; highest AAP performance
+                </p>
+                <p className="mt-2 text-xs font-medium text-indigo-600 dark:text-indigo-400">
+                  AAP stronghold; SAD fractured
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent>
+                <h4 className="font-semibold text-indigo-700 dark:text-indigo-400">
+                  Majha (27 seats)
+                </h4>
+                <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                  Damdami Taksal, Nihang; historically Congress base
+                </p>
+                <p className="mt-2 text-xs font-medium text-indigo-600 dark:text-indigo-400">
+                  Panthic-aligned; more stable
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           <div>
@@ -468,14 +515,14 @@ export default function DemographyDeraSectsPage() {
                     <td className="px-2 py-1">Dera Sachkhand Ballan</td>
                     <td className="px-2 py-1">Jalandhar (Doaba)</td>
                     <td className="px-2 py-1">20+ lakh</td>
-                    <td className="px-2 py-1 text-green-600">Historically Congress</td>
+                    <td className="px-2 py-1 text-emerald-600">Historically Congress</td>
                     <td className="px-2 py-1">Seek endorsement</td>
                   </tr>
                   <tr className="border-b border-slate-200 dark:border-slate-700">
                     <td className="px-2 py-1">Dera Sacha Sauda</td>
                     <td className="px-2 py-1">Sirsa (Haryana)</td>
                     <td className="px-2 py-1">Malwa significant</td>
-                    <td className="px-2 py-1 text-red-600">Pro-AAP (2022)</td>
+                    <td className="px-2 py-1 text-rose-600">Pro-AAP (2022)</td>
                     <td className="px-2 py-1">Neutralize</td>
                   </tr>
                   <tr className="border-b border-slate-200 dark:border-slate-700">
@@ -489,14 +536,14 @@ export default function DemographyDeraSectsPage() {
                     <td className="px-2 py-1">Damdami Taksal</td>
                     <td className="px-2 py-1">Gurdaspur (Majha)</td>
                     <td className="px-2 py-1">SGPC 20 seats</td>
-                    <td className="px-2 py-1 text-red-600">BJP aligned</td>
+                    <td className="px-2 py-1 text-rose-600">BJP aligned</td>
                     <td className="px-2 py-1">Avoid anti-panthic</td>
                   </tr>
                   <tr>
                     <td className="px-2 py-1">Namdhari</td>
                     <td className="px-2 py-1">Ludhiana</td>
                     <td className="px-2 py-1">2-3 lakh</td>
-                    <td className="px-2 py-1 text-green-600">Disciplined bloc</td>
+                    <td className="px-2 py-1 text-emerald-600">Disciplined bloc</td>
                     <td className="px-2 py-1">Engage Bhaini Sahib</td>
                   </tr>
                 </tbody>
@@ -504,13 +551,18 @@ export default function DemographyDeraSectsPage() {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Strategic Implications for Congress */}
-      <div className="rounded-xl border-2 border-rose-500 bg-rose-50 p-6 dark:border-rose-700 dark:bg-rose-900/20">
+      <motion.div
+        initial={{ opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3, delay: 0.6 }}
+        className="rounded-xl border-2 border-rose-500 bg-rose-50 p-6 dark:border-rose-700 dark:bg-rose-900/20"
+      >
         <div className="flex items-center gap-3 mb-4">
           <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-rose-500 text-lg font-bold text-white">
-            !
+            <AlertTriangle className="h-5 w-5" />
           </span>
           <div>
             <h3 className="text-lg font-semibold text-rose-700 dark:text-rose-400">
@@ -524,12 +576,12 @@ export default function DemographyDeraSectsPage() {
 
         <div className="grid gap-6 md:grid-cols-2">
           <div>
-            <h4 className="mb-3 text-sm font-semibold text-green-700 dark:text-green-400">
+            <h4 className="mb-3 text-sm font-semibold text-emerald-700 dark:text-emerald-400">
               Opportunities
             </h4>
             <ul className="space-y-2">
               <li className="flex items-start gap-2 text-sm">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-green-500" />
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />
                 <div>
                   <span className="font-medium text-slate-700 dark:text-slate-300">
                     Dera Sachkhand Ballan endorsement
@@ -540,7 +592,7 @@ export default function DemographyDeraSectsPage() {
                 </div>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-green-500" />
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />
                 <div>
                   <span className="font-medium text-slate-700 dark:text-slate-300">
                     RSSB engagement
@@ -551,7 +603,7 @@ export default function DemographyDeraSectsPage() {
                 </div>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-green-500" />
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />
                 <div>
                   <span className="font-medium text-slate-700 dark:text-slate-300">
                     Namdhari bloc
@@ -562,7 +614,7 @@ export default function DemographyDeraSectsPage() {
                 </div>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-green-500" />
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-emerald-500" />
                 <div>
                   <span className="font-medium text-slate-700 dark:text-slate-300">
                     SGPC democratization
@@ -576,12 +628,12 @@ export default function DemographyDeraSectsPage() {
           </div>
 
           <div>
-            <h4 className="mb-3 text-sm font-semibold text-red-700 dark:text-red-400">
+            <h4 className="mb-3 text-sm font-semibold text-rose-700 dark:text-rose-400">
               Risks
             </h4>
             <ul className="space-y-2">
               <li className="flex items-start gap-2 text-sm">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-red-500" />
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-rose-500" />
                 <div>
                   <span className="font-medium text-slate-700 dark:text-slate-300">
                     Damdami Taksal-BJP alignment
@@ -592,7 +644,7 @@ export default function DemographyDeraSectsPage() {
                 </div>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-red-500" />
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-rose-500" />
                 <div>
                   <span className="font-medium text-slate-700 dark:text-slate-300">
                     Dera Sacha Sauda for AAP
@@ -603,7 +655,7 @@ export default function DemographyDeraSectsPage() {
                 </div>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-red-500" />
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-rose-500" />
                 <div>
                   <span className="font-medium text-slate-700 dark:text-slate-300">
                     Nirankari perception
@@ -614,7 +666,7 @@ export default function DemographyDeraSectsPage() {
                 </div>
               </li>
               <li className="flex items-start gap-2 text-sm">
-                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-red-500" />
+                <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-rose-500" />
                 <div>
                   <span className="font-medium text-slate-700 dark:text-slate-300">
                     Anti-panthic perception
@@ -639,7 +691,7 @@ export default function DemographyDeraSectsPage() {
             hostile to Sikh institutions themselves.
           </p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

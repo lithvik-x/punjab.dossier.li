@@ -2,61 +2,72 @@
 
 import Link from "next/link";
 import { MetricCard, Badge } from "@/components/ui/MetricCard";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
+import { motion } from "framer-motion";
+import {
+  AlertTriangle,
+  TrendingUp,
+  Users,
+  RefreshCw,
+  Shield,
+  CheckCircle,
+  ArrowRight,
+} from "lucide-react";
 
 const competitionSections = [
   {
     id: "aap",
     title: "AAP Analysis",
     description: "AAP SWOT, broken promises, internal factions, seat vulnerabilities",
-    color: "bg-orange-500",
+    color: "orange",
     href: "/dashboard/competition/aap",
   },
   {
     id: "sad",
     title: "SAD Status",
     description: "SAD party status, factions, alliance breakdown",
-    color: "bg-green-500",
+    color: "emerald",
     href: "/dashboard/competition/sad",
   },
   {
     id: "bjp",
     title: "BJP Growth",
     description: "BJP growth trajectory, going solo 2027, organizational infrastructure",
-    color: "bg-yellow-500",
+    color: "amber",
     href: "/dashboard/competition/bjp",
   },
   {
     id: "caste",
     title: "Caste Demographics",
     description: "Caste coalition math, vote bank breakdown",
-    color: "bg-purple-500",
+    color: "purple",
     href: "/dashboard/competition/caste",
   },
   {
     id: "regional",
     title: "Regional Analysis",
     description: "Malwa, Majha, Doaba regional dynamics",
-    color: "bg-blue-500",
+    color: "blue",
     href: "/dashboard/competition/regional",
   },
   {
     id: "synthesis",
     title: "Synthesis",
     description: "M1 Mega-Pillar synthesis, competitor intelligence summary",
-    color: "bg-red-500",
+    color: "rose",
     href: "/dashboard/competition/synthesis",
   },
 ];
 
 const coreMetrics = [
-  { title: "AAP Current Seats", value: "92", subtitle: "2022 Assembly results", color: "bg-orange-500" },
-  { title: "SAD Current Seats", value: "3", subtitle: "2022 results (post-split)", color: "bg-green-500" },
-  { title: "BJP Vote Share", value: "18.6%", subtitle: "Up from 6.6% in 2022", change: 182, trend: "up" as const, color: "bg-orange-500" },
-  { title: "Congress Current Seats", value: "18", subtitle: "2022 results", color: "bg-blue-500" },
-  { title: "Congress Seats Needed", value: "Net +41", subtitle: "18 → 59 (majority mark)", color: "bg-blue-500" },
-  { title: "BJP Lok Sabha 2024", value: "5/13", subtitle: "Best-ever Punjab result", change: 400, trend: "up" as const, color: "bg-yellow-500" },
-  { title: "Dera Influence", value: "40-50", subtitle: "Seats affected", color: "bg-purple-500" },
-  { title: "Youth Unemployment", value: "14.9%", subtitle: "4th highest in India", trend: "down" as const, color: "bg-red-500" },
+  { title: "AAP Current Seats", value: "92", subtitle: "2022 Assembly results", color: "orange" },
+  { title: "SAD Current Seats", value: "3", subtitle: "2022 results (post-split)", color: "emerald" },
+  { title: "BJP Vote Share", value: "18.6%", subtitle: "Up from 6.6% in 2022", change: 182, trend: "up" as const, color: "orange" },
+  { title: "Congress Current Seats", value: "18", subtitle: "2022 results", color: "blue" },
+  { title: "Congress Seats Needed", value: "Net +41", subtitle: "18 → 59 (majority mark)", color: "blue" },
+  { title: "BJP Lok Sabha 2024", value: "5/13", subtitle: "Best-ever Punjab result", change: 400, trend: "up" as const, color: "amber" },
+  { title: "Dera Influence", value: "40-50", subtitle: "Seats affected", color: "purple" },
+  { title: "Youth Unemployment", value: "14.9%", subtitle: "4th highest in India", trend: "down" as const, color: "rose" },
 ];
 
 export default function CompetitionOverviewPage() {
@@ -198,7 +209,7 @@ export default function CompetitionOverviewPage() {
               className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
             >
               <div className="flex items-center gap-3 mb-3">
-                <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${section.color} text-white font-bold`}>
+                <div className={`flex h-10 w-10 items-center justify-center rounded-lg bg-${section.color}-500 text-white font-bold`}>
                   {section.id.charAt(0).toUpperCase()}
                 </div>
                 <h3 className="text-lg font-semibold text-slate-900 dark:text-white">
