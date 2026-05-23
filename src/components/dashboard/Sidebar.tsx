@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { OPERATIONAL_HEADS, REGIONS } from "@/lib/constants";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
 const iconMap: Record<string, React.ReactNode> = {
   Users: (
@@ -1050,7 +1051,8 @@ export function Sidebar() {
         </nav>
 
         <div className="border-t border-slate-700 px-4 py-4">
-          <div className="rounded-lg bg-slate-800 p-3">
+          <ThemeToggle />
+          <div className="mt-3 rounded-lg bg-slate-800 p-3">
             <div className="flex items-center gap-2 text-xs text-slate-400">
               <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
               <span>Election: Feb 2027</span>
