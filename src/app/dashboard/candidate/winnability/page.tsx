@@ -135,7 +135,7 @@ export default function CandidateWinnabilityPage() {
                   <ProgressBar
                     label=""
                     value={factor.weight}
-                    color="teal"
+                    color="cyan"
                     showPercentage={false}
                   />
                 </div>
@@ -275,7 +275,7 @@ export default function CandidateWinnabilityPage() {
                   <ProgressBar
                     label=""
                     value={dim.weight}
-                    color="teal"
+                    color="cyan"
                     showPercentage={false}
                   />
                 </div>

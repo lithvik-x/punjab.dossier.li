@@ -138,7 +138,7 @@ export default function StudentPoliticsPage() {
           title="Major Campuses"
           value={campusStrongholds.length}
           subtitle="Key university hubs"
-          color="pink"
+          color="rose"
         />
         <MetricCard
           title="Student Wings"
@@ -152,7 +152,7 @@ export default function StudentPoliticsPage() {
           subtitle="Under 30 in Punjab"
           change={2}
           trend="up"
-          color="fuchsia"
+          color="purple"
         />
         <MetricCard
           title="First-Time Voters"

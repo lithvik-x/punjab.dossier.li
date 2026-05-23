@@ -59,15 +59,17 @@ const competitionSections = [
   },
 ];
 
-const coreMetrics = [
+type MetricColor = "blue" | "cyan" | "emerald" | "amber" | "rose" | "purple" | "orange";
+
+const coreMetrics: { title: string; value: string; subtitle: string; color: MetricColor; change?: number; trend?: "up" | "down" }[] = [
   { title: "AAP Current Seats", value: "92", subtitle: "2022 Assembly results", color: "orange" },
   { title: "SAD Current Seats", value: "3", subtitle: "2022 results (post-split)", color: "emerald" },
-  { title: "BJP Vote Share", value: "18.6%", subtitle: "Up from 6.6% in 2022", change: 182, trend: "up" as const, color: "orange" },
+  { title: "BJP Vote Share", value: "18.6%", subtitle: "Up from 6.6% in 2022", change: 182, trend: "up", color: "orange" },
   { title: "Congress Current Seats", value: "18", subtitle: "2022 results", color: "blue" },
   { title: "Congress Seats Needed", value: "Net +41", subtitle: "18 → 59 (majority mark)", color: "blue" },
-  { title: "BJP Lok Sabha 2024", value: "5/13", subtitle: "Best-ever Punjab result", change: 400, trend: "up" as const, color: "amber" },
+  { title: "BJP Lok Sabha 2024", value: "5/13", subtitle: "Best-ever Punjab result", change: 400, trend: "up", color: "amber" },
   { title: "Dera Influence", value: "40-50", subtitle: "Seats affected", color: "purple" },
-  { title: "Youth Unemployment", value: "14.9%", subtitle: "4th highest in India", trend: "down" as const, color: "rose" },
+  { title: "Youth Unemployment", value: "14.9%", subtitle: "4th highest in India", trend: "down", color: "rose" },
 ];
 
 export default function CompetitionOverviewPage() {

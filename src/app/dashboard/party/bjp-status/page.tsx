@@ -726,7 +726,7 @@ export default function BJPStatusPage() {
                     <li className="flex gap-2"><span className="text-rose-500">&#9656;</span>Zero LS seats despite 18.56% — first-past-the-post disadvantage</li>
                     <li className="flex gap-2"><span className="text-rose-500">&#9656;</span>No mass-level Sikh face in leadership</li>
                     <li className="flex gap-2"><span className="text-rose-500">&#9656;</span>Farmer protest hangover in rural Malwa/Majha</li>
-                    <li className="flex gap-2"><span className="text-rose-500">&#9656;</span>"Welcome all" approach creates ideological incoherence (Frontline)</li>
+                    <li className="flex gap-2"><span className="text-rose-500">&#9656;</span>&quot;Welcome all&quot; approach creates ideological incoherence (Frontline)</li>
                   </ul>
                 </CardContent>
               </Card>

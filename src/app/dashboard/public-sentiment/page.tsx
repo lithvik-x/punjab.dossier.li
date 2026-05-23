@@ -1169,7 +1169,7 @@ const communicationStrategyData: CommunicationStrategy = {
                 <span className="text-sm text-slate-600 dark:text-slate-400">Malwa</span>
                 <span className="font-medium text-orange-600 dark:text-orange-400">69 seats (59%)</span>
               </div>
-              <ProgressBar label="" value={59} color="orange" showPercentage={false} />
+              <ProgressBar label="" value={59} color="amber" showPercentage={false} />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-600 dark:text-slate-400">Majha</span>
                 <span className="font-medium text-blue-600 dark:text-blue-400">25 seats (21%)</span>
@@ -1928,7 +1928,7 @@ const communicationStrategyData: CommunicationStrategy = {
                     <span className="text-xs text-slate-500">({item.source})</span>
                   </div>
                 </div>
-                <ProgressBar label="" value={item.value} color={item.party === "BJP" ? "orange" : "blue"} showPercentage={false} />
+                <ProgressBar label="" value={item.value} color={item.party === "BJP" ? "amber" : "blue"} showPercentage={false} />
               </div>
             ))}
           </div>
@@ -2396,7 +2396,7 @@ const communicationStrategyData: CommunicationStrategy = {
                     <ProgressBar
                       label="Severity"
                       value={Math.abs(issue.sentiment) * 100}
-                      color={issue.sentiment < -0.6 ? "bg-red-500" : "bg-yellow-500"}
+                      color={issue.sentiment < -0.6 ? "rose" : "amber"}
                     />
                   </div>
                 </div>
@@ -3213,10 +3213,10 @@ const communicationStrategyData: CommunicationStrategy = {
 
         {/* Key Metrics Grid */}
         <div className="grid gap-4 md:grid-cols-4">
-          <MetricCard title="Overall Satisfaction" value="~40%" subtitle="Down from 85% in Q1 2022" color="bg-rose-500" trend="down" />
-          <MetricCard title="Drug Eradication" value="15-20%" subtitle="AAP's broken #1 promise" color="bg-red-600" />
-          <MetricCard title="Youth Unemployment" value="19.3%" subtitle="Rural: 22.5%" color="bg-red-600" />
-          <MetricCard title="CM Mann Approval" value="42-45%" subtitle="Down from 80% in Mar 2022" color="bg-rose-500" trend="down" />
+          <MetricCard title="Overall Satisfaction" value="~40%" subtitle="Down from 85% in Q1 2022" color="rose" trend="down" />
+          <MetricCard title="Drug Eradication" value="15-20%" subtitle="AAP's broken #1 promise" color="rose" />
+          <MetricCard title="Youth Unemployment" value="19.3%" subtitle="Rural: 22.5%" color="rose" />
+          <MetricCard title="CM Mann Approval" value="42-45%" subtitle="Down from 80% in Mar 2022" color="rose" trend="down" />
         </div>
 
         {/* Satisfaction Trend Chart */}

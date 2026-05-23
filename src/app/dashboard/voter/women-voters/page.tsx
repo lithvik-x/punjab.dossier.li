@@ -3,7 +3,7 @@
 import { MetricCard, ProgressBar, Badge } from "@/components/ui/MetricCard";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { motion } from "framer-motion";
-import { Users, AlertTriangle, TrendingUp, Heart, Baby, Smartphone, Tv, Youtube, Facebook, Instagram } from "lucide-react";
+import { Users, AlertTriangle, TrendingUp, Heart, Baby, Smartphone, Tv } from "lucide-react";
 
 const womenVoterDetailed = {
   totalWomenElectorate: "~1 crore (48-50% of 2.08 crore)",
@@ -285,7 +285,7 @@ export default function WomenVotersPage() {
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Opposition Narrative</p>
                 <div className="mt-2 text-xs space-y-1">
                   <div>&quot;Kejriwal lied&quot; / &quot;jhooth di pand&quot; (sack of lies)</div>
-                  <div>&quot;Those who couldn't give Rs 1,000 in Punjab, how will they give Rs 2,100 in Delhi?&quot;</div>
+                  <div>&quot;Those who couldn&apos;t give Rs 1,000 in Punjab, how will they give Rs 2,100 in Delhi?&quot;</div>
                 </div>
               </div>
             </div>
@@ -325,7 +325,7 @@ export default function WomenVotersPage() {
               </div>
               <div className="mt-4">
                 <p className="text-sm font-medium text-slate-600 dark:text-slate-400">Engagement Message</p>
-                <p className="text-lg font-semibold text-pink-600">&quot;Your children's future, your family's safety.&quot;</p>
+                <p className="text-lg font-semibold text-pink-600">&quot;Your children&apos;s future, your family&apos;s safety.&quot;</p>
               </div>
             </div>
           </CardContent>

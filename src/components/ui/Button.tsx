@@ -25,7 +25,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 // VARIANT STYLES
 // ============================================================================
 
-const variantStyles: Record<ButtonVariant, string> = {
+const variantStyles: Record<ButtonVariant, string | string[]> = {
   primary: [
     // Light mode
     "bg-gradient-to-br from-blue-600 to-blue-700 text-white",
@@ -125,7 +125,7 @@ export function Button({
         className
       )}
       disabled={isDisabled}
-      {...props}
+      {...(props as React.ComponentProps<typeof motion.button>)}
     >
       {loading ? (
         <>
@@ -196,7 +196,7 @@ export function IconButton({
 
         className
       )}
-      {...props}
+      {...(props as React.ComponentProps<typeof motion.button>)}
     >
       <span className={iconSizesInner[size]}>{icon}</span>
     </motion.button>

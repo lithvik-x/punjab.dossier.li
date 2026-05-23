@@ -186,7 +186,7 @@ export default function DemographyUrbanizationPage() {
                 label=""
                 value={d.percent}
                 maxValue={70}
-                color={d.percent >= 50 ? "cyan" : d.percent >= 30 ? "blue" : "orange"}
+                color={d.percent >= 50 ? "cyan" : d.percent >= 30 ? "blue" : "amber"}
                 showPercentage={false}
               />
             </div>
@@ -283,7 +283,7 @@ export default function DemographyUrbanizationPage() {
         <div className="mt-3 rounded-lg bg-amber-50 p-3 dark:bg-amber-900/20">
           <p className="text-sm text-amber-700 dark:text-amber-400">
             <span className="font-semibold">Electoral Note:</span> Slum dwellers are concentrated in AAP strongholds (Amritsar, Ludhiana, Jalandhar).
-            Congress must offer credible housing and sanitation alternatives to break AAP's urban poor base.
+            Congress must offer credible housing and sanitation alternatives to break AAP&apos;s urban poor base.
           </p>
         </div>
       </Card>

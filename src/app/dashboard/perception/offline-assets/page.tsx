@@ -45,25 +45,25 @@ export default function OfflineAssetsPage() {
           title="District Offices"
           value={partyOfficeNetwork.districtOffices.count}
           subtitle="All Punjab districts"
-          color="slate"
+          color="cyan"
         />
         <MetricCard
           title="Block Offices"
           value={partyOfficeNetwork.blockOffices.count}
           subtitle="Critical mid-tier execution hubs"
-          color="slate"
+          color="cyan"
         />
         <MetricCard
           title="Booth-Level Presence"
           value={partyOfficeNetwork.boothLevel.estimatedCount.toLocaleString()}
           subtitle="Estimated coverage points"
-          color="slate"
+          color="cyan"
         />
         <MetricCard
           title="Active Karyakartas"
           value="45K-60K"
           subtitle="Tier 1 core activists"
-          color="slate"
+          color="cyan"
         />
       </div>
 

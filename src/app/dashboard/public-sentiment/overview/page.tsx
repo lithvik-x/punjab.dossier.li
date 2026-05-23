@@ -85,7 +85,7 @@ export default function SentimentOverviewPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <Card accentColor="emerald" className="bg-emerald-50/50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800">
+        <Card className="bg-emerald-50/50 dark:bg-emerald-900/10 border-emerald-200 dark:border-emerald-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Activity className="h-5 w-5 text-emerald-500" />
@@ -149,7 +149,7 @@ export default function SentimentOverviewPage() {
                     <span className="text-sm text-slate-600 dark:text-slate-400">Malwa</span>
                     <span className="font-medium text-orange-600 dark:text-orange-400">69 seats (59%)</span>
                   </div>
-                  <ProgressBar label="" value={59} color="orange" showPercentage={false} />
+                  <ProgressBar label="" value={59} color="amber" showPercentage={false} />
                   <div className="flex items-center justify-between">
                     <span className="text-sm text-slate-600 dark:text-slate-400">Majha</span>
                     <span className="font-medium text-blue-600 dark:text-blue-400">25 seats (21%)</span>
@@ -159,7 +159,7 @@ export default function SentimentOverviewPage() {
                     <span className="text-sm text-slate-600 dark:text-slate-400">Doaba</span>
                     <span className="font-medium text-green-600 dark:text-green-400">23 seats (20%)</span>
                   </div>
-                  <ProgressBar label="" value={20} color="green" showPercentage={false} />
+                  <ProgressBar label="" value={20} color="emerald" showPercentage={false} />
                 </div>
               </div>
               <div>
@@ -233,7 +233,7 @@ export default function SentimentOverviewPage() {
                         <span className="text-xs text-slate-500">({item.source})</span>
                       </div>
                     </div>
-                    <ProgressBar label="" value={item.value} color={item.party === "BJP" ? "orange" : "blue"} showPercentage={false} />
+                    <ProgressBar label="" value={item.value} color={item.party === "BJP" ? "amber" : "blue"} showPercentage={false} />
                   </div>
                 ))}
               </div>

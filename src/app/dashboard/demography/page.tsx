@@ -237,7 +237,7 @@ export default function DemographyPopulationPage() {
               <ProgressBar
                 label=""
                 value={(region.constituencies / 117) * 100}
-                color={region.id === "malwa" ? "orange" : region.id === "majha" ? "blue" : "emerald"}
+                color={region.id === "malwa" ? "amber" : region.id === "majha" ? "blue" : "emerald"}
                 showPercentage={false}
               />
             </div>

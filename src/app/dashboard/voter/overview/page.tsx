@@ -118,7 +118,7 @@ export default function VoterOverviewPage() {
                 <span className="text-sm text-slate-600 dark:text-slate-400">Malwa</span>
                 <span className="font-medium text-orange-600 dark:text-orange-400">69 seats (59%)</span>
               </div>
-              <ProgressBar label="" value={59} color="orange" showPercentage={false} />
+              <ProgressBar label="" value={59} color="amber" showPercentage={false} />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-600 dark:text-slate-400">Majha</span>
                 <span className="font-medium text-blue-600 dark:text-blue-400">25 seats (21%)</span>
@@ -175,7 +175,7 @@ export default function VoterOverviewPage() {
                 <ProgressBar
                   label=""
                   value={100 - (i * 10)}
-                  color={issue.id === "drugs" ? "red" : "blue"}
+                  color={issue.id === "drugs" ? "rose" : "blue"}
                   showPercentage={false}
                 />
               </div>

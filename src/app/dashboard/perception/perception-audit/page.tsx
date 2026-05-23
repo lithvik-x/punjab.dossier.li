@@ -50,25 +50,25 @@ export default function PerceptionAuditPage() {
           title="Voter Segments"
           value={voterSegmentClassifications.length}
           subtitle="Classification categories"
-          color="sky"
+          color="cyan"
         />
         <MetricCard
           title="Issue Ownership Areas"
           value={issueOwnershipAnalysis.length}
           subtitle="Key contestable domains"
-          color="sky"
+          color="cyan"
         />
         <MetricCard
           title="Victory Pathways"
           value={victoryPathways.length}
           subtitle="Strategic routes to majority"
-          color="sky"
+          color="cyan"
         />
         <MetricCard
           title="Campaign Phases"
           value={timelinePhases.length}
           subtitle="Timeline milestones"
-          color="sky"
+          color="cyan"
         />
       </div>
 
@@ -166,7 +166,7 @@ export default function PerceptionAuditPage() {
                   key={r.category}
                   label={r.category}
                   value={parseInt(r.percentage)}
-                  color="sky"
+                  color="cyan"
                 />
               ))}
             </div>
@@ -343,7 +343,7 @@ export default function PerceptionAuditPage() {
                     label="Grievance Intensity"
                     value={Math.round(s.intensity * 10)}
                     max={100}
-                    color="sky"
+                    color="cyan"
                   />
                 </div>
               ))}

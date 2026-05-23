@@ -466,12 +466,13 @@ export const casteDynamicsMetrics = {
 };
 
 // Chart data for caste population composition
-export const castePopulationData = [
-  { caste: "SC (Sikh + Hindu)", percent: 32, color: "#7C3AED" },
-  { caste: "OBC", percent: 31, color: "#2563EB" },
-  { caste: "Jat Sikh", percent: 21, color: "#059669" },
-  { caste: "Hindu Upper Caste", percent: 10, color: "#DC2626" },
-  { caste: "Others", percent: 6, color: "#6B7280" },
+type CasteColor = "purple" | "blue" | "emerald" | "rose" | "cyan";
+export const castePopulationData: { caste: string; percent: number; color: CasteColor }[] = [
+  { caste: "SC (Sikh + Hindu)", percent: 32, color: "purple" },
+  { caste: "OBC", percent: 31, color: "blue" },
+  { caste: "Jat Sikh", percent: 21, color: "emerald" },
+  { caste: "Hindu Upper Caste", percent: 10, color: "rose" },
+  { caste: "Others", percent: 6, color: "cyan" },
 ];
 
 // Chart data for regional caste dominance

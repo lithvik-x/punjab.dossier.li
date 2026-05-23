@@ -408,7 +408,7 @@ export default function CandidateLeadershipPage() {
 
         <div className="grid gap-4 md:grid-cols-4">
           <MetricCard title="Base Case (50%)" value="50-58" subtitle="Congress seats" color="purple" />
-          <MetricCard title="Best Case (25%)" value="65-75" subtitle="Congress seats" color="green" />
+          <MetricCard title="Best Case (25%)" value="65-75" subtitle="Congress seats" color="emerald" />
           <MetricCard title="Worst Case (25%)" value="18-30" subtitle="Congress seats" color="rose" />
           <MetricCard title="Hung Assembly" value="65%" subtitle="Probability" color="blue" />
         </div>

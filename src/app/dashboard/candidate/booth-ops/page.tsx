@@ -160,7 +160,7 @@ export default function CandidateBoothOpsPage() {
                   <span className="text-sm font-medium text-slate-700 dark:text-slate-300">AAP 2022 (Baseline)</span>
                   <span className="text-sm font-bold text-orange-600">29 seats (85.3%)</span>
                 </div>
-                <ProgressBar label="" value={85.3} color="orange" showPercentage={false} />
+                <ProgressBar label="" value={85.3} color="amber" showPercentage={false} />
               </div>
             </div>
           </CardContent>

@@ -47,25 +47,25 @@ export function BorderZoneSection() {
             title="Total Border Length"
             value="553 km"
             subtitle="International Border with Pakistan"
-            color="bg-blue-500"
+            color="blue"
           />
           <MetricCard
             title="Border Districts"
             value="6"
             subtitle="Malwa & Majha regions"
-            color="bg-blue-500"
+            color="blue"
           />
           <MetricCard
             title="Assembly Constituencies"
             value="28-30"
             subtitle="Out of 117 total"
-            color="bg-blue-500"
+            color="blue"
           />
           <MetricCard
             title="Farming Families"
             value="12,000+"
             subtitle="Beyond fence affected"
-            color="bg-blue-500"
+            color="blue"
           />
         </div>
 
@@ -106,7 +106,7 @@ export function BorderZoneSection() {
               label="Fencing Completion"
               value={fencingStatus.percentageFenced}
               max={100}
-              color="bg-green-500"
+              color="emerald"
             />
           </div>
         </div>
@@ -149,25 +149,25 @@ export function BorderZoneSection() {
             title="BSF Battalions"
             value={borderSecurityInfrastructure.bsfDeployment.totalBattalions}
             subtitle="Western Command"
-            color="bg-slate-600"
+            color="cyan"
           />
           <MetricCard
             title="BSF Personnel"
             value={borderSecurityInfrastructure.bsfDeployment.totalPersonnel}
             subtitle="Across Western Command"
-            color="bg-slate-600"
+            color="cyan"
           />
           <MetricCard
             title="2025 Drone Recoveries"
             value={borderSecurityInfrastructure.recoveries2025.dronesRecovered}
             subtitle="+88% from 2024"
-            color="bg-red-500"
+            color="rose"
           />
           <MetricCard
             title="Heroin Seized (2025)"
             value={borderSecurityInfrastructure.recoveries2025.heroinSeized}
             subtitle="Along border"
-            color="bg-red-500"
+            color="rose"
           />
         </div>
 

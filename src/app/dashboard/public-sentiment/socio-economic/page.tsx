@@ -181,7 +181,7 @@ export default function SocioEconomicPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.6 }}
       >
-        <Card accentColor="rose" className="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800">
+        <Card className="bg-red-50 dark:bg-red-900/20 border-2 border-red-200 dark:border-red-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-red-500" />
@@ -214,7 +214,7 @@ export default function SocioEconomicPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.7 }}
       >
-        <Card accentColor="orange" className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800">
+        <Card className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-orange-500" />
@@ -238,7 +238,7 @@ export default function SocioEconomicPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.8 }}
       >
-        <Card accentColor="cyan" className="bg-cyan-50 dark:bg-cyan-900/20 border-2 border-cyan-200 dark:border-cyan-800">
+        <Card className="bg-cyan-50 dark:bg-cyan-900/20 border-2 border-cyan-200 dark:border-cyan-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Users className="h-5 w-5 text-cyan-500" />
@@ -259,7 +259,7 @@ export default function SocioEconomicPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.9 }}
       >
-        <Card accentColor="orange" className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800">
+        <Card className="bg-orange-50 dark:bg-orange-900/20 border-2 border-orange-200 dark:border-orange-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-orange-500" />

@@ -165,7 +165,7 @@ export default function AAPIntelligencePage() {
             </div>
             <div className="mt-4 rounded-lg border border-orange-200 bg-orange-100/50 p-3 dark:border-orange-800 dark:bg-orange-900/20">
               <p className="text-sm font-medium text-orange-600">Advantage: Ruling Party Access to Development Funds</p>
-              <p className="text-xs text-slate-600 mt-1">Timing of welfare announcements, MLA-linked constituency funds (5L each), government ad spending (10.59 Cr alleged "reputation management")</p>
+              <p className="text-xs text-slate-600 mt-1">Timing of welfare announcements, MLA-linked constituency funds (5L each), government ad spending (10.59 Cr alleged &quot;reputation management&quot;)</p>
             </div>
           </CardContent>
         </Card>
@@ -429,7 +429,7 @@ export default function AAPIntelligencePage() {
                   <div className="mt-2 space-y-2 text-xs">
                     <div><span className="font-medium text-indigo-600">Relocated to Punjab:</span> Delhi strategy team moved post-Delhi defeat (Feb 2025)</div>
                     <div><span className="font-medium text-indigo-600">War Room:</span> Chandigarh-based dedicated election war room established</div>
-                    <div><span className="font-medium text-indigo-600">Rebranding:</span> "Delhi Model" → "Kejriwal Model" (Punjabi edition launched)</div>
+                    <div><span className="font-medium text-indigo-600">Rebranding:</span> &quot;Delhi Model&quot; → &quot;Kejriwal Model&quot; (Punjabi edition launched)</div>
                     <div><span className="font-medium text-indigo-600">Regional Focus:</span> Heavy Malwa concentration (69/117 seats)</div>
                   </div>
                 </CardContent>
@@ -454,7 +454,7 @@ export default function AAPIntelligencePage() {
               <div className="mt-1 text-xs text-slate-600 space-y-1">
                 <p>• Booth-level organization specifics (no disclosed voter contact methodology)</p>
                 <p>• Digital campaign budget (no figures available)</p>
-                <p>• Mann's CM candidacy (internal deliberations opaque)</p>
+                <p>• Mann&apos;s CM candidacy (internal deliberations opaque)</p>
                 <p>• Scheme sustainability funding (no disclosed fiscal plan for Rs 1,000/month given depleted exchequer)</p>
                 <p>• Defection impact (organizational damage from 7 MP defections unquantified)</p>
               </div>
@@ -511,7 +511,7 @@ export default function AAPIntelligencePage() {
                 <TrendingUp className="h-4 w-4 text-amber-600" />
                 <p className="text-sm font-medium text-amber-600">2027 Alliance Probability: NIL</p>
               </div>
-              <p className="text-xs text-slate-600 mt-1">AAP and Congress will go solo in Punjab 2027. INDIA alliance at national level does NOT extend to Punjab. Mann: "AAP will get 13 seats" (Jan 2024) — confirming no seat-sharing.</p>
+              <p className="text-xs text-slate-600 mt-1">AAP and Congress will go solo in Punjab 2027. INDIA alliance at national level does NOT extend to Punjab. Mann: &quot;AAP will get 13 seats&quot; (Jan 2024) — confirming no seat-sharing.</p>
             </div>
           </CardContent>
         </Card>

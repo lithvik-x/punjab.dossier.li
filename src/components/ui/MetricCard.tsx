@@ -41,7 +41,7 @@ interface DataTableProps {
 
 interface MiniChartProps {
   data: number[];
-  color?: "blue" | "cyan" | "emerald" | "amber" | "rose" | "purple";
+  color?: "blue" | "cyan" | "emerald" | "amber" | "rose" | "purple" | "orange";
   height?: number;
   showArea?: boolean;
 }

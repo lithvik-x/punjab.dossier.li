@@ -15,7 +15,6 @@ import {
   Star,
   Church,
   CalendarDays,
-  Warning,
   Lightbulb,
   HelpCircle,
   FileText,

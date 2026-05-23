@@ -82,7 +82,7 @@ export default function CampaignBudgetPage() {
           title="Adverse Scenario Gap"
           value="Rs 200 Cr"
           subtitle="Congress vs AAP"
-          color="red"
+          color="rose"
         />
         <MetricCard
           title="Base Case Gap"

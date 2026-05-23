@@ -35,7 +35,7 @@ export default function WelfareDeliveryPage() {
           title="Central Schemes"
           value="15+"
           subtitle="Major welfare programs"
-          color="teal"
+          color="cyan"
         />
         <MetricCard
           title="DBT Penetration"

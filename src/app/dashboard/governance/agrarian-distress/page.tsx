@@ -313,7 +313,7 @@ export default function GovernanceAgrarianDistressPage() {
           <div className="mb-4">
             <MiniChart
               data={stubbleTrend.map((d) => d.fires)}
-              color="orange"
+              color="amber"
               height={80}
             />
           </div>

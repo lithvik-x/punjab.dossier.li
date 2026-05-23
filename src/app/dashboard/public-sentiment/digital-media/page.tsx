@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/Card";
 import { DataTable, Badge } from "@/components/ui/MetricCard";
-import { Monitor, AlertTriangle, TrendingUp, Youtube, Facebook, MessageCircle } from "lucide-react";
+import { Monitor, AlertTriangle, TrendingUp, Video, MessageCircle } from "lucide-react";
 
 export default function DigitalMediaPage() {
   const viralContent = [
@@ -117,7 +117,7 @@ export default function DigitalMediaPage() {
             </div>
             <div className="mt-4 p-3 rounded-lg bg-yellow-50 dark:bg-yellow-900/20">
               <p className="text-sm text-yellow-700 dark:text-yellow-400">
-                <strong>Moosewala "Gaddar" deployment:</strong> 1st surge (2023) after SYL canal statements by Sandeep Pathak. 2nd surge (April 2026) after 7 AAP Rajya Sabha MPs merged with BJP - Balkaur Singh reposted within hours.
+                <strong>Moosewala &quot;Gaddar&quot; deployment:</strong> 1st surge (2023) after SYL canal statements by Sandeep Pathak. 2nd surge (April 2026) after 7 AAP Rajya Sabha MPs merged with BJP - Balkaur Singh reposted within hours.
               </p>
             </div>
           </CardContent>
@@ -171,7 +171,7 @@ export default function DigitalMediaPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.5 }}
       >
-        <Card accentColor="rose" className="bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800">
+        <Card className="bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-800">
           <CardContent className="flex items-center gap-3 p-4">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-500 text-white">
               <AlertTriangle className="h-5 w-5" />
@@ -268,7 +268,7 @@ export default function DigitalMediaPage() {
             <div className="mt-4 grid gap-4 md:grid-cols-4">
               <div className="rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
                 <div className="flex items-center gap-2">
-                  <Youtube className="h-5 w-5 text-red-600" />
+                  <Video className="h-5 w-5 text-red-600" />
                   <span className="text-xl font-bold text-red-700 dark:text-red-300">YouTube</span>
                 </div>
                 <p className="mt-2 text-sm text-red-600 dark:text-red-300">Primary news discovery for 18-35</p>

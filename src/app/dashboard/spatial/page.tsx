@@ -16,6 +16,7 @@ import {
   Award,
   Moon,
   TrendingUp,
+  TrendingDown,
   AlertTriangle,
   CheckCircle,
   Droplets,

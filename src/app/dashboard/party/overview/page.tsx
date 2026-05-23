@@ -126,7 +126,7 @@ export default function PartyOverviewPage() {
                 <span className="text-sm text-slate-600 dark:text-slate-400">Malwa (59%)</span>
                 <span className="font-medium text-orange-600 dark:text-orange-400">69 seats</span>
               </div>
-              <ProgressBar label="" value={59} color="orange" showPercentage={false} />
+              <ProgressBar label="" value={59} color="amber" showPercentage={false} />
               <div className="flex items-center justify-between">
                 <span className="text-sm text-slate-600 dark:text-slate-400">Majha (21%)</span>
                 <span className="font-medium text-blue-600 dark:text-blue-400">25 seats</span>
@@ -159,7 +159,6 @@ export default function PartyOverviewPage() {
             </div>
           </div>
         </div>
-        </CardContent>
       </Card>
 
       <Card className="border-red-200 bg-red-50 dark:border-red-800 dark:bg-red-900/20">
@@ -182,7 +181,8 @@ export default function PartyOverviewPage() {
             <p className="text-sm text-slate-500">Follower loss rate</p>
           </div>
         </div>
-      </div>
+        </CardHeader>
+      </Card>
 
       <Card className="border-slate-200 dark:border-slate-700">
         <CardHeader>

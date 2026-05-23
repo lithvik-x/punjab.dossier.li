@@ -52,13 +52,13 @@ export default function SynthesisIntelligencePage() {
           title="Interventions Planned"
           value={data.interventions.length}
           subtitle="Remediation waves"
-          color="teal"
+          color="cyan"
         />
         <MetricCard
           title="Campaign Phases"
           value={data.campaignPhaseIntegration.length}
           subtitle="Deployment stages"
-          color="indigo"
+          color="purple"
         />
       </div>
 

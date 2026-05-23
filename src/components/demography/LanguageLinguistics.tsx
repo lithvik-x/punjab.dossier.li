@@ -43,25 +43,25 @@ export default function LanguageLinguistics() {
             title="Punjabi Speakers"
             value="89.82%"
             subtitle="24.9M speakers (Census 2011)"
-            color="bg-purple-500"
+            color="purple"
           />
           <MetricCard
             title="Hindi Speakers"
             value="7.85%"
             subtitle="2.18M speakers"
-            color="bg-orange-500"
+            color="orange"
           />
           <MetricCard
             title="Overall Literacy"
             value="83.4%"
             subtitle="PLFS 2024"
-            color="bg-teal-500"
+            color="cyan"
           />
           <MetricCard
             title="Roman Punjabi (Social)"
             value="~70%"
             subtitle="Estimated social media dominance"
-            color="bg-blue-500"
+            color="blue"
           />
         </div>
       </div>
@@ -86,7 +86,7 @@ export default function LanguageLinguistics() {
                 label=""
                 value={lang.percentage}
                 max={100}
-                color={lang.language === "Punjabi" ? "bg-purple-500" : "bg-orange-500"}
+                color={lang.language === "Punjabi" ? "purple" : "amber"}
               />
               <p className="mt-1 text-xs text-slate-500">
                 {(lang.speakers / 1000000).toFixed(2)}M speakers
@@ -181,7 +181,7 @@ export default function LanguageLinguistics() {
                 {script.name}
               </h4>
               {script.literacy && (
-                <ProgressBar label="Literacy" value={script.literacy} max={100} color="bg-blue-500" />
+                <ProgressBar label="Literacy" value={script.literacy} max={100} color="blue" />
               )}
               <div className="mt-2 space-y-1 text-xs">
                 {script.context.slice(0, 2).map((ctx, i) => (
@@ -303,7 +303,7 @@ export default function LanguageLinguistics() {
                 label=""
                 value={d.literacyRate}
                 max={100}
-                color={d.deviation < -10 ? "bg-red-500" : d.deviation > 0 ? "bg-green-500" : "bg-teal-500"}
+                color={d.deviation < -10 ? "rose" : d.deviation > 0 ? "emerald" : "cyan"}
               />
               <p className="mt-1 text-xs text-slate-500">
                 {d.deviation > 0 ? "+" : ""}

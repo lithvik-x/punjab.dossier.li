@@ -11,7 +11,7 @@ import {
   AlertTriangle,
   Activity,
   Search,
-  Twitter,
+  X,
   DollarSign,
   Users,
   TrendingUp,

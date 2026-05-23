@@ -86,7 +86,7 @@ export default function GovernancePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.1 }}
       >
-        <Card accentColor="rose" className="bg-rose-50 dark:bg-rose-900/20 border-rose-500">
+        <Card className="bg-rose-50 dark:bg-rose-900/20 border-rose-500">
           <CardHeader>
             <CardTitle className="flex items-center gap-3">
               <Shield className="h-5 w-5 text-rose-500" />
@@ -99,7 +99,7 @@ export default function GovernancePage() {
             </p>
             <div className="rounded-lg bg-rose-100 p-3 dark:bg-rose-900/40">
               <p className="text-sm text-rose-700 dark:text-rose-300">
-                <strong>Executive Summary:</strong> Public satisfaction with the Bhagwant Mann-led AAP government has undergone a steep decline from the euphoric post-election high of March 2022. While the government retains a single credible achievement (free electricity), it faces deep dissatisfaction on the issues that matter most: drug eradication, employment, women's welfare, and corruption-free governance. The 2024 Lok Sabha results (AAP won only 3 of 13 seats) serve as the most authoritative satisfaction proxy.
+                <strong>Executive Summary:</strong> Public satisfaction with the Bhagwant Mann-led AAP government has undergone a steep decline from the euphoric post-election high of March 2022. While the government retains a single credible achievement (free electricity), it faces deep dissatisfaction on the issues that matter most: drug eradication, employment, women&apos;s welfare, and corruption-free governance. The 2024 Lok Sabha results (AAP won only 3 of 13 seats) serve as the most authoritative satisfaction proxy.
               </p>
             </div>
           </CardContent>
@@ -294,7 +294,7 @@ export default function GovernancePage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.8 }}
       >
-        <Card accentColor="orange">
+        <Card>
           <CardContent className="flex items-center gap-3 p-4">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-500 text-white">
               <AlertTriangle className="h-5 w-5" />
@@ -323,7 +323,7 @@ export default function GovernancePage() {
                 <div className="rounded-lg bg-pink-50 p-4 dark:bg-pink-900/20">
                   <p className="text-sm text-slate-500">Promise Date</p>
                   <p className="text-xl font-bold text-red-600">March 2022</p>
-                  <p className="text-xs text-slate-500">Announced in AAP's 2022 manifesto</p>
+                  <p className="text-xs text-slate-500">Announced in AAP&apos;s 2022 manifesto</p>
                 </div>
                 <div className="rounded-lg bg-pink-50 p-4 dark:bg-pink-900/20">
                   <p className="text-sm text-slate-500">Implementation</p>
@@ -343,13 +343,13 @@ export default function GovernancePage() {
         >
           <Card>
             <CardHeader>
-              <CardTitle>AAP's Broken Promise: 25 Lakh Jobs</CardTitle>
+              <CardTitle>AAP&apos;s Broken Promise: 25 Lakh Jobs</CardTitle>
             </CardHeader>
             <CardContent>
               <p className="text-sm text-slate-500 dark:text-slate-400">2016/2017 commitment - 5 years, unfulfilled</p>
               <div className="mt-4 rounded-lg bg-red-50 p-4 dark:bg-red-900/20">
                 <p className="text-sm text-slate-600 dark:text-slate-300">
-                  AAP's 2016/2017 commitment: 25 lakh jobs in 5 years. As of 2026, this promise remains unfulfilled - youth unemployment has actually increased since AAP took office.
+                  AAP&apos;s 2016/2017 commitment: 25 lakh jobs in 5 years. As of 2026, this promise remains unfulfilled - youth unemployment has actually increased since AAP took office.
                 </p>
                 <p className="text-xs text-slate-500 mt-2">Source: NDTV July 2016, The Hindu March 2026</p>
               </div>
@@ -448,7 +448,7 @@ export default function GovernancePage() {
             </div>
             <div className="mt-4 p-3 rounded-lg bg-red-50 dark:bg-red-900/20">
               <p className="text-sm text-red-700 dark:text-red-400">
-                <strong>Gap:</strong> Despite 63K+ cases and 85K arrests, drugs remain Punjab's #1 voter issue. 230K opioid-dependent, 106 overdose deaths (2024). Supply chains intact.
+                <strong>Gap:</strong> Despite 63K+ cases and 85K arrests, drugs remain Punjab&apos;s #1 voter issue. 230K opioid-dependent, 106 overdose deaths (2024). Supply chains intact.
               </p>
             </div>
           </CardContent>

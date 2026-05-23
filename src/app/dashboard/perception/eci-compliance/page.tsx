@@ -84,13 +84,13 @@ export default function EciCompliancePage() {
           title="Postal Ballots"
           value={postalBallot.election2022.totalPostalBallots.toLocaleString("en-IN")}
           subtitle={`${postalBallot.election2022.postalBallotPercent}% of votes`}
-          color="indigo"
+          color="purple"
         />
         <MetricCard
           title="2022 Turnout"
           value={`${eciReadiness.baseline2022.voterTurnout}%`}
           subtitle={eciReadiness.baseline2022.pollingDate}
-          color="teal"
+          color="cyan"
         />
       </div>
 

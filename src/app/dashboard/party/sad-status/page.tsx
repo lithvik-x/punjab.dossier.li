@@ -239,7 +239,7 @@ export default function SADStatusPage() {
                       <span className="text-slate-600">BJP</span>
                       <span className="font-medium text-orange-600">18.56%</span>
                     </div>
-                    <ProgressBar label="" value={18.56} color="orange" showPercentage={false} />
+                    <ProgressBar label="" value={18.56} color="amber" showPercentage={false} />
                   </div>
                 </div>
               </div>

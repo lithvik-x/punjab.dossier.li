@@ -92,7 +92,7 @@ export default function VoterDemographicsPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.1 }}
       >
-        <Card accentColor="rose" className="bg-pink-50 dark:bg-pink-900/20 border-pink-200 dark:border-pink-800">
+        <Card className="bg-pink-50 dark:bg-pink-900/20 border-pink-200 dark:border-pink-800">
           <CardContent className="flex items-center gap-3 p-4">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-500 text-white">
               <AlertTriangle className="h-5 w-5" />
@@ -120,7 +120,7 @@ export default function VoterDemographicsPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Women are AAP's most loyal demographic - but Rs 1,000/month promise remains unfulfilled</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Women are AAP&apos;s most loyal demographic - but Rs 1,000/month promise remains unfulfilled</p>
               <div className="mt-4 space-y-3">
                 {womenVoterData.map((item, i) => (
                   <div key={i} className="flex items-center justify-between">
@@ -151,7 +151,7 @@ export default function VoterDemographicsPage() {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-slate-500 dark:text-slate-400">Youth: AAP's MOST VULNERABLE demographic - 18-25% of 2022 youth voters exhausted</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">Youth: AAP&apos;s MOST VULNERABLE demographic - 18-25% of 2022 youth voters exhausted</p>
               <div className="mt-4 space-y-3">
                 {youthVoterData.map((item, i) => (
                   <div key={i} className="flex items-center justify-between">
@@ -193,7 +193,7 @@ export default function VoterDemographicsPage() {
             </div>
             <div className="mt-4 p-3 rounded-lg bg-orange-50 dark:bg-orange-900/20">
               <p className="text-sm text-orange-700 dark:text-orange-400">
-                <strong>Caste Census:</strong> AAP commissioned caste census April 2026 to assess SC aspirations amid conversion controversy (Christianity). Estimates range from "few thousand" (academic) to inflated political claims. Impact unknown.
+                <strong>Caste Census:</strong> AAP commissioned caste census April 2026 to assess SC aspirations amid conversion controversy (Christianity). Estimates range from &quot;few thousand&quot; (academic) to inflated political claims. Impact unknown.
               </p>
             </div>
           </CardContent>

@@ -392,8 +392,8 @@ export default function DemographyIncomePage() {
         {/* Key Stats Grid */}
         <div className="mb-6 grid gap-4 md:grid-cols-4">
           <MetricCard title="NFSA Beneficiaries" value="1.53 Cr" subtitle="Sep 2025" color="amber" />
-          <MetricCard title="Poverty Rate (Rural)" value="~5%" subtitle="Below national avg" color="green" />
-          <MetricCard title="Farm Debt/Victim" value="Rs 8.3L" subtitle="PAU/ISADP Study" color="red" />
+          <MetricCard title="Poverty Rate (Rural)" value="~5%" subtitle="Below national avg" color="emerald" />
+          <MetricCard title="Farm Debt/Victim" value="Rs 8.3L" subtitle="PAU/ISADP Study" color="rose" />
           <MetricCard title="Gini Coefficient" value="0.48" subtitle="High inequality" color="purple" />
         </div>
 

@@ -107,7 +107,7 @@ export default function DemographyDeraSectsPage() {
             Political Significance
           </h4>
           <ul className="space-y-1 text-sm text-slate-600 dark:text-slate-400">
-            <li>• Substantial SC voter mobilization in Doaba's 23 seats</li>
+            <li>• Substantial SC voter mobilization in Doaba&apos;s 23 seats</li>
             <li>• Ravidassia community (predominantly SC backgrounds)</li>
             <li>• Historically Congress-aligned | Currently maintaining public neutrality</li>
             <li>• Disciplined bloc voting following dera guidance</li>

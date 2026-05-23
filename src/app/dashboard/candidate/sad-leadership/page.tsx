@@ -400,7 +400,7 @@ export default function SADLeadershipPage() {
           </CardHeader>
           <CardContent>
             <div className="grid gap-4 md:grid-cols-3">
-              <MetricCard title="Best Case Seats" value="15-22" subtitle="Panthic vote consolidation + anti-AAP wave" color="green" />
+              <MetricCard title="Best Case Seats" value="15-22" subtitle="Panthic vote consolidation + anti-AAP wave" color="emerald" />
               <MetricCard title="Base Case Seats" value="6-10" subtitle="Malwa rural seats + limited Majha recovery" color="amber" />
               <MetricCard title="Worst Case Seats" value="2-4" subtitle="Split vote with Punar Surjit faction" color="rose" />
             </div>

@@ -258,7 +258,7 @@ export default function MediaSentimentOverviewPage() {
                 <span className="text-sm font-medium text-orange-600">AAP</span>
                 <span className="text-sm font-medium">38%</span>
               </div>
-              <ProgressBar label="" value={38} color="orange" />
+              <ProgressBar label="" value={38} color="amber" />
             </div>
             <div>
               <div className="flex justify-between mb-1">
@@ -272,7 +272,7 @@ export default function MediaSentimentOverviewPage() {
                 <span className="text-sm font-medium text-orange-400">BJP</span>
                 <span className="text-sm font-medium">8%</span>
               </div>
-              <ProgressBar label="" value={8} color="orange" />
+              <ProgressBar label="" value={8} color="amber" />
             </div>
             <div>
               <div className="flex justify-between mb-1">

@@ -65,7 +65,7 @@ export default function ManifestoFrameworkPage() {
           title="Content Pillars"
           value={contentPillars.length}
           subtitle="Core messaging framework"
-          color="violet"
+          color="purple"
         />
         <MetricCard
           title="Sector Committees"

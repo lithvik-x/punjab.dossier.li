@@ -47,7 +47,7 @@ export default function RegionalIssuesPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <Card accentColor="rose" className="bg-red-50/50 dark:bg-red-900/10 border-red-200 dark:border-red-800">
+        <Card className="bg-red-50/50 dark:bg-red-900/10 border-red-200 dark:border-red-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <ShieldAlert className="h-5 w-5 text-red-500" />
@@ -255,7 +255,7 @@ export default function RegionalIssuesPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.3 }}
       >
-        <Card accentColor="emerald" className="bg-green-50/50 dark:bg-green-900/10 border-green-200 dark:border-green-800">
+        <Card className="bg-green-50/50 dark:bg-green-900/10 border-green-200 dark:border-green-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Target className="h-5 w-5 text-green-500" />
@@ -449,7 +449,7 @@ export default function RegionalIssuesPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.4 }}
       >
-        <Card accentColor="purple" className="bg-purple-50/50 dark:bg-purple-900/10 border-purple-200 dark:border-purple-800">
+        <Card className="bg-purple-50/50 dark:bg-purple-900/10 border-purple-200 dark:border-purple-800">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <AlertTriangle className="h-5 w-5 text-purple-500" />
@@ -544,7 +544,7 @@ export default function RegionalIssuesPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.5 }}
       >
-        <Card accentColor="blue" className="bg-blue-50/50 dark:bg-blue-900/10 border-2 border-blue-200 dark:border-blue-800">
+        <Card className="bg-blue-50/50 dark:bg-blue-900/10 border-2 border-blue-200 dark:border-blue-800">
           <CardHeader>
             <CardTitle>Congress Strategic Positioning Summary</CardTitle>
           </CardHeader>

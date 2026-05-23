@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/Card";
 import { Badge, DataTable, MetricCard } from "@/components/ui/MetricCard";
-import { CrystalBall } from "lucide-react";
+import { Telescope } from "lucide-react";
 import {
   electionScenarios,
   coalitionReadinessFramework,
@@ -27,7 +27,7 @@ export default function ScenarioPlanningPage() {
         <div>
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-500 text-white shadow-lg">
-              <CrystalBall className="h-5 w-5" />
+              <Telescope className="h-5 w-5" />
             </div>
             <h1 className="text-3xl font-bold text-slate-900 dark:text-white">
               Scenario Planning
@@ -45,13 +45,13 @@ export default function ScenarioPlanningPage() {
           title="Scenarios Modeled"
           value={electionScenarios.length}
           subtitle="Election outcomes"
-          color="indigo"
+          color="purple"
         />
         <MetricCard
           title="Coalition Partners"
           value={coalitionReadinessFramework.potentialPartners.length}
           subtitle="Potential allies"
-          color="violet"
+          color="purple"
         />
         <MetricCard
           title="Govt Formation Window"

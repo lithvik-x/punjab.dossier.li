@@ -491,7 +491,7 @@ export default function DemographyAgePage() {
         <div className="mb-4 rounded-lg bg-white p-4 shadow-sm dark:bg-slate-800">
           <h4 className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2">Key Insight</h4>
           <p className="text-sm text-slate-600 dark:text-slate-400">
-            <span className="font-semibold text-red-600 dark:text-red-400">The "Missing Youth" Paradox:</span> {ageStructureStrategicImplications.keyInsight}
+            <span className="font-semibold text-red-600 dark:text-red-400">The &quot;Missing Youth&quot; Paradox:</span> {ageStructureStrategicImplications.keyInsight}
           </p>
         </div>
 

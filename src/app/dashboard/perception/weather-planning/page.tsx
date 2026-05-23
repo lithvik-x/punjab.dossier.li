@@ -55,7 +55,7 @@ export default function WeatherPlanningPage() {
           title="Regions Covered"
           value="3"
           subtitle="Malwa, Majha, Doaba"
-          color="sky"
+          color="cyan"
         />
         <MetricCard
           title="Fog Days (Feb)"
@@ -67,7 +67,7 @@ export default function WeatherPlanningPage() {
           title="Temperature Range"
           value="5-22°C"
           subtitle="February 2027"
-          color="teal"
+          color="cyan"
         />
         <MetricCard
           title="Adverse Weather Probability"

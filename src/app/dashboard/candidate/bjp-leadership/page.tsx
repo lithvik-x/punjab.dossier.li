@@ -415,7 +415,7 @@ export default function BJPLeadershipPage() {
           </CardHeader>
           <CardContent>
             <div className="grid gap-4 md:grid-cols-3">
-              <MetricCard title="Best Case Seats" value="25-32" subtitle="Full Hindu consolidation + some SC/Sikh seats" color="green" />
+              <MetricCard title="Best Case Seats" value="25-32" subtitle="Full Hindu consolidation + some SC/Sikh seats" color="emerald" />
               <MetricCard title="Base Case Seats" value="12-18" subtitle="Urban seats only, limited rural breakthrough" color="orange" />
               <MetricCard title="Worst Case Seats" value="5-8" subtitle="Fragmented opposition helps others, not BJP" color="rose" />
             </div>

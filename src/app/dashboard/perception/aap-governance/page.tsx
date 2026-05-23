@@ -98,7 +98,7 @@ export default function AapGovernancePage() {
           title="Key Achievements"
           value={totalAchievements}
           subtitle="Major accomplishments"
-          color="indigo"
+          color="purple"
         />
         <MetricCard
           title="Budget Outlay"
@@ -203,7 +203,7 @@ export default function AapGovernancePage() {
                 label="Revenue Deficit"
                 value={budget.revenueDeficit}
                 max={5}
-                color="orange"
+                color="amber"
               />
               <ProgressBar
                 label="Fiscal Deficit"

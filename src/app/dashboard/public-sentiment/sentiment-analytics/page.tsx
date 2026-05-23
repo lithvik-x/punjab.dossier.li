@@ -132,7 +132,7 @@ export default function SentimentAnalyticsPage() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3, delay: 0.2 }}
       >
-        <Card accentColor="blue" className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800">
+        <Card className="bg-blue-50 dark:bg-blue-900/20 border-2 border-blue-200 dark:border-blue-800">
           <CardHeader>
             <CardTitle>Formal Predictive Analytics (MP10-001 & MP10-009)</CardTitle>
           </CardHeader>
@@ -345,7 +345,7 @@ export default function SentimentAnalyticsPage() {
             </div>
             <div className="mt-4 p-3 rounded-lg bg-orange-50 dark:bg-orange-900/20">
               <p className="text-sm text-orange-700 dark:text-orange-400">
-                <strong>Caste Census:</strong> AAP commissioned caste census April 2026 to assess SC aspirations amid conversion controversy (Christianity). Estimates range from "few thousand" (academic) to inflated political claims. Impact unknown.
+                <strong>Caste Census:</strong> AAP commissioned caste census April 2026 to assess SC aspirations amid conversion controversy (Christianity). Estimates range from &quot;few thousand&quot; (academic) to inflated political claims. Impact unknown.
               </p>
             </div>
           </CardContent>
