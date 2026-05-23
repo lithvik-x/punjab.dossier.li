@@ -451,7 +451,7 @@ export function Sidebar() {
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white dark:text-blue-200">
+                            <span className={pathname === "/dashboard/constituency" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
                               {sectionIcons["overview"]}
                             </span>
                             <span className="flex-1">Overview</span>
@@ -524,8 +524,10 @@ export function Sidebar() {
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
-                            Overview
+                            <span className={pathname === "/dashboard/party" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
+                              {sectionIcons["overview"]}
+                            </span>
+                            <span className="flex-1">Overview</span>
                           </Link>
                           {PARTY_SECTIONS.slice(1).map((section) => {
                             const sectionPath = `/dashboard/party/${section.id}`;
@@ -594,8 +596,10 @@ export function Sidebar() {
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
-                            Overview
+                            <span className={pathname === "/dashboard/candidate" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
+                              {sectionIcons["overview"]}
+                            </span>
+                            <span className="flex-1">Overview</span>
                           </Link>
                           {CANDIDATE_SECTIONS.slice(1).map((section) => {
                             const sectionPath = `/dashboard/candidate/${section.id}`;
@@ -664,8 +668,10 @@ export function Sidebar() {
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
-                            Overview
+                            <span className={pathname === "/dashboard/voter" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
+                              {sectionIcons["overview"]}
+                            </span>
+                            <span className="flex-1">Overview</span>
                           </Link>
                           {VOTER_SECTIONS.slice(1).map((section) => {
                             const sectionPath = `/dashboard/voter/${section.id}`;
@@ -734,7 +740,9 @@ export function Sidebar() {
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
+                            <span className={pathname === "/dashboard/competition" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
+                              {sectionIcons["overview"]}
+                            </span>
                             Overview
                           </Link>
                           {COMPETITION_SECTIONS.slice(1).map((section) => {
@@ -804,7 +812,9 @@ export function Sidebar() {
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
+                            <span className={pathname === "/dashboard/public-sentiment" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
+                              {sectionIcons["overview"]}
+                            </span>
                             Overview
                           </Link>
                           {PUBLIC_SENTIMENT_SECTIONS.slice(1).map((section) => {
@@ -874,7 +884,9 @@ export function Sidebar() {
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
+                            <span className={pathname === "/dashboard/media-sentiment" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
+                              {sectionIcons["overview"]}
+                            </span>
                             Overview
                           </Link>
                           {MEDIA_SENTIMENT_SECTIONS.slice(1).map((section) => {
@@ -944,7 +956,9 @@ export function Sidebar() {
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
+                            <span className={pathname === "/dashboard/intelligence" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
+                              {sectionIcons["overview"]}
+                            </span>
                             Overview
                           </Link>
                           {INTELLIGENCE_SECTIONS.slice(1).map((section) => {
@@ -1014,7 +1028,9 @@ export function Sidebar() {
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
+                            <span className={pathname === "/dashboard/perception" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
+                              {sectionIcons["overview"]}
+                            </span>
                             Overview
                           </Link>
                           {PERCEPTION_SECTIONS.slice(1).map((section) => {
