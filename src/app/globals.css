@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode for Tailwind CSS v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ==========================================================================
    RAJDHANI-EXCLUSIVE TYPOGRAPHY SYSTEM
    All typography uses Rajdhani exclusively across the entire dashboard

@@ -250,21 +250,21 @@ export function Sidebar() {
       <div className="flex h-full flex-col">
         <div className="border-b dark:border-slate-700 border-slate-200 px-4 py-5">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600">
+            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-white">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
               </svg>
             </div>
             <div>
               <h1 className="text-lg font-bold">Punjab Congress</h1>
-              <p className="text-xs dark:text-slate-400 dark:text-slate-500 text-slate-400">Intelligence Dashboard</p>
+              <p className="text-xs dark:text-slate-400 text-slate-600">Intelligence Dashboard</p>
             </div>
           </div>
         </div>
 
         <nav className="flex-1 overflow-y-auto px-3 py-4">
           <div className="mb-4 px-2">
-            <span className="text-xs font-semibold uppercase tracking-wider dark:text-slate-500 text-slate-400">
+            <span className="text-xs font-semibold uppercase tracking-wider dark:text-slate-500 text-slate-600">
               Operational Heads
             </span>
           </div>
@@ -282,19 +282,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${demographyExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${demographyExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -307,10 +307,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/demography"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {DEMOGRAPHY_SECTIONS.slice(1).map((section) => {
@@ -323,10 +323,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -350,19 +350,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${constituencyExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${constituencyExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -375,10 +375,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/constituency"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {REGIONS.map((region) => {
@@ -391,14 +391,14 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isRegionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className={`flex h-5 w-5 items-center justify-center rounded ${regionColors[region.id]}`}>
+                                <span className={`flex h-5 w-5 items-center justify-center rounded ${regionColors[region.id]} text-white`}>
                                   {iconMap["Map"]}
                                 </span>
                                 <span className="flex-1">{region.name}</span>
-                                <span className="text-xs dark:text-slate-500 text-slate-400">{region.constituencies}</span>
+                                <span className="text-xs dark:text-slate-500 text-slate-600">{region.constituencies}</span>
                               </Link>
                             );
                           })}
@@ -421,19 +421,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${partyExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${partyExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -446,10 +446,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/party"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {PARTY_SECTIONS.slice(1).map((section) => {
@@ -462,10 +462,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -489,19 +489,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${candidateExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${candidateExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -514,10 +514,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/candidate"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {CANDIDATE_SECTIONS.slice(1).map((section) => {
@@ -530,10 +530,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -557,19 +557,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${voterExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${voterExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -582,10 +582,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/voter"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {VOTER_SECTIONS.slice(1).map((section) => {
@@ -598,10 +598,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -625,19 +625,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${competitionExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${competitionExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -650,10 +650,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/competition"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {COMPETITION_SECTIONS.slice(1).map((section) => {
@@ -666,10 +666,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -693,19 +693,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${publicSentimentExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${publicSentimentExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -718,10 +718,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/public-sentiment"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {PUBLIC_SENTIMENT_SECTIONS.slice(1).map((section) => {
@@ -734,10 +734,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -761,19 +761,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${mediaSentimentExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${mediaSentimentExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -786,10 +786,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/media-sentiment"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {MEDIA_SENTIMENT_SECTIONS.slice(1).map((section) => {
@@ -802,10 +802,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -829,19 +829,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${intelligenceExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${intelligenceExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -854,10 +854,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/intelligence"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {INTELLIGENCE_SECTIONS.slice(1).map((section) => {
@@ -870,10 +870,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -897,19 +897,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${perceptionExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${perceptionExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -922,10 +922,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/perception"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {PERCEPTION_SECTIONS.slice(1).map((section) => {
@@ -938,10 +938,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -965,19 +965,19 @@ export function Sidebar() {
                         className={`flex w-full items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                           isActive || isChildActive
                             ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                            : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                            : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white hover:bg-slate-200 hover:text-slate-900"
                         }`}
                       >
-                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color}`}>
+                        <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
                           {iconMap[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
-                            <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{head.number}</span>
+                            <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{head.number}</span>
                             <span className="text-sm font-medium truncate">{head.title}</span>
                           </div>
                         </div>
-                        <span className={`transition-transform ${governanceExpanded ? "rotate-180" : ""}`}>
+                        <span className={`transition-transform ${governanceExpanded ? "rotate-180" : ""} text-white`}>
                           {iconMap["ChevronDown"]}
                         </span>
                       </button>
@@ -990,10 +990,10 @@ export function Sidebar() {
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/governance"
                                 ? "bg-blue-600/30 text-blue-300"
-                                : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="dark:text-slate-500 text-slate-400">→</span>
+                            <span className="text-white">→</span>
                             Overview
                           </Link>
                           {GOVERNANCE_SECTIONS.slice(1).map((section) => {
@@ -1006,10 +1006,10 @@ export function Sidebar() {
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
                                     ? "bg-blue-600/30 text-blue-300"
-                                    : "dark:text-slate-400 dark:text-slate-500 text-slate-400 hover:dark:bg-slate-800 bg-slate-100 hover:text-white"
+                                    : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="dark:text-slate-500 text-slate-400">→</span>
+                                <span className="text-white">→</span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -1031,7 +1031,7 @@ export function Sidebar() {
                     className={`flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all ${
                       isActive
                         ? "bg-blue-600 text-white shadow-lg shadow-blue-600/30"
-                        : "dark:text-slate-300 text-slate-700 dark:hover:dark:bg-slate-800 bg-slate-100 dark:hover:text-white hover:bg-slate-100 hover:text-slate-900"
+                        : "dark:text-slate-300 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white bg-slate-100 hover:bg-slate-200 hover:text-slate-900"
                     }`}
                   >
                     <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${item.color}`}>
@@ -1039,7 +1039,7 @@ export function Sidebar() {
                     </span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="text-xs font-medium dark:text-slate-400 dark:text-slate-500 text-slate-400">{item.number}</span>
+                        <span className="text-xs font-medium dark:text-slate-400 text-slate-600">{item.number}</span>
                         <span className="text-sm font-medium truncate">{item.title}</span>
                       </div>
                     </div>
@@ -1053,11 +1053,11 @@ export function Sidebar() {
         <div className="border-t dark:border-slate-700 border-slate-200 px-4 py-4">
           <ThemeToggle />
           <div className="mt-3 rounded-lg dark:bg-slate-800 bg-slate-100 p-3">
-            <div className="flex items-center gap-2 text-xs dark:text-slate-400 dark:text-slate-500 text-slate-400">
+            <div className="flex items-center gap-2 text-xs dark:text-slate-400 text-slate-700">
               <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
               <span>Election: Feb 2027</span>
             </div>
-            <p className="mt-1 text-xs dark:text-slate-500 text-slate-400">117 Seats • 2.77 Cr Voters</p>
+            <p className="mt-1 text-xs dark:text-slate-500 text-slate-600">117 Seats • 2.77 Cr Voters</p>
           </div>
         </div>
       </div>

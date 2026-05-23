@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Rajdhani } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const rajdhani = Rajdhani({
@@ -22,8 +23,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={rajdhani.variable}>
-      <body className="antialiased font-sans">{children}</body>
+    <html lang="en" className={rajdhani.variable} suppressHydrationWarning>
+      <body className="antialiased font-sans">
+        <Script id="theme-init" strategy="beforeInteractive">
+          {`
+            (function() {
+              try {
+                var stored = localStorage.getItem('theme');
+                if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                  document.documentElement.classList.add('dark');
+                }
+              } catch (e) {}
+            })();
+          `}
+        </Script>
+        {children}
+      </body>
     </html>
   );
 }
