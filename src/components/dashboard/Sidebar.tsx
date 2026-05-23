@@ -2,85 +2,65 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  Users,
+  MapPin,
+  Flag,
+  UserCheck,
+  Heart,
+  Swords,
+  MessageCircle,
+  Tv,
+  Brain,
+  Target,
+  ChevronDown,
+  ChevronRight,
+  ChevronLeft,
+  Map,
+  Scale,
+  LayoutGrid,
+  BarChart3,
+  TrendingUp,
+  Globe,
+  Award,
+  Eye,
+  Zap,
+  Megaphone,
+  Shield,
+  Activity,
+} from "lucide-react";
 import { OPERATIONAL_HEADS, REGIONS } from "@/lib/constants";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
-const iconMap: Record<string, React.ReactNode> = {
-  Users: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-    </svg>
-  ),
-  MapPin: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-    </svg>
-  ),
-  Flag: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
-    </svg>
-  ),
-  UserCheck: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-    </svg>
-  ),
-  Heart: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-    </svg>
-  ),
-  Swords: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-    </svg>
-  ),
-  MessageCircle: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-    </svg>
-  ),
-  Tv: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-    </svg>
-  ),
-  Brain: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-    </svg>
-  ),
-  Target: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-    </svg>
-  ),
-  ChevronDown: (
-    <motion.svg
-      className="w-4 h-4"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      animate={{ rotate: 0 }}
-      transition={{ duration: 0.2 }}
-    >
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-    </motion.svg>
-  ),
-  Map: (
-    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
-    </svg>
-  ),
-  Scale: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-    </svg>
-  ),
+// Lucide icon components for main menu items
+const MenuIcon: Record<string, React.ReactNode> = {
+  Users: <Users className="h-5 w-5" />,
+  MapPin: <MapPin className="h-5 w-5" />,
+  Flag: <Flag className="h-5 w-5" />,
+  UserCheck: <UserCheck className="h-5 w-5" />,
+  Heart: <Heart className="h-5 w-5" />,
+  Swords: <Swords className="h-5 w-5" />,
+  MessageCircle: <MessageCircle className="h-5 w-5" />,
+  Tv: <Tv className="h-5 w-5" />,
+  Brain: <Brain className="h-5 w-5" />,
+  Target: <Target className="h-5 w-5" />,
+  ChevronDown: <ChevronDown className="h-4 w-4" />,
+  ChevronRight: <ChevronRight className="h-4 w-4" />,
+  ChevronLeft: <ChevronLeft className="h-4 w-4" />,
+  Map: <Map className="h-4 w-4" />,
+  Scale: <Scale className="h-5 w-5" />,
+  LayoutGrid: <LayoutGrid className="h-5 w-5" />,
+  BarChart3: <BarChart3 className="h-5 w-5" />,
+  TrendingUp: <TrendingUp className="h-5 w-5" />,
+  Globe: <Globe className="h-5 w-5" />,
+  Award: <Award className="h-5 w-5" />,
+  Eye: <Eye className="h-5 w-5" />,
+  Zap: <Zap className="h-5 w-5" />,
+  Megaphone: <Megaphone className="h-5 w-5" />,
+  Shield: <Shield className="h-5 w-5" />,
+  Activity: <Activity className="h-5 w-5" />,
 };
 
 const regionColors: Record<string, string> = {
@@ -88,6 +68,92 @@ const regionColors: Record<string, string> = {
   majha: "bg-blue-500",
   doaba: "bg-green-500",
   powadh: "bg-purple-500",
+};
+
+// Submenu section icons - each section gets a contextual icon
+const sectionIcons: Record<string, React.ReactNode> = {
+  overview: <LayoutGrid className="h-4 w-4" />,
+  population: <Users className="h-4 w-4" />,
+  gender: <Activity className="h-4 w-4" />,
+  age: <BarChart3 className="h-4 w-4" />,
+  caste: <Target className="h-4 w-4" />,
+  religious: <Globe className="h-4 w-4" />,
+  urbanization: <Map className="h-4 w-4" />,
+  "dera-sects": <Eye className="h-4 w-4" />,
+  income: <TrendingUp className="h-4 w-4" />,
+  "congress-status": <Award className="h-4 w-4" />,
+  "congress-workers": <Users className="h-4 w-4" />,
+  "campaign-strategy": <Zap className="h-4 w-4" />,
+  "campaign-budget": <BarChart3 className="h-4 w-4" />,
+  "aap-intelligence": <Eye className="h-4 w-4" />,
+  "bjp-status": <Shield className="h-4 w-4" />,
+  "sad-status": <Flag className="h-4 w-4" />,
+  "bsp-status": <Target className="h-4 w-4" />,
+  "resources-logistics": <MapPin className="h-4 w-4" />,
+  leadership: <Award className="h-4 w-4" />,
+  "aap-leadership": <Eye className="h-4 w-4" />,
+  "bjp-leadership": <Shield className="h-4 w-4" />,
+  "sad-leadership": <Flag className="h-4 w-4" />,
+  winnability: <Target className="h-4 w-4" />,
+  strategy: <Zap className="h-4 w-4" />,
+  "booth-ops": <Map className="h-4 w-4" />,
+  "aap-analysis": <Eye className="h-4 w-4" />,
+  "young-turks": <Users className="h-4 w-4" />,
+  rebels: <Swords className="h-4 w-4" />,
+  "caste-demographics": <Target className="h-4 w-4" />,
+  "women-voters": <Heart className="h-4 w-4" />,
+  "nri-voters": <Globe className="h-4 w-4" />,
+  "voter-psychology": <Brain className="h-4 w-4" />,
+  "message-strategy": <Megaphone className="h-4 w-4" />,
+  "social-crisis": <TrendingUp className="h-4 w-4" />,
+  "ground-game": <Map className="h-4 w-4" />,
+  "party-dynamics": <Swords className="h-4 w-4" />,
+  "regional-analysis": <MapPin className="h-4 w-4" />,
+  "voter-synthesis": <BarChart3 className="h-4 w-4" />,
+  aap: <Eye className="h-4 w-4" />,
+  sad: <Flag className="h-4 w-4" />,
+  bjp: <Shield className="h-4 w-4" />,
+  synthesis: <Brain className="h-4 w-4" />,
+  "socio-economic": <TrendingUp className="h-4 w-4" />,
+  "regional-issues": <MapPin className="h-4 w-4" />,
+  "sentiment-analytics": <Activity className="h-4 w-4" />,
+  "digital-media": <Globe className="h-4 w-4" />,
+  "emotion-analysis": <Heart className="h-4 w-4" />,
+  "voter-demographics": <Users className="h-4 w-4" />,
+  governance: <Shield className="h-4 w-4" />,
+  "party-sentiment": <MessageCircle className="h-4 w-4" />,
+  "traditional-media": <Tv className="h-4 w-4" />,
+  influencers: <Users className="h-4 w-4" />,
+  "media-ecosystem": <Globe className="h-4 w-4" />,
+  misinformation: <Eye className="h-4 w-4" />,
+  "economic-macro": <TrendingUp className="h-4 w-4" />,
+  "eci-election-data": <BarChart3 className="h-4 w-4" />,
+  "predictive-analytics": <Brain className="h-4 w-4" />,
+  "campaign-technology": <Zap className="h-4 w-4" />,
+  "agrarian-distress": <TrendingUp className="h-4 w-4" />,
+  "economic-fiscal": <BarChart3 className="h-4 w-4" />,
+  "puadh-urban-seats": <MapPin className="h-4 w-4" />,
+  "local-issues-malwa": <Map className="h-4 w-4" />,
+  "swot-analysis": <Target className="h-4 w-4" />,
+  "seat-projections": <BarChart3 className="h-4 w-4" />,
+  "grievance-analysis": <Activity className="h-4 w-4" />,
+  "religious-politics": <Globe className="h-4 w-4" />,
+  "student-politics": <Users className="h-4 w-4" />,
+  "election-security": <Shield className="h-4 w-4" />,
+  "ground-operations": <Map className="h-4 w-4" />,
+  "welfare-delivery": <Heart className="h-4 w-4" />,
+  "kpi-framework": <Target className="h-4 w-4" />,
+  "perception-audit": <Eye className="h-4 w-4" />,
+  "scenario-planning": <Brain className="h-4 w-4" />,
+  "eci-compliance": <Shield className="h-4 w-4" />,
+  "weather-planning": <Map className="h-4 w-4" />,
+  "opposition-research": <Eye className="h-4 w-4" />,
+  "intelligence-pipeline": <Brain className="h-4 w-4" />,
+  "victory-pathways": <Target className="h-4 w-4" />,
+  "aap-governance": <Shield className="h-4 w-4" />,
+  "offline-assets": <Map className="h-4 w-4" />,
+  "manifesto-framework": <BarChart3 className="h-4 w-4" />,
+  "synthesis-intelligence": <Brain className="h-4 w-4" />,
 };
 
 const DEMOGRAPHY_SECTIONS = [
@@ -221,29 +287,32 @@ const PERCEPTION_SECTIONS = [
 
 export function Sidebar() {
   const pathname = usePathname();
-  const [constituencyExpanded, setConstituencyExpanded] = useState(false);
-  const [demographyExpanded, setDemographyExpanded] = useState(false);
-  const [partyExpanded, setPartyExpanded] = useState(false);
-  const [candidateExpanded, setCandidateExpanded] = useState(false);
-  const [voterExpanded, setVoterExpanded] = useState(false);
-  const [competitionExpanded, setCompetitionExpanded] = useState(false);
-  const [publicSentimentExpanded, setPublicSentimentExpanded] = useState(false);
-  const [mediaSentimentExpanded, setMediaSentimentExpanded] = useState(false);
-  const [intelligenceExpanded, setIntelligenceExpanded] = useState(false);
-  const [perceptionExpanded, setPerceptionExpanded] = useState(false);
-  const [governanceExpanded, setGovernanceExpanded] = useState(false);
 
+  // Auto-expand submenus when on child pages
+  const [constituencyExpanded, setConstituencyExpanded] = useState(pathname?.startsWith("/dashboard/constituency") || false);
+  const [demographyExpanded, setDemographyExpanded] = useState(pathname?.startsWith("/dashboard/demography") || false);
+  const [partyExpanded, setPartyExpanded] = useState(pathname?.startsWith("/dashboard/party") || false);
+  const [candidateExpanded, setCandidateExpanded] = useState(pathname?.startsWith("/dashboard/candidate") || false);
+  const [voterExpanded, setVoterExpanded] = useState(pathname?.startsWith("/dashboard/voter") || false);
+  const [competitionExpanded, setCompetitionExpanded] = useState(pathname?.startsWith("/dashboard/competition") || false);
+  const [publicSentimentExpanded, setPublicSentimentExpanded] = useState(pathname?.startsWith("/dashboard/public-sentiment") || false);
+  const [mediaSentimentExpanded, setMediaSentimentExpanded] = useState(pathname?.startsWith("/dashboard/media-sentiment") || false);
+  const [intelligenceExpanded, setIntelligenceExpanded] = useState(pathname?.startsWith("/dashboard/intelligence") || false);
+  const [perceptionExpanded, setPerceptionExpanded] = useState(pathname?.startsWith("/dashboard/perception") || false);
+  const [governanceExpanded, setGovernanceExpanded] = useState(pathname?.startsWith("/dashboard/governance") || false);
+
+  // Detect which parent menu has active child
   const isGovernanceActive = pathname === "/dashboard/governance" || pathname?.startsWith("/dashboard/governance/");
   const isGovernanceChildActive = pathname?.startsWith("/dashboard/governance/");
-  const isDemographyActive = pathname?.startsWith("/dashboard/demography");
-  const isPartyActive = pathname?.startsWith("/dashboard/party");
-  const isCandidateActive = pathname?.startsWith("/dashboard/candidate");
-  const isVoterActive = pathname?.startsWith("/dashboard/voter");
-  const isCompetitionActive = pathname?.startsWith("/dashboard/competition");
-  const isPublicSentimentActive = pathname?.startsWith("/dashboard/public-sentiment");
-  const isMediaSentimentActive = pathname?.startsWith("/dashboard/media-sentiment");
-  const isIntelligenceActive = pathname?.startsWith("/dashboard/intelligence");
-  const isPerceptionActive = pathname?.startsWith("/dashboard/perception");
+  const isDemographyActive = pathname === "/dashboard/demography" || pathname?.startsWith("/dashboard/demography/");
+  const isPartyActive = pathname === "/dashboard/party" || pathname?.startsWith("/dashboard/party/");
+  const isCandidateActive = pathname === "/dashboard/candidate" || pathname?.startsWith("/dashboard/candidate/");
+  const isVoterActive = pathname === "/dashboard/voter" || pathname?.startsWith("/dashboard/voter/");
+  const isCompetitionActive = pathname === "/dashboard/competition" || pathname?.startsWith("/dashboard/competition/");
+  const isPublicSentimentActive = pathname === "/dashboard/public-sentiment" || pathname?.startsWith("/dashboard/public-sentiment/");
+  const isMediaSentimentActive = pathname === "/dashboard/media-sentiment" || pathname?.startsWith("/dashboard/media-sentiment/");
+  const isIntelligenceActive = pathname === "/dashboard/intelligence" || pathname?.startsWith("/dashboard/intelligence/");
+  const isPerceptionActive = pathname === "/dashboard/perception" || pathname?.startsWith("/dashboard/perception/");
 
   return (
     <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-white dark:bg-slate-900 text-slate-900 dark:text-white">
@@ -286,7 +355,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -295,7 +364,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${demographyExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -306,14 +375,16 @@ export function Sidebar() {
                             href="/dashboard/demography"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/demography"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
-                            Overview
+                            <span className={pathname === "/dashboard/demography" ? "text-white" : "text-slate-400 dark:text-blue-200/70"}>
+                              {sectionIcons["overview"]}
+                            </span>
+                            <span className="flex-1">Overview</span>
                           </Link>
-                          {DEMOGRAPHY_SECTIONS.slice(1).map((section) => {
+                          {DEMOGRAPHY_SECTIONS.slice(1).map((section, index) => {
                             const sectionPath = `/dashboard/demography/${section.id}`;
                             const isSectionActive = pathname === sectionPath;
                             return (
@@ -322,11 +393,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -354,7 +427,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -363,7 +436,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${constituencyExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -374,12 +447,14 @@ export function Sidebar() {
                             href="/dashboard/constituency"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/constituency"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
-                            Overview
+                            <span className="text-white dark:text-blue-200">
+                              {sectionIcons["overview"]}
+                            </span>
+                            <span className="flex-1">Overview</span>
                           </Link>
                           {REGIONS.map((region) => {
                             const regionPath = `/dashboard/constituency/${region.id}`;
@@ -390,15 +465,15 @@ export function Sidebar() {
                                 href={regionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isRegionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
                                 <span className={`flex h-5 w-5 items-center justify-center rounded ${regionColors[region.id]} text-white`}>
-                                  {iconMap["Map"]}
+                                  {MenuIcon["Map"]}
                                 </span>
                                 <span className="flex-1">{region.name}</span>
-                                <span className="text-xs dark:text-slate-500 text-slate-600">{region.constituencies}</span>
+                                <span className="text-xs dark:text-slate-400 text-slate-500">{region.constituencies}</span>
                               </Link>
                             );
                           })}
@@ -425,7 +500,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -434,7 +509,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${partyExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -445,11 +520,11 @@ export function Sidebar() {
                             href="/dashboard/party"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/party"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
+                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
                             Overview
                           </Link>
                           {PARTY_SECTIONS.slice(1).map((section) => {
@@ -461,11 +536,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -493,7 +570,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -502,7 +579,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${candidateExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -513,11 +590,11 @@ export function Sidebar() {
                             href="/dashboard/candidate"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/candidate"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
+                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
                             Overview
                           </Link>
                           {CANDIDATE_SECTIONS.slice(1).map((section) => {
@@ -529,11 +606,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -561,7 +640,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -570,7 +649,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${voterExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -581,11 +660,11 @@ export function Sidebar() {
                             href="/dashboard/voter"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/voter"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
+                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
                             Overview
                           </Link>
                           {VOTER_SECTIONS.slice(1).map((section) => {
@@ -597,11 +676,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -629,7 +710,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -638,7 +719,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${competitionExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -649,11 +730,11 @@ export function Sidebar() {
                             href="/dashboard/competition"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/competition"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
+                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
                             Overview
                           </Link>
                           {COMPETITION_SECTIONS.slice(1).map((section) => {
@@ -665,11 +746,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -697,7 +780,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -706,7 +789,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${publicSentimentExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -717,11 +800,11 @@ export function Sidebar() {
                             href="/dashboard/public-sentiment"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/public-sentiment"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
+                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
                             Overview
                           </Link>
                           {PUBLIC_SENTIMENT_SECTIONS.slice(1).map((section) => {
@@ -733,11 +816,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -765,7 +850,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -774,7 +859,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${mediaSentimentExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -785,11 +870,11 @@ export function Sidebar() {
                             href="/dashboard/media-sentiment"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/media-sentiment"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
+                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
                             Overview
                           </Link>
                           {MEDIA_SENTIMENT_SECTIONS.slice(1).map((section) => {
@@ -801,11 +886,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -833,7 +920,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -842,7 +929,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${intelligenceExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -853,11 +940,11 @@ export function Sidebar() {
                             href="/dashboard/intelligence"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/intelligence"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
+                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
                             Overview
                           </Link>
                           {INTELLIGENCE_SECTIONS.slice(1).map((section) => {
@@ -869,11 +956,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -901,7 +990,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -910,7 +999,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${perceptionExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -921,11 +1010,11 @@ export function Sidebar() {
                             href="/dashboard/perception"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/perception"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
+                            <span className="text-white dark:text-blue-200">{MenuIcon["ChevronRight"]}</span>
                             Overview
                           </Link>
                           {PERCEPTION_SECTIONS.slice(1).map((section) => {
@@ -937,11 +1026,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -969,7 +1060,7 @@ export function Sidebar() {
                         }`}
                       >
                         <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${head.color} text-white`}>
-                          {iconMap[head.icon]}
+                          {MenuIcon[head.icon]}
                         </span>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -978,7 +1069,7 @@ export function Sidebar() {
                           </div>
                         </div>
                         <span className={`transition-transform ${governanceExpanded ? "rotate-180" : ""} text-white`}>
-                          {iconMap["ChevronDown"]}
+                          {MenuIcon["ChevronDown"]}
                         </span>
                       </button>
 
@@ -989,11 +1080,13 @@ export function Sidebar() {
                             href="/dashboard/governance"
                             className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                               pathname === "/dashboard/governance"
-                                ? "bg-blue-600/30 text-blue-300"
+                                ? "bg-blue-600 text-white font-medium"
                                 : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                             }`}
                           >
-                            <span className="text-white">→</span>
+                            <span className="text-white dark:text-blue-200">
+                              {sectionIcons["overview"]}
+                            </span>
                             Overview
                           </Link>
                           {GOVERNANCE_SECTIONS.slice(1).map((section) => {
@@ -1005,11 +1098,13 @@ export function Sidebar() {
                                 href={sectionPath}
                                 className={`flex items-center gap-2 rounded-lg px-3 py-2 text-sm transition-all ${
                                   isSectionActive
-                                    ? "bg-blue-600/30 text-blue-300"
+                                    ? "bg-blue-600 text-white font-medium"
                                     : "dark:bg-slate-800 bg-slate-100 dark:text-slate-100 text-slate-600 dark:hover:bg-slate-700 hover:bg-slate-200"
                                 }`}
                               >
-                                <span className="text-white">→</span>
+                                <span className="text-slate-400 dark:text-blue-200/70">
+                                  {sectionIcons[section.id] || MenuIcon["ChevronRight"]}
+                                </span>
                                 <span className="flex-1">{section.name}</span>
                               </Link>
                             );
@@ -1034,8 +1129,8 @@ export function Sidebar() {
                         : "dark:text-slate-300 text-slate-700 dark:hover:bg-slate-700 dark:hover:text-white bg-slate-100 hover:bg-slate-200 hover:text-slate-900"
                     }`}
                   >
-                    <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${item.color}`}>
-                      {iconMap[item.icon]}
+                    <span className={`flex h-8 w-8 items-center justify-center rounded-lg ${item.color} text-white`}>
+                      {MenuIcon[item.icon]}
                     </span>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
@@ -1053,11 +1148,11 @@ export function Sidebar() {
         <div className="border-t dark:border-slate-700 border-slate-200 px-4 py-4">
           <ThemeToggle />
           <div className="mt-3 rounded-lg dark:bg-slate-800 bg-slate-100 p-3">
-            <div className="flex items-center gap-2 text-xs dark:text-slate-400 text-slate-700">
+            <div className="flex items-center gap-2 text-xs dark:text-slate-400 text-slate-800">
               <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
               <span>Election: Feb 2027</span>
             </div>
-            <p className="mt-1 text-xs dark:text-slate-500 text-slate-600">117 Seats • 2.77 Cr Voters</p>
+            <p className="mt-1 text-xs dark:text-slate-500 text-slate-700">117 Seats • 2.77 Cr Voters</p>
           </div>
         </div>
       </div>
